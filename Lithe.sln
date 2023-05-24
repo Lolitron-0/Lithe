@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lithe", "Lithe\Lithe.vcxproj", "{DA87BA39-562C-4490-82B6-37EBF4D5E96C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{C38A1ED3-D7AB-440F-9706-542DFC2D1354}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA87BA39-562C-4490-82B6-37EBF4D5E96C}.Debug|x64.ActiveCfg = Debug|x64
+		{DA87BA39-562C-4490-82B6-37EBF4D5E96C}.Debug|x64.Build.0 = Debug|x64
+		{DA87BA39-562C-4490-82B6-37EBF4D5E96C}.Release|x64.ActiveCfg = Release|x64
+		{DA87BA39-562C-4490-82B6-37EBF4D5E96C}.Release|x64.Build.0 = Release|x64
+		{C38A1ED3-D7AB-440F-9706-542DFC2D1354}.Debug|x64.ActiveCfg = Debug|x64
+		{C38A1ED3-D7AB-440F-9706-542DFC2D1354}.Debug|x64.Build.0 = Debug|x64
+		{C38A1ED3-D7AB-440F-9706-542DFC2D1354}.Release|x64.ActiveCfg = Release|x64
+		{C38A1ED3-D7AB-440F-9706-542DFC2D1354}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {627A9925-49C0-4ED9-91CA-E8DB14D54EE4}
+	EndGlobalSection
+EndGlobal

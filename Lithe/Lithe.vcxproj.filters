@@ -1,36 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Файлы ресурсов">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Lithe">
+      <UniqueIdentifier>{7BD5990D-E7E9-C1BE-B06B-651E1C3FBEEF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Lithe\Core.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Lithe.hpp" />
     <ClInclude Include="src\Lithe\Application.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Lithe</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lithe.hpp">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="src\Lithe\Core.hpp">
+      <Filter>Lithe</Filter>
     </ClInclude>
     <ClInclude Include="src\Lithe\EntryPoint.hpp">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Lithe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Lithe\Log.hpp">
+      <Filter>Lithe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Lithe\Application.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Lithe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Lithe\Log.cpp">
+      <Filter>Lithe</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -96,38 +96,47 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_mouse_button_event.htm
   <div class="headertitle"><div class="title">Lithe::MouseButtonEvent Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for all mouse button events.  
+ <a href="class_lithe_1_1_mouse_button_event.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_mouse_events_8hpp_source.html">MouseEvents.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Lithe::MouseButtonEvent:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_lithe_1_1_mouse_button_event.png" usemap="#Lithe::MouseButtonEvent_map" alt=""/>
   <map id="Lithe::MouseButtonEvent_map" name="Lithe::MouseButtonEvent_map">
-<area href="class_lithe_1_1_event.html" alt="Lithe::Event" shape="rect" coords="106,0,308,24"/>
-<area href="class_lithe_1_1_mouse_button_pressed_event.html" alt="Lithe::MouseButtonPressedEvent" shape="rect" coords="0,112,202,136"/>
-<area href="class_lithe_1_1_mouse_button_released_event.html" alt="Lithe::MouseButtonReleasedEvent" shape="rect" coords="212,112,414,136"/>
+<area href="class_lithe_1_1_event.html" title="Base class for all event types, categories and sources." alt="Lithe::Event" shape="rect" coords="106,0,308,24"/>
+<area href="class_lithe_1_1_mouse_button_pressed_event.html" title="Class for mouse press button event." alt="Lithe::MouseButtonPressedEvent" shape="rect" coords="0,112,202,136"/>
+<area href="class_lithe_1_1_mouse_button_released_event.html" title="Class for mouse release button event." alt="Lithe::MouseButtonReleasedEvent" shape="rect" coords="212,112,414,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6582d3340ea7b1c8f242b8bbcbb598df"><td class="memItemLeft" align="right" valign="top"><a id="a6582d3340ea7b1c8f242b8bbcbb598df" name="a6582d3340ea7b1c8f242b8bbcbb598df"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetMouseButton</b> () const</td></tr>
-<tr class="separator:a6582d3340ea7b1c8f242b8bbcbb598df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ad9a5a1164a95a8cce14c568e060c33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse_button_event.html#a4ad9a5a1164a95a8cce14c568e060c33">GetMouseButton</a> () const</td></tr>
+<tr class="memdesc:a4ad9a5a1164a95a8cce14c568e060c33"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> button getter.  <br /></td></tr>
+<tr class="separator:a4ad9a5a1164a95a8cce14c568e060c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_lithe_1_1_event"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_lithe_1_1_event')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_lithe_1_1_event.html">Lithe::Event</a></td></tr>
 <tr class="memitem:aa4ce3a75cbd1743bc0491bd368251205 inherit pub_methods_class_lithe_1_1_event"><td class="memItemLeft" align="right" valign="top">
-virtual EventType&#160;</td><td class="memItemRight" valign="bottom"><b>GetEventType</b> () const =0</td></tr>
+virtual <a class="el" href="_event_8hpp.html#a55f5672776be7fcc5838656aa4227039">EventType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetEventType</b> () const =0</td></tr>
+<tr class="memdesc:aa4ce3a75cbd1743bc0491bd368251205 inherit pub_methods_class_lithe_1_1_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns enum class type element for this <a class="el" href="class_lithe_1_1_event.html" title="Base class for all event types, categories and sources.">Event</a>. <br /></td></tr>
 <tr class="separator:aa4ce3a75cbd1743bc0491bd368251205 inherit pub_methods_class_lithe_1_1_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5bebfa4109f814f930393d6d3a62033 inherit pub_methods_class_lithe_1_1_event"><td class="memItemLeft" align="right" valign="top">
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>GetCategoryFlags</b> () const =0</td></tr>
+<tr class="memdesc:af5bebfa4109f814f930393d6d3a62033 inherit pub_methods_class_lithe_1_1_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns category flags bitfield. <br /></td></tr>
 <tr class="separator:af5bebfa4109f814f930393d6d3a62033 inherit pub_methods_class_lithe_1_1_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bbb04a1d34375700ce533aa678009c4 inherit pub_methods_class_lithe_1_1_event"><td class="memItemLeft" align="right" valign="top">
 virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> () const =0</td></tr>
+<tr class="memdesc:a7bbb04a1d34375700ce533aa678009c4 inherit pub_methods_class_lithe_1_1_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns class name (for debugging purposes) <br /></td></tr>
 <tr class="separator:a7bbb04a1d34375700ce533aa678009c4 inherit pub_methods_class_lithe_1_1_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55b34ffc140b35e6aaedb209ff202951 inherit pub_methods_class_lithe_1_1_event"><td class="memItemLeft" align="right" valign="top">
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> () const =0</td></tr>
+<tr class="memitem:a55b34ffc140b35e6aaedb209ff202951 inherit pub_methods_class_lithe_1_1_event"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_event.html#a55b34ffc140b35e6aaedb209ff202951">ToString</a> () const =0</td></tr>
+<tr class="memdesc:a55b34ffc140b35e6aaedb209ff202951 inherit pub_methods_class_lithe_1_1_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">C#-style method for logging and debugging purposes.  <br /></td></tr>
 <tr class="separator:a55b34ffc140b35e6aaedb209ff202951 inherit pub_methods_class_lithe_1_1_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f35448f44d769b18c8ab63f3332d289 inherit pub_methods_class_lithe_1_1_event"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInCategory</b> (EventCategory category)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInCategory</b> (<a class="el" href="_event_8hpp.html#a00d6edf27697d5e95b16b5447cfd601f">EventCategory</a> category)</td></tr>
+<tr class="memdesc:a9f35448f44d769b18c8ab63f3332d289 inherit pub_methods_class_lithe_1_1_event"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this event belongs to specified category/categories. <br /></td></tr>
 <tr class="separator:a9f35448f44d769b18c8ab63f3332d289 inherit pub_methods_class_lithe_1_1_event"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
@@ -136,6 +145,38 @@ Protected Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MouseButtonEvent</b> (int button)</td></tr>
 <tr class="separator:a81bd3b30ea5507e1a3ddd002e6bd8617"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for all mouse button events. </p>
+<p>Belongs to EventCategoryMouse and EventCategoryInput category </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4ad9a5a1164a95a8cce14c568e060c33" name="a4ad9a5a1164a95a8cce14c568e060c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ad9a5a1164a95a8cce14c568e060c33">&#9670;&#160;</a></span>GetMouseButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a> Lithe::MouseButtonEvent::GetMouseButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> button getter. </p>
+<dl class="section return"><dt>Returns</dt><dd>Element of <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a> enum </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>G:/dev/Lithe/Lithe/src/Lithe/Events/<a class="el" href="_mouse_events_8hpp_source.html">MouseEvents.hpp</a></li>
 </ul>

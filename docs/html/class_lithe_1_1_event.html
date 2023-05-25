@@ -96,6 +96,11 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_event.html',''); initR
   <div class="headertitle"><div class="title">Lithe::Event Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for all event types, categories and sources.  
+ <a href="class_lithe_1_1_event.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_event_8hpp_source.html">Event.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Lithe::Event:</div>
 <div class="dyncontent">
@@ -103,31 +108,35 @@ Inheritance diagram for Lithe::Event:</div>
   <img src="class_lithe_1_1_event.png" usemap="#Lithe::Event_map" alt=""/>
   <map id="Lithe::Event_map" name="Lithe::Event_map">
 <area href="class_lithe_1_1_key_event.html" title="Base class for all keyboard events." alt="Lithe::KeyEvent" shape="rect" coords="106,56,308,80"/>
-<area href="class_lithe_1_1_mouse_button_event.html" alt="Lithe::MouseButtonEvent" shape="rect" coords="530,56,732,80"/>
+<area href="class_lithe_1_1_mouse_button_event.html" title="Base class for all mouse button events." alt="Lithe::MouseButtonEvent" shape="rect" coords="530,56,732,80"/>
 <area href="class_lithe_1_1_mouse_moved_event.html" title="Class for mouse move event." alt="Lithe::MouseMovedEvent" shape="rect" coords="742,56,944,80"/>
 <area href="class_lithe_1_1_key_pressed_event.html" title="Class for key press event." alt="Lithe::KeyPressedEvent" shape="rect" coords="0,112,202,136"/>
 <area href="class_lithe_1_1_key_released_event.html" title="Class for key release event." alt="Lithe::KeyReleasedEvent" shape="rect" coords="212,112,414,136"/>
-<area href="class_lithe_1_1_mouse_button_pressed_event.html" alt="Lithe::MouseButtonPressedEvent" shape="rect" coords="424,112,626,136"/>
-<area href="class_lithe_1_1_mouse_button_released_event.html" alt="Lithe::MouseButtonReleasedEvent" shape="rect" coords="636,112,838,136"/>
+<area href="class_lithe_1_1_mouse_button_pressed_event.html" title="Class for mouse press button event." alt="Lithe::MouseButtonPressedEvent" shape="rect" coords="424,112,626,136"/>
+<area href="class_lithe_1_1_mouse_button_released_event.html" title="Class for mouse release button event." alt="Lithe::MouseButtonReleasedEvent" shape="rect" coords="636,112,838,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa4ce3a75cbd1743bc0491bd368251205"><td class="memItemLeft" align="right" valign="top"><a id="aa4ce3a75cbd1743bc0491bd368251205" name="aa4ce3a75cbd1743bc0491bd368251205"></a>
-virtual EventType&#160;</td><td class="memItemRight" valign="bottom"><b>GetEventType</b> () const =0</td></tr>
+virtual <a class="el" href="_event_8hpp.html#a55f5672776be7fcc5838656aa4227039">EventType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetEventType</b> () const =0</td></tr>
+<tr class="memdesc:aa4ce3a75cbd1743bc0491bd368251205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns enum class type element for this <a class="el" href="class_lithe_1_1_event.html" title="Base class for all event types, categories and sources.">Event</a>. <br /></td></tr>
 <tr class="separator:aa4ce3a75cbd1743bc0491bd368251205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5bebfa4109f814f930393d6d3a62033"><td class="memItemLeft" align="right" valign="top"><a id="af5bebfa4109f814f930393d6d3a62033" name="af5bebfa4109f814f930393d6d3a62033"></a>
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>GetCategoryFlags</b> () const =0</td></tr>
+<tr class="memdesc:af5bebfa4109f814f930393d6d3a62033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns category flags bitfield. <br /></td></tr>
 <tr class="separator:af5bebfa4109f814f930393d6d3a62033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bbb04a1d34375700ce533aa678009c4"><td class="memItemLeft" align="right" valign="top"><a id="a7bbb04a1d34375700ce533aa678009c4" name="a7bbb04a1d34375700ce533aa678009c4"></a>
 virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> () const =0</td></tr>
+<tr class="memdesc:a7bbb04a1d34375700ce533aa678009c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns class name (for debugging purposes) <br /></td></tr>
 <tr class="separator:a7bbb04a1d34375700ce533aa678009c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55b34ffc140b35e6aaedb209ff202951"><td class="memItemLeft" align="right" valign="top"><a id="a55b34ffc140b35e6aaedb209ff202951" name="a55b34ffc140b35e6aaedb209ff202951"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> () const =0</td></tr>
+<tr class="memitem:a55b34ffc140b35e6aaedb209ff202951"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_event.html#a55b34ffc140b35e6aaedb209ff202951">ToString</a> () const =0</td></tr>
+<tr class="memdesc:a55b34ffc140b35e6aaedb209ff202951"><td class="mdescLeft">&#160;</td><td class="mdescRight">C#-style method for logging and debugging purposes.  <br /></td></tr>
 <tr class="separator:a55b34ffc140b35e6aaedb209ff202951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f35448f44d769b18c8ab63f3332d289"><td class="memItemLeft" align="right" valign="top"><a id="a9f35448f44d769b18c8ab63f3332d289" name="a9f35448f44d769b18c8ab63f3332d289"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInCategory</b> (EventCategory category)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInCategory</b> (<a class="el" href="_event_8hpp.html#a00d6edf27697d5e95b16b5447cfd601f">EventCategory</a> category)</td></tr>
+<tr class="memdesc:a9f35448f44d769b18c8ab63f3332d289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this event belongs to specified category/categories. <br /></td></tr>
 <tr class="separator:a9f35448f44d769b18c8ab63f3332d289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
@@ -136,6 +145,38 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>EventDispatcher</b></td></tr>
 <tr class="separator:aad5f38ccd490ea17008460423f52325a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for all event types, categories and sources. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a55b34ffc140b35e6aaedb209ff202951" name="a55b34ffc140b35e6aaedb209ff202951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b34ffc140b35e6aaedb209ff202951">&#9670;&#160;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string Lithe::Event::ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>C#-style method for logging and debugging purposes. </p>
+
+<p>Implemented in <a class="el" href="class_lithe_1_1_key_pressed_event.html#aa22359c9d8fb213f79eb350e7244b715">Lithe::KeyPressedEvent</a>, <a class="el" href="class_lithe_1_1_key_released_event.html#a945427275333984d3cbe7efe0eb30332">Lithe::KeyReleasedEvent</a>, <a class="el" href="class_lithe_1_1_mouse_moved_event.html#a45b3aa8e7bc3f27b0ec2aee98eb83145">Lithe::MouseMovedEvent</a>, <a class="el" href="class_lithe_1_1_mouse_button_pressed_event.html#a32b485b025ac5adcbdbcb9205fd669a7">Lithe::MouseButtonPressedEvent</a>, and <a class="el" href="class_lithe_1_1_mouse_button_released_event.html#a701e89541f9701f2cf7b93d3218a0f1c">Lithe::MouseButtonReleasedEvent</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>G:/dev/Lithe/Lithe/src/Lithe/Events/<a class="el" href="_event_8hpp_source.html">Event.hpp</a></li>
 </ul>

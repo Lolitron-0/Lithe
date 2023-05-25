@@ -11,6 +11,7 @@
 
 namespace Lithe
 {
+	/// Enum class for all (?) event types
 	enum class EventType
 	{
 		None=0,
@@ -22,15 +23,21 @@ namespace Lithe
 		Count
 	};
 
+	/**
+	 * \brief C-style enum for sorting Events by btfield category
+	 * 
+	 * Not enum class so Event inheritants can use bit OR ('|') in class category definition macro easily 
+	 * (without specifying enum class for each category flag)
+	 */
 	enum EventCategory
 	{
 		None=0,
-		Application			=BIT(0),
-		Input				=BIT(1),
-		Keyboard			=BIT(2),
-		Mouse				=BIT(3),
-		MouseButton			=BIT(4),
-		Window				=BIT(5),
+		EventCategoryApplication			=BIT(0),
+		EventCategoryInput					=BIT(1),
+		EventCategoryKeyboard				=BIT(2),
+		EventCategoryMouse					=BIT(3),
+		EventCategoryMouseButton			=BIT(4),
+		EventCategoryWindow					=BIT(5),
 	};
 
 // ------------- MACROS -------------
@@ -44,15 +51,23 @@ namespace Lithe
 
 // ----------------------------------
 
+	/**
+	 * \brief Base class for all event types, categories and sources.
+	 */
 	class LITHE_API Event
 	{
 		friend class EventDispatcher;
 	public:
+		/// Returns enum class type element for this Event
 		virtual EventType GetEventType() const = 0;
+		/// Returns category flags bitfield
 		virtual int GetCategoryFlags() const = 0;
+		/// Returns class name (for debugging purposes)
 		virtual const char* GetName() const = 0;
+		/// C#-style method for logging and debugging purposes
 		virtual std::string ToString() const = 0;
 
+		/// Checks if this event belongs to specified category/categories
 		inline bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;
@@ -61,7 +76,7 @@ namespace Lithe
 		bool handled_{ false };
 	};
 
-
+	/// Operator for spdlog output
 	inline std::ostream& operator<<(std::ostream& os, const Event& e)
 	{
 		return os << e.ToString();

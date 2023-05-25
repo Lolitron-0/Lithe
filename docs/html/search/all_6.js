@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['left_0',['Left',['../class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430a945d5e233cf7d6240f6b783b36a374ff',1,'Lithe::Mouse']]],
-  ['log_1',['Log',['../class_lithe_1_1_log.html',1,'Lithe']]]
+  ['keyevent_0',['KeyEvent',['../class_lithe_1_1_key_event.html',1,'Lithe']]],
+  ['keyevents_2ehpp_1',['KeyEvents.hpp',['../_key_events_8hpp.html',1,'']]],
+  ['keypressedevent_2',['KeyPressedEvent',['../class_lithe_1_1_key_pressed_event.html',1,'Lithe']]],
+  ['keyreleasedevent_3',['KeyReleasedEvent',['../class_lithe_1_1_key_released_event.html',1,'Lithe']]]
 ];

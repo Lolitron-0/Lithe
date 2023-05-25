@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Core.hpp
+ * \brief  Main macros defines
+ * 
+ * \author Lolitron
+ * \date   May 2023
+ *********************************************************************/
 #pragma once
 
 #ifdef LT_PLATFORM_WINDOWS
@@ -9,3 +16,5 @@
 #else
 	#error Lithe only supports Windows
 #endif
+
+#define BIT(x) (1<<x)

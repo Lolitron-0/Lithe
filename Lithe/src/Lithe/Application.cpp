@@ -1,5 +1,7 @@
+#include "ltpch.h"
 #include "Application.h"
 #include "Log.hpp"
+#include "Events/Events.hpp"
 
 namespace Lithe 
 {
@@ -16,7 +18,10 @@ namespace Lithe
 	void Lithe::Application::Run()
 	{
 		Log::Init();
-		LITHE_CORE_WARN("Logger initialised!");
+
+		MouseMovedEvent e{14.3, 195.02};
+		LITHE_CORE_DEBUG(e);
+
 		while (true);
 	}
 }

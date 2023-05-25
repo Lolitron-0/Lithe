@@ -1,3 +1,4 @@
+#include "ltpch.h"
 #include "Log.hpp"
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/ansicolor_sink.h>
@@ -16,6 +17,8 @@ namespace Lithe
 
         clientLogger_ = spdlog::stdout_color_mt("APP");
         clientLogger_->set_level(spdlog::level::trace);
+
+        LITHE_CORE_WARN("Logger initialised!");
     }
 
     inline Log::LoggerPtr& Log::GetCoreLogger()

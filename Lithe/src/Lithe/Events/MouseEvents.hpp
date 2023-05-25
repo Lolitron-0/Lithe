@@ -6,25 +6,12 @@
  * \date   May 2023
  *********************************************************************/
 #pragma once
-#include "Lithe/Core.hpp"
+#include "Lithe/Core/Base.hpp"
+#include "Lithe/Utils/Mouse.hpp"
 #include "Event.hpp"
 
 namespace Lithe
 {
-	/**
-	 * \brief Static class describing mouse states.
-	 */
-	class LITHE_API Mouse
-	{
-	public:
-		enum class Button
-		{
-			Left,	/*!< LMB */
-			Right,	/*!< RMB */
-			Middle	/*!< CMB */
-		};
-	};
-
 	/**
 	 * \brief Class for mouse move event.
 	 * 

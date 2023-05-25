@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('_event_8hpp_source.html',''); initResi
 <div class="contents">
 <a href="_event_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*****************************************************************/</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_core_8hpp.html">Lithe/Core.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_base_8hpp.html">Lithe/Core/Base.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;spdlog/fmt/ostr.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span>Lithe</div>
@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('_event_8hpp_source.html',''); initResi
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_lithe_1_1_event.html">   57</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_event.html">Event</a></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">friend</span> <span class="keyword">class </span>EventDispatcher;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="class_lithe_1_1_event_dispatcher.html">EventDispatcher</a>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_lithe_1_1_event.html#aa4ce3a75cbd1743bc0491bd368251205">   62</a></span>        <span class="keyword">virtual</span> <a class="code hl_enumeration" href="_event_8hpp.html#a55f5672776be7fcc5838656aa4227039">EventType</a> <a class="code hl_function" href="class_lithe_1_1_event.html#aa4ce3a75cbd1743bc0491bd368251205">GetEventType</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_lithe_1_1_event.html#af5bebfa4109f814f930393d6d3a62033">   64</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_event.html#af5bebfa4109f814f930393d6d3a62033">GetCategoryFlags</a>() <span class="keyword">const</span> = 0;</div>
@@ -154,11 +154,36 @@ $(document).ready(function(){initNavTree('_event_8hpp_source.html',''); initResi
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> os &lt;&lt; e.<a class="code hl_function" href="class_lithe_1_1_event.html#a55b34ffc140b35e6aaedb209ff202951">ToString</a>();</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
-<div class="ttc" id="a_core_8hpp_html"><div class="ttname"><a href="_core_8hpp.html">Core.hpp</a></div><div class="ttdoc">Main macros defines.</div></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_lithe_1_1_event_dispatcher.html">   93</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_event_dispatcher.html">EventDispatcher</a></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_class" href="class_lithe_1_1_event_dispatcher.html">EventDispatcher</a>(<a class="code hl_class" href="class_lithe_1_1_event.html">Event</a>&amp; e)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            :event_(e)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> F&gt;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="class_lithe_1_1_event_dispatcher.html#a1a59ef342887d4b746a65e2cfb2c68e7">  109</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_lithe_1_1_event_dispatcher.html#a1a59ef342887d4b746a65e2cfb2c68e7">Dispatch</a>(<span class="keyword">const</span> F&amp; func)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordflow">if</span> (event_.GetEventType() == T::GetStaticType())</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                event_.handled_ |= func(<span class="keyword">static_cast&lt;</span>T&amp;<span class="keyword">&gt;</span>(event_));</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <a class="code hl_class" href="class_lithe_1_1_event.html">Event</a>&amp; event_;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    };</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
+<div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Main macros defines.</div></div>
 <div class="ttc" id="a_event_8hpp_html_a00d6edf27697d5e95b16b5447cfd601f"><div class="ttname"><a href="_event_8hpp.html#a00d6edf27697d5e95b16b5447cfd601f">Lithe::EventCategory</a></div><div class="ttdeci">EventCategory</div><div class="ttdoc">C-style enum for sorting Events by btfield category.</div><div class="ttdef"><b>Definition</b> Event.hpp:33</div></div>
 <div class="ttc" id="a_event_8hpp_html_a55f5672776be7fcc5838656aa4227039"><div class="ttname"><a href="_event_8hpp.html#a55f5672776be7fcc5838656aa4227039">Lithe::EventType</a></div><div class="ttdeci">EventType</div><div class="ttdoc">Enum class for all (?) event types.</div><div class="ttdef"><b>Definition</b> Event.hpp:16</div></div>
 <div class="ttc" id="a_event_8hpp_html_aef59b3b13a764409e7ae60af7328d168"><div class="ttname"><a href="_event_8hpp.html#aef59b3b13a764409e7ae60af7328d168">Lithe::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Event &amp;e)</div><div class="ttdoc">Operator for spdlog output.</div><div class="ttdef"><b>Definition</b> Event.hpp:80</div></div>
+<div class="ttc" id="aclass_lithe_1_1_event_dispatcher_html"><div class="ttname"><a href="class_lithe_1_1_event_dispatcher.html">Lithe::EventDispatcher</a></div><div class="ttdoc">An event dispatcher class.</div><div class="ttdef"><b>Definition</b> Event.hpp:94</div></div>
+<div class="ttc" id="aclass_lithe_1_1_event_dispatcher_html_a1a59ef342887d4b746a65e2cfb2c68e7"><div class="ttname"><a href="class_lithe_1_1_event_dispatcher.html#a1a59ef342887d4b746a65e2cfb2c68e7">Lithe::EventDispatcher::Dispatch</a></div><div class="ttdeci">bool Dispatch(const F &amp;func)</div><div class="ttdoc">Tries to notify about this event using provided callback.</div><div class="ttdef"><b>Definition</b> Event.hpp:109</div></div>
 <div class="ttc" id="aclass_lithe_1_1_event_html"><div class="ttname"><a href="class_lithe_1_1_event.html">Lithe::Event</a></div><div class="ttdoc">Base class for all event types, categories and sources.</div><div class="ttdef"><b>Definition</b> Event.hpp:58</div></div>
 <div class="ttc" id="aclass_lithe_1_1_event_html_a55b34ffc140b35e6aaedb209ff202951"><div class="ttname"><a href="class_lithe_1_1_event.html#a55b34ffc140b35e6aaedb209ff202951">Lithe::Event::ToString</a></div><div class="ttdeci">virtual std::string ToString() const =0</div><div class="ttdoc">C#-style method for logging and debugging purposes.</div></div>
 <div class="ttc" id="aclass_lithe_1_1_event_html_a7bbb04a1d34375700ce533aa678009c4"><div class="ttname"><a href="class_lithe_1_1_event.html#a7bbb04a1d34375700ce533aa678009c4">Lithe::Event::GetName</a></div><div class="ttdeci">virtual const char * GetName() const =0</div><div class="ttdoc">Returns class name (for debugging purposes)</div></div>

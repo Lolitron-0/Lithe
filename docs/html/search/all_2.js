@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['core_2ehpp_0',['Core.hpp',['../_core_8hpp.html',1,'']]]
+  ['dispatch_0',['Dispatch',['../class_lithe_1_1_event_dispatcher.html#a1a59ef342887d4b746a65e2cfb2c68e7',1,'Lithe::EventDispatcher']]]
 ];

@@ -12,7 +12,10 @@ var hierarchy =
       ] ],
       [ "Lithe::MouseMovedEvent", "class_lithe_1_1_mouse_moved_event.html", null ]
     ] ],
+    [ "Lithe::EventDispatcher", "class_lithe_1_1_event_dispatcher.html", null ],
     [ "Lithe::IEventListener", "class_lithe_1_1_i_event_listener.html", null ],
     [ "Lithe::Log", "class_lithe_1_1_log.html", null ],
-    [ "Lithe::Mouse", "class_lithe_1_1_mouse.html", null ]
+    [ "Lithe::Mouse", "class_lithe_1_1_mouse.html", null ],
+    [ "Lithe::Window", "class_lithe_1_1_window.html", null ],
+    [ "Lithe::WindowProperties", "struct_lithe_1_1_window_properties.html", null ]
 ];

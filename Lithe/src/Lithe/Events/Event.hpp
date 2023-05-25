@@ -6,7 +6,7 @@
  * \date   May 2023
  *********************************************************************/
 #pragma once
-#include "Lithe/Core.hpp"
+#include "Lithe/Core/Base.hpp"
 #include "spdlog/fmt/ostr.h"
 
 namespace Lithe
@@ -81,5 +81,43 @@ namespace Lithe
 	{
 		return os << e.ToString();
 	}
+
+
+	/**
+	 * \brief An event dispatcher class.
+	 * 
+	 * Wraps an event and can be used to call callback functions of different types for it.
+	 * i.e. for some event we simply wrap it in dispatcher and call dispatcher->Dispatch<MouseMoveEvent>(someMouseMoveCallbackRef),
+	 * type check fails, dispatcher won't invoke that callback
+	 */
+	class LITHE_API EventDispatcher
+	{
+	public:
+		EventDispatcher(Event& e)
+			:event_(e)
+		{}
+
+		/**
+		 * \brief Tries to notify about this event using provided callback.
+		 * 
+		 * Checks if type of template matches. If so, invokes callback and sets proper status to the event
+		 * 
+		 * \param func - Callback that will be invoked if type matches
+		 * \return Result of a type check
+		 */
+		template <class T, class F>
+		bool Dispatch(const F& func)
+		{
+			if (event_.GetEventType() == T::GetStaticType())
+			{
+				event_.handled_ |= func(static_cast<T&>(event_));
+				return true;
+			}
+			return false;
+		}
+
+	private:
+		Event& event_;
+	};
 
 }

@@ -9,5 +9,9 @@ var searchData=
   ['getmousex_6',['GetMouseX',['../class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42',1,'Lithe::MouseMovedEvent']]],
   ['getmousey_7',['GetMouseY',['../class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694',1,'Lithe::MouseMovedEvent']]],
   ['getname_8',['GetName',['../class_lithe_1_1_event.html#a7bbb04a1d34375700ce533aa678009c4',1,'Lithe::Event']]],
-  ['getrepeatcount_9',['GetRepeatCount',['../class_lithe_1_1_key_pressed_event.html#a34a88146530c3542f0be1a66fe81d7f0',1,'Lithe::KeyPressedEvent']]]
+  ['getnewheight_9',['GetNewHeight',['../class_lithe_1_1_window_resized_event.html#a7b80fb4f60dfe6a2ca2f4b613270f907',1,'Lithe::WindowResizedEvent']]],
+  ['getnewwidth_10',['GetNewWidth',['../class_lithe_1_1_window_resized_event.html#ac4bfc4d1d904170d584b0e90272a9760',1,'Lithe::WindowResizedEvent']]],
+  ['getoffsetx_11',['GetOffsetX',['../class_lithe_1_1_window_moved_event.html#abe67707e7b3b4dc6f9ceebdd7634b470',1,'Lithe::WindowMovedEvent']]],
+  ['getoffsety_12',['GetOffsetY',['../class_lithe_1_1_window_moved_event.html#affd1779bf411055008e8c020cf96a284',1,'Lithe::WindowMovedEvent']]],
+  ['getrepeatcount_13',['GetRepeatCount',['../class_lithe_1_1_key_pressed_event.html#a34a88146530c3542f0be1a66fe81d7f0',1,'Lithe::KeyPressedEvent']]]
 ];

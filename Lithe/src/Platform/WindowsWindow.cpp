@@ -2,6 +2,7 @@
 #include "WindowsWindow.hpp"
 #include "Lithe/Core/Log.hpp"
 #include "Lithe/Core/Assert.hpp"
+#include "Lithe/Events/Events.hpp"
 
 namespace Lithe
 {
@@ -24,15 +25,36 @@ namespace Lithe
 
 	void WindowsWindow::Init(const WindowProperties& props)
 	{
+		data_.Width = props.Width;
+		data_.Height = props.Height;
+		data_.Title = props.Title;
+
 		if (!glfwInitialised_)
 		{
-			LITHE_CORE_TRACE("Started GLFW initialisation...");
+			LITHE_CORE_TRACE("Initialising GLFW for the first time...");
 
 			int success = glfwInit();
 			LITHE_CORE_ASSERT(success, "GLFW initalisation failed");
 
 			glfwInitialised_ = true;
+			LITHE_CORE_INFO("Initialised GLFW!");
 		}
+
+		handle_ = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
+		LITHE_CORE_ASSERT(handle_, "GLFWwindow instance not created!");
+
+		LITHE_CORE_TRACE("Created GLFWwindow instance.");
+
+		glfwSetWindowUserPointer(handle_, &data_);
+		SetVSync(true);
+
+		glfwSetWindowCloseCallback(handle_, [](GLFWwindow* window) 
+		{
+			WindowData& data = *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
+			WindowClosedEvent event{};
+			data.EventCallback(event);
+		});
+
 	}
 
 	void WindowsWindow::Shutdown()

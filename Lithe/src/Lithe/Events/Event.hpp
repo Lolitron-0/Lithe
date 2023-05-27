@@ -15,7 +15,7 @@ namespace Lithe
 	enum class EventType
 	{
 		None=0,
-		WindowResized, WindowClosed, WindowFocus, WindowLostFocus, WindowMoved,
+		WindowResized, WindowClosed, WindowGainedFocus, WindowLostFocus, WindowMoved,
 		KeyPressed, KeyReleased,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScroll,
 		AppUpdate, AppRender, AppTick,

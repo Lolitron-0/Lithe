@@ -6,7 +6,7 @@
  * \date   May 2023
  *********************************************************************/
 #pragma once
-#include "Lithe//Core/Base.hpp"
+#include "Lithe/Core/Base.hpp"
 #include "Event.hpp"
 
 namespace Lithe
@@ -26,7 +26,7 @@ namespace Lithe
 		 * \todo key code notation
 		 * \return Key code in some notation :^)
 		 */
-		inline int GetKeyCode() const { return keyCode_; }
+		int GetKeyCode() const { return keyCode_; }
 	protected:
 		KeyEvent(int keyCode)
 			:keyCode_(keyCode)
@@ -52,7 +52,7 @@ namespace Lithe
 		 * 
 		 * \return Repeat count of this event.
 		 */
-		inline int GetRepeatCount() const { return repeatCount_; }
+		int GetRepeatCount() const { return repeatCount_; }
 
 		virtual std::string ToString() const override
 		{

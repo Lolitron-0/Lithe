@@ -15,7 +15,7 @@ var _event_8hpp =
       [ "None", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a6adf97f83acf6453d4a6a4b1070f3754", null ],
       [ "WindowResized", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039acbaad9b233665221bfc0a4a450a594cf", null ],
       [ "WindowClosed", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a7c87dff2b968b5c85baf1def063c776d", null ],
-      [ "WindowFocus", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a1c68d5453b28d52622bf5486a5fd95ca", null ],
+      [ "WindowGainedFocus", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039adedeee07d5ee622aa7b1c0f7ec6e8475", null ],
       [ "WindowLostFocus", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a1c2119b9d61e623975f13f1029f1d97c", null ],
       [ "WindowMoved", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039ab94473d9dfc85f8fdbf5cb3b1d992bda", null ],
       [ "KeyPressed", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039ac17e6984c1e5a887a49831beadee6bca", null ],

@@ -31,14 +31,14 @@ namespace Lithe
 		 * 
 		 * \return cursor y position in some coordinate system :^)
 		 */
-		inline float GetMouseX() const { return mouseX_; }
+		float GetMouseX() const { return mouseX_; }
 		/**
 		* \brief Mouse x position getter.
 		* \todo position coordinate system
 		*
 		* \return cursor x position in some coordinate system :^)
 		*/
-		inline float GetMouseY() const { return mouseY_; }
+		float GetMouseY() const { return mouseY_; }
 
 		virtual std::string ToString() const override
 		{
@@ -67,7 +67,7 @@ namespace Lithe
 		 * 
 		 * \return Element of Mouse::Button enum
 		 */
-		inline Mouse::Button GetMouseButton() const { return button_; }
+		Mouse::Button GetMouseButton() const { return button_; }
 
 	protected:
 		MouseButtonEvent(int button)

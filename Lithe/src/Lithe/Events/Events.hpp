@@ -10,3 +10,4 @@
 #include "Event.hpp"
 #include "MouseEvents.hpp"
 #include "KeyEvents.hpp"
+#include "WindowEvents.hpp"

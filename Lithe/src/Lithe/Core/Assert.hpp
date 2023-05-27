@@ -13,7 +13,7 @@
 #ifdef LT_ASSERTIONS
 	#define LT_FILENAME std::filesystem::path(__FILE__).filename().string()
 
-	#define LT_INTERNAL_ASSERT_IMPL(type, cond, msg, ...) {if (!(cond)) {LITHE##type##ERROR(msg, __VA_ARGS__); LT_DEBUGBREAK();}}
+	#define LT_INTERNAL_ASSERT_IMPL(type, cond, msg, ...) do {if (!(cond)) {LITHE##type##ERROR(msg, __VA_ARGS__); LT_DEBUGBREAK();}} while(0);
 	#define LT_INTERNAL_ASSERT_IMPL_WITH_MSG(type, cond, ...) LT_INTERNAL_ASSERT_IMPL(type, cond, "{0}:{1} Assertion failed: {2}", LT_FILENAME, __LINE__, __VA_ARGS__)
 	#define LT_INTERNAL_ASSERT_IMPL_NO_MSG(type, cond) LT_INTERNAL_ASSERT_IMPL(type, cond, "{0}:{1} Assertion failed!", LT_FILENAME, __LINE__)
 		

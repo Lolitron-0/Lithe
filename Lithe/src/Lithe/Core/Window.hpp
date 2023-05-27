@@ -5,7 +5,9 @@
 
 namespace Lithe
 {
-
+	/**
+	 * \brief Class (or struct even) that contains general data needed to construct a window.
+	 */
 	struct LITHE_API WindowProperties
 	{
 		std::string Title;
@@ -19,12 +21,14 @@ namespace Lithe
 		{}
 	};
 
+	/**
+	 * Platform independent window interface.
+	 */
 	class LITHE_API Window
 	{
 	public:
-		using EventCallback = std::function<void(Event&)>;
+		using EventCallbackFn = std::function<void(Event&)>;
 
-		Window() = delete;
 		virtual ~Window() = default;
 
 		virtual void OnUpdate() = 0;
@@ -32,10 +36,26 @@ namespace Lithe
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;
 
-		//virtual void SetEventCallback
+		virtual bool IsVSync() const =0;
+		virtual void SetVSync(bool val) =0;
 
+		/**
+		 * \brief Set main event callback function.
+		 * 
+		 * It will be called on every event and intended to dispatch to other callbacks
+		 * \param callback
+		 */
+		virtual void SetEventCallback(EventCallbackFn& callback) = 0;
+
+		/**
+		 * \brief Factory method to create platform independent window.
+		 * 
+		 * \param props - Window properties
+		 * \return Pointer to base class Window, that contains platform specific data
+		 */
 		static std::unique_ptr<Window> Create(const WindowProperties& props = WindowProperties());
-
+	protected:
+		Window() = default;
 	};
 
 }

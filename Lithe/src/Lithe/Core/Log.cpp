@@ -20,15 +20,4 @@ namespace Lithe
 
         LITHE_CORE_WARN("Logger initialised!");
     }
-
-    inline Log::LoggerPtr& Log::GetCoreLogger()
-    {
-        return coreLogger_;
-    }
-
-    inline Log::LoggerPtr& Log::GetClientLogger()
-    {
-        return clientLogger_;
-    }
-
 }

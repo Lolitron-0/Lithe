@@ -97,12 +97,23 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_window.html',''); init
   <div class="headertitle"><div class="title">Lithe::Window Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_window_8hpp_source.html">Window.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Lithe::Window:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_lithe_1_1_window.png" usemap="#Lithe::Window_map" alt=""/>
+  <map id="Lithe::Window_map" name="Lithe::Window_map">
+<area href="class_lithe_1_1_windows_window.html" title="Specialisation for a Windows window." alt="Lithe::WindowsWindow" shape="rect" coords="0,56,139,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aef43b769a90c697c69ae1ab161426c85"><td class="memItemLeft" align="right" valign="top"><a id="aef43b769a90c697c69ae1ab161426c85" name="aef43b769a90c697c69ae1ab161426c85"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>EventCallback</b> = std::function&lt; void(<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;)&gt;</td></tr>
-<tr class="separator:aef43b769a90c697c69ae1ab161426c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5b334e4f39ab35b56e524fad21847c"><td class="memItemLeft" align="right" valign="top"><a id="a2c5b334e4f39ab35b56e524fad21847c" name="a2c5b334e4f39ab35b56e524fad21847c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>EventCallbackFn</b> = std::function&lt; void(<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;)&gt;</td></tr>
+<tr class="separator:a2c5b334e4f39ab35b56e524fad21847c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -115,15 +126,99 @@ virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetWi
 <tr class="memitem:a8155874c552f7e29874cf08b8f3673a5"><td class="memItemLeft" align="right" valign="top"><a id="a8155874c552f7e29874cf08b8f3673a5" name="a8155874c552f7e29874cf08b8f3673a5"></a>
 virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetHeight</b> () const =0</td></tr>
 <tr class="separator:a8155874c552f7e29874cf08b8f3673a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d95cb51aaf2bda9d10942f1fd949a1e"><td class="memItemLeft" align="right" valign="top"><a id="a9d95cb51aaf2bda9d10942f1fd949a1e" name="a9d95cb51aaf2bda9d10942f1fd949a1e"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsVSync</b> () const =0</td></tr>
+<tr class="separator:a9d95cb51aaf2bda9d10942f1fd949a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ed5da6b5cd1618b1267efcc835d716e"><td class="memItemLeft" align="right" valign="top"><a id="a9ed5da6b5cd1618b1267efcc835d716e" name="a9ed5da6b5cd1618b1267efcc835d716e"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetVSync</b> (bool val)=0</td></tr>
+<tr class="separator:a9ed5da6b5cd1618b1267efcc835d716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3848ef1dc9e653c6d932a0db75e1676c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a3848ef1dc9e653c6d932a0db75e1676c">SetEventCallback</a> (EventCallbackFn &amp;callback)=0</td></tr>
+<tr class="memdesc:a3848ef1dc9e653c6d932a0db75e1676c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
+<tr class="separator:a3848ef1dc9e653c6d932a0db75e1676c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4742a7817ba3b11e2f7a5683c500ed09"><td class="memItemLeft" align="right" valign="top"><a id="a4742a7817ba3b11e2f7a5683c500ed09" name="a4742a7817ba3b11e2f7a5683c500ed09"></a>
-static std::unique_ptr&lt; <a class="el" href="class_lithe_1_1_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (const <a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a> &amp;props=<a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>())</td></tr>
-<tr class="separator:a4742a7817ba3b11e2f7a5683c500ed09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08f80889efbdb1ca1ca53801b9b16bb5"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="class_lithe_1_1_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a08f80889efbdb1ca1ca53801b9b16bb5">Create</a> (const <a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a> &amp;props=<a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>())</td></tr>
+<tr class="memdesc:a08f80889efbdb1ca1ca53801b9b16bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory method to create platform independent window.  <br /></td></tr>
+<tr class="separator:a08f80889efbdb1ca1ca53801b9b16bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Platform independent window interface. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a08f80889efbdb1ca1ca53801b9b16bb5" name="a08f80889efbdb1ca1ca53801b9b16bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08f80889efbdb1ca1ca53801b9b16bb5">&#9670;&#160;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="class_lithe_1_1_window.html">Window</a> &gt; Lithe::Window::Create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>props</em> = <code><a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Factory method to create platform independent window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">props</td><td>- <a class="el" href="class_lithe_1_1_window.html">Window</a> properties </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to base class <a class="el" href="class_lithe_1_1_window.html">Window</a>, that contains platform specific data </dd></dl>
+
+</div>
+</div>
+<a id="a3848ef1dc9e653c6d932a0db75e1676c" name="a3848ef1dc9e653c6d932a0db75e1676c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3848ef1dc9e653c6d932a0db75e1676c">&#9670;&#160;</a></span>SetEventCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lithe::Window::SetEventCallback </td>
+          <td>(</td>
+          <td class="paramtype">EventCallbackFn &amp;&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set main event callback function. </p>
+<p>It will be called on every event and intended to dispatch to other callbacks </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_lithe_1_1_windows_window.html#a68c331fe4f5e2d1511d24a8a580b7fc1">Lithe::WindowsWindow</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>G:/dev/Lithe/Lithe/src/Lithe/Core/<a class="el" href="_window_8hpp_source.html">Window.hpp</a></li>
+<li>G:/dev/Lithe/Lithe/src/Lithe/Core/Window.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

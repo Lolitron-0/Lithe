@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "Log.hpp"
 #include "Lithe/Events/Events.hpp"
+#include <Platform/WindowsWindow.hpp>
 
 namespace Lithe 
 {
@@ -18,6 +19,8 @@ namespace Lithe
 	void Lithe::Application::Run()
 	{
 		Log::Init();
+
+		WindowsWindow w{ WindowProperties{} };
 
 		while (true);
 	}

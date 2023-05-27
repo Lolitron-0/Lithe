@@ -10,6 +10,11 @@ workspace "Lithe"
 	
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Lithe/vendor/GLFW/include"
+
+include "Lithe/vendor/GLFW"
+
 project "Lithe"
 	location "Lithe"
 	kind "SharedLib"
@@ -31,7 +36,14 @@ project "Lithe"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 	
 	filter "system:windows"
@@ -42,7 +54,7 @@ project "Lithe"
 		defines 
 		{
 			"LT_PLATFORM_WINDOWS", 
-			"LT_BUILD_DLL"
+			"LT_BUILD_DLL",
 		}
 
 		postbuildcommands
@@ -53,7 +65,7 @@ project "Lithe"
 	filter "configurations:Debug"
 		defines "LT_DEBUG"
 		symbols "On"
-	filter "configurations:Rebug"
+	filter "configurations:Release"
 		defines "LT_RELEASE"
 		optimize "On"
 	filter "configurations:Dist"
@@ -101,7 +113,7 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "LT_DEBUG"
 		symbols "On"
-	filter "configurations:Rebug"
+	filter "configurations:Release"
 		defines "LT_RELEASE"
 		optimize "On"
 	filter "configurations:Dist"

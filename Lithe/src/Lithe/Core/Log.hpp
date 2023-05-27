@@ -29,9 +29,9 @@ namespace Lithe
 		static void Init();
 
 		/// Core logger instance getter, not really ment to be used in client apps
-		inline static LoggerPtr& GetCoreLogger();
+		inline static LoggerPtr& GetCoreLogger() { return coreLogger_; }
 		/// Client logger instance getter, not really ment to be used, use LITHE_* macros instead
-		inline static LoggerPtr& GetClientLogger();
+		inline static LoggerPtr& GetClientLogger() { return clientLogger_; }
 
 	private:
 		static LoggerPtr coreLogger_;
@@ -48,7 +48,9 @@ namespace Lithe
 #define LITHE_CORE_WARN(...)    ::Lithe::Log::GetCoreLogger()->warn(__VA_ARGS__);
 /// Core info logging
 #define LITHE_CORE_INFO(...)    ::Lithe::Log::GetCoreLogger()->info(__VA_ARGS__);
-/// Core debug messages
+/// Core trace messages logging
+#define LITHE_CORE_TRACE(...)   ::Lithe::Log::GetCoreLogger()->trace(__VA_ARGS__);
+/// Core debug messages logging
 #define LITHE_CORE_DEBUG(...)   ::Lithe::Log::GetCoreLogger()->debug(__VA_ARGS__);
 
 /// Client fatal error logging
@@ -59,6 +61,8 @@ namespace Lithe
 #define LITHE_WARN(...)         ::Lithe::Log::GetClientLogger()->warn(__VA_ARGS__);
 /// Client info messages logging
 #define LITHE_INFO(...)         ::Lithe::Log::GetClientLogger()->info(__VA_ARGS__);
+/// Client trace messages logging
+#define LITHE_TRACE(...)        ::Lithe::Log::GetClientLogger()->trace(__VA_ARGS__);
 /// Client debug messages logging
 #define LITHE_DEBUG(...)        ::Lithe::Log::GetClientLogger()->debug(__VA_ARGS__);
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../_event_8hpp.html#aef59b3b13a764409e7ae60af7328d168',1,'Lithe']]]
+  ['init_0',['Init',['../class_lithe_1_1_log.html#ad2d73551dbabacd0bd42f55b46186d4c',1,'Lithe::Log']]],
+  ['isincategory_1',['IsInCategory',['../class_lithe_1_1_event.html#a9f35448f44d769b18c8ab63f3332d289',1,'Lithe::Event']]]
 ];

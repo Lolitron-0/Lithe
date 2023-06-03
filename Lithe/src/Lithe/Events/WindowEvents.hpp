@@ -9,6 +9,7 @@
 #include "Lithe/Core/Base.hpp"
 #include "Event.hpp"
 
+
 namespace Lithe
 {
 	/// Class for WindowClosed event type, without any specific data

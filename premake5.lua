@@ -23,14 +23,12 @@ project "Lithe"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	pchheader "ltpch.h" 
-	pchsource "Lithe/src/ltpch.cpp" 
-
 	files
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.hpp",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+
 	}
 
 	includedirs

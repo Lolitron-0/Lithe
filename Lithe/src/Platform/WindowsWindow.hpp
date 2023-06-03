@@ -19,7 +19,7 @@ namespace Lithe
 		virtual bool IsVSync() const override { return data_.VSync; }
 		virtual void SetVSync(bool val) override;
 
-		void SetEventCallback(EventCallbackFn& callback) override { data_.EventCallback = callback; };
+		void SetEventCallback(const EventCallbackFn& callback) override { data_.EventCallback = callback; };
 	private:
 		void Init(const WindowProperties& props);
 		void Shutdown();

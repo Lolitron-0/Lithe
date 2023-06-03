@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../_event_8hpp.html#aef59b3b13a764409e7ae60af7328d168',1,'Lithe']]]
+  ['right_0',['Right',['../class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430a92b09c7c48c520c3c55e497875da437c',1,'Lithe::Mouse']]]
 ];

@@ -1,4 +1,3 @@
-#include "ltpch.h"
 #include "WindowsWindow.hpp"
 #include "Lithe/Core/Log.hpp"
 #include "Lithe/Core/Assert.hpp"
@@ -21,6 +20,7 @@ namespace Lithe
 	void Lithe::WindowsWindow::OnUpdate()
 	{
 		glfwSwapBuffers(handle_);
+		glfwPollEvents();
 	}
 
 	void WindowsWindow::Init(const WindowProperties& props)

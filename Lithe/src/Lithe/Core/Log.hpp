@@ -8,6 +8,7 @@
 #pragma once
 #include "Base.hpp"
 #include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h> // Important: should be included after main header
 
 namespace Lithe
 {

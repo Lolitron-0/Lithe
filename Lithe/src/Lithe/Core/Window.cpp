@@ -1,4 +1,3 @@
-#include "ltpch.h"
 #include "Window.hpp"
 #include "Platform/WindowsWindow.hpp"
 

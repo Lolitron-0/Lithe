@@ -28,6 +28,5 @@ var _event_8hpp =
       [ "AppRender", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a4b2eb3c601042333ac1c0565ff58e3d6", null ],
       [ "AppTick", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a559b408d45669603dbac61cd15984f13", null ],
       [ "Count", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039ae93f994f01c537c4e2f7d8528c3eb5e9", null ]
-    ] ],
-    [ "operator<<", "_event_8hpp.html#aef59b3b13a764409e7ae60af7328d168", null ]
+    ] ]
 ];

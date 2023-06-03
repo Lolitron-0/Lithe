@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../_event_8hpp.html#aef59b3b13a764409e7ae60af7328d168',1,'Lithe']]]
+  ['seteventcallback_0',['SetEventCallback',['../class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420',1,'Lithe::Window::SetEventCallback()'],['../class_lithe_1_1_windows_window.html#a14034863a73f67c6bafd29e663c42303',1,'Lithe::WindowsWindow::SetEventCallback()']]]
 ];

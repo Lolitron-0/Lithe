@@ -7,7 +7,8 @@
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
-#include "spdlog/fmt/ostr.h"
+#include <sstream>
+#include "Lithe/Core/Log.hpp"
 
 namespace Lithe
 {
@@ -76,7 +77,7 @@ namespace Lithe
 		bool handled_{ false };
 	};
 
-	/// Operator for spdlog output
+	// Operator for spdlog output
 	inline std::ostream& operator<<(std::ostream& os, const Event& e)
 	{
 		return os << e.ToString();

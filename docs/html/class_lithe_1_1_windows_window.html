@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
    </div>
+   <div id="projectbrief">Endless opportunities</div>
   </td>
  </tr>
  </tbody>
@@ -126,9 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7cd4856439c6ee2df6bcf6232916c28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fd3512b911d7ca1113e5a31785214e2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a1fd3512b911d7ca1113e5a31785214e2">SetVSync</a> (bool val) override</td></tr>
 <tr class="separator:a1fd3512b911d7ca1113e5a31785214e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68c331fe4f5e2d1511d24a8a580b7fc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a68c331fe4f5e2d1511d24a8a580b7fc1">SetEventCallback</a> (EventCallbackFn &amp;callback) override</td></tr>
-<tr class="memdesc:a68c331fe4f5e2d1511d24a8a580b7fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
-<tr class="separator:a68c331fe4f5e2d1511d24a8a580b7fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14034863a73f67c6bafd29e663c42303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a14034863a73f67c6bafd29e663c42303">SetEventCallback</a> (const EventCallbackFn &amp;callback) override</td></tr>
+<tr class="memdesc:a14034863a73f67c6bafd29e663c42303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
+<tr class="separator:a14034863a73f67c6bafd29e663c42303"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30e64b3f656135e43ecc2cac40d8c825"><td class="memItemLeft" align="right" valign="top"><a id="a30e64b3f656135e43ecc2cac40d8c825" name="a30e64b3f656135e43ecc2cac40d8c825"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnUpdate</b> ()=0</td></tr>
 <tr class="separator:a30e64b3f656135e43ecc2cac40d8c825"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,9 +145,9 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsVSync</b> (
 <tr class="memitem:a9ed5da6b5cd1618b1267efcc835d716e"><td class="memItemLeft" align="right" valign="top"><a id="a9ed5da6b5cd1618b1267efcc835d716e" name="a9ed5da6b5cd1618b1267efcc835d716e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetVSync</b> (bool val)=0</td></tr>
 <tr class="separator:a9ed5da6b5cd1618b1267efcc835d716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3848ef1dc9e653c6d932a0db75e1676c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a3848ef1dc9e653c6d932a0db75e1676c">SetEventCallback</a> (EventCallbackFn &amp;callback)=0</td></tr>
-<tr class="memdesc:a3848ef1dc9e653c6d932a0db75e1676c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
-<tr class="separator:a3848ef1dc9e653c6d932a0db75e1676c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb2cf790ed393886b52da6938f502420"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">SetEventCallback</a> (const EventCallbackFn &amp;callback)=0</td></tr>
+<tr class="memdesc:acb2cf790ed393886b52da6938f502420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
+<tr class="separator:acb2cf790ed393886b52da6938f502420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -270,8 +271,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>EventCallbackFn</b> 
 
 </div>
 </div>
-<a id="a68c331fe4f5e2d1511d24a8a580b7fc1" name="a68c331fe4f5e2d1511d24a8a580b7fc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68c331fe4f5e2d1511d24a8a580b7fc1">&#9670;&#160;</a></span>SetEventCallback()</h2>
+<a id="a14034863a73f67c6bafd29e663c42303" name="a14034863a73f67c6bafd29e663c42303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14034863a73f67c6bafd29e663c42303">&#9670;&#160;</a></span>SetEventCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +283,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>EventCallbackFn</b> 
         <tr>
           <td class="memname">void Lithe::WindowsWindow::SetEventCallback </td>
           <td>(</td>
-          <td class="paramtype">EventCallbackFn &amp;&#160;</td>
+          <td class="paramtype">const EventCallbackFn &amp;&#160;</td>
           <td class="paramname"><em>callback</em></td><td>)</td>
           <td></td>
         </tr>
@@ -302,7 +303,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>EventCallbackFn</b> 
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_lithe_1_1_window.html#a3848ef1dc9e653c6d932a0db75e1676c">Lithe::Window</a>.</p>
+<p>Implements <a class="el" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">Lithe::Window</a>.</p>
 
 </div>
 </div>

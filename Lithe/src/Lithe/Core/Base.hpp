@@ -29,3 +29,6 @@
 #define LT_EXPAND(x) x
 
 #define BIT(x) (1<<x)
+
+/// Since all event functions are member (and need 'this' pointer) we need to wrap them in lambdas hooking 'this'
+#define LT_BIND_EVENT_FN(fn) [this](auto&&... params) -> decltype(auto) {return this->fn(std::forward<decltype(params)>(params)...);}

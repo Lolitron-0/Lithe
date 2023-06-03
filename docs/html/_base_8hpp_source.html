@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
    </div>
+   <div id="projectbrief">Endless opportunities</div>
   </td>
  </tr>
  </tbody>
@@ -116,6 +117,8 @@ $(document).ready(function(){initNavTree('_base_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="_base_8hpp.html#a55e51034ac1f2347e68ed9125ce46d37">   29</a></span><span class="preprocessor">#define LT_EXPAND(x) x</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#define BIT(x) (1&lt;&lt;x)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="_base_8hpp.html#af8f438906d1b63233ce75e84281b8dac">   34</a></span><span class="preprocessor">#define LT_BIND_EVENT_FN(fn) [this](auto&amp;&amp;... params) -&gt; decltype(auto) {return this-&gt;fn(std::forward&lt;decltype(params)&gt;(params)...);}</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

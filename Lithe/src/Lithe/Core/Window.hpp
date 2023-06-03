@@ -1,7 +1,7 @@
 #pragma once
 #include "Lithe/Core/Base.hpp"
 #include "Lithe/Events/Event.hpp"
-
+#include <functional>
 
 namespace Lithe
 {
@@ -45,7 +45,7 @@ namespace Lithe
 		 * It will be called on every event and intended to dispatch to other callbacks
 		 * \param callback
 		 */
-		virtual void SetEventCallback(EventCallbackFn& callback) = 0;
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 
 		/**
 		 * \brief Factory method to create platform independent window.

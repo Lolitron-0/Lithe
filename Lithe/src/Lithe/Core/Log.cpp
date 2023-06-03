@@ -1,4 +1,3 @@
-#include "ltpch.h"
 #include "Log.hpp"
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/ansicolor_sink.h>

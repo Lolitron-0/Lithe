@@ -1,4 +1,4 @@
-[submodule "Lithe/vendor/spdlog"]
+[submodule "Lithe/thirdparty/spdlog"]
 	path = Lithe/thirdparty/spdlog
 	url = https://github.com/gabime/spdlog
 

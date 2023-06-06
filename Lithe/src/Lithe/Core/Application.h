@@ -16,6 +16,7 @@ namespace Lithe
 		void OnEvent(Event& event);
 
 		bool OnWindowClosed(const WindowClosedEvent& event);
+		bool OnWindowResized(const WindowResizedEvent& event);
 
 	private:
 		bool running_;

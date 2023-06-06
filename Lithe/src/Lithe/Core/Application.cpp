@@ -30,12 +30,19 @@ namespace Lithe
 	{
 		EventDispatcher dispatcher{ event };
 		dispatcher.Dispatch<WindowClosedEvent>(LT_BIND_EVENT_FN(Application::OnWindowClosed));
+		dispatcher.Dispatch<WindowResizedEvent>(LT_BIND_EVENT_FN(Application::OnWindowResized));
 	}
 
 	bool Application::OnWindowClosed(const WindowClosedEvent& event)
 	{
 		running_ = false;
 		return true;
+	}
+
+	bool Application::OnWindowResized(const WindowResizedEvent& event)
+	{
+		LITHE_CORE_DEBUG(event);
+		return false;
 	}
 
 

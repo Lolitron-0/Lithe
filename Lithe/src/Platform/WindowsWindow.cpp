@@ -55,6 +55,16 @@ namespace Lithe
 			data.EventCallback(event);
 		});
 
+		glfwSetWindowSizeCallback(handle_, [](GLFWwindow* window, int width, int height) 
+		{
+			WindowData& data = *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window));
+			data.Width = width;
+			data.Height = height;
+
+			WindowResizedEvent event{static_cast<unsigned int>(width), static_cast<unsigned int>(height)};
+			data.EventCallback(event);
+		});
+
 	}
 
 	void WindowsWindow::Shutdown()

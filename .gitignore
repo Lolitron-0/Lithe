@@ -1,5 +1,6 @@
-./bin/
-./bin-int/
+bin/
+bin-int/
+!vendor/
 .vs/
 *.sln
 *.vcxproj*

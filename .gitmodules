@@ -1,6 +1,4 @@
 [submodule "Lithe/vendor/spdlog"]
-	path = Lithe/vendor/spdlog
+	path = Lithe/thirdparty/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "Lithe/vendor/glfw"]
-	path = Lithe/vendor/glfw
-	url = https://github.com/glfw/glfw
+

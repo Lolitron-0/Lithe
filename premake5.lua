@@ -11,9 +11,9 @@ workspace "Lithe"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "Lithe/vendor/GLFW/include"
+IncludeDir["GLFW"] = "Lithe/thirdparty/GLFW/include"
 
-include "Lithe/vendor/GLFW"
+include "Lithe/thirdparty/GLFW"
 
 project "Lithe"
 	location "Lithe"
@@ -34,7 +34,7 @@ project "Lithe"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/thirdparty/spdlog/include",
 		"%{IncludeDir.GLFW}"
 	}
 
@@ -89,7 +89,7 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Lithe/vendor/spdlog/include",
+		"Lithe/thirdparty/spdlog/include",
 		"Lithe/src"
 	}
 

@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 {
 	auto app = Lithe::CreateApplication();
 	app->Run();
-	LITHE_CORE_INFO("Shutting down...");
+	LITHE_CORE_TRACE("Shutting down...");
 	delete app;
 	LITHE_CORE_INFO("Exited successfully!");
 }

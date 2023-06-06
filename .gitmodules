@@ -2,3 +2,6 @@
 	path = Lithe/thirdparty/spdlog
 	url = https://github.com/gabime/spdlog
 
+[submodule "Lithe/thirdparty/glfw"]
+	path = Lithe/thirdparty/glfw
+	url = https://github.com/Lolitron-0/glfw

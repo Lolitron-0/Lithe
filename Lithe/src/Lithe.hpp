@@ -7,8 +7,10 @@
  *********************************************************************/
 #pragma once
 
-#include "Lithe/Core/Application.h"
+#include "Lithe/Core/Application.hpp"
 #include "Lithe/Core/Log.hpp"
+#include "Lithe/Core/Layer.hpp"
+#include "Lithe/Events/Events.hpp"
 
 // --------- Entry Point --------- 
 #include "Lithe/Core/EntryPoint.hpp"

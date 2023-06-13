@@ -19,8 +19,8 @@ namespace Lithe
 
 	void Lithe::WindowsWindow::OnUpdate()
 	{
-		glfwSwapBuffers(handle_);
 		glfwPollEvents();
+		glfwSwapBuffers(handle_);
 	}
 
 	void WindowsWindow::Init(const WindowProperties& props)
@@ -44,6 +44,9 @@ namespace Lithe
 		LITHE_CORE_ASSERT(handle_, "GLFWwindow instance not created!");
 
 		LITHE_CORE_TRACE("Created GLFWwindow instance.");
+
+		//TODO: will be replaced with rendering context
+		glfwMakeContextCurrent(handle_);
 
 		glfwSetWindowUserPointer(handle_, &data_);
 		SetVSync(true);

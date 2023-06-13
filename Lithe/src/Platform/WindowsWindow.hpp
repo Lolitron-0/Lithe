@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   WindowsWindow.hpp
+ * \brief  WindowsWindow header
+ * 
+ * \author Lolitron
+ * \date   June 2023
+ *********************************************************************/
 #pragma once
 #include "Lithe/Core/Window.hpp"
 #include "GLFW/glfw3.h"

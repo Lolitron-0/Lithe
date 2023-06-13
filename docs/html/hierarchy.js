@@ -19,6 +19,8 @@ var hierarchy =
     ] ],
     [ "Lithe::EventDispatcher", "class_lithe_1_1_event_dispatcher.html", null ],
     [ "Lithe::IEventListener", "class_lithe_1_1_i_event_listener.html", null ],
+    [ "Lithe::Layer", "class_lithe_1_1_layer.html", null ],
+    [ "Lithe::LayerStack", "class_lithe_1_1_layer_stack.html", null ],
     [ "Lithe::Log", "class_lithe_1_1_log.html", null ],
     [ "Lithe::Mouse", "class_lithe_1_1_mouse.html", null ],
     [ "Lithe::Window", "class_lithe_1_1_window.html", [

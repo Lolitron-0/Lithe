@@ -7,7 +7,7 @@ extern Lithe::Application* Lithe::CreateApplication();
 
 int main(int argc, char** argv) 
 {
-	auto app = Lithe::CreateApplication();
+	Lithe::Application* app = Lithe::CreateApplication();
 	app->Run();
 	LITHE_CORE_TRACE("Shutting down...");
 	delete app;

@@ -1,13 +1,15 @@
 var annotated_dup =
 [
     [ "Lithe", null, [
-      [ "Application", "class_lithe_1_1_application.html", null ],
+      [ "Application", "class_lithe_1_1_application.html", "class_lithe_1_1_application" ],
       [ "Event", "class_lithe_1_1_event.html", "class_lithe_1_1_event" ],
       [ "EventDispatcher", "class_lithe_1_1_event_dispatcher.html", "class_lithe_1_1_event_dispatcher" ],
       [ "IEventListener", "class_lithe_1_1_i_event_listener.html", null ],
       [ "KeyEvent", "class_lithe_1_1_key_event.html", "class_lithe_1_1_key_event" ],
       [ "KeyPressedEvent", "class_lithe_1_1_key_pressed_event.html", "class_lithe_1_1_key_pressed_event" ],
       [ "KeyReleasedEvent", "class_lithe_1_1_key_released_event.html", "class_lithe_1_1_key_released_event" ],
+      [ "Layer", "class_lithe_1_1_layer.html", null ],
+      [ "LayerStack", "class_lithe_1_1_layer_stack.html", "class_lithe_1_1_layer_stack" ],
       [ "Log", "class_lithe_1_1_log.html", null ],
       [ "Mouse", "class_lithe_1_1_mouse.html", "class_lithe_1_1_mouse" ],
       [ "MouseButtonEvent", "class_lithe_1_1_mouse_button_event.html", "class_lithe_1_1_mouse_button_event" ],

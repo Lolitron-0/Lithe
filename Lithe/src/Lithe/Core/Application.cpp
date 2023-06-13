@@ -1,8 +1,8 @@
-#include "Application.h"
+#include "Application.hpp"
 #include "Log.hpp"
 #include "Platform/WindowsWindow.hpp"
 
-namespace Lithe 
+namespace Lithe
 {
 
 	Lithe::Application::Application()
@@ -23,6 +23,12 @@ namespace Lithe
 
 		while (running_)
 		{
+			glClearColor(1, 1, 0, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (LayerPtr layer : layerStack_)
+				layer->OnUpdate();
+
 			mainWindow->OnUpdate();
 		}
 	}
@@ -31,6 +37,15 @@ namespace Lithe
 		EventDispatcher dispatcher{ event };
 		dispatcher.Dispatch<WindowClosedEvent>(LT_BIND_EVENT_FN(Application::OnWindowClosed));
 		dispatcher.Dispatch<WindowResizedEvent>(LT_BIND_EVENT_FN(Application::OnWindowResized));
+
+		LITHE_CORE_TRACE(event);
+
+		for (auto it = layerStack_.rbegin(); it != layerStack_.rend(); it++)
+		{
+			if (event.Handled)
+				break;
+			(*it)->OnEvent(event);
+		}
 	}
 
 	bool Application::OnWindowClosed(const WindowClosedEvent& event)
@@ -41,7 +56,6 @@ namespace Lithe
 
 	bool Application::OnWindowResized(const WindowResizedEvent& event)
 	{
-		LITHE_CORE_DEBUG(event);
 		return false;
 	}
 

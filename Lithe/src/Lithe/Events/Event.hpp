@@ -73,8 +73,9 @@ namespace Lithe
 		{
 			return GetCategoryFlags() & category;
 		}
-	private:
-		bool handled_{ false };
+
+
+		bool Handled{ false };
 	};
 
 	// Operator for spdlog output
@@ -111,7 +112,7 @@ namespace Lithe
 		{
 			if (event_.GetEventType() == T::GetStaticType())
 			{
-				event_.handled_ |= func(static_cast<T&>(event_));
+				event_.Handled |= func(static_cast<T&>(event_));
 				return true;
 			}
 			return false;

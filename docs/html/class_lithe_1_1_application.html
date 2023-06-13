@@ -95,15 +95,106 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_application.html','');
   <div class="headertitle"><div class="title">Lithe::Application Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for all applications.  
+ <a href="class_lithe_1_1_application.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_application_8hpp_source.html">Application.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aeea2e987afd13ed92d2c90b0956c1494"><td class="memItemLeft" align="right" valign="top"><a id="aeea2e987afd13ed92d2c90b0956c1494" name="aeea2e987afd13ed92d2c90b0956c1494"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> ()</td></tr>
+<tr class="memdesc:aeea2e987afd13ed92d2c90b0956c1494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start main cycle. <br /></td></tr>
 <tr class="separator:aeea2e987afd13ed92d2c90b0956c1494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89dac9044831dfae3c7c58b91a036f8c"><td class="memTemplParams" colspan="2">template&lt;class T , class... Args&gt; </td></tr>
+<tr class="memitem:a89dac9044831dfae3c7c58b91a036f8c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_application.html#a89dac9044831dfae3c7c58b91a036f8c">PushLayer</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a89dac9044831dfae3c7c58b91a036f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper around <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a> corresponding method. See <a class="el" href="class_lithe_1_1_layer_stack.html#a6e2ed11573d79fcdfd33aba8ba5e2469" title="Method for pushing a game world layer onto stack.">LayerStack::PushLayer</a> for more information.  <br /></td></tr>
+<tr class="separator:a89dac9044831dfae3c7c58b91a036f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dfd22e10573648615acc041142ce69f"><td class="memTemplParams" colspan="2">template&lt;class T , class... Args&gt; </td></tr>
+<tr class="memitem:a1dfd22e10573648615acc041142ce69f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_application.html#a1dfd22e10573648615acc041142ce69f">PushOverlay</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a1dfd22e10573648615acc041142ce69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper around <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a> corresponding methods. See <a class="el" href="class_lithe_1_1_layer_stack.html#a6e2ed11573d79fcdfd33aba8ba5e2469" title="Method for pushing a game world layer onto stack.">LayerStack::PushLayer</a> for more information.  <br /></td></tr>
+<tr class="separator:a1dfd22e10573648615acc041142ce69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for all applications. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a89dac9044831dfae3c7c58b91a036f8c" name="a89dac9044831dfae3c7c58b91a036f8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89dac9044831dfae3c7c58b91a036f8c">&#9670;&#160;</a></span>PushLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> Lithe::Application::PushLayer </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper around <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a> corresponding method. See <a class="el" href="class_lithe_1_1_layer_stack.html#a6e2ed11573d79fcdfd33aba8ba5e2469" title="Method for pushing a game world layer onto stack.">LayerStack::PushLayer</a> for more information. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">...args</td><td>Arguments for layer creation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Smart pointer object containing created layer </dd></dl>
+
+</div>
+</div>
+<a id="a1dfd22e10573648615acc041142ce69f" name="a1dfd22e10573648615acc041142ce69f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dfd22e10573648615acc041142ce69f">&#9670;&#160;</a></span>PushOverlay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> Lithe::Application::PushOverlay </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper around <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a> corresponding methods. See <a class="el" href="class_lithe_1_1_layer_stack.html#a6e2ed11573d79fcdfd33aba8ba5e2469" title="Method for pushing a game world layer onto stack.">LayerStack::PushLayer</a> for more information. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">...args</td><td>Arguments for layer creation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Smart pointer object containing created layer </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>G:/dev/Lithe/Lithe/src/Lithe/Core/<a class="el" href="_application_8h_source.html">Application.h</a></li>
+<li>G:/dev/Lithe/Lithe/src/Lithe/Core/<a class="el" href="_application_8hpp_source.html">Application.hpp</a></li>
 <li>G:/dev/Lithe/Lithe/src/Lithe/Core/Application.cpp</li>
 </ul>
 </div><!-- contents -->

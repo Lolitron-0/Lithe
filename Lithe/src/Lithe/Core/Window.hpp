@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   Window.hpp
+ * \brief  Window class header
+ * 
+ * \author Lolitron
+ * \date   June 2023
+ *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
 #include "Lithe/Events/Event.hpp"

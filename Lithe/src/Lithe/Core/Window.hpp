@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   Window.hpp
  * \brief  Window class header
- * 
+ *
  * \author Lolitron
  * \date   June 2023
  *********************************************************************/
@@ -22,8 +22,8 @@ namespace Lithe
 		unsigned int Height;
 
 		WindowProperties(const std::string title = "Lithe Engine",
-						unsigned int width = 1920, 
-						unsigned int height = 1080)
+			unsigned int width = 1920,
+			unsigned int height = 1080)
 			:Title(title), Width(width), Height(height)
 		{}
 	};
@@ -43,12 +43,12 @@ namespace Lithe
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;
 
-		virtual bool IsVSync() const =0;
-		virtual void SetVSync(bool val) =0;
+		virtual bool IsVSync() const = 0;
+		virtual void SetVSync(bool val) = 0;
 
 		/**
 		 * \brief Set main event callback function.
-		 * 
+		 *
 		 * It will be called on every event and intended to dispatch to other callbacks
 		 * \param callback
 		 */
@@ -56,7 +56,7 @@ namespace Lithe
 
 		/**
 		 * \brief Factory method to create platform independent window.
-		 * 
+		 *
 		 * \param props - Window properties
 		 * \return Pointer to base class Window, that contains platform specific data
 		 */

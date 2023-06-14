@@ -1,6 +1,7 @@
 #include "Application.hpp"
 #include "Log.hpp"
 #include "Platform/WindowsWindow.hpp"
+#include <glad/glad.h>
 
 namespace Lithe
 {
@@ -18,7 +19,7 @@ namespace Lithe
 	{
 		running_ = true;
 		Log::Init();
-		auto mainWindow = Window::Create();
+		auto mainWindow{ Window::Create() };
 		mainWindow->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
 
 		while (running_)
@@ -51,7 +52,7 @@ namespace Lithe
 	bool Application::OnWindowClosed(const WindowClosedEvent& event)
 	{
 		running_ = false;
-		return true;
+		return true; // Client should do all shutdown stuff in destructor 
 	}
 
 	bool Application::OnWindowResized(const WindowResizedEvent& event)

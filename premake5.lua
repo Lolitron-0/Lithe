@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Lithe/thirdparty/GLFW/include"
+IncludeDir["Glad"] = "Lithe/thirdparty/glad/include"
 
 include "Lithe/thirdparty/GLFW"
+include "Lithe/thirdparty/Glad"
 
 project "Lithe"
 	location "Lithe"
@@ -35,12 +37,14 @@ project "Lithe"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/thirdparty/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 	
@@ -53,6 +57,7 @@ project "Lithe"
 		{
 			"LT_PLATFORM_WINDOWS", 
 			"LT_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

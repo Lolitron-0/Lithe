@@ -107,8 +107,8 @@ $(document).ready(function(){initNavTree('_window_8hpp_source.html',''); initRes
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Height;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>(<span class="keyword">const</span> std::string title = <span class="stringliteral">&quot;Lithe Engine&quot;</span>,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width = 1920, </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height = 1080)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width = 1920,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height = 1080)</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            :Title(title), Width(width), Height(height)</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        {}</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    };</div>
@@ -125,8 +125,8 @@ $(document).ready(function(){initNavTree('_window_8hpp_source.html',''); initRes
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GetWidth() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GetHeight() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> IsVSync() <span class="keyword">const</span> =0;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVSync(<span class="keywordtype">bool</span> val) =0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> IsVSync() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVSync(<span class="keywordtype">bool</span> val) = 0;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">   55</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">SetEventCallback</a>(<span class="keyword">const</span> EventCallbackFn&amp; callback) = 0;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>

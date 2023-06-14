@@ -4,3 +4,6 @@
 [submodule "Lithe/thirdparty/glfw"]
 	path = Lithe/thirdparty/glfw
 	url = https://github.com/Lolitron-0/glfw
+[submodule "Lithe/thirdparty/ImGui"]
+	path = Lithe/thirdparty/ImGui
+	url = https://github.com/Lolitron-0/imgui

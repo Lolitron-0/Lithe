@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Window.hpp
- * \brief  Window class header
+ * @file   Window.hpp
+ * @brief  Window class header
  *
- * \author Lolitron
- * \date   June 2023
+ * @author Lolitron
+ * @date   June 2023
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
@@ -13,7 +13,7 @@
 namespace Lithe
 {
 	/**
-	 * \brief Class (or struct even) that contains general data needed to construct a window.
+	 * @brief Class (or struct even) that contains general data needed to construct a window.
 	 */
 	struct LITHE_API WindowProperties
 	{
@@ -47,18 +47,18 @@ namespace Lithe
 		virtual void SetVSync(bool val) = 0;
 
 		/**
-		 * \brief Set main event callback function.
+		 * @brief Set main event callback function.
 		 *
 		 * It will be called on every event and intended to dispatch to other callbacks
-		 * \param callback
+		 * @param callback
 		 */
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 
 		/**
-		 * \brief Factory method to create platform independent window.
+		 * @brief Factory method to create platform independent window.
 		 *
-		 * \param props - Window properties
-		 * \return Pointer to base class Window, that contains platform specific data
+		 * @param props - Window properties
+		 * @return Pointer to base class Window, that contains platform specific data
 		 */
 		static std::unique_ptr<Window> Create(const WindowProperties& props = WindowProperties());
 	protected:

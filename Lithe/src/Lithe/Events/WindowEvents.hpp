@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   WindowEvents.hpp
- * \brief  File describing classes for all window related events
+ * @file   WindowEvents.hpp
+ * @brief  File describing classes for all window related events
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"

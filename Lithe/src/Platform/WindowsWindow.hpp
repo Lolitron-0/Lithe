@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   WindowsWindow.hpp
- * \brief  WindowsWindow header
+ * @file   WindowsWindow.hpp
+ * @brief  WindowsWindow header
  *
- * \author Lolitron
- * \date   June 2023
+ * @author Lolitron
+ * @date   June 2023
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"

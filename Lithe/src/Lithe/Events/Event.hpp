@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Event.hpp
- * \brief  
+ * @file   Event.hpp
+ * @brief  
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
@@ -25,7 +25,7 @@ namespace Lithe
 	};
 
 	/**
-	 * \brief C-style enum for sorting Events by btfield category
+	 * @brief C-style enum for sorting Events by btfield category
 	 * 
 	 * Not enum class so Event inheritants can use bit OR ('|') in class category definition macro easily 
 	 * (without specifying enum class for each category flag)
@@ -53,7 +53,7 @@ namespace Lithe
 // ----------------------------------
 
 	/**
-	 * \brief Base class for all event types, categories and sources.
+	 * @brief Base class for all event types, categories and sources.
 	 */
 	class LITHE_API Event
 	{
@@ -86,7 +86,7 @@ namespace Lithe
 
 
 	/**
-	 * \brief An event dispatcher class.
+	 * @brief An event dispatcher class.
 	 * 
 	 * Wraps an event and can be used to call callback functions of different types for it.
 	 * i.e. for some event we simply wrap it in dispatcher and call dispatcher->Dispatch<MouseMoveEvent>(someMouseMoveCallbackRef),
@@ -100,12 +100,12 @@ namespace Lithe
 		{}
 
 		/**
-		 * \brief Tries to notify about this event using provided callback.
+		 * @brief Tries to notify about this event using provided callback.
 		 * 
 		 * Checks if type of template matches. If so, invokes callback and sets proper status to the event
 		 * 
-		 * \param func - Callback that will be invoked if type matches
-		 * \return Result of a type check
+		 * @param func - Callback that will be invoked if type matches
+		 * @return Result of a type check
 		 */
 		template <class T, class F>
 		bool Dispatch(const F& func)

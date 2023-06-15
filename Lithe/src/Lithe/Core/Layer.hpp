@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Layer.hpp
- * \brief  Layer class header
+ * @file   Layer.hpp
+ * @brief  Layer class header
  * 
- * \author Lolitron
- * \date   June 2023
+ * @author Lolitron
+ * @date   June 2023
  *********************************************************************/
 
 #pragma once
@@ -13,7 +13,7 @@
 namespace Lithe
 {
 	/**
-	 * \brief Base class for all layers, such as ui/overlays and game world objects.
+	 * @brief Base class for all layers, such as ui/overlays and game world objects.
 	 * User can create own layers by implementing this class.
 	 */
 	class LITHE_API Layer
@@ -24,6 +24,8 @@ namespace Lithe
 
 		virtual void OnEvent(Event& event) = 0;
 		virtual void OnUpdate() = 0;
+		virtual void OnAttach() = 0;
+		virtual void OnDetach() = 0;
 
 
 	protected:

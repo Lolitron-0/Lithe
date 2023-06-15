@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Log.hpp
- * \brief  Logger header file
+ * @file   Log.hpp
+ * @brief  Logger header file
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 #include "Base.hpp"
@@ -13,7 +13,7 @@
 namespace Lithe
 {
 	/**
-	* \brief Wrapper around spdlog interface.
+	* @brief Wrapper around spdlog interface.
 	*
 	* Static class holding two spdlog::logger instances: for client app logging and for core logging
 	*/
@@ -23,7 +23,7 @@ namespace Lithe
 		typedef std::shared_ptr<spdlog::logger> LoggerPtr;
 
 		/**
-		 * \brief Logger initialisation static function.
+		 * @brief Logger initialisation static function.
 		 * 
 		 * Logs a message if initialisation finished successfully
 		 */

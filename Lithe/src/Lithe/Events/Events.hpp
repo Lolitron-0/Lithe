@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Events.hpp
- * \brief  File for easy single-header include of all event system module
+ * @file   Events.hpp
+ * @brief  File for easy single-header include of all event system module
  *
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 

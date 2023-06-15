@@ -110,6 +110,12 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>LayerBuffer</b> = st
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a8a3f2d1fcea838088142a92a933317f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_layer_stack.html#a8a3f2d1fcea838088142a92a933317f8">PushLayer</a> (const <a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> &amp;layer)</td></tr>
+<tr class="memdesc:a8a3f2d1fcea838088142a92a933317f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds game world layer to stack.  <br /></td></tr>
+<tr class="separator:a8a3f2d1fcea838088142a92a933317f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0067d3b3085798bfc1e87231411c7daf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_layer_stack.html#a0067d3b3085798bfc1e87231411c7daf">PushOverlay</a> (const <a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> &amp;layer)</td></tr>
+<tr class="memdesc:a0067d3b3085798bfc1e87231411c7daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds ui layer to stack.  <br /></td></tr>
+<tr class="separator:a0067d3b3085798bfc1e87231411c7daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e2ed11573d79fcdfd33aba8ba5e2469"><td class="memTemplParams" colspan="2">template&lt;class T , class... Args&gt; </td></tr>
 <tr class="memitem:a6e2ed11573d79fcdfd33aba8ba5e2469"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_layer_stack.html#a6e2ed11573d79fcdfd33aba8ba5e2469">PushLayer</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:a6e2ed11573d79fcdfd33aba8ba5e2469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for pushing a game world layer onto stack.  <br /></td></tr>
@@ -205,7 +211,7 @@ LayerBuffer::const_reverse_iterator&#160;</td><td class="memItemRight" valign="b
 </div>
 </div>
 <a id="a6e2ed11573d79fcdfd33aba8ba5e2469" name="a6e2ed11573d79fcdfd33aba8ba5e2469"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e2ed11573d79fcdfd33aba8ba5e2469">&#9670;&#160;</a></span>PushLayer()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2ed11573d79fcdfd33aba8ba5e2469">&#9670;&#160;</a></span>PushLayer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,8 +247,35 @@ template&lt;class T , class... Args&gt; </div>
 
 </div>
 </div>
+<a id="a8a3f2d1fcea838088142a92a933317f8" name="a8a3f2d1fcea838088142a92a933317f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3f2d1fcea838088142a92a933317f8">&#9670;&#160;</a></span>PushLayer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::LayerStack::PushLayer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds game world layer to stack. </p>
+<dl class="section note"><dt>Note</dt><dd>It's recommended to use this method for reinsertion (after popping existing layer). Add new layers with PushLayer&lt;T&gt;(Args&amp;&amp;...) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layer</td><td>Pointer to push </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a00af330e362b6c23724a46c8b522bda7" name="a00af330e362b6c23724a46c8b522bda7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00af330e362b6c23724a46c8b522bda7">&#9670;&#160;</a></span>PushOverlay()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a00af330e362b6c23724a46c8b522bda7">&#9670;&#160;</a></span>PushOverlay() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,9 +311,36 @@ template&lt;class T , class... Args&gt; </div>
 
 </div>
 </div>
+<a id="a0067d3b3085798bfc1e87231411c7daf" name="a0067d3b3085798bfc1e87231411c7daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0067d3b3085798bfc1e87231411c7daf">&#9670;&#160;</a></span>PushOverlay() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::LayerStack::PushOverlay </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds ui layer to stack. </p>
+<dl class="section note"><dt>Note</dt><dd>It's recommended to use this method for reinsertion (after popping existing layer). Add new layers with PushLayer&lt;T&gt;(Args&amp;&amp;...) </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layer</td><td>Pointer to push </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>G:/dev/Lithe/Lithe/src/Lithe/Core/<a class="el" href="_layer_stack_8hpp_source.html">LayerStack.hpp</a></li>
-<li>G:/dev/Lithe/Lithe/src/Lithe/Core/LayerStack.cpp</li>
+<li>Lithe/src/Lithe/Core/<a class="el" href="_layer_stack_8hpp_source.html">LayerStack.hpp</a></li>
+<li>Lithe/src/Lithe/Core/LayerStack.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

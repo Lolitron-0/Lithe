@@ -1,21 +1,22 @@
 /*****************************************************************//**
- * \file   Application.hpp
- * \brief  Application class header
+ * @file   Application.hpp
+ * @brief  Application class header
  * 
- * \author Lolitron
- * \date   June 2023
+ * @author Lolitron
+ * @date   June 2023
  *********************************************************************/
 #pragma once
 #include "Base.hpp"
 #include "Lithe/Events/Events.hpp"
 #include "LayerStack.hpp"
+#include "Lithe/Utils/Singleton.hpp"
 
 namespace Lithe
 {
 	/**
-	 * \brief Base class for all applications
+	 * @brief Base class for all applications
 	 */
-	class LITHE_API Application
+	class LITHE_API Application : Singleton<Application>
 	{
 	public:
 		Application();
@@ -25,11 +26,11 @@ namespace Lithe
 		void Run();
 
 		/**
-		 * \brief Wrapper around LayerStack corresponding method.
+		 * @brief Wrapper around LayerStack corresponding method.
 		 * See LayerStack::PushLayer for more information
 		 * 
-		 * \param ...args  Arguments for layer creation
-		 * \return Smart pointer object containing created layer
+		 * @param ...args  Arguments for layer creation
+		 * @return Smart pointer object containing created layer
 		 */
 		template <class T, class... Args>
 		LayerPtr PushLayer(Args&&... args)
@@ -38,11 +39,11 @@ namespace Lithe
 		}
 
 		/**
-		* \brief Wrapper around LayerStack corresponding methods.
+		* @brief Wrapper around LayerStack corresponding methods.
 		* See LayerStack::PushLayer for more information
 		*
-		* \param ...args  Arguments for layer creation
-		* \return Smart pointer object containing created layer
+		* @param ...args  Arguments for layer creation
+		* @return Smart pointer object containing created layer
 		*/
 		template <class T, class... Args>
 		LayerPtr PushOverlay(Args&&... args)

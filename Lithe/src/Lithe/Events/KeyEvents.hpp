@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   KeyEvents.hpp
- * \brief  Header file describing all keyboard related events (key pressed/released).
+ * @file   KeyEvents.hpp
+ * @brief  Header file describing all keyboard related events (key pressed/released).
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
@@ -12,7 +12,7 @@
 namespace Lithe
 {
 	/**
-	 * \brief Base class for all keyboard events
+	 * @brief Base class for all keyboard events
 	 * 
 	 * All KeyEvents have information about code of the key and have EventCategory: EventCategoryInput, EventCategoryKeyboard.
 	 */
@@ -24,7 +24,7 @@ namespace Lithe
 		/**
 		 * Getter of the key code of this event.
 		 * \todo key code notation
-		 * \return Key code in some notation :^)
+		 * @return Key code in some notation :^)
 		 */
 		int GetKeyCode() const { return keyCode_; }
 	protected:
@@ -36,7 +36,7 @@ namespace Lithe
 	};
 
 	/**
-	 * \brief Class for key press event.
+	 * @brief Class for key press event.
 	 * 
 	 * Has EventType::KeyPressedType
 	 */
@@ -50,7 +50,7 @@ namespace Lithe
 		/**
 		 * Each key press event has a repeat counter. Delay between key press and key repeat may vary on different systems..
 		 * 
-		 * \return Repeat count of this event.
+		 * @return Repeat count of this event.
 		 */
 		int GetRepeatCount() const { return repeatCount_; }
 
@@ -67,7 +67,7 @@ namespace Lithe
 	};
 
 	/**
-	 * \brief Class for key release event.
+	 * @brief Class for key release event.
 	 * 
 	 * Has EventType::KeyRelease type
 	 */

@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Base.hpp
- * \brief  Main macros defines
+ * @file   Base.hpp
+ * @brief  Main macros defines
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 

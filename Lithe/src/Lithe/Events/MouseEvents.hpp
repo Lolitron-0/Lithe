@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   MouseEvents.hpp
- * \brief  Header file describing all mouse related events.
+ * @file   MouseEvents.hpp
+ * @brief  Header file describing all mouse related events.
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
@@ -13,7 +13,7 @@
 namespace Lithe
 {
 	/**
-	 * \brief Class for mouse move event.
+	 * @brief Class for mouse move event.
 	 * 
 	 * Belongs to EventCategoryMouse and EventCategoryInput category
 	 * and EventType::MouseMoved type
@@ -26,17 +26,17 @@ namespace Lithe
 		{}
 
 		/**
-		 * \brief Mouse y position getter.
+		 * @brief Mouse y position getter.
 		 * \todo position coordinate system
 		 * 
-		 * \return cursor y position in some coordinate system :^)
+		 * @return cursor y position in some coordinate system :^)
 		 */
 		float GetMouseX() const { return mouseX_; }
 		/**
-		* \brief Mouse x position getter.
+		* @brief Mouse x position getter.
 		* \todo position coordinate system
 		*
-		* \return cursor x position in some coordinate system :^)
+		* @return cursor x position in some coordinate system :^)
 		*/
 		float GetMouseY() const { return mouseY_; }
 
@@ -54,7 +54,7 @@ namespace Lithe
 	};
 
 	/**
-	 * \brief Base class for all mouse button events.
+	 * @brief Base class for all mouse button events.
 	 * 
 	 * Belongs to EventCategoryMouse and EventCategoryInput category
 	 */
@@ -63,9 +63,9 @@ namespace Lithe
 	public:
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 		/**
-		 * \brief Mouse button getter.
+		 * @brief Mouse button getter.
 		 * 
-		 * \return Element of Mouse::Button enum
+		 * @return Element of Mouse::Button enum
 		 */
 		Mouse::Button GetMouseButton() const { return button_; }
 
@@ -78,7 +78,7 @@ namespace Lithe
 	};
 
 	/**
-	* \brief Class for mouse press button event.
+	* @brief Class for mouse press button event.
 	*
 	* Has EventType::MouseButtonPressed type
 	*/
@@ -100,7 +100,7 @@ namespace Lithe
 	};
 
 	/**
-	* \brief Class for mouse release button event.
+	* @brief Class for mouse release button event.
 	*
 	* Has EventType::MouseButtonReleased type
 	*/

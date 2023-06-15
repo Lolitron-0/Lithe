@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Assert.hpp
- * \brief  Definitions of assertion macros
+ * @file   Assert.hpp
+ * @brief  Definitions of assertion macros
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 #include "Base.hpp"

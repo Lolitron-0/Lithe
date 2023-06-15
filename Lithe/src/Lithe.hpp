@@ -1,9 +1,9 @@
 /*****************************************************************//**
- * \file   Lithe.hpp
- * \brief  Essential headers file
+ * @file   Lithe.hpp
+ * @brief  Essential headers file
  * 
- * \author Lolitron
- * \date   May 2023
+ * @author Lolitron
+ * @date   May 2023
  *********************************************************************/
 #pragma once
 

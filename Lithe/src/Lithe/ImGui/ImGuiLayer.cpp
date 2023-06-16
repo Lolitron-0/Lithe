@@ -36,7 +36,7 @@ namespace Lithe
 		ImGuiIO& io = ImGui::GetIO();
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
-		ImGui::StyleColorsDark();
+		ImGui::StyleColorsDark(); 
 
 
 		

@@ -19,6 +19,15 @@ namespace Lithe
 
 	void ImGuiLayer::OnUpdate()
 	{
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
+		ImGui::ShowDemoWindow();
+
+		ImGui::Render();
+
+
 	}
 	void ImGuiLayer::OnAttach()
 	{
@@ -30,7 +39,7 @@ namespace Lithe
 		ImGui::StyleColorsDark();
 
 
-
+		
 		ImGui_ImplGlfw_InitForOpenGL(, true);
 		ImGui_ImplOpenGL3_Init("#version 410");
 

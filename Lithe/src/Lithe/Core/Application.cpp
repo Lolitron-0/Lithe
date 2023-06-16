@@ -1,6 +1,6 @@
 #include "Application.hpp"
 #include "Log.hpp"
-#include "Platform/WindowsWindow.hpp"
+#include "Window.hpp"
 #include <glad/glad.h>
 
 namespace Lithe
@@ -19,8 +19,8 @@ namespace Lithe
 	{
 		running_ = true;
 		Log::Init();
-		auto mainWindow{ Window::Create() };
-		mainWindow->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
+		mainWindow_ = Window::Create();
+		mainWindow_->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
 
 		while (running_)
 		{
@@ -30,7 +30,7 @@ namespace Lithe
 			for (LayerPtr layer : layerStack_)
 				layer->OnUpdate();
 
-			mainWindow->OnUpdate();
+			mainWindow_->OnUpdate();
 		}
 	}
 	void Application::OnEvent(Event& event)
@@ -60,5 +60,9 @@ namespace Lithe
 		return false;
 	}
 
+	Window* Application::GetWindow() const
+	{
+		return mainWindow_.get();
+	}
 
 }

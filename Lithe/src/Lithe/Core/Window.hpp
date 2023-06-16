@@ -28,12 +28,14 @@ namespace Lithe
 		{}
 	};
 
+
 	/**
 	 * Platform independent window interface.
 	 */
 	class LITHE_API Window
 	{
 	public:
+		using WindowPtr = std::unique_ptr<Window>;
 		using EventCallbackFn = std::function<void(Event&)>;
 
 		virtual ~Window() = default;
@@ -45,6 +47,8 @@ namespace Lithe
 
 		virtual bool IsVSync() const = 0;
 		virtual void SetVSync(bool val) = 0;
+
+		virtual 
 
 		/**
 		 * @brief Set main event callback function.
@@ -60,7 +64,7 @@ namespace Lithe
 		 * @param props - Window properties
 		 * @return Pointer to base class Window, that contains platform specific data
 		 */
-		static std::unique_ptr<Window> Create(const WindowProperties& props = WindowProperties());
+		static WindowPtr Create(const WindowProperties& props = WindowProperties());
 	protected:
 		Window() = default;
 	};

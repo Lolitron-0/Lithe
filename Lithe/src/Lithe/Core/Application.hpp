@@ -51,6 +51,8 @@ namespace Lithe
 			return layerStack_.PushOverlay<T>(std::forward<T>(args)...);
 		}
 
+		Window* GetWindow() const;
+
 	private:
 		void OnEvent(Event& event);
 
@@ -59,6 +61,7 @@ namespace Lithe
 
 	private:
 		LayerStack layerStack_;
+		Window::WindowPtr mainWindow_;
 		bool running_{ true };
 	};
 

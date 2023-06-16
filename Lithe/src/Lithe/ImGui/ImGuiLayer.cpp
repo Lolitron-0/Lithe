@@ -50,7 +50,7 @@ namespace Lithe
         io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
         GLFWwindow* window{ Application::GetInstance().GetWindow().GetNativeHandle<GLFWwindow*>() };
-        //ImGui_ImplGlfw_InitForOpenGL(window, true);
+        ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init("#version 410");
 
     }

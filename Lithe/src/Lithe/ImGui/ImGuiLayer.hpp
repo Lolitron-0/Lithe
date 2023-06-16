@@ -14,8 +14,8 @@ namespace Lithe
 		void OnUpdate() override;
 		void OnAttach() override;
 		void OnDetach() override;
-
 	private:
+
 		float m_Time;
 	};
 }

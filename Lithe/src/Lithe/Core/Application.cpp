@@ -1,6 +1,7 @@
 #include "Application.hpp"
 #include "Log.hpp"
 #include "Window.hpp"
+#include "LayerStack.hpp"
 #include <glad/glad.h>
 
 namespace Lithe
@@ -8,6 +9,9 @@ namespace Lithe
 
 	Lithe::Application::Application()
 	{
+		Log::Init();
+		m_MainWindow = Window::Create();
+		m_MainWindow->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
 	}
 
 	Lithe::Application::~Application()
@@ -17,20 +21,17 @@ namespace Lithe
 
 	void Lithe::Application::Run()
 	{
-		running_ = true;
-		Log::Init();
-		mainWindow_ = Window::Create();
-		mainWindow_->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
+		m_Running = true;
 
-		while (running_)
+		while (m_Running)
 		{
 			glClearColor(1, 1, 0, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			for (LayerPtr layer : layerStack_)
+			for (LayerPtr layer : m_LayerStack)
 				layer->OnUpdate();
 
-			mainWindow_->OnUpdate();
+			m_MainWindow->OnUpdate();
 		}
 	}
 	void Application::OnEvent(Event& event)
@@ -41,7 +42,7 @@ namespace Lithe
 
 		LITHE_CORE_TRACE(event);
 
-		for (auto it = layerStack_.rbegin(); it != layerStack_.rend(); it++)
+		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); it++)
 		{
 			if (event.Handled)
 				break;
@@ -51,7 +52,7 @@ namespace Lithe
 
 	bool Application::OnWindowClosed(const WindowClosedEvent& event)
 	{
-		running_ = false;
+		m_Running = false;
 		return true; // Client should do all shutdown stuff in destructor 
 	}
 
@@ -60,9 +61,9 @@ namespace Lithe
 		return false;
 	}
 
-	Window* Application::GetWindow() const
+	const Window& Application::GetWindow() const
 	{
-		return mainWindow_.get();
+		return *m_MainWindow;
 	}
 
 }

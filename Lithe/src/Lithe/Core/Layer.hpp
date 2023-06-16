@@ -29,7 +29,7 @@ namespace Lithe
 
 
 	protected:
-		std::string debugName_;
+		std::string m_DebugName;
 	};
 
 }

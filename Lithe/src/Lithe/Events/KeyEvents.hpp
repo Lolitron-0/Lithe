@@ -26,13 +26,13 @@ namespace Lithe
 		 * \todo key code notation
 		 * @return Key code in some notation :^)
 		 */
-		int GetKeyCode() const { return keyCode_; }
+		int GetKeyCode() const { return m_KeyCode; }
 	protected:
 		KeyEvent(int keyCode)
-			:keyCode_(keyCode)
+			:m_KeyCode(keyCode)
 		{}
 	private:
-		int keyCode_;
+		int m_KeyCode;
 	};
 
 	/**
@@ -44,7 +44,7 @@ namespace Lithe
 	{
 	public:
 		KeyPressedEvent(int keyCode, int repeatCount)
-			:KeyEvent(keyCode), repeatCount_(repeatCount)
+			:KeyEvent(keyCode), m_RepeatCount(repeatCount)
 		{}
 
 		/**
@@ -52,18 +52,18 @@ namespace Lithe
 		 * 
 		 * @return Repeat count of this event.
 		 */
-		int GetRepeatCount() const { return repeatCount_; }
+		int GetRepeatCount() const { return m_RepeatCount; }
 
 		virtual std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressed: " << GetKeyCode() << " repeat=" << repeatCount_;
+			ss << "KeyPressed: " << GetKeyCode() << " repeat=" << m_RepeatCount;
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(KeyPressed)
 	private:
-		int repeatCount_;
+		int m_RepeatCount;
 	};
 
 	/**

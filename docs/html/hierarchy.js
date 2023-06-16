@@ -17,7 +17,6 @@ var hierarchy =
       [ "Lithe::WindowResizedEvent", "class_lithe_1_1_window_resized_event.html", null ]
     ] ],
     [ "Lithe::EventDispatcher", "class_lithe_1_1_event_dispatcher.html", null ],
-    [ "Lithe::IEventListener", "class_lithe_1_1_i_event_listener.html", null ],
     [ "Lithe::Layer", "class_lithe_1_1_layer.html", [
       [ "Lithe::ImGuiLayer", "class_lithe_1_1_im_gui_layer.html", null ]
     ] ],

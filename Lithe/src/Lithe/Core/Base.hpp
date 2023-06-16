@@ -1,11 +1,12 @@
 /*****************************************************************//**
  * @file   Base.hpp
- * @brief  Main macros defines
+ * @brief  Core defines
  * 
  * @author Lolitron
  * @date   May 2023
  *********************************************************************/
 #pragma once
+#include <memory>
 
 #ifdef LT_PLATFORM_WINDOWS
 	#ifdef LT_BUILD_DLL
@@ -32,3 +33,14 @@
 
 /// Since all event functions are member (and need 'this' pointer) we need to wrap them in lambdas hooking 'this'
 #define LT_BIND_EVENT_FN(fn) [this](auto&&... params) -> decltype(auto) {return this->fn(std::forward<decltype(params)>(params)...);}
+
+
+namespace Lithe
+{
+	template<class T>
+	using Scope = std::unique_ptr<T>;
+
+
+	template<class T>
+	using Ref = std::shared_ptr<T>;
+}

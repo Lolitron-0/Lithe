@@ -15,6 +15,13 @@ public:
 	virtual void OnUpdate() override
 	{
 	}
+
+	virtual void OnAttach() override
+	{
+	}
+	virtual void OnDetach() override
+	{
+	}
 };
 
 class Sandbox : public Lithe::Application 
@@ -23,6 +30,7 @@ public:
 	Sandbox()
 	{
 		this->PushLayer<MyLayer>();
+		this->PushLayer<Lithe::ImGuiLayer>();
 	}
 
 	~Sandbox()

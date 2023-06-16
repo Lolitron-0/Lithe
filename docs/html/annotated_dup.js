@@ -4,7 +4,6 @@ var annotated_dup =
       [ "Application", "class_lithe_1_1_application.html", "class_lithe_1_1_application" ],
       [ "Event", "class_lithe_1_1_event.html", "class_lithe_1_1_event" ],
       [ "EventDispatcher", "class_lithe_1_1_event_dispatcher.html", "class_lithe_1_1_event_dispatcher" ],
-      [ "IEventListener", "class_lithe_1_1_i_event_listener.html", null ],
       [ "ImGuiLayer", "class_lithe_1_1_im_gui_layer.html", null ],
       [ "KeyEvent", "class_lithe_1_1_key_event.html", "class_lithe_1_1_key_event" ],
       [ "KeyPressedEvent", "class_lithe_1_1_key_pressed_event.html", "class_lithe_1_1_key_pressed_event" ],

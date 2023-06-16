@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lithe: Lithe/src/Lithe/Events/MouseEvents.hpp Source File</title>
+<title>Lithe: G:/dev/Lithe/Lithe/src/Lithe/Events/MouseEvents.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
    </div>
   </td>
  </tr>
@@ -104,37 +104,37 @@ $(document).ready(function(){initNavTree('_mouse_events_8hpp_source.html',''); i
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_class" href="class_lithe_1_1_mouse_moved_event.html">MouseMovedEvent</a>(<span class="keywordtype">float</span> mouseX, <span class="keywordtype">float</span> mouseY)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            : mouseX_(mouseX), mouseY_(mouseY)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            : m_MouseX(mouseX), m_MouseY(mouseY)</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        {}</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42">   34</a></span>        <span class="keywordtype">float</span> <a class="code hl_function" href="class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42">GetMouseX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mouseX_; }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694">   41</a></span>        <span class="keywordtype">float</span> <a class="code hl_function" href="class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694">GetMouseY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mouseY_; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42">   34</a></span>        <span class="keywordtype">float</span> <a class="code hl_function" href="class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42">GetMouseX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_MouseX; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694">   41</a></span>        <span class="keywordtype">float</span> <a class="code hl_function" href="class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694">GetMouseY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_MouseY; }</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_moved_event.html#a45b3aa8e7bc3f27b0ec2aee98eb83145">   43</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_lithe_1_1_mouse_moved_event.html#a45b3aa8e7bc3f27b0ec2aee98eb83145">ToString</a>()<span class="keyword"> const override</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            std::stringstream ss;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            ss &lt;&lt; <span class="stringliteral">&quot;MouseMovedEvent: &quot;</span> &lt;&lt; mouseX_ &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; mouseY_;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            ss &lt;&lt; <span class="stringliteral">&quot;MouseMovedEvent: &quot;</span> &lt;&lt; m_MouseX &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; m_MouseY;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">return</span> ss.str();</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        EVENT_CLASS_TYPE(MouseMoved)</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">float</span> mouseX_, mouseY_;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">float</span> m_MouseX, m_MouseY;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    };</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_button_event.html">   61</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_mouse_button_event.html">MouseButtonEvent</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_lithe_1_1_event.html">Event</a></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_button_event.html#a4ad9a5a1164a95a8cce14c568e060c33">   70</a></span>        <a class="code hl_class" href="class_lithe_1_1_mouse.html">Mouse</a>::Button GetMouseButton()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> button_; }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_button_event.html#a4ad9a5a1164a95a8cce14c568e060c33">   70</a></span>        <a class="code hl_class" href="class_lithe_1_1_mouse.html">Mouse</a>::Button GetMouseButton()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Button; }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_class" href="class_lithe_1_1_mouse_button_event.html">MouseButtonEvent</a>(<span class="keywordtype">int</span> button)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            :button_(static_cast&lt;<a class="code hl_class" href="class_lithe_1_1_mouse.html">Mouse</a>::Button&gt;(button))</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            :m_Button(static_cast&lt;<a class="code hl_class" href="class_lithe_1_1_mouse.html">Mouse</a>::Button&gt;(button))</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        {}</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        Mouse::Button button_;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        Mouse::Button m_Button;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    };</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse_button_pressed_event.html">   85</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_mouse_button_pressed_event.html">MouseButtonPressedEvent</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_lithe_1_1_mouse_button_event.html">MouseButtonEvent</a></div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('_mouse_events_8hpp_source.html',''); i
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    };</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
-<div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Main macros defines.</div></div>
+<div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Core defines.</div></div>
 <div class="ttc" id="a_event_8hpp_html"><div class="ttname"><a href="_event_8hpp.html">Event.hpp</a></div></div>
 <div class="ttc" id="aclass_lithe_1_1_event_html"><div class="ttname"><a href="class_lithe_1_1_event.html">Lithe::Event</a></div><div class="ttdoc">Base class for all event types, categories and sources.</div><div class="ttdef"><b>Definition</b> Event.hpp:59</div></div>
 <div class="ttc" id="aclass_lithe_1_1_mouse_button_event_html"><div class="ttname"><a href="class_lithe_1_1_mouse_button_event.html">Lithe::MouseButtonEvent</a></div><div class="ttdoc">Base class for all mouse button events.</div><div class="ttdef"><b>Definition</b> MouseEvents.hpp:62</div></div>

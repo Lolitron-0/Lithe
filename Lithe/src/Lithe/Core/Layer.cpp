@@ -3,7 +3,7 @@
 namespace Lithe
 {
 	Layer::Layer(const std::string& name)
-		:debugName_(name)
+		:m_DebugName(name)
 	{
 	}
 }

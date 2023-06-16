@@ -30,13 +30,13 @@ namespace Lithe
 		static void Init();
 
 		/// Core logger instance getter, not really ment to be used in client apps
-		inline static LoggerPtr& GetCoreLogger() { return coreLogger_; }
+		inline static LoggerPtr& GetCoreLogger() { return m_CoreLogger; }
 		/// Client logger instance getter, not really ment to be used, use LITHE_* macros instead
-		inline static LoggerPtr& GetClientLogger() { return clientLogger_; }
+		inline static LoggerPtr& GetClientLogger() { return m_ClientLogger; }
 
 	private:
-		static LoggerPtr coreLogger_;
-		static LoggerPtr clientLogger_;
+		static LoggerPtr m_CoreLogger;
+		static LoggerPtr m_ClientLogger;
 	};
 
 }

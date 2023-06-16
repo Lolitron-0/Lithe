@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lithe: Lithe/src/Lithe/Events/WindowEvents.hpp Source File</title>
+<title>Lithe: G:/dev/Lithe/Lithe/src/Lithe/Events/WindowEvents.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
    </div>
   </td>
  </tr>
@@ -121,22 +121,22 @@ $(document).ready(function(){initNavTree('_window_events_8hpp_source.html',''); 
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        EVENT_CLASS_TYPE(WindowResized);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <a class="code hl_class" href="class_lithe_1_1_window_resized_event.html">WindowResizedEvent</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            :width_(width), height_(height)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            :m_Width(width), m_Height(height)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {}</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_resized_event.html#ac4bfc4d1d904170d584b0e90272a9760">   42</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_resized_event.html#ac4bfc4d1d904170d584b0e90272a9760">GetNewWidth</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> width_; }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_resized_event.html#a7b80fb4f60dfe6a2ca2f4b613270f907">   44</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_resized_event.html#a7b80fb4f60dfe6a2ca2f4b613270f907">GetNewHeight</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> height_; }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_resized_event.html#ac4bfc4d1d904170d584b0e90272a9760">   42</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_resized_event.html#ac4bfc4d1d904170d584b0e90272a9760">GetNewWidth</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Width; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_resized_event.html#a7b80fb4f60dfe6a2ca2f4b613270f907">   44</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_resized_event.html#a7b80fb4f60dfe6a2ca2f4b613270f907">GetNewHeight</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Height; }</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_resized_event.html#aba80d5d2de9bfc264422a9a7cf130434">   46</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_lithe_1_1_window_resized_event.html#aba80d5d2de9bfc264422a9a7cf130434">ToString</a>()<span class="keyword"> const override</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            std::stringstream ss;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            ss &lt;&lt; <span class="stringliteral">&quot;WindowResizedEvent: &quot;</span> &lt;&lt; width_ &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; height_;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            ss &lt;&lt; <span class="stringliteral">&quot;WindowResizedEvent: &quot;</span> &lt;&lt; m_Width &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; m_Height;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">return</span> ss.str();</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width_;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height_;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_Width;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_Height;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    };</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_gained_focus_event.html">   59</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_window_gained_focus_event.html">WindowGainedFocusEvent</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_lithe_1_1_event.html">Event</a></div>
@@ -174,11 +174,11 @@ $(document).ready(function(){initNavTree('_window_events_8hpp_source.html',''); 
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        EVENT_CLASS_TYPE(WindowLostFocus);</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_class" href="class_lithe_1_1_window_moved_event.html">WindowMovedEvent</a>(<span class="keywordtype">int</span> offsetX, <span class="keywordtype">int</span> offsetY)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            :offsetX_(offsetX), offsetY_(offsetY)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            :m_OffsetX(offsetX), m_OffsetY(offsetY)</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {}</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_moved_event.html#abe67707e7b3b4dc6f9ceebdd7634b470">  103</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_moved_event.html#abe67707e7b3b4dc6f9ceebdd7634b470">GetOffsetX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> offsetX_; }</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_moved_event.html#affd1779bf411055008e8c020cf96a284">  105</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_moved_event.html#affd1779bf411055008e8c020cf96a284">GetOffsetY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> offsetY_; }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_moved_event.html#abe67707e7b3b4dc6f9ceebdd7634b470">  103</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_moved_event.html#abe67707e7b3b4dc6f9ceebdd7634b470">GetOffsetX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_OffsetX; }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_moved_event.html#affd1779bf411055008e8c020cf96a284">  105</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_window_moved_event.html#affd1779bf411055008e8c020cf96a284">GetOffsetY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_OffsetY; }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window_moved_event.html#ae585393024654963fd75994eba12d8e2">  107</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_lithe_1_1_window_moved_event.html#ae585393024654963fd75994eba12d8e2">ToString</a>()<span class="keyword"> const override</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">        </span>{</div>
@@ -187,12 +187,12 @@ $(document).ready(function(){initNavTree('_window_events_8hpp_source.html',''); 
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordflow">return</span> ss.str();</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        }</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordtype">int</span> offsetX_;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">int</span> offsetY_;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordtype">int</span> m_OffsetX;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">int</span> m_OffsetY;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    };</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
-<div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Main macros defines.</div></div>
+<div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Core defines.</div></div>
 <div class="ttc" id="a_event_8hpp_html"><div class="ttname"><a href="_event_8hpp.html">Event.hpp</a></div></div>
 <div class="ttc" id="aclass_lithe_1_1_event_html"><div class="ttname"><a href="class_lithe_1_1_event.html">Lithe::Event</a></div><div class="ttdoc">Base class for all event types, categories and sources.</div><div class="ttdef"><b>Definition</b> Event.hpp:59</div></div>
 <div class="ttc" id="aclass_lithe_1_1_window_closed_event_html"><div class="ttname"><a href="class_lithe_1_1_window_closed_event.html">Lithe::WindowClosedEvent</a></div><div class="ttdoc">Class for WindowClosed event type, without any specific data.</div><div class="ttdef"><b>Definition</b> WindowEvents.hpp:17</div></div>

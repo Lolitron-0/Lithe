@@ -85,22 +85,22 @@ namespace Lithe
 
 		//-------------- Overloads for range-based loops
 
-		LayerBuffer::iterator begin() { return layers_.begin(); }
-		LayerBuffer::iterator end() { return layers_.end(); }
-		LayerBuffer::reverse_iterator rbegin() { return layers_.rbegin(); }
-		LayerBuffer::reverse_iterator rend() { return layers_.rend(); }
+		LayerBuffer::iterator begin() { return m_Layers.begin(); }
+		LayerBuffer::iterator end() { return m_Layers.end(); }
+		LayerBuffer::reverse_iterator rbegin() { return m_Layers.rbegin(); }
+		LayerBuffer::reverse_iterator rend() { return m_Layers.rend(); }
 
-		LayerBuffer::const_iterator begin() const { return layers_.begin(); }
-		LayerBuffer::const_iterator end() const { return layers_.cend(); }
-		LayerBuffer::const_reverse_iterator rbegin() const { return layers_.rbegin(); }
-		LayerBuffer::const_reverse_iterator rend() const { return layers_.rend(); }
+		LayerBuffer::const_iterator begin() const { return m_Layers.begin(); }
+		LayerBuffer::const_iterator end() const { return m_Layers.cend(); }
+		LayerBuffer::const_reverse_iterator rbegin() const { return m_Layers.rbegin(); }
+		LayerBuffer::const_reverse_iterator rend() const { return m_Layers.rend(); }
 
 		//--------------
 
 	private:
 
-		unsigned int layerInsertIndex_{ 0 };
-		LayerBuffer layers_;
+		unsigned int m_LayerInsertIndex{ 0 };
+		LayerBuffer m_Layers;
 	};
 
 }

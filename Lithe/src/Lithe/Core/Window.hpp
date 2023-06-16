@@ -9,6 +9,7 @@
 #include "Lithe/Core/Base.hpp"
 #include "Lithe/Events/Event.hpp"
 #include <functional>
+#include <any>
 
 namespace Lithe
 {
@@ -35,7 +36,6 @@ namespace Lithe
 	class LITHE_API Window
 	{
 	public:
-		using WindowPtr = std::unique_ptr<Window>;
 		using EventCallbackFn = std::function<void(Event&)>;
 
 		virtual ~Window() = default;
@@ -44,11 +44,14 @@ namespace Lithe
 
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;
+		
+		template<typename T>
+		T GetNativeHandle() const {
+			return std::any_cast<T>(getNativeHandleImpl_());
+		}
 
 		virtual bool IsVSync() const = 0;
 		virtual void SetVSync(bool val) = 0;
-
-		virtual 
 
 		/**
 		 * @brief Set main event callback function.
@@ -64,8 +67,11 @@ namespace Lithe
 		 * @param props - Window properties
 		 * @return Pointer to base class Window, that contains platform specific data
 		 */
-		static WindowPtr Create(const WindowProperties& props = WindowProperties());
+		static Scope<Window> Create(const WindowProperties& props = WindowProperties());
 	protected:
+
+		virtual std::any getNativeHandleImpl_() const = 0;
+
 		Window() = default;
 	};
 

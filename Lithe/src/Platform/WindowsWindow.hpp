@@ -23,19 +23,21 @@ namespace Lithe
 
 		void OnUpdate() override;
 
-		unsigned int GetWidth() const override { return data_.Width; };
-		unsigned int GetHeight() const override { return data_.Height; };
+		unsigned int GetWidth() const override { return m_Data.Width; };
+		unsigned int GetHeight() const override { return m_Data.Height; };
+
+		virtual std::any getNativeHandleImpl_() const override;
 
 		virtual bool IsVSync() const override;
 		virtual void SetVSync(bool val) override;
 
-		void SetEventCallback(const EventCallbackFn& callback) override { data_.EventCallback = callback; };
+		void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; };
 	private:
 		void Init(const WindowProperties& props);
 		void Shutdown();
 	private:
 
-		GLFWwindow* handle_;
+		GLFWwindow* m_Handle;
 
 		struct WindowData {
 			std::string Title;
@@ -46,7 +48,7 @@ namespace Lithe
 			EventCallbackFn EventCallback;
 		};
 
-		WindowData data_;
+		WindowData m_Data;
 	};
 }
 

@@ -96,7 +96,7 @@ namespace Lithe
 	{
 	public:
 		EventDispatcher(Event& e)
-			:event_(e)
+			:m_Event(e)
 		{}
 
 		/**
@@ -110,16 +110,16 @@ namespace Lithe
 		template <class T, class F>
 		bool Dispatch(const F& func)
 		{
-			if (event_.GetEventType() == T::GetStaticType())
+			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				event_.Handled |= func(static_cast<T&>(event_));
+				m_Event.Handled |= func(static_cast<T&>(m_Event));
 				return true;
 			}
 			return false;
 		}
 
 	private:
-		Event& event_;
+		Event& m_Event;
 	};
 
 }

@@ -6,29 +6,28 @@ namespace Lithe
     class Singleton
     {
     public:
-        explicit Singleton()
+        static T& GetInstance()
         {
-            LITHE_CORE_ASSERT(!Singleton::instance_);
-            Singleton::instance_ = static_cast<T*>(this);
+            if (!Singleton::s_Instance)
+                Singleton::s_Instance = createInstance();
+            return *Singleton::s_Instance;
         }
 
     protected:
+        explicit Singleton()
+        {
+            LITHE_CORE_ASSERT(!Singleton::s_Instance, "Singleton instance already exists");
+            Singleton::s_Instance = static_cast<T*>(this);
+        }
 
         ~Singleton()
         {
-            Singleton::instance_ = 0;
+            Singleton::s_Instance = 0;
         }
 
-        T& GetInstance()
-        {
-            if (!Singleton::instance_)
-                Singleton::instance_ = createInstance();
-            return Singleton::instance_;
-        }
-
-        virtual T* createInstance() { return new T(); }
+        static T* createInstance() { return new T(); }
     private:
-        static T* instance_;
+        static T* s_Instance;
 
         explicit Singleton(const Singleton&) {}
         Singleton& operator=(const Singleton&) { return *this; }
@@ -36,5 +35,5 @@ namespace Lithe
     };
 
     template<class T>
-    T* Singleton<T>::instance_ = 0;
+    T* Singleton<T>::s_Instance = 0;
 }

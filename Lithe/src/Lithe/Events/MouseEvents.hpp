@@ -22,7 +22,7 @@ namespace Lithe
 	{
 	public:
 		MouseMovedEvent(float mouseX, float mouseY)
-			: mouseX_(mouseX), mouseY_(mouseY)
+			: m_MouseX(mouseX), m_MouseY(mouseY)
 		{}
 
 		/**
@@ -31,26 +31,26 @@ namespace Lithe
 		 * 
 		 * @return cursor y position in some coordinate system :^)
 		 */
-		float GetMouseX() const { return mouseX_; }
+		float GetMouseX() const { return m_MouseX; }
 		/**
 		* @brief Mouse x position getter.
 		* \todo position coordinate system
 		*
 		* @return cursor x position in some coordinate system :^)
 		*/
-		float GetMouseY() const { return mouseY_; }
+		float GetMouseY() const { return m_MouseY; }
 
 		virtual std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseMovedEvent: " << mouseX_ << ", " << mouseY_;
+			ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(MouseMoved)
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
-		float mouseX_, mouseY_;
+		float m_MouseX, m_MouseY;
 	};
 
 	/**
@@ -67,14 +67,14 @@ namespace Lithe
 		 * 
 		 * @return Element of Mouse::Button enum
 		 */
-		Mouse::Button GetMouseButton() const { return button_; }
+		Mouse::Button GetMouseButton() const { return m_Button; }
 
 	protected:
 		MouseButtonEvent(int button)
-			:button_(static_cast<Mouse::Button>(button))
+			:m_Button(static_cast<Mouse::Button>(button))
 		{}
 	private:
-		Mouse::Button button_;
+		Mouse::Button m_Button;
 	};
 
 	/**

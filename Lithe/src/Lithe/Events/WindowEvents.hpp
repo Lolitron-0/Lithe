@@ -35,24 +35,24 @@ namespace Lithe
 		EVENT_CLASS_TYPE(WindowResized);
 
 		WindowResizedEvent(unsigned int width, unsigned int height)
-			:width_(width), height_(height)
+			:m_Width(width), m_Height(height)
 		{}
 
 		/// Getter for new window x size
-		int GetNewWidth() const { return width_; }
+		int GetNewWidth() const { return m_Width; }
 		/// Getter for new window y size
-		int GetNewHeight() const { return height_; }
+		int GetNewHeight() const { return m_Height; }
 
 		virtual std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "WindowResizedEvent: " << width_ << ", " << height_;
+			ss << "WindowResizedEvent: " << m_Width << ", " << m_Height;
 			return ss.str();
 		}
 
 	private:
-		unsigned int width_;
-		unsigned int height_;
+		unsigned int m_Width;
+		unsigned int m_Height;
 	};
 
 	/// Class for WindowGainedFocus event type, without any specific data
@@ -96,13 +96,13 @@ namespace Lithe
 		EVENT_CLASS_TYPE(WindowLostFocus);
 
 		WindowMovedEvent(int offsetX, int offsetY)
-			:offsetX_(offsetX), offsetY_(offsetY)
+			:m_OffsetX(offsetX), m_OffsetY(offsetY)
 		{}
 
 		/// Getter for move offset x value
-		int GetOffsetX() const { return offsetX_; }
+		int GetOffsetX() const { return m_OffsetX; }
 		/// Getter for move offset y value
-		int GetOffsetY() const { return offsetY_; }
+		int GetOffsetY() const { return m_OffsetY; }
 
 		virtual std::string ToString() const override
 		{
@@ -111,8 +111,8 @@ namespace Lithe
 			return ss.str();
 		}
 	private:
-		int offsetX_;
-		int offsetY_;
+		int m_OffsetX;
+		int m_OffsetY;
 	};
 
 }

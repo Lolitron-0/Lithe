@@ -4,7 +4,7 @@
 
 namespace Lithe
 {
-	class ImGuiLayer : public Layer
+	class LITHE_API ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();
@@ -16,6 +16,6 @@ namespace Lithe
 		void OnDetach() override;
 
 	private:
-
+		float m_Time;
 	};
 }

@@ -8,15 +8,16 @@
 #pragma once
 #include "Base.hpp"
 #include "Lithe/Events/Events.hpp"
-#include "LayerStack.hpp"
+#include "Window.hpp"
 #include "Lithe/Utils/Singleton.hpp"
+#include "LayerStack.hpp"
 
 namespace Lithe
 {
 	/**
 	 * @brief Base class for all applications
 	 */
-	class LITHE_API Application : Singleton<Application>
+	class LITHE_API Application : public Singleton<Application>
 	{
 	public:
 		Application();
@@ -35,7 +36,7 @@ namespace Lithe
 		template <class T, class... Args>
 		LayerPtr PushLayer(Args&&... args)
 		{
-			return layerStack_.PushLayer<T>(std::forward<T>(args)...);
+			return m_LayerStack.PushLayer<T>(std::forward<T>(args)...);
 		}
 
 		/**
@@ -48,10 +49,10 @@ namespace Lithe
 		template <class T, class... Args>
 		LayerPtr PushOverlay(Args&&... args)
 		{
-			return layerStack_.PushOverlay<T>(std::forward<T>(args)...);
+			return m_LayerStack.PushOverlay<T>(std::forward<T>(args)...);
 		}
 
-		Window* GetWindow() const;
+		const Window& GetWindow() const;
 
 	private:
 		void OnEvent(Event& event);
@@ -60,9 +61,9 @@ namespace Lithe
 		bool OnWindowResized(const WindowResizedEvent& event);
 
 	private:
-		LayerStack layerStack_;
-		Window::WindowPtr mainWindow_;
-		bool running_{ true };
+		LayerStack m_LayerStack;
+		Scope<Window> m_MainWindow;
+		bool m_Running{ true };
 	};
 
 	///Defined in client

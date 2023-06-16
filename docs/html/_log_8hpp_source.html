@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lithe: Lithe/src/Lithe/Core/Log.hpp Source File</title>
+<title>Lithe: G:/dev/Lithe/Lithe/src/Lithe/Core/Log.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
    </div>
   </td>
  </tr>
@@ -107,12 +107,12 @@ $(document).ready(function(){initNavTree('_log_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> Init();</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">   33</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">GetCoreLogger</a>() { <span class="keywordflow">return</span> coreLogger_; }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">   35</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">GetClientLogger</a>() { <span class="keywordflow">return</span> clientLogger_; }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">   33</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">GetCoreLogger</a>() { <span class="keywordflow">return</span> m_CoreLogger; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">   35</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">GetClientLogger</a>() { <span class="keywordflow">return</span> m_ClientLogger; }</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">static</span> LoggerPtr coreLogger_;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">static</span> LoggerPtr clientLogger_;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">static</span> LoggerPtr m_CoreLogger;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">static</span> LoggerPtr m_ClientLogger;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    };</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('_log_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="_log_8hpp.html#ad352bc6d96f3b9861fddb83dcbde0d3b">   66</a></span><span class="preprocessor">#define LITHE_TRACE(...)        ::Lithe::Log::GetClientLogger()-&gt;trace(__VA_ARGS__);</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="_log_8hpp.html#ae2ec019998afd2f9a8dc886999ae3076">   68</a></span><span class="preprocessor">#define LITHE_DEBUG(...)        ::Lithe::Log::GetClientLogger()-&gt;debug(__VA_ARGS__);</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Main macros defines.</div></div>
+<div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Core defines.</div></div>
 <div class="ttc" id="aclass_lithe_1_1_log_html"><div class="ttname"><a href="class_lithe_1_1_log.html">Lithe::Log</a></div><div class="ttdoc">Wrapper around spdlog interface.</div><div class="ttdef"><b>Definition</b> Log.hpp:21</div></div>
 <div class="ttc" id="aclass_lithe_1_1_log_html_aada4e89151f6c3bd3bb5e370ad4f4628"><div class="ttname"><a href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">Lithe::Log::GetCoreLogger</a></div><div class="ttdeci">static LoggerPtr &amp; GetCoreLogger()</div><div class="ttdoc">Core logger instance getter, not really ment to be used in client apps.</div><div class="ttdef"><b>Definition</b> Log.hpp:33</div></div>
 <div class="ttc" id="aclass_lithe_1_1_log_html_ad5c56cd758d395da9911ca449d54c0ce"><div class="ttname"><a href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">Lithe::Log::GetClientLogger</a></div><div class="ttdeci">static LoggerPtr &amp; GetClientLogger()</div><div class="ttdoc">Client logger instance getter, not really ment to be used, use LITHE_* macros instead.</div><div class="ttdef"><b>Definition</b> Log.hpp:35</div></div>

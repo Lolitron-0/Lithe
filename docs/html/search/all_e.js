@@ -10,5 +10,7 @@ var searchData=
   ['windowproperties_7',['WindowProperties',['../struct_lithe_1_1_window_properties.html',1,'Lithe']]],
   ['windowresizedevent_8',['WindowResizedEvent',['../class_lithe_1_1_window_resized_event.html',1,'Lithe']]],
   ['windowswindow_9',['WindowsWindow',['../class_lithe_1_1_windows_window.html',1,'Lithe']]],
-  ['windowswindow_2ehpp_10',['WindowsWindow.hpp',['../_windows_window_8hpp.html',1,'']]]
+  ['windowswindow_2ehpp_10',['WindowsWindow.hpp',['../_windows_window_8hpp.html',1,'']]],
+  ['world1_11',['World1',['../class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26a74c7c1760efb02a127a01f7d7457b61d',1,'Lithe::Keyboard']]],
+  ['world2_12',['World2',['../class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26a8bf6b1dbf5254c134b06997c602799a3',1,'Lithe::Keyboard']]]
 ];

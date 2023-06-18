@@ -15,6 +15,14 @@ namespace Lithe
 		void OnAttach() override;
 		void OnDetach() override;
 	private:
+		bool OnMouseMovedEvent(MouseMovedEvent& event);
+		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& event);
+		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& event);
+		bool OnMouseScrolledEvent(MouseScrolledEvent& event);
+		bool OnKeyPressedEvent(KeyPressedEvent& event);
+		bool OnKeyReleasedEvent(KeyReleasedEvent& event);
+		bool OnMouseMovedEvent(MouseMovedEvent& event);
+
 
 		float m_Time;
 	};

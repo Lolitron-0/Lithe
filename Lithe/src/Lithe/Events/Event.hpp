@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * @file   Event.hpp
- * @brief  
+ * @brief  Event system core stuff
  * 
  * @author Lolitron
  * @date   May 2023
@@ -18,7 +18,7 @@ namespace Lithe
 		None=0,
 		WindowResized, WindowClosed, WindowGainedFocus, WindowLostFocus, WindowMoved,
 		KeyPressed, KeyReleased,
-		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScroll,
+		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
 		AppUpdate, AppRender, AppTick,
 		
 		Count
@@ -88,9 +88,9 @@ namespace Lithe
 	/**
 	 * @brief An event dispatcher class.
 	 * 
-	 * Wraps an event and can be used to call callback functions of different types for it.
+	 * Wraps an event and can be used to invoke callback functions of different types for it.
 	 * i.e. for some event we simply wrap it in dispatcher and call dispatcher->Dispatch<MouseMoveEvent>(someMouseMoveCallbackRef),
-	 * type check fails, dispatcher won't invoke that callback
+	 * if type check fails, dispatcher won't invoke that callback
 	 */
 	class LITHE_API EventDispatcher
 	{
@@ -104,7 +104,7 @@ namespace Lithe
 		 * 
 		 * Checks if type of template matches. If so, invokes callback and sets proper status to the event
 		 * 
-		 * @param func - Callback that will be invoked if type matches
+		 * @param func - Callback that will be invoked if type matches. Return value should be bool - indicating if event was handled or should be propagated further
 		 * @return Result of a type check
 		 */
 		template <class T, class F>

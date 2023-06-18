@@ -113,7 +113,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An event dispatcher class. </p>
-<p>Wraps an event and can be used to call callback functions of different types for it. i.e. for some event we simply wrap it in dispatcher and call dispatcher-&gt;Dispatch&lt;MouseMoveEvent&gt;(someMouseMoveCallbackRef), type check fails, dispatcher won't invoke that callback </p>
+<p>Wraps an event and can be used to invoke callback functions of different types for it. i.e. for some event we simply wrap it in dispatcher and call dispatcher-&gt;Dispatch&lt;MouseMoveEvent&gt;(someMouseMoveCallbackRef), if type check fails, dispatcher won't invoke that callback </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1a59ef342887d4b746a65e2cfb2c68e7" name="a1a59ef342887d4b746a65e2cfb2c68e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a59ef342887d4b746a65e2cfb2c68e7">&#9670;&#160;</a></span>Dispatch()</h2>
@@ -145,7 +145,7 @@ template&lt;class T , class F &gt; </div>
 <p>Checks if type of template matches. If so, invokes callback and sets proper status to the event</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>- Callback that will be invoked if type matches </td></tr>
+    <tr><td class="paramname">func</td><td>- Callback that will be invoked if type matches. Return value should be bool - indicating if event was handled or should be propagated further </td></tr>
   </table>
   </dd>
 </dl>

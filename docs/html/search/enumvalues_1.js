@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['middle_0',['Middle',['../class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430ab1ca34f82e83c52b010f86955f264e05',1,'Lithe::Mouse']]]
+  ['backslash_0',['Backslash',['../class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26af6c6379402dce27659f7cffee6bc1f00',1,'Lithe::Keyboard']]]
 ];

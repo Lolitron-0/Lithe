@@ -5,96 +5,121 @@
 
 namespace Lithe
 {
-	static bool s_GlfwInitialised{ false };
+    static bool s_GlfwInitialised{ false };
 
-	WindowsWindow::WindowsWindow(const WindowProperties& props)
-	{
-		Init(props);
-	}
+    WindowsWindow::WindowsWindow(const WindowProperties& props)
+    {
+        Init(props);
+    }
 
-	WindowsWindow::~WindowsWindow()
-	{
-		Shutdown();
-	}
+    WindowsWindow::~WindowsWindow()
+    {
+        Shutdown();
+    }
 
-	void WindowsWindow::Init(const WindowProperties& props)
-	{
-		m_Data.Width = props.Width;
-		m_Data.Height = props.Height;
-		m_Data.Title = props.Title;
+    void WindowsWindow::Init(const WindowProperties& props)
+    {
+        m_Data.Width = props.Width;
+        m_Data.Height = props.Height;
+        m_Data.Title = props.Title;
 
-		if (!s_GlfwInitialised)
-		{
-			LITHE_CORE_TRACE("Initialising GLFW for the first time...");
+        if (!s_GlfwInitialised)
+        {
+            LITHE_CORE_TRACE("Initialising GLFW for the first time...");
 
-			int success{ glfwInit() };
-			LITHE_CORE_ASSERT(success, "GLFW initalisation failed");
+            int success{ glfwInit() };
+            LITHE_CORE_ASSERT(success, "GLFW initalisation failed");
 
-			s_GlfwInitialised = true;
-			LITHE_CORE_INFO("Initialised GLFW!");
-		}
+            s_GlfwInitialised = true;
+            LITHE_CORE_INFO("Initialised GLFW!");
+        }
 
-		m_Handle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
-		LITHE_CORE_ASSERT(m_Handle, "GLFWwindow instance not created!");
+        m_Handle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
+        LITHE_CORE_ASSERT(m_Handle, "GLFWwindow instance not created!");
 
-		LITHE_CORE_TRACE("Created GLFWwindow instance.");
+        LITHE_CORE_TRACE("Created GLFWwindow instance.");
 
-		//TODO: will be replaced with rendering context
-		glfwMakeContextCurrent(m_Handle);
+        //TODO: will be replaced with rendering context
+        glfwMakeContextCurrent(m_Handle);
 
-		int status{ gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) };
-		LITHE_CORE_ASSERT(status, "Failed to initialize Glad!");
-		std::string version{ (const char*)glGetString(GL_VERSION) };
-		LITHE_CORE_INFO("OpenGL loaded version: {0}", version);
+        int status{ gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) };
+        LITHE_CORE_ASSERT(status, "Failed to initialize Glad!");
+        std::string version{ (const char*)glGetString(GL_VERSION) };
+        LITHE_CORE_INFO("OpenGL loaded version: {0}", version);
 
-		glfwSetWindowUserPointer(m_Handle, &m_Data);
-		SetVSync(true);
+        glfwSetWindowUserPointer(m_Handle, &m_Data);
+        SetVSync(true);
 
-		glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* window)
-			{
-				WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
-				WindowClosedEvent event{};
-				data.EventCallback(event);
-			});
+        glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* window)
+            {
+                WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
+                WindowClosedEvent event{};
+                data.EventCallback(event);
+            });
 
-		glfwSetWindowSizeCallback(m_Handle, [](GLFWwindow* window, int width, int height)
-			{
-				WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
-				data.Width = width;
-				data.Height = height;
+        glfwSetWindowSizeCallback(m_Handle, [](GLFWwindow* window, int width, int height)
+            {
+                WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
+                data.Width = width;
+                data.Height = height;
 
-				WindowResizedEvent event{ static_cast<unsigned int>(width), static_cast<unsigned int>(height) };
-				data.EventCallback(event);
-			});
+                WindowResizedEvent event{ static_cast<unsigned int>(width), static_cast<unsigned int>(height) };
+                data.EventCallback(event);
+            });
 
-	}
+        glfwSetCursorPosCallback(m_Handle, [](GLFWwindow* window, double xPos, double yPos)
+            {
+                WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
 
-	void WindowsWindow::OnUpdate()
-	{
-		glfwPollEvents();
-		glfwSwapBuffers(m_Handle);
-	}
+                MouseMovedEvent event{ xPos, yPos };
+                data.EventCallback(event);
+            });
 
-	void WindowsWindow::Shutdown()
-	{
-		glfwDestroyWindow(m_Handle);
-	}
+        glfwSetMouseButtonCallback(m_Handle, [](GLFWwindow* window, int button, int action, int mods)
+            {
+                WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
 
-	std::any WindowsWindow::getNativeHandleImpl_() const
-	{
-		return std::any(m_Handle);
-	}
+                switch (action)
+                {
+                case GLFW_PRESS:
+                {
+                    MouseButtonPressedEvent event{button}
+                    break;
+                }
+                default:
+                    break;
+                }
+                
+            });
 
-	bool WindowsWindow::IsVSync() const { return m_Data.VSync; }
+    }
 
-	void WindowsWindow::SetVSync(bool val)
-	{
-		if (val)
-			glfwSwapInterval(1);
-		else
-			glfwSwapInterval(0);
+    void WindowsWindow::OnUpdate()
+    {
+        glfwPollEvents();
+        glfwSwapBuffers(m_Handle);
+    }
 
-		m_Data.VSync = val;
-	}
+    void WindowsWindow::Shutdown()
+    {
+        glfwDestroyWindow(m_Handle);
+    }
+
+    std::any WindowsWindow::getNativeHandleImpl_() const
+    {
+        return std::any(m_Handle);
+    }
+
+    bool WindowsWindow::IsVSync() const { return m_Data.VSync; }
+
+    void WindowsWindow::SetVSync(bool val)
+    {
+        if (val)
+            glfwSwapInterval(1);
+        else
+            glfwSwapInterval(0);
+
+        m_Data.VSync = val;
+    }
 
 }

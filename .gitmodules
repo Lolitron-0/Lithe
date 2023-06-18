@@ -7,3 +7,4 @@
 [submodule "Lithe/thirdparty/ImGui"]
 	path = Lithe/thirdparty/ImGui
 	url = https://github.com/Lolitron-0/imgui
+	branch = docking

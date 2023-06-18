@@ -23,7 +23,7 @@ var _event_8hpp =
       [ "MouseButtonPressed", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a7349f643d689997b7c54bf93e4095f5c", null ],
       [ "MouseButtonReleased", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a7584c169de594c27f00084b93186fd7c", null ],
       [ "MouseMoved", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039ac2770ad109c8063ce69a3608a9a16c08", null ],
-      [ "MouseScroll", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039ab4efa1e1d0671dddbd78735a0bd24274", null ],
+      [ "MouseScrolled", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a50edb169910041bb3c06f6e8322d74c1", null ],
       [ "AppUpdate", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039ac177abb86f28dea426f2e3409e14bcda", null ],
       [ "AppRender", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a4b2eb3c601042333ac1c0565ff58e3d6", null ],
       [ "AppTick", "_event_8hpp.html#a55f5672776be7fcc5838656aa4227039a559b408d45669603dbac61cd15984f13", null ],

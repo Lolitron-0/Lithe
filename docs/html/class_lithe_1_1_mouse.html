@@ -91,26 +91,46 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_mouse.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_lithe_1_1_mouse-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lithe::Mouse Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>brief Static class describing mouse states.  
+<p>Static class describing mouse states.  
  <a href="class_lithe_1_1_mouse.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_mouse_8hpp_source.html">Mouse.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_mouse_codes_8hpp_source.html">MouseCodes.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aaff0dd53a932f6cf491d06034ebaf430"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a> { <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430a945d5e233cf7d6240f6b783b36a374ff">Left</a>
+<tr class="memitem:aaff0dd53a932f6cf491d06034ebaf430"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a> { <br />
+&#160;&#160;<b>Button1</b>
+, <b>Button2</b>
+, <b>Button3</b>
+, <b>Button4</b>
+, <br />
+&#160;&#160;<b>Button5</b>
+, <b>Button6</b>
+, <b>Button7</b>
+, <b>Button8</b>
+, <br />
+&#160;&#160;<a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430a945d5e233cf7d6240f6b783b36a374ff">Left</a>
 , <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430a92b09c7c48c520c3c55e497875da437c">Right</a>
 , <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430ab1ca34f82e83c52b010f86955f264e05">Middle</a>
+<br />
  }</td></tr>
+<tr class="memdesc:aaff0dd53a932f6cf491d06034ebaf430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lithe mouse button codes.  <a href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">More...</a><br /></td></tr>
 <tr class="separator:aaff0dd53a932f6cf491d06034ebaf430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ae4e7a894a614328d98d246ac81426d0f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse.html#ae4e7a894a614328d98d246ac81426d0f">ToGlfwMouseButtonCode</a> (const <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a> &amp;button)</td></tr>
+<tr class="memdesc:ae4e7a894a614328d98d246ac81426d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Lithe key codes enum to Glfw notation.  <br /></td></tr>
+<tr class="separator:ae4e7a894a614328d98d246ac81426d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>brief Static class describing mouse states. </p>
+<div class="textblock"><p>Static class describing mouse states. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="aaff0dd53a932f6cf491d06034ebaf430" name="aaff0dd53a932f6cf491d06034ebaf430"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaff0dd53a932f6cf491d06034ebaf430">&#9670;&#160;</a></span>Button</h2>
@@ -131,6 +151,8 @@ Public Types</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Lithe mouse button codes. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaff0dd53a932f6cf491d06034ebaf430a945d5e233cf7d6240f6b783b36a374ff" name="aaff0dd53a932f6cf491d06034ebaf430a945d5e233cf7d6240f6b783b36a374ff"></a>Left&#160;</td><td class="fielddoc"><p>LMB </p>
 </td></tr>
@@ -142,8 +164,44 @@ Public Types</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae4e7a894a614328d98d246ac81426d0f" name="ae4e7a894a614328d98d246ac81426d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4e7a894a614328d98d246ac81426d0f">&#9670;&#160;</a></span>ToGlfwMouseButtonCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int Lithe::Mouse::ToGlfwMouseButtonCode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a> &amp;&#160;</td>
+          <td class="paramname"><em>button</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts Lithe key codes enum to Glfw notation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>Key code to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Glfw defined </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>G:/dev/Lithe/Lithe/src/Lithe/Utils/<a class="el" href="_mouse_8hpp_source.html">Mouse.hpp</a></li>
+<li>G:/dev/Lithe/Lithe/src/Lithe/Utils/<a class="el" href="_mouse_codes_8hpp_source.html">MouseCodes.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

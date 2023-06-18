@@ -10,6 +10,7 @@ var hierarchy =
         [ "Lithe::MouseButtonReleasedEvent", "class_lithe_1_1_mouse_button_released_event.html", null ]
       ] ],
       [ "Lithe::MouseMovedEvent", "class_lithe_1_1_mouse_moved_event.html", null ],
+      [ "Lithe::MouseScrolledEvent", "class_lithe_1_1_mouse_scrolled_event.html", null ],
       [ "Lithe::WindowClosedEvent", "class_lithe_1_1_window_closed_event.html", null ],
       [ "Lithe::WindowGainedFocusEvent", "class_lithe_1_1_window_gained_focus_event.html", null ],
       [ "Lithe::WindowLostFocusEvent", "class_lithe_1_1_window_lost_focus_event.html", null ],
@@ -17,6 +18,7 @@ var hierarchy =
       [ "Lithe::WindowResizedEvent", "class_lithe_1_1_window_resized_event.html", null ]
     ] ],
     [ "Lithe::EventDispatcher", "class_lithe_1_1_event_dispatcher.html", null ],
+    [ "Lithe::Keyboard", "class_lithe_1_1_keyboard.html", null ],
     [ "Lithe::Layer", "class_lithe_1_1_layer.html", [
       [ "Lithe::ImGuiLayer", "class_lithe_1_1_im_gui_layer.html", null ]
     ] ],

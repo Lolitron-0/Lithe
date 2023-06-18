@@ -24,7 +24,7 @@ namespace Lithe
         ImGuiIO& io = ImGui::GetIO();
         const auto& app = Application::GetInstance();
         io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
-        
+
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();
 

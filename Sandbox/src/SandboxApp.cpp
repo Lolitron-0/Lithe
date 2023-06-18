@@ -9,7 +9,6 @@ public:
 
 	virtual void OnEvent(Lithe::Event& event) override
 	{
-		LITHE_TRACE(event);
 	}
 
 	virtual void OnUpdate() override

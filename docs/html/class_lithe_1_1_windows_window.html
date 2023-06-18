@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
    </div>
   </td>
  </tr>
@@ -128,6 +128,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3cd0f21321a3d9f4e8e80f3e742ac72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fd3512b911d7ca1113e5a31785214e2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a1fd3512b911d7ca1113e5a31785214e2">SetVSync</a> (bool val) override</td></tr>
 <tr class="separator:a1fd3512b911d7ca1113e5a31785214e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7e600d12fb36848fc188d5c77dbe24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a2c7e600d12fb36848fc188d5c77dbe24">MaximizeWindow</a> () const override</td></tr>
+<tr class="separator:a2c7e600d12fb36848fc188d5c77dbe24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa35a97e009b4742515b074412a2a243f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#aa35a97e009b4742515b074412a2a243f">MinimizeWindow</a> () const override</td></tr>
+<tr class="separator:aa35a97e009b4742515b074412a2a243f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14034863a73f67c6bafd29e663c42303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a14034863a73f67c6bafd29e663c42303">SetEventCallback</a> (const EventCallbackFn &amp;callback) override</td></tr>
 <tr class="memdesc:a14034863a73f67c6bafd29e663c42303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
 <tr class="separator:a14034863a73f67c6bafd29e663c42303"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,9 +145,15 @@ virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetWi
 <tr class="memitem:a8155874c552f7e29874cf08b8f3673a5 inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
 virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetHeight</b> () const =0</td></tr>
 <tr class="separator:a8155874c552f7e29874cf08b8f3673a5 inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="memTemplParams" colspan="2">
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>GetNativeHandle</b> () const</td></tr>
+<tr class="memitem:af8083fcb8adf2dd60723c78c72118ddc inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MaximizeWindow</b> () const =0</td></tr>
+<tr class="separator:af8083fcb8adf2dd60723c78c72118ddc inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb7f13f9de946ebbbf786d519407eb88 inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MinimizeWindow</b> () const =0</td></tr>
+<tr class="separator:adb7f13f9de946ebbbf786d519407eb88 inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">GetNativeHandle</a> () const</td></tr>
+<tr class="memdesc:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for backend dependent handle (e.g. GLFWwindow*)  <br /></td></tr>
 <tr class="separator:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d95cb51aaf2bda9d10942f1fd949a1e inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsVSync</b> () const =0</td></tr>
@@ -280,6 +290,60 @@ virtual std::any&#160;</td><td class="memItemRight" valign="bottom"><b>getNative
 
 </div>
 </div>
+<a id="a2c7e600d12fb36848fc188d5c77dbe24" name="a2c7e600d12fb36848fc188d5c77dbe24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c7e600d12fb36848fc188d5c77dbe24">&#9670;&#160;</a></span>MaximizeWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::WindowsWindow::MaximizeWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_lithe_1_1_window.html">Lithe::Window</a>.</p>
+
+</div>
+</div>
+<a id="aa35a97e009b4742515b074412a2a243f" name="aa35a97e009b4742515b074412a2a243f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa35a97e009b4742515b074412a2a243f">&#9670;&#160;</a></span>MinimizeWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::WindowsWindow::MinimizeWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_lithe_1_1_window.html">Lithe::Window</a>.</p>
+
+</div>
+</div>
 <a id="a8056b6f3bcd75fe93475867cd27ff4a8" name="a8056b6f3bcd75fe93475867cd27ff4a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8056b6f3bcd75fe93475867cd27ff4a8">&#9670;&#160;</a></span>OnUpdate()</h2>
 
@@ -372,8 +436,8 @@ virtual std::any&#160;</td><td class="memItemRight" valign="bottom"><b>getNative
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>G:/dev/Lithe/Lithe/src/Platform/<a class="el" href="_windows_window_8hpp_source.html">WindowsWindow.hpp</a></li>
-<li>G:/dev/Lithe/Lithe/src/Platform/WindowsWindow.cpp</li>
+<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Platform/<a class="el" href="_windows_window_8hpp_source.html">WindowsWindow.hpp</a></li>
+<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Platform/WindowsWindow.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

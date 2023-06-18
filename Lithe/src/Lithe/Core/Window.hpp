@@ -45,6 +45,14 @@ namespace Lithe
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;
 		
+		virtual void MaximizeWindow() const = 0;
+		virtual void MinimizeWindow() const = 0;
+
+		/**
+		 * @brief Getter for backend dependent handle (e.g. GLFWwindow*)
+		 * @tparam Handle type
+		 * @return Hanldle
+		*/
 		template<typename T>
 		T GetNativeHandle() const {
 			return std::any_cast<T>(getNativeHandleImpl_());

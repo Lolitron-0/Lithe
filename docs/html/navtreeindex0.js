@@ -204,6 +204,7 @@ var NAVTREEINDEX0 =
 "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ae53b55851b9ff4979f2c3ff434a4a138":[1,0,0,4,0,84],
 "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ae7e0e72401a9f2718ed0f39f2861d702":[1,0,0,4,0,73],
 "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ae902674982fc99aa343cdd94da7476c3":[1,0,0,4,0,81],
+"class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ae93f994f01c537c4e2f7d8528c3eb5e9":[1,0,0,4,0,121],
 "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26aebd7820c520d05eca2d775c37d141273":[1,0,0,4,0,93],
 "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26aee3677bcca83ece9384b01e43952bf33":[1,0,0,4,0,62],
 "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26af09564c9ca56850d4cd6b3319e541aee":[1,0,0,4,0,35],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_lithe_1_1_mouse_button_released_event.html#a701e89541f9701f2cf7b93d3218a0f1c":[1,0,0,14,0],
 "class_lithe_1_1_mouse_moved_event.html":[1,0,0,15],
 "class_lithe_1_1_mouse_moved_event.html#a45b3aa8e7bc3f27b0ec2aee98eb83145":[1,0,0,15,2],
-"class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42":[1,0,0,15,0],
-"class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694":[1,0,0,15,1]
+"class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42":[1,0,0,15,0]
 };

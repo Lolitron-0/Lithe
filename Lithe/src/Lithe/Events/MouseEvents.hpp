@@ -70,8 +70,8 @@ namespace Lithe
             Mouse::Button GetMouseButton() const { return m_Button; }
 
     protected:
-        MouseButtonEvent(int button)
-            :m_Button(static_cast<Mouse::Button>(button))
+        MouseButtonEvent(Mouse::Button button)
+            :m_Button(button)
         {}
     private:
         Mouse::Button m_Button;
@@ -85,7 +85,7 @@ namespace Lithe
     class LITHE_API MouseButtonPressedEvent : public MouseButtonEvent
     {
     public:
-        MouseButtonPressedEvent(int button)
+        MouseButtonPressedEvent(Mouse::Button button)
             :MouseButtonEvent(button)
         {}
 
@@ -107,7 +107,7 @@ namespace Lithe
     class LITHE_API MouseButtonReleasedEvent : public MouseButtonEvent
     {
     public:
-        MouseButtonReleasedEvent(int button)
+        MouseButtonReleasedEvent(Mouse::Button button)
             :MouseButtonEvent(button)
         {}
 

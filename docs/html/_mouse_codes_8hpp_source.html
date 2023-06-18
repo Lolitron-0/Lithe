@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lithe: G:/dev/Lithe/Lithe/src/Lithe/Utils/MouseCodes.hpp Source File</title>
+<title>Lithe: C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Utils/MouseCodes.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
    </div>
   </td>
  </tr>
@@ -94,56 +94,45 @@ $(document).ready(function(){initNavTree('_mouse_codes_8hpp_source.html',''); in
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_base_8hpp.html">Lithe/Core/Base.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>Lithe</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse.html">    9</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_mouse.html">Mouse</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">   15</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            Button1,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            Button2,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            Button3,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            Button4,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            Button5,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            Button6,</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            Button7,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            Button8,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            Left,   </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            Right,  </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            Middle  </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        };</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse.html#ae4e7a894a614328d98d246ac81426d0f">   36</a></span>        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_lithe_1_1_mouse.html#ae4e7a894a614328d98d246ac81426d0f">ToGlfwMouseButtonCode</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a>&amp; button)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">switch</span> (button)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">case</span> Button::Left: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_LEFT;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordflow">case</span> Button::Right: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_RIGHT;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">case</span> Button::Middle: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_MIDDLE;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordflow">case</span> Button::Button1: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_1;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">case</span> Button::Button2: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_2;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">case</span> Button::Button3: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_3;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">case</span> Button::Button4: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_4;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">case</span> Button::Button5: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_5;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordflow">case</span> Button::Button6: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_6;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">case</span> Button::Button7: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_7;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">case</span> Button::Button8: <span class="keywordflow">return</span> GLFW_MOUSE_BUTTON_8;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    };</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>Lithe</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse.html">   10</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_mouse.html">Mouse</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">   16</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            Button1,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            Button2,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            Button3,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            Button4,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            Button5,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            Button6,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            Button7,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            Button8,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            Left,   </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            Right,  </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            Middle  </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        };</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> ToGlfwMouseButton(<span class="keyword">const</span> Button&amp; button);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">static</span> Button FromGlfwMouseButton(<span class="keywordtype">int</span> glfwButton);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">static</span> <span class="keyword">const</span> std::unordered_map&lt;Button, int&gt; s_ButtonToGlfwMap;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">static</span> std::unordered_map&lt;int, Button&gt; s_GlfwToButtonMap;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    };</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 <div class="ttc" id="a_base_8hpp_html"><div class="ttname"><a href="_base_8hpp.html">Base.hpp</a></div><div class="ttdoc">Core defines.</div></div>
-<div class="ttc" id="aclass_lithe_1_1_mouse_html"><div class="ttname"><a href="class_lithe_1_1_mouse.html">Lithe::Mouse</a></div><div class="ttdoc">Static class describing mouse states.</div><div class="ttdef"><b>Definition</b> MouseCodes.hpp:10</div></div>
-<div class="ttc" id="aclass_lithe_1_1_mouse_html_aaff0dd53a932f6cf491d06034ebaf430"><div class="ttname"><a href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Lithe::Mouse::Button</a></div><div class="ttdeci">Button</div><div class="ttdoc">Lithe mouse button codes.</div><div class="ttdef"><b>Definition</b> MouseCodes.hpp:16</div></div>
-<div class="ttc" id="aclass_lithe_1_1_mouse_html_ae4e7a894a614328d98d246ac81426d0f"><div class="ttname"><a href="class_lithe_1_1_mouse.html#ae4e7a894a614328d98d246ac81426d0f">Lithe::Mouse::ToGlfwMouseButtonCode</a></div><div class="ttdeci">static int ToGlfwMouseButtonCode(const Button &amp;button)</div><div class="ttdoc">Converts Lithe key codes enum to Glfw notation.</div><div class="ttdef"><b>Definition</b> MouseCodes.hpp:36</div></div>
+<div class="ttc" id="aclass_lithe_1_1_mouse_html"><div class="ttname"><a href="class_lithe_1_1_mouse.html">Lithe::Mouse</a></div><div class="ttdoc">Static class describing mouse states.</div><div class="ttdef"><b>Definition</b> MouseCodes.hpp:11</div></div>
+<div class="ttc" id="aclass_lithe_1_1_mouse_html_aaff0dd53a932f6cf491d06034ebaf430"><div class="ttname"><a href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Lithe::Mouse::Button</a></div><div class="ttdeci">Button</div><div class="ttdoc">Lithe mouse button codes.</div><div class="ttdef"><b>Definition</b> MouseCodes.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

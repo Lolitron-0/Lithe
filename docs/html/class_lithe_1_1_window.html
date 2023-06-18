@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
    </div>
   </td>
  </tr>
@@ -127,9 +127,15 @@ virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetWi
 <tr class="memitem:a8155874c552f7e29874cf08b8f3673a5"><td class="memItemLeft" align="right" valign="top"><a id="a8155874c552f7e29874cf08b8f3673a5" name="a8155874c552f7e29874cf08b8f3673a5"></a>
 virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetHeight</b> () const =0</td></tr>
 <tr class="separator:a8155874c552f7e29874cf08b8f3673a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="memTemplParams" colspan="2"><a id="a2e0b8c274cf72ff4ca0f1f54b845323a" name="a2e0b8c274cf72ff4ca0f1f54b845323a"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>GetNativeHandle</b> () const</td></tr>
+<tr class="memitem:af8083fcb8adf2dd60723c78c72118ddc"><td class="memItemLeft" align="right" valign="top"><a id="af8083fcb8adf2dd60723c78c72118ddc" name="af8083fcb8adf2dd60723c78c72118ddc"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MaximizeWindow</b> () const =0</td></tr>
+<tr class="separator:af8083fcb8adf2dd60723c78c72118ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb7f13f9de946ebbbf786d519407eb88"><td class="memItemLeft" align="right" valign="top"><a id="adb7f13f9de946ebbbf786d519407eb88" name="adb7f13f9de946ebbbf786d519407eb88"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MinimizeWindow</b> () const =0</td></tr>
+<tr class="separator:adb7f13f9de946ebbbf786d519407eb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">GetNativeHandle</a> () const</td></tr>
+<tr class="memdesc:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for backend dependent handle (e.g. GLFWwindow*)  <br /></td></tr>
 <tr class="separator:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d95cb51aaf2bda9d10942f1fd949a1e"><td class="memItemLeft" align="right" valign="top"><a id="a9d95cb51aaf2bda9d10942f1fd949a1e" name="a9d95cb51aaf2bda9d10942f1fd949a1e"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsVSync</b> () const =0</td></tr>
@@ -191,6 +197,42 @@ virtual std::any&#160;</td><td class="memItemRight" valign="bottom"><b>getNative
 
 </div>
 </div>
+<a id="a2e0b8c274cf72ff4ca0f1f54b845323a" name="a2e0b8c274cf72ff4ca0f1f54b845323a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0b8c274cf72ff4ca0f1f54b845323a">&#9670;&#160;</a></span>GetNativeHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T Lithe::Window::GetNativeHandle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for backend dependent handle (e.g. GLFWwindow*) </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Handle</td><td>type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Hanldle </dd></dl>
+
+</div>
+</div>
 <a id="acb2cf790ed393886b52da6938f502420" name="acb2cf790ed393886b52da6938f502420"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb2cf790ed393886b52da6938f502420">&#9670;&#160;</a></span>SetEventCallback()</h2>
 
@@ -228,8 +270,8 @@ virtual std::any&#160;</td><td class="memItemRight" valign="bottom"><b>getNative
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>G:/dev/Lithe/Lithe/src/Lithe/Core/<a class="el" href="_window_8hpp_source.html">Window.hpp</a></li>
-<li>G:/dev/Lithe/Lithe/src/Lithe/Core/Window.cpp</li>
+<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Core/<a class="el" href="_window_8hpp_source.html">Window.hpp</a></li>
+<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Core/Window.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

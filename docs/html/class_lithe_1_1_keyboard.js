@@ -121,6 +121,7 @@ var class_lithe_1_1_keyboard =
       [ "RightControl", "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26a857bb13bb233ca520283eb9886509b65", null ],
       [ "RightAlt", "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ad88bad98046b623323aa6ca28eefa6d5", null ],
       [ "RightSuper", "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26a0cc5a9f113dc1147c8eeae2f0199f9f2", null ],
-      [ "Menu", "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ab61541208db7fa7dba42c85224405911", null ]
+      [ "Menu", "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ab61541208db7fa7dba42c85224405911", null ],
+      [ "Count", "class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ae93f994f01c537c4e2f7d8528c3eb5e9", null ]
     ] ]
 ];

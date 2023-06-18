@@ -71,7 +71,7 @@ namespace Lithe
             {
                 WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
 
-                MouseMovedEvent event{ xPos, yPos };
+                MouseMovedEvent event{ static_cast<float>(xPos), static_cast<float>(yPos) };
                 data.EventCallback(event);
             });
 
@@ -83,7 +83,12 @@ namespace Lithe
                 {
                 case GLFW_PRESS:
                 {
-                    MouseButtonPressedEvent event{button}
+                    MouseButtonPressedEvent event{ Mouse::FromGlfwMouseButton(button) };
+                    break;
+                }
+                case GLFW_RELEASE:
+                {
+                    MouseButtonPressedEvent event{ Mouse::FromGlfwMouseButton(button)};
                     break;
                 }
                 default:
@@ -91,7 +96,6 @@ namespace Lithe
                 }
                 
             });
-
     }
 
     void WindowsWindow::OnUpdate()
@@ -103,6 +107,16 @@ namespace Lithe
     void WindowsWindow::Shutdown()
     {
         glfwDestroyWindow(m_Handle);
+    }
+
+    void WindowsWindow::MaximizeWindow() const
+    {
+        glfwMaximizeWindow(m_Handle);
+    }
+
+    void WindowsWindow::MinimizeWindow() const
+    {
+        glfwIconifyWindow(m_Handle);
     }
 
     std::any WindowsWindow::getNativeHandleImpl_() const

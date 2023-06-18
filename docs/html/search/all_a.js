@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['period_0',['Period',['../class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26a1901606ea069a83dc7beea17881ef95a',1,'Lithe::Keyboard']]],
-  ['poplayer_1',['PopLayer',['../class_lithe_1_1_layer_stack.html#a5d802e654fba6b38bfb0c50b9a545a63',1,'Lithe::LayerStack']]],
-  ['popoverlay_2',['PopOverlay',['../class_lithe_1_1_layer_stack.html#a1968de8a2b8208fc7ebd2a3f25d22113',1,'Lithe::LayerStack']]],
-  ['pushlayer_3',['PushLayer',['../class_lithe_1_1_application.html#a89dac9044831dfae3c7c58b91a036f8c',1,'Lithe::Application::PushLayer()'],['../class_lithe_1_1_layer_stack.html#a8a3f2d1fcea838088142a92a933317f8',1,'Lithe::LayerStack::PushLayer(const LayerPtr &amp;layer)'],['../class_lithe_1_1_layer_stack.html#a6e2ed11573d79fcdfd33aba8ba5e2469',1,'Lithe::LayerStack::PushLayer(Args &amp;&amp;... args)']]],
-  ['pushoverlay_4',['PushOverlay',['../class_lithe_1_1_application.html#a1dfd22e10573648615acc041142ce69f',1,'Lithe::Application::PushOverlay()'],['../class_lithe_1_1_layer_stack.html#a0067d3b3085798bfc1e87231411c7daf',1,'Lithe::LayerStack::PushOverlay(const LayerPtr &amp;layer)'],['../class_lithe_1_1_layer_stack.html#a00af330e362b6c23724a46c8b522bda7',1,'Lithe::LayerStack::PushOverlay(Args &amp;&amp;... args)']]]
+  ['middle_0',['Middle',['../class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430ab1ca34f82e83c52b010f86955f264e05',1,'Lithe::Mouse']]],
+  ['minus_1',['Minus',['../class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26a453fb623e752c5993f65bc410fd74fe5',1,'Lithe::Keyboard']]],
+  ['mouse_2',['Mouse',['../class_lithe_1_1_mouse.html',1,'Lithe']]],
+  ['mousebuttonevent_3',['MouseButtonEvent',['../class_lithe_1_1_mouse_button_event.html',1,'Lithe']]],
+  ['mousebuttonpressedevent_4',['MouseButtonPressedEvent',['../class_lithe_1_1_mouse_button_pressed_event.html',1,'Lithe']]],
+  ['mousebuttonreleasedevent_5',['MouseButtonReleasedEvent',['../class_lithe_1_1_mouse_button_released_event.html',1,'Lithe']]],
+  ['mouseevents_2ehpp_6',['MouseEvents.hpp',['../_mouse_events_8hpp.html',1,'']]],
+  ['mousemovedevent_7',['MouseMovedEvent',['../class_lithe_1_1_mouse_moved_event.html',1,'Lithe']]],
+  ['mousescrolledevent_8',['MouseScrolledEvent',['../class_lithe_1_1_mouse_scrolled_event.html',1,'Lithe']]]
 ];

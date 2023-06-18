@@ -31,6 +31,9 @@ namespace Lithe
 		virtual bool IsVSync() const override;
 		virtual void SetVSync(bool val) override;
 
+		void MaximizeWindow() const override;
+		void MinimizeWindow() const override;
+
 		void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; };
 	private:
 		void Init(const WindowProperties& props);

@@ -12,6 +12,7 @@ namespace Lithe
 		Log::Init();
 		m_MainWindow = Window::Create();
 		m_MainWindow->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
+		m_MainWindow->MaximizeWindow();  // Needed to send initial resize event
 	}
 
 	Lithe::Application::~Application()
@@ -39,8 +40,6 @@ namespace Lithe
 		EventDispatcher dispatcher{ event };
 		dispatcher.Dispatch<WindowClosedEvent>(LT_BIND_EVENT_FN(Application::OnWindowClosed));
 		dispatcher.Dispatch<WindowResizedEvent>(LT_BIND_EVENT_FN(Application::OnWindowResized));
-
-		LITHE_CORE_TRACE(event);
 
 		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); it++)
 		{

@@ -1,10 +1,15 @@
 #include "WindowsWindow.hpp"
 #include "Lithe/Core/Assert.hpp"
 #include "Lithe/Events/Events.hpp"
+#include "WindowsMouse.hpp"
+#include "WindowsKeyboard.hpp"
 #include <glad/glad.h>
 
 namespace Lithe
 {
+    Mouse* Mouse::s_Instance = new WindowsMouse();
+    Keyboard* Keyboard::s_Instance = new WindowsKeyboard();
+
     static bool s_GlfwInitialised{ false };
 
     WindowsWindow::WindowsWindow(const WindowProperties& props)
@@ -83,18 +88,18 @@ namespace Lithe
                 {
                 case GLFW_PRESS:
                 {
-                    MouseButtonPressedEvent event{ Mouse::FromGlfwMouseButton(button) };
+                    MouseButtonPressedEvent event{ FromGlfwMouseButton(button) };
                     break;
                 }
                 case GLFW_RELEASE:
                 {
-                    MouseButtonPressedEvent event{ Mouse::FromGlfwMouseButton(button)};
+                    MouseButtonPressedEvent event{ FromGlfwMouseButton(button) };
                     break;
                 }
                 default:
                     break;
                 }
-                
+
             });
     }
 

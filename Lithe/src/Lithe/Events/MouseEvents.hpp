@@ -7,7 +7,7 @@
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
-#include "Lithe/Utils/MouseCodes.hpp"
+#include "Lithe/Input/Mouse.hpp"
 #include "Event.hpp"
 
 namespace Lithe

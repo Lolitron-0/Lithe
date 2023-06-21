@@ -94,7 +94,7 @@ namespace Lithe
                 }
                 case GLFW_RELEASE:
                 {
-                    MouseButtonPressedEvent event{ FromGlfwMouseButton(button) };
+                    MouseButtonReleasedEvent event{ FromGlfwMouseButton(button) };
                     data.EventCallback(event);
                     break;
                 }

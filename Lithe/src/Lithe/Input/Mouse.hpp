@@ -1,7 +1,7 @@
 #pragma once
 #include "Lithe/Core/Base.hpp"
 #include <unordered_map>
-
+#include <string>
 
 namespace Lithe
 {
@@ -31,12 +31,20 @@ namespace Lithe
 
         static bool IsButtonPressed(const Mouse::Button& button) { return s_Instance->IsButtonPressedImpl(button); }
 
+        /**
+         * @brief Converts Mouse::Butoon enum element to string
+         * @param button Button to convert
+         * @return String representation
+        */
+        static std::string ButtonToString(Button button);
 
     protected:
         virtual bool IsButtonPressedImpl(const Mouse::Button& button) = 0;
 
-        static Mouse* s_Instance; // For polymorphism
+    private:
+        static const std::unordered_map<Button, std::string> s_ButtonToStringMap;
 
+        static Mouse* s_Instance; // For polymorphism
     };
 
 

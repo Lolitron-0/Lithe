@@ -1,5 +1,7 @@
 #pragma once
 #include "Lithe/Core/Base.hpp"
+#include <unordered_map>
+#include <string>
 
 namespace Lithe
 {
@@ -140,8 +142,18 @@ namespace Lithe
         };
 
         static bool IsKeyPressed(const Key& key) { return s_Instance->IsKeyPressedImpl(key); }
-    protected:
+    
+        /**
+         * @brief Converts Lithe Keyboard::Key to string
+         * @param key Key to convert
+         * @return String representation
+        */
+        static std::string KeyToString(Key key);
+        
+protected:
         virtual bool IsKeyPressedImpl(const Key& key) const = 0;
+    private:
+        static const std::unordered_map<Key, std::string> s_KeyToStringMap;
 
         static Keyboard* s_Instance; // not actually a singleton, used for polymorphism
     };

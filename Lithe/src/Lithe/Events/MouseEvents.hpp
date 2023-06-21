@@ -92,7 +92,7 @@ namespace Lithe
         virtual std::string ToString() const override
         {
             std::stringstream ss;
-            ss << "MouseButtonPressed: " << static_cast<int>(GetMouseButton());
+            ss << "MouseButtonPressed: button=" << Mouse::ButtonToString(GetMouseButton());
             return ss.str();
         }
 
@@ -110,11 +110,11 @@ namespace Lithe
         MouseButtonReleasedEvent(Mouse::Button button)
             :MouseButtonEvent(button)
         {}
-
+        
         virtual std::string ToString() const override
         {
             std::stringstream ss;
-            ss << "MouseButtonReleased: " << static_cast<int>(GetMouseButton());
+            ss << "MouseButtonReleased: button=" << Mouse::ButtonToString(GetMouseButton());
             return ss.str();
         }
 
@@ -123,7 +123,7 @@ namespace Lithe
 
     /**
      * @brief Class for mouse scroll event
-     * 
+     *
      * Has EventType::MouseScrolled and Input | Mouse categories
     */
     class LITHE_API MouseScrolledEvent : public Event
@@ -154,7 +154,7 @@ namespace Lithe
         }
 
         EVENT_CLASS_TYPE(MouseScrolled)
-        EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+            EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
     private:
         float m_OffsetX, m_OffsetY;
     };

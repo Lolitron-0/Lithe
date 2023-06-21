@@ -9,13 +9,11 @@ public:
 
     virtual void OnEvent(Lithe::Event& event) override
     {
-        if (event.IsInCategory(Lithe::EventCategoryKeyboard))
-            LITHE_DEBUG(Lithe::Keyboard::IsKeyPressed(Lithe::Keyboard::Key::A));
+        LITHE_DEBUG(event);
     }
 
     bool OnKeyPressed(Lithe::KeyPressedEvent& event)
     {
-        //LITHE_DEBUG(event);
     }
 
     virtual void OnUpdate() override

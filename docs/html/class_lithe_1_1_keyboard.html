@@ -92,21 +92,32 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_keyboard.html',''); in
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="class_lithe_1_1_keyboard-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lithe::Keyboard Class Reference</div></div>
+  <div class="headertitle"><div class="title">Lithe::Keyboard Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Static class for keyboard info.  
  <a href="class_lithe_1_1_keyboard.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_key_codes_8hpp_source.html">KeyCodes.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_keyboard_8hpp_source.html">Keyboard.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Lithe::Keyboard:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_lithe_1_1_keyboard.png" usemap="#Lithe::Keyboard_map" alt=""/>
+  <map id="Lithe::Keyboard_map" name="Lithe::Keyboard_map">
+<area href="class_lithe_1_1_windows_keyboard.html" alt="Lithe::WindowsKeyboard" shape="rect" coords="0,56,150,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a9418238dd953c16a5e5b42c44b8a8b26"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Key</a> { <br />
-&#160;&#160;<b>Unknown</b> = 1
-, <b>Space</b>
+&#160;&#160;<b>Unknown</b> = -1
+, <b>Space</b> = 2
 , <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ab6ac6f84bcb33f9b5186bda6b4c8b399">Apostrophe</a>
 , <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26a58be47db9455679e6a44df2eff9c9fa6">Comma</a>
 , <br />
@@ -264,12 +275,21 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6b30a91964ea4f4349c5bfa138ed21aa"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_keyboard.html#a6b30a91964ea4f4349c5bfa138ed21aa">ToGlfwKey</a> (const <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Key</a> &amp;key)</td></tr>
-<tr class="memdesc:a6b30a91964ea4f4349c5bfa138ed21aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Lithe <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26" title="Enum for all keyboard keys.">Keyboard::Key</a> enum element to Glfw int code.  <br /></td></tr>
-<tr class="separator:a6b30a91964ea4f4349c5bfa138ed21aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa84747e34951e8b30cc9fd55cc188cb0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Keyboard::Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_keyboard.html#aa84747e34951e8b30cc9fd55cc188cb0">FromGlfwKey</a> (int glfwKey)</td></tr>
-<tr class="memdesc:aa84747e34951e8b30cc9fd55cc188cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Glfw key code to Lithe enum element.  <br /></td></tr>
-<tr class="separator:aa84747e34951e8b30cc9fd55cc188cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d3c49a8baf56cca7e0845c705911168"><td class="memItemLeft" align="right" valign="top"><a id="a0d3c49a8baf56cca7e0845c705911168" name="a0d3c49a8baf56cca7e0845c705911168"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsKeyPressed</b> (const <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Key</a> &amp;key)</td></tr>
+<tr class="separator:a0d3c49a8baf56cca7e0845c705911168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3eb7e3429b1332d61fde18e1576af21d"><td class="memItemLeft" align="right" valign="top"><a id="a3eb7e3429b1332d61fde18e1576af21d" name="a3eb7e3429b1332d61fde18e1576af21d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsKeyPressedImpl</b> (const <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Key</a> &amp;key) const =0</td></tr>
+<tr class="separator:a3eb7e3429b1332d61fde18e1576af21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a12cfc2c428632c3ac79e1a94578b1206"><td class="memItemLeft" align="right" valign="top"><a id="a12cfc2c428632c3ac79e1a94578b1206" name="a12cfc2c428632c3ac79e1a94578b1206"></a>
+static <a class="el" href="class_lithe_1_1_keyboard.html">Keyboard</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>s_Instance</b> = new <a class="el" href="class_lithe_1_1_windows_keyboard.html">WindowsKeyboard</a>()</td></tr>
+<tr class="separator:a12cfc2c428632c3ac79e1a94578b1206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static class for keyboard info. </p>
@@ -326,80 +346,9 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa84747e34951e8b30cc9fd55cc188cb0" name="aa84747e34951e8b30cc9fd55cc188cb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa84747e34951e8b30cc9fd55cc188cb0">&#9670;&#160;</a></span>FromGlfwKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Keyboard::Key</a> Lithe::Keyboard::FromGlfwKey </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>glfwKey</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts Glfw key code to Lithe enum element. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">glfwKey</td><td>Code to convert </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26" title="Enum for all keyboard keys.">Keyboard::Key</a> enum element </dd></dl>
-
-</div>
-</div>
-<a id="a6b30a91964ea4f4349c5bfa138ed21aa" name="a6b30a91964ea4f4349c5bfa138ed21aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b30a91964ea4f4349c5bfa138ed21aa">&#9670;&#160;</a></span>ToGlfwKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Lithe::Keyboard::ToGlfwKey </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Key</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts Lithe <a class="el" href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26" title="Enum for all keyboard keys.">Keyboard::Key</a> enum element to Glfw int code. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">key</td><td>Key to convert </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Glfw key code </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Utils/<a class="el" href="_key_codes_8hpp_source.html">KeyCodes.hpp</a></li>
-<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Utils/KeyCodes.cpp</li>
+<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Input/<a class="el" href="_keyboard_8hpp_source.html">Keyboard.hpp</a></li>
+<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Platform/WindowsWindow.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

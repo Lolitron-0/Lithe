@@ -7,5 +7,7 @@ var searchData=
   ['windowmovedevent_4',['WindowMovedEvent',['../class_lithe_1_1_window_moved_event.html',1,'Lithe']]],
   ['windowproperties_5',['WindowProperties',['../struct_lithe_1_1_window_properties.html',1,'Lithe']]],
   ['windowresizedevent_6',['WindowResizedEvent',['../class_lithe_1_1_window_resized_event.html',1,'Lithe']]],
-  ['windowswindow_7',['WindowsWindow',['../class_lithe_1_1_windows_window.html',1,'Lithe']]]
+  ['windowskeyboard_7',['WindowsKeyboard',['../class_lithe_1_1_windows_keyboard.html',1,'Lithe']]],
+  ['windowsmouse_8',['WindowsMouse',['../class_lithe_1_1_windows_mouse.html',1,'Lithe']]],
+  ['windowswindow_9',['WindowsWindow',['../class_lithe_1_1_windows_window.html',1,'Lithe']]]
 ];

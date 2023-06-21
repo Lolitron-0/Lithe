@@ -18,13 +18,17 @@ var hierarchy =
       [ "Lithe::WindowResizedEvent", "class_lithe_1_1_window_resized_event.html", null ]
     ] ],
     [ "Lithe::EventDispatcher", "class_lithe_1_1_event_dispatcher.html", null ],
-    [ "Lithe::Keyboard", "class_lithe_1_1_keyboard.html", null ],
+    [ "Lithe::Keyboard", "class_lithe_1_1_keyboard.html", [
+      [ "Lithe::WindowsKeyboard", "class_lithe_1_1_windows_keyboard.html", null ]
+    ] ],
     [ "Lithe::Layer", "class_lithe_1_1_layer.html", [
       [ "Lithe::ImGuiLayer", "class_lithe_1_1_im_gui_layer.html", null ]
     ] ],
     [ "Lithe::LayerStack", "class_lithe_1_1_layer_stack.html", null ],
     [ "Lithe::Log", "class_lithe_1_1_log.html", null ],
-    [ "Lithe::Mouse", "class_lithe_1_1_mouse.html", null ],
+    [ "Lithe::Mouse", "class_lithe_1_1_mouse.html", [
+      [ "Lithe::WindowsMouse", "class_lithe_1_1_windows_mouse.html", null ]
+    ] ],
     [ "Lithe::Singleton< T >", "class_lithe_1_1_singleton.html", null ],
     [ "Lithe::Singleton< Application >", "class_lithe_1_1_singleton.html", [
       [ "Lithe::Application", "class_lithe_1_1_application.html", null ]

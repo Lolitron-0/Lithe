@@ -26,6 +26,8 @@ var annotated_dup =
       [ "WindowMovedEvent", "class_lithe_1_1_window_moved_event.html", "class_lithe_1_1_window_moved_event" ],
       [ "WindowProperties", "struct_lithe_1_1_window_properties.html", null ],
       [ "WindowResizedEvent", "class_lithe_1_1_window_resized_event.html", "class_lithe_1_1_window_resized_event" ],
+      [ "WindowsKeyboard", "class_lithe_1_1_windows_keyboard.html", "class_lithe_1_1_windows_keyboard" ],
+      [ "WindowsMouse", "class_lithe_1_1_windows_mouse.html", "class_lithe_1_1_windows_mouse" ],
       [ "WindowsWindow", "class_lithe_1_1_windows_window.html", "class_lithe_1_1_windows_window" ]
     ] ]
 ];

@@ -89,17 +89,46 @@ namespace Lithe
                 case GLFW_PRESS:
                 {
                     MouseButtonPressedEvent event{ FromGlfwMouseButton(button) };
+                    data.EventCallback(event);
                     break;
                 }
                 case GLFW_RELEASE:
                 {
                     MouseButtonPressedEvent event{ FromGlfwMouseButton(button) };
+                    data.EventCallback(event);
                     break;
                 }
                 default:
                     break;
                 }
 
+            });
+        glfwSetKeyCallback(m_Handle, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+            {
+                WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
+                switch (action)
+                {
+                case GLFW_PRESS:
+                {
+                    KeyPressedEvent event{ FromGlfwKey(key), false };
+                    data.EventCallback(event);
+                    break;
+                }
+                case GLFW_REPEAT:
+                {
+                    KeyPressedEvent event{ FromGlfwKey(key), true };
+                    data.EventCallback(event);
+                    break;
+                }
+                case GLFW_RELEASE:
+                {
+                    KeyReleasedEvent event{ FromGlfwKey(key) };
+                    data.EventCallback(event);
+                    break;
+                }
+                default:
+                    break;
+                }
             });
     }
 

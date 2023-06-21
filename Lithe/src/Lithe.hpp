@@ -12,6 +12,8 @@
 #include "Lithe/Core/Layer.hpp"
 
 #include "Lithe/Events/Events.hpp"
+#include "Lithe/Input/Keyboard.hpp"
+#include "Lithe/Input/Mouse.hpp"
 
 #include "Lithe/ImGui/ImGuiLayer.hpp"
 

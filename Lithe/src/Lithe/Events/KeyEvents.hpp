@@ -1,91 +1,91 @@
 /*****************************************************************//**
  * @file   KeyEvents.hpp
  * @brief  Header file describing all keyboard related events (key pressed/released).
- * 
+ *
  * @author Lolitron
  * @date   May 2023
  *********************************************************************/
 #pragma once
 #include "Lithe/Core/Base.hpp"
+#include "Lithe/Input/Keyboard.hpp"
 #include "Event.hpp"
 
 namespace Lithe
 {
-	/**
-	 * @brief Base class for all keyboard events
-	 * 
-	 * All KeyEvents have information about code of the key and have EventCategory: EventCategoryInput, EventCategoryKeyboard.
-	 */
-	class LITHE_API KeyEvent : public Event
-	{
-	public:
-		EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryKeyboard);
+    /**
+     * @brief Base class for all keyboard events
+     *
+     * All KeyEvents have information about code of the key and have EventCategory: EventCategoryInput, EventCategoryKeyboard.
+     */
+    class LITHE_API KeyEvent : public Event
+    {
+    public:
+        EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryKeyboard);
 
-		/**
-		 * Getter of the key code of this event.
-		 * \todo key code notation
-		 * @return Key code in some notation :^)
-		 */
-		int GetKeyCode() const { return m_KeyCode; }
-	protected:
-		KeyEvent(int keyCode)
-			:m_KeyCode(keyCode)
-		{}
-	private:
-		int m_KeyCode;
-	};
+        /**
+         * Getter of the key code of this event.
+         * @return Key code as Lithe enum element
+         */
+        Keyboard::Key GetKeyCode() const { return m_KeyCode; }
+    protected:
+        KeyEvent(Keyboard::Key keyCode)
+            :m_KeyCode(keyCode)
+        {}
+    private:
+        Keyboard::Key m_KeyCode;
+    };
 
-	/**
-	 * @brief Class for key press event.
-	 * 
-	 * Has EventType::KeyPressedType
-	 */
-	class LITHE_API KeyPressedEvent : public KeyEvent
-	{
-	public:
-		KeyPressedEvent(int keyCode, int repeatCount)
-			:KeyEvent(keyCode), m_RepeatCount(repeatCount)
-		{}
+    /**
+     * @brief Class for key press event.
+     *
+     * Has EventType::KeyPressedType
+     */
+    class LITHE_API KeyPressedEvent : public KeyEvent
+    {
+    public:
+        KeyPressedEvent(Keyboard::Key keyCode, bool isRepeated)
+            :KeyEvent(keyCode), m_IsRepeated(isRepeated)
+        {}
 
-		/**
-		 * Each key press event has a repeat counter. Delay between key press and key repeat may vary on different systems..
-		 * 
-		 * @return Repeat count of this event.
-		 */
-		int GetRepeatCount() const { return m_RepeatCount; }
+        /**
+         * Each key press event has a repeat flag. Delay between key press and key repeat may vary on different systems.
+         *
+         * @return Repeat flag of this event.
+         */
+        bool IsRepeated() const { return m_IsRepeated; }
 
-		virtual std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyPressed: " << GetKeyCode() << " repeat=" << m_RepeatCount;
-			return ss.str();
-		}
+        virtual std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "KeyPressed: (Lithe::Keyboard::Key)" << (int)GetKeyCode() << " repeat=" << m_IsRepeated;
+            return ss.str();
+        }
 
-		EVENT_CLASS_TYPE(KeyPressed)
-	private:
-		int m_RepeatCount;
-	};
+        EVENT_CLASS_TYPE(KeyPressed)
+    private:
+        bool m_IsRepeated;
+    };
 
-	/**
-	 * @brief Class for key release event.
-	 * 
-	 * Has EventType::KeyRelease type
-	 */
-	class LITHE_API KeyReleasedEvent : public KeyEvent
-	{
-	public:
-		KeyReleasedEvent(int keyCode)
-			:KeyEvent(keyCode)
-		{}
+    /**
+     * @brief Class for key release event.
+     *
+     * Has EventType::KeyRelease type
+     */
+    class LITHE_API KeyReleasedEvent : public KeyEvent
+    {
+    public:
+        KeyReleasedEvent(Keyboard::Key keyCode)
+            :KeyEvent(keyCode)
+        {}
 
-		virtual std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyReleased: " << GetKeyCode();
-			return ss.str();
-		}
+        virtual std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "KeyReleased: (Lithe::Keyboard::Key)" << (int)GetKeyCode();
+            return ss.str();
+        }
 
-		EVENT_CLASS_TYPE(KeyReleased)
-	};
+        EVENT_CLASS_TYPE(KeyReleased)
+    };
 
 }

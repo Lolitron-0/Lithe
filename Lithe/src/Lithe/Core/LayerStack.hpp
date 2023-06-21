@@ -27,56 +27,54 @@ namespace Lithe
 
 		/**
 		 * @brief Adds game world layer to stack
-		 * @note It's recommended to use this method for reinsertion (after popping existing layer). Add new layers with PushLayer<T>(Args&&...)
 		 * @param layer Pointer to push
 		*/
 		void PushLayer(const LayerPtr& layer);
 
 		/**
 		 * @brief Adds ui layer to stack
-		 * @note It's recommended to use this method for reinsertion (after popping existing layer). Add new layers with PushLayer<T>(Args&&...)
 		 * @param layer Pointer to push
 		*/
 		void PushOverlay(const LayerPtr& layer);
 
-		/**
-		 * @brief Method for pushing a game world layer onto stack
-		 * @param ...args Arguments for Layer constructor
-		 *
-		 * @return Pointer object to a created layer. It can be used to access the layer or to pop it later
-		 */
-		template <class T, class... Args>
-		LayerPtr PushLayer(Args&&... args)
-		{
-			auto ptr{ std::make_shared<T>(std::forward<Args>(args)...) };
-			PushLayer(ptr);
-			return ptr;
-		}
 
-		/**
-		 * @brief Method for pushing a ui/overlay layer onto stack
-		 * @param ...args Arguments for Layer constructor
-		 *
-		 * @return Pointer object to a created layer. It can be used to access the layer or to pop it later
-		 */
-		template <class T, class... Args>
-		LayerPtr PushOverlay(Args&&... args)
-		{
-			auto ptr{ std::make_shared<T>(std::forward<Args>(args)...) };
-			PushOverlay(ptr);
-			return ptr;
-		}
+		///**
+		// * @brief Method for pushing a game world layer onto stack
+		// * @param ...args Arguments for Layer constructor
+		// *
+		// * @return Pointer object to a created layer. It can be used to access the layer or to pop it later
+		// */
+		//template <class T, class... Args>
+		//LayerPtr PushLayer(Args&&... args)
+		//{
+		//	auto ptr{ std::make_shared<T>(std::forward<Args>(args)...) };
+		//	PushLayer(ptr);
+		//	return ptr;
+		//}
+
+		///**
+		// * @brief Method for pushing a ui/overlay layer onto stack
+		// * @param ...args Arguments for Layer constructor
+		// *
+		// * @return Pointer object to a created layer. It can be used to access the layer or to pop it later
+		// */
+		//template <class T, class... Args>
+		//LayerPtr PushOverlay(Args&&... args)
+		//{
+		//	auto ptr{ std::make_shared<T>(std::forward<Args>(args)...) };
+		//	PushOverlay(ptr);
+		//	return ptr;
+		//}
+		
 
 		/**
 		 * @brief Deletes game world layer from stack.
-		 *
 		 * @param layer Layer to pop
 		 */
 		void PopLayer(LayerPtr layer);
 
 		/**
 		* @brief Deletes ui layer from stack.
-		*
 		* @param overlay Layer to pop
 		*/
 		void PopOverlay(LayerPtr overlay);

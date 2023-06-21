@@ -10,10 +10,13 @@ namespace Lithe
         ImGuiLayer();
         ~ImGuiLayer();
 
-        void OnEvent(Event& event) override;
-        void OnUpdate() override;
         void OnAttach() override;
         void OnDetach() override;
+        void OnImGuiDraw() override;
+
+        void Begin();
+        void End();
+
     private:
         float m_Time{ 0.f };
     };

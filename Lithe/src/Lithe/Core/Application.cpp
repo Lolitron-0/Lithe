@@ -13,6 +13,9 @@ namespace Lithe
 		m_MainWindow = Window::Create();
 		m_MainWindow->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
 		m_MainWindow->MaximizeWindow();  // Needed to send initial resize event
+
+		//m_ImGuiLayer = std::make_shared<ImGuiLayer>();
+		//m_LayerStack.PushOverlay(m_ImGuiLayer);
 	}
 
 	Lithe::Application::~Application()
@@ -31,6 +34,13 @@ namespace Lithe
 
 			for (LayerPtr layer : m_LayerStack)
 				layer->OnUpdate();
+
+			//m_ImGuiLayer->Begin();
+
+			//for (LayerPtr layer : m_LayerStack)
+			//	layer->OnImGuiDraw();
+
+			//m_ImGuiLayer->End();
 
 			m_MainWindow->OnUpdate();
 		}

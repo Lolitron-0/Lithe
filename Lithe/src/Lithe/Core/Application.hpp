@@ -10,6 +10,7 @@
 #include "Window.hpp"
 #include "Lithe/Utils/Singleton.hpp"
 #include "LayerStack.hpp"
+#include "Lithe/ImGui/ImGuiLayer.hpp"
 
 namespace Lithe
 {
@@ -28,27 +29,19 @@ namespace Lithe
 		/**
 		 * @brief Wrapper around LayerStack corresponding method.
 		 * See LayerStack::PushLayer for more information
-		 * 
-		 * @param ...args  Arguments for layer creation
-		 * @return Smart pointer object containing created layer
 		 */
-		template <class T, class... Args>
-		LayerPtr PushLayer(Args&&... args)
+		void PushLayer(LayerPtr layer)
 		{
-			return m_LayerStack.PushLayer<T>(std::forward<T>(args)...);
+			return m_LayerStack.PushLayer(layer);
 		}
 
 		/**
 		* @brief Wrapper around LayerStack corresponding methods.
 		* See LayerStack::PushLayer for more information
-		*
-		* @param ...args  Arguments for layer creation
-		* @return Smart pointer object containing created layer
 		*/
-		template <class T, class... Args>
-		LayerPtr PushOverlay(Args&&... args)
+		void PushOverlay(LayerPtr layer)
 		{
-			return m_LayerStack.PushOverlay<T>(std::forward<T>(args)...);
+			return m_LayerStack.PushOverlay(layer);
 		}
 
 		const Window& GetWindow() const;
@@ -62,6 +55,7 @@ namespace Lithe
 	private:
 		LayerStack m_LayerStack;
 		Scope<Window> m_MainWindow;
+		//Ref<ImGuiLayer> m_ImGuiLayer;
 		bool m_Running{ true };
 	};
 

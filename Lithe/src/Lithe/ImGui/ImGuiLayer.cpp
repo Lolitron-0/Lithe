@@ -16,31 +16,6 @@ namespace Lithe
     {
     }
 
-    void ImGuiLayer::OnEvent(Event& event)
-    {
-        EventDispatcher dispatcher{ event };
-    }
-
-    void ImGuiLayer::OnUpdate()
-    {
-        ImGuiIO& io = ImGui::GetIO();
-        const auto& app = Application::GetInstance();
-        io.DisplaySize = ImVec2(static_cast<float>(app.GetWindow().GetWidth()), static_cast<float>(app.GetWindow().GetHeight()));
-
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui::NewFrame();
-
-        float time = (float)glfwGetTime();
-        io.DeltaTime = m_Time > 0.f ? (time - m_Time) : (1.f / 60.f);
-        m_Time = time;
-
-        static bool show{ true };
-        ImGui::ShowDemoWindow(&show);
-
-        ImGui::Render();
-
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-    }
 
     void ImGuiLayer::OnAttach()
     {
@@ -50,6 +25,15 @@ namespace Lithe
 
         ImGuiIO& io = ImGui::GetIO(); (void)io;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+        io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
+        ImGuiStyle& style = ImGui::GetStyle();
+        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        {
+            style.WindowRounding = 0.0f;
+            style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+        }
 
         GLFWwindow* window{ Application::GetInstance().GetWindow().GetNativeHandle<GLFWwindow*>() };
         ImGui_ImplGlfw_InitForOpenGL(window, true);
@@ -60,5 +44,39 @@ namespace Lithe
 
     void ImGuiLayer::OnDetach()
     {
+        ImGui_ImplOpenGL3_Shutdown();
+        ImGui_ImplGlfw_Shutdown();
+        ImGui::DestroyContext();
+    }
+
+    void ImGuiLayer::OnImGuiDraw()
+    {
+        static bool show = true;
+        ImGui::ShowDemoWindow(&show);
+    }
+
+    void ImGuiLayer::Begin()
+    {
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+    }
+
+    void ImGuiLayer::End()
+    {
+        ImGuiIO& io = ImGui::GetIO();
+        const auto& app = Application::GetInstance();
+        io.DisplaySize = ImVec2(static_cast<float>(app.GetWindow().GetWidth()), static_cast<float>(app.GetWindow().GetHeight()));
+
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        {
+            GLFWwindow* backup_current_context = glfwGetCurrentContext();
+            ImGui::UpdatePlatformWindows();
+            ImGui::RenderPlatformWindowsDefault();
+            glfwMakeContextCurrent(backup_current_context);
+        }
     }
 }

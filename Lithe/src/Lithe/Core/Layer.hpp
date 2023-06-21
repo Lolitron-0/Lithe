@@ -21,10 +21,12 @@ namespace Lithe
 		Layer(const std::string& name = "Layer");
 		virtual ~Layer() = default;
 
-		virtual void OnEvent(Event& event) = 0;
-		virtual void OnUpdate() = 0;
-		virtual void OnAttach() = 0;
-		virtual void OnDetach() = 0;
+		virtual void OnEvent(Event& event) {}
+		virtual void OnUpdate() {}
+		virtual void OnImGuiDraw() {}
+
+		virtual void OnAttach() {}
+		virtual void OnDetach() {}
 
 
 	protected:

@@ -1,7 +1,5 @@
 #pragma once
-#include "Lithe/Core/Base.hpp"
-#include <unordered_map>
-#include <string>
+#include <glm/vec2.hpp>
 
 namespace Lithe
 {
@@ -31,6 +29,8 @@ namespace Lithe
 
         static bool IsButtonPressed(const Mouse::Button& button) { return s_Instance->IsButtonPressedImpl(button); }
 
+        static glm::vec2 GetPosition() { return s_Instance->GetPositionImpl(); };
+
         /**
          * @brief Converts Mouse::Butoon enum element to string
          * @param button Button to convert
@@ -40,6 +40,8 @@ namespace Lithe
 
     protected:
         virtual bool IsButtonPressedImpl(const Mouse::Button& button) = 0;
+
+        virtual glm::vec2 GetPositionImpl() = 0;
 
     private:
         static const std::unordered_map<Button, std::string> s_ButtonToStringMap;

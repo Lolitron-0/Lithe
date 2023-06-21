@@ -1,3 +1,4 @@
+#include "ltpch.h"
 #include "ImGuiLayer.hpp"
 #include "Lithe/Core/Application.hpp"
 #include <backends/imgui_impl_opengl3.h>
@@ -24,7 +25,7 @@ namespace Lithe
     {
         ImGuiIO& io = ImGui::GetIO();
         const auto& app = Application::GetInstance();
-        io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+        io.DisplaySize = ImVec2(static_cast<float>(app.GetWindow().GetWidth()), static_cast<float>(app.GetWindow().GetHeight()));
 
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();

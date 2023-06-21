@@ -14,6 +14,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Lithe/thirdparty/GLFW/include"
 IncludeDir["Glad"] = "Lithe/thirdparty/glad/include"
 IncludeDir["ImGui"] = "Lithe/thirdparty/ImGui/"
+IncludeDir["glm"] = "Lithe/thirdparty/glm/"
 
 include "Lithe/thirdparty/GLFW"
 include "Lithe/thirdparty/Glad"
@@ -26,6 +27,9 @@ project "Lithe"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "ltpch.h"
+	pchsource "Lithe/src/ltpch.cpp"
 
 	files
 	{
@@ -42,6 +46,7 @@ project "Lithe"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}",
 	}
 
 	links
@@ -102,7 +107,9 @@ project "Sandbox"
 	includedirs
 	{
 		"Lithe/thirdparty/spdlog/include",
-		"Lithe/src"
+		"Lithe/src",
+		"%{IncludeDir.glm}",
+
 	}
 
 	links

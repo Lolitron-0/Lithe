@@ -1,3 +1,4 @@
+#include "ltpch.h"
 #include "Mouse.hpp"
 
 namespace Lithe

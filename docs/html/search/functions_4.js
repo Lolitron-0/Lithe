@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['poplayer_0',['PopLayer',['../class_lithe_1_1_layer_stack.html#a5d802e654fba6b38bfb0c50b9a545a63',1,'Lithe::LayerStack']]],
-  ['popoverlay_1',['PopOverlay',['../class_lithe_1_1_layer_stack.html#a1968de8a2b8208fc7ebd2a3f25d22113',1,'Lithe::LayerStack']]],
-  ['pushlayer_2',['PushLayer',['../class_lithe_1_1_application.html#a89dac9044831dfae3c7c58b91a036f8c',1,'Lithe::Application::PushLayer()'],['../class_lithe_1_1_layer_stack.html#a8a3f2d1fcea838088142a92a933317f8',1,'Lithe::LayerStack::PushLayer(const LayerPtr &amp;layer)'],['../class_lithe_1_1_layer_stack.html#a6e2ed11573d79fcdfd33aba8ba5e2469',1,'Lithe::LayerStack::PushLayer(Args &amp;&amp;... args)']]],
-  ['pushoverlay_3',['PushOverlay',['../class_lithe_1_1_application.html#a1dfd22e10573648615acc041142ce69f',1,'Lithe::Application::PushOverlay()'],['../class_lithe_1_1_layer_stack.html#a0067d3b3085798bfc1e87231411c7daf',1,'Lithe::LayerStack::PushOverlay(const LayerPtr &amp;layer)'],['../class_lithe_1_1_layer_stack.html#a00af330e362b6c23724a46c8b522bda7',1,'Lithe::LayerStack::PushOverlay(Args &amp;&amp;... args)']]]
+  ['init_0',['Init',['../class_lithe_1_1_log.html#ad2d73551dbabacd0bd42f55b46186d4c',1,'Lithe::Log']]],
+  ['isincategory_1',['IsInCategory',['../class_lithe_1_1_event.html#a9f35448f44d769b18c8ab63f3332d289',1,'Lithe::Event']]],
+  ['isrepeated_2',['IsRepeated',['../class_lithe_1_1_key_pressed_event.html#aff727959596cb0cbcafcd4bc63e1e83a',1,'Lithe::KeyPressedEvent']]]
 ];

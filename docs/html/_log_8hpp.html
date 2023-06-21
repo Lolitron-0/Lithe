@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lithe: C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Core/Log.hpp File Reference</title>
+<title>Lithe: G:/dev/Lithe/Lithe/src/Lithe/Core/Log.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
    </div>
   </td>
  </tr>
@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('_log_8hpp.html',''); initResizable(); 
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Log.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -101,6 +102,8 @@ $(document).ready(function(){initNavTree('_log_8hpp.html',''); initResizable(); 
 <div class="textblock"><code>#include &quot;<a class="el" href="_base_8hpp_source.html">Base.hpp</a>&quot;</code><br />
 <code>#include &lt;spdlog/spdlog.h&gt;</code><br />
 <code>#include &lt;spdlog/fmt/ostr.h&gt;</code><br />
+<code>#include &lt;glm/glm.hpp&gt;</code><br />
+<code>#include &lt;glm/gtx/string_cast.hpp&gt;</code><br />
 </div>
 <p><a href="_log_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -160,6 +163,24 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_DEBUG</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">::Lithe::Log::GetClientLogger</a>()-&gt;debug(__VA_ARGS__);</td></tr>
 <tr class="memdesc:ae2ec019998afd2f9a8dc886999ae3076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client debug messages logging. <br /></td></tr>
 <tr class="separator:ae2ec019998afd2f9a8dc886999ae3076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a23ad003f9817002314e2e73f94c71a47"><td class="memTemplParams" colspan="2"><a id="a23ad003f9817002314e2e73f94c71a47" name="a23ad003f9817002314e2e73f94c71a47"></a>
+template&lt;class OStream , glm::length_t L, class T , glm::qualifier Q&gt; </td></tr>
+<tr class="memitem:a23ad003f9817002314e2e73f94c71a47"><td class="memTemplItemLeft" align="right" valign="top">OStream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (OStream &amp;os, const glm::vec&lt; L, T, Q &gt; &amp;v)</td></tr>
+<tr class="memdesc:a23ad003f9817002314e2e73f94c71a47"><td class="mdescLeft">&#160;</td><td class="mdescRight">glm::vec logging <br /></td></tr>
+<tr class="separator:a23ad003f9817002314e2e73f94c71a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29458e61f860b36f2434d19b517a4807"><td class="memTemplParams" colspan="2"><a id="a29458e61f860b36f2434d19b517a4807" name="a29458e61f860b36f2434d19b517a4807"></a>
+template&lt;class OStream , glm::length_t C, glm::length_t R, class T , glm::qualifier Q&gt; </td></tr>
+<tr class="memitem:a29458e61f860b36f2434d19b517a4807"><td class="memTemplItemLeft" align="right" valign="top">OStream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (OStream &amp;os, const glm::mat&lt; C, R, T, Q &gt; &amp;m)</td></tr>
+<tr class="memdesc:a29458e61f860b36f2434d19b517a4807"><td class="mdescLeft">&#160;</td><td class="mdescRight">glm::mat logging <br /></td></tr>
+<tr class="separator:a29458e61f860b36f2434d19b517a4807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd3f01a771984d3743bc16c53c972a2"><td class="memTemplParams" colspan="2"><a id="a2fd3f01a771984d3743bc16c53c972a2" name="a2fd3f01a771984d3743bc16c53c972a2"></a>
+template&lt;class OStream , class T , glm::qualifier Q&gt; </td></tr>
+<tr class="memitem:a2fd3f01a771984d3743bc16c53c972a2"><td class="memTemplItemLeft" align="right" valign="top">OStream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (OStream &amp;os, const glm::qua&lt; T, Q &gt; &amp;q)</td></tr>
+<tr class="memdesc:a2fd3f01a771984d3743bc16c53c972a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">glm::qua logging <br /></td></tr>
+<tr class="separator:a2fd3f01a771984d3743bc16c53c972a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Logger header file. </p>

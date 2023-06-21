@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
    </div>
   </td>
  </tr>
@@ -93,7 +93,6 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_mouse.html',''); initR
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="class_lithe_1_1_mouse-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lithe::Mouse Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -139,18 +138,21 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1d4a11641dacbfc9ac308c5636a8753c"><td class="memItemLeft" align="right" valign="top"><a id="a1d4a11641dacbfc9ac308c5636a8753c" name="a1d4a11641dacbfc9ac308c5636a8753c"></a>
 static bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsButtonPressed</b> (const <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a> &amp;button)</td></tr>
 <tr class="separator:a1d4a11641dacbfc9ac308c5636a8753c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a753259e7c845b0c44b2965cc70db5d4d"><td class="memItemLeft" align="right" valign="top"><a id="a753259e7c845b0c44b2965cc70db5d4d" name="a753259e7c845b0c44b2965cc70db5d4d"></a>
+static glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosition</b> ()</td></tr>
+<tr class="separator:a753259e7c845b0c44b2965cc70db5d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a52ed6837dc3c1c786c71b11d16f67"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse.html#a75a52ed6837dc3c1c786c71b11d16f67">ButtonToString</a> (<a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a> button)</td></tr>
+<tr class="memdesc:a75a52ed6837dc3c1c786c71b11d16f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Mouse::Butoon enum element to string.  <br /></td></tr>
+<tr class="separator:a75a52ed6837dc3c1c786c71b11d16f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a86f149be902d95ee13b9f2d4f6bb69b2"><td class="memItemLeft" align="right" valign="top"><a id="a86f149be902d95ee13b9f2d4f6bb69b2" name="a86f149be902d95ee13b9f2d4f6bb69b2"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsButtonPressedImpl</b> (const <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a> &amp;button)=0</td></tr>
 <tr class="separator:a86f149be902d95ee13b9f2d4f6bb69b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
-Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a8eb7f22d9f255c7ea23c5d68261862a2"><td class="memItemLeft" align="right" valign="top"><a id="a8eb7f22d9f255c7ea23c5d68261862a2" name="a8eb7f22d9f255c7ea23c5d68261862a2"></a>
-static <a class="el" href="class_lithe_1_1_mouse.html">Mouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>s_Instance</b> = new <a class="el" href="class_lithe_1_1_windows_mouse.html">WindowsMouse</a>()</td></tr>
-<tr class="separator:a8eb7f22d9f255c7ea23c5d68261862a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a425b2686ab0172312605ce04b764b129"><td class="memItemLeft" align="right" valign="top"><a id="a425b2686ab0172312605ce04b764b129" name="a425b2686ab0172312605ce04b764b129"></a>
+virtual glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>GetPositionImpl</b> ()=0</td></tr>
+<tr class="separator:a425b2686ab0172312605ce04b764b129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static class describing mouse states. </p>
@@ -187,9 +189,46 @@ static <a class="el" href="class_lithe_1_1_mouse.html">Mouse</a> *&#160;</td><td
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a75a52ed6837dc3c1c786c71b11d16f67" name="a75a52ed6837dc3c1c786c71b11d16f67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a52ed6837dc3c1c786c71b11d16f67">&#9670;&#160;</a></span>ButtonToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Lithe::Mouse::ButtonToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a>&#160;</td>
+          <td class="paramname"><em>button</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts Mouse::Butoon enum element to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>Button to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String representation </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Input/<a class="el" href="_mouse_8hpp_source.html">Mouse.hpp</a></li>
-<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Platform/WindowsWindow.cpp</li>
+<li>G:/dev/Lithe/Lithe/src/Lithe/Input/<a class="el" href="_mouse_8hpp_source.html">Mouse.hpp</a></li>
+<li>G:/dev/Lithe/Lithe/src/Lithe/Input/Mouse.cpp</li>
+<li>G:/dev/Lithe/Lithe/src/Platform/WindowsWindow.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

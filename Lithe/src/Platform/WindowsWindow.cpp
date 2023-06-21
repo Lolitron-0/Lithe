@@ -1,3 +1,4 @@
+#include "ltpch.h"
 #include "WindowsWindow.hpp"
 #include "Lithe/Core/Assert.hpp"
 #include "Lithe/Events/Events.hpp"
@@ -129,6 +130,12 @@ namespace Lithe
                 default:
                     break;
                 }
+            });
+
+        glfwSetScrollCallback(m_Handle, [](GLFWwindow* window, double xOffset, double yOffset) {
+            WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
+            MouseScrolledEvent event{ static_cast<float>(xOffset), static_cast<float>(yOffset) };
+            data.EventCallback(event);
             });
     }
 

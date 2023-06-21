@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lithe: C:/Users/niten01/Projects/Lithe/Lithe/src/Lithe/Events/KeyEvents.hpp Source File</title>
+<title>Lithe: G:/dev/Lithe/Lithe/src/Lithe/Events/KeyEvents.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
    </div>
   </td>
  </tr>
@@ -126,7 +126,7 @@ $(document).ready(function(){initNavTree('_key_events_8hpp_source.html',''); ini
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_lithe_1_1_key_pressed_event.html#aa22359c9d8fb213f79eb350e7244b715">   57</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_lithe_1_1_key_pressed_event.html#aa22359c9d8fb213f79eb350e7244b715">ToString</a>()<span class="keyword"> const override</span></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            std::stringstream ss;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            ss &lt;&lt; <span class="stringliteral">&quot;KeyPressed: (Lithe::Keyboard::Key)&quot;</span> &lt;&lt; (int)GetKeyCode() &lt;&lt; <span class="stringliteral">&quot; repeat=&quot;</span> &lt;&lt; m_IsRepeated;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            ss &lt;&lt; <span class="stringliteral">&quot;KeyPressed: key=&quot;</span> &lt;&lt; Keyboard::KeyToString(GetKeyCode()) &lt;&lt; <span class="stringliteral">&quot; repeat=&quot;</span> &lt;&lt; m_IsRepeated;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">return</span> ss.str();</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
@@ -145,7 +145,7 @@ $(document).ready(function(){initNavTree('_key_events_8hpp_source.html',''); ini
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_lithe_1_1_key_released_event.html#a945427275333984d3cbe7efe0eb30332">   81</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_lithe_1_1_key_released_event.html#a945427275333984d3cbe7efe0eb30332">ToString</a>()<span class="keyword"> const override</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            std::stringstream ss;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            ss &lt;&lt; <span class="stringliteral">&quot;KeyReleased: (Lithe::Keyboard::Key)&quot;</span> &lt;&lt; (int)GetKeyCode();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            ss &lt;&lt; <span class="stringliteral">&quot;KeyReleased: key=&quot;</span> &lt;&lt; Keyboard::KeyToString(GetKeyCode());</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">return</span> ss.str();</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('_key_events_8hpp_source.html',''); ini
 <div class="ttc" id="aclass_lithe_1_1_key_pressed_event_html_aff727959596cb0cbcafcd4bc63e1e83a"><div class="ttname"><a href="class_lithe_1_1_key_pressed_event.html#aff727959596cb0cbcafcd4bc63e1e83a">Lithe::KeyPressedEvent::IsRepeated</a></div><div class="ttdeci">bool IsRepeated() const</div><div class="ttdef"><b>Definition</b> KeyEvents.hpp:55</div></div>
 <div class="ttc" id="aclass_lithe_1_1_key_released_event_html"><div class="ttname"><a href="class_lithe_1_1_key_released_event.html">Lithe::KeyReleasedEvent</a></div><div class="ttdoc">Class for key release event.</div><div class="ttdef"><b>Definition</b> KeyEvents.hpp:75</div></div>
 <div class="ttc" id="aclass_lithe_1_1_key_released_event_html_a945427275333984d3cbe7efe0eb30332"><div class="ttname"><a href="class_lithe_1_1_key_released_event.html#a945427275333984d3cbe7efe0eb30332">Lithe::KeyReleasedEvent::ToString</a></div><div class="ttdeci">virtual std::string ToString() const override</div><div class="ttdoc">C#-style method for logging and debugging purposes.</div><div class="ttdef"><b>Definition</b> KeyEvents.hpp:81</div></div>
-<div class="ttc" id="aclass_lithe_1_1_keyboard_html_a9418238dd953c16a5e5b42c44b8a8b26"><div class="ttname"><a href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Lithe::Keyboard::Key</a></div><div class="ttdeci">Key</div><div class="ttdoc">Enum for all keyboard keys.</div><div class="ttdef"><b>Definition</b> Keyboard.hpp:12</div></div>
+<div class="ttc" id="aclass_lithe_1_1_keyboard_html_a9418238dd953c16a5e5b42c44b8a8b26"><div class="ttname"><a href="class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26">Lithe::Keyboard::Key</a></div><div class="ttdeci">Key</div><div class="ttdoc">Enum for all keyboard keys.</div><div class="ttdef"><b>Definition</b> Keyboard.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

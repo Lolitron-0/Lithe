@@ -12,5 +12,8 @@ var _log_8hpp =
     [ "LITHE_FATAL", "_log_8hpp.html#a55e7bf72838d6cd5befd63b8e85734d0", null ],
     [ "LITHE_INFO", "_log_8hpp.html#a5222fbe253b0ae5c0dab5454b7b89fcf", null ],
     [ "LITHE_TRACE", "_log_8hpp.html#ad352bc6d96f3b9861fddb83dcbde0d3b", null ],
-    [ "LITHE_WARN", "_log_8hpp.html#ac6681294e2acd464f5760973c951af00", null ]
+    [ "LITHE_WARN", "_log_8hpp.html#ac6681294e2acd464f5760973c951af00", null ],
+    [ "operator<<", "_log_8hpp.html#a29458e61f860b36f2434d19b517a4807", null ],
+    [ "operator<<", "_log_8hpp.html#a2fd3f01a771984d3743bc16c53c972a2", null ],
+    [ "operator<<", "_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47", null ]
 ];

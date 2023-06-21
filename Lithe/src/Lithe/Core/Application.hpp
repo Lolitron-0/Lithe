@@ -6,7 +6,6 @@
  * @date   June 2023
  *********************************************************************/
 #pragma once
-#include "Base.hpp"
 #include "Lithe/Events/Events.hpp"
 #include "Window.hpp"
 #include "Lithe/Utils/Singleton.hpp"

@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0.0</span>
+   <div id="projectname">Lithe<span id="projectnumber">&#160;0.0</span>
    </div>
   </td>
  </tr>
@@ -110,6 +110,8 @@ Inheritance diagram for Lithe::WindowsMouse:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6142f013dc8dee8442da33f8d8ac3e09"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_mouse.html#a6142f013dc8dee8442da33f8d8ac3e09">IsButtonPressedImpl</a> (const <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a> &amp;button) override</td></tr>
 <tr class="separator:a6142f013dc8dee8442da33f8d8ac3e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db77a3fd37edc3a11cf3a564094eca8"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_mouse.html#a7db77a3fd37edc3a11cf3a564094eca8">GetPositionImpl</a> () override</td></tr>
+<tr class="separator:a7db77a3fd37edc3a11cf3a564094eca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -145,15 +147,47 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a1d4a11641dacbfc9ac308c5636a8753c inherit pub_static_methods_class_lithe_1_1_mouse"><td class="memItemLeft" align="right" valign="top">
 static bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsButtonPressed</b> (const <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a> &amp;button)</td></tr>
 <tr class="separator:a1d4a11641dacbfc9ac308c5636a8753c inherit pub_static_methods_class_lithe_1_1_mouse"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a753259e7c845b0c44b2965cc70db5d4d inherit pub_static_methods_class_lithe_1_1_mouse"><td class="memItemLeft" align="right" valign="top">
+static glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosition</b> ()</td></tr>
+<tr class="separator:a753259e7c845b0c44b2965cc70db5d4d inherit pub_static_methods_class_lithe_1_1_mouse"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a52ed6837dc3c1c786c71b11d16f67 inherit pub_static_methods_class_lithe_1_1_mouse"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse.html#a75a52ed6837dc3c1c786c71b11d16f67">ButtonToString</a> (<a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Button</a> button)</td></tr>
+<tr class="memdesc:a75a52ed6837dc3c1c786c71b11d16f67 inherit pub_static_methods_class_lithe_1_1_mouse"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts Mouse::Butoon enum element to string.  <br /></td></tr>
+<tr class="separator:a75a52ed6837dc3c1c786c71b11d16f67 inherit pub_static_methods_class_lithe_1_1_mouse"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86f149be902d95ee13b9f2d4f6bb69b2"><td class="memItemLeft" align="right" valign="top"><a id="a86f149be902d95ee13b9f2d4f6bb69b2" name="a86f149be902d95ee13b9f2d4f6bb69b2"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsButtonPressedImpl</b> (const <a class="el" href="class_lithe_1_1_mouse.html#aaff0dd53a932f6cf491d06034ebaf430">Mouse::Button</a> &amp;button)=0</td></tr>
 <tr class="separator:a86f149be902d95ee13b9f2d4f6bb69b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_static_attribs_class_lithe_1_1_mouse"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_lithe_1_1_mouse')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="class_lithe_1_1_mouse.html">Lithe::Mouse</a></td></tr>
-<tr class="memitem:a8eb7f22d9f255c7ea23c5d68261862a2 inherit pro_static_attribs_class_lithe_1_1_mouse"><td class="memItemLeft" align="right" valign="top">
-static <a class="el" href="class_lithe_1_1_mouse.html">Mouse</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>s_Instance</b> = new <a class="el" href="class_lithe_1_1_windows_mouse.html">WindowsMouse</a>()</td></tr>
-<tr class="separator:a8eb7f22d9f255c7ea23c5d68261862a2 inherit pro_static_attribs_class_lithe_1_1_mouse"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a425b2686ab0172312605ce04b764b129"><td class="memItemLeft" align="right" valign="top"><a id="a425b2686ab0172312605ce04b764b129" name="a425b2686ab0172312605ce04b764b129"></a>
+virtual glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>GetPositionImpl</b> ()=0</td></tr>
+<tr class="separator:a425b2686ab0172312605ce04b764b129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7db77a3fd37edc3a11cf3a564094eca8" name="a7db77a3fd37edc3a11cf3a564094eca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db77a3fd37edc3a11cf3a564094eca8">&#9670;&#160;</a></span>GetPositionImpl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 Lithe::WindowsMouse::GetPositionImpl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_lithe_1_1_mouse.html">Lithe::Mouse</a>.</p>
+
+</div>
+</div>
 <a id="a6142f013dc8dee8442da33f8d8ac3e09" name="a6142f013dc8dee8442da33f8d8ac3e09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6142f013dc8dee8442da33f8d8ac3e09">&#9670;&#160;</a></span>IsButtonPressedImpl()</h2>
 
@@ -254,8 +288,8 @@ static <a class="el" href="class_lithe_1_1_mouse.html">Mouse</a> *&#160;</td><td
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Platform/<a class="el" href="_windows_mouse_8hpp_source.html">WindowsMouse.hpp</a></li>
-<li>C:/Users/niten01/Projects/Lithe/Lithe/src/Platform/WindowsMouse.cpp</li>
+<li>G:/dev/Lithe/Lithe/src/Platform/<a class="el" href="_windows_mouse_8hpp_source.html">WindowsMouse.hpp</a></li>
+<li>G:/dev/Lithe/Lithe/src/Platform/WindowsMouse.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

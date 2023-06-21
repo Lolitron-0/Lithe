@@ -1,5 +1,5 @@
+#include "ltpch.h"
 #include "Application.hpp"
-#include "Log.hpp"
 #include "Window.hpp"
 #include "LayerStack.hpp"
 #include <glad/glad.h>

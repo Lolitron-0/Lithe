@@ -7,7 +7,6 @@
  *********************************************************************/
 
 #pragma once
-#include "Base.hpp"
 #include "Lithe/Events/Events.hpp"
 
 namespace Lithe

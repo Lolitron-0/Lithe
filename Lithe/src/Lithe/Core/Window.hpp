@@ -6,9 +6,7 @@
  * @date   June 2023
  *********************************************************************/
 #pragma once
-#include "Lithe/Core/Base.hpp"
 #include "Lithe/Events/Event.hpp"
-#include <functional>
 #include <any>
 
 namespace Lithe

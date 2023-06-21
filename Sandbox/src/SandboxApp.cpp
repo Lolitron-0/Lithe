@@ -1,4 +1,5 @@
 #include <Lithe.hpp>
+#include <glm/vec2.hpp>
 
 class MyLayer : public Lithe::Layer
 {
@@ -9,7 +10,6 @@ public:
 
     virtual void OnEvent(Lithe::Event& event) override
     {
-        LITHE_DEBUG(event);
     }
 
     bool OnKeyPressed(Lithe::KeyPressedEvent& event)
@@ -22,7 +22,10 @@ public:
 
     virtual void OnAttach() override
     {
+        glm::vec2 v{1, 2.5};
+        LITHE_DEBUG(v);
     }
+
     virtual void OnDetach() override
     {
     }
@@ -34,7 +37,7 @@ public:
     Sandbox()
     {
         this->PushLayer<MyLayer>();
-        this->PushLayer<Lithe::ImGuiLayer>();
+        this->PushOverlay<Lithe::ImGuiLayer>();
     }
 
     ~Sandbox()

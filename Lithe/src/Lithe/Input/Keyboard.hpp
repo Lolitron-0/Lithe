@@ -1,7 +1,4 @@
 #pragma once
-#include "Lithe/Core/Base.hpp"
-#include <unordered_map>
-#include <string>
 
 namespace Lithe
 {

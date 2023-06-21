@@ -1,6 +1,5 @@
 #pragma once
 #include "Lithe/Input/Mouse.hpp"
-#include <unordered_map>
 
 namespace Lithe
 {
@@ -9,6 +8,7 @@ namespace Lithe
     public:
         bool IsButtonPressedImpl(const Mouse::Button& button) override;
 
+        glm::vec2 GetPositionImpl() override;
     private:
 
         static const std::unordered_map<Button, int> s_ButtonToGlfwMap;

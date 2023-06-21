@@ -6,7 +6,6 @@
  * @date   June 2023
  *********************************************************************/
 #pragma once
-#include "Lithe/Core/Base.hpp"
 #include "Lithe/Core/Window.hpp"
 #include <GLFW/glfw3.h>
 
@@ -14,7 +13,7 @@
 namespace Lithe
 {
 	///Specialisation for a Windows window.
-	class LITHE_API WindowsWindow : public Window
+	class LITHE_API WindowsWindow final : public Window
 	{
 	public:
 		WindowsWindow(const WindowProperties& props);

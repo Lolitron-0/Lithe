@@ -1,3 +1,4 @@
+#include "ltpch.h"
 #include "WindowsMouse.hpp"
 #include "Lithe/Core/Log.hpp"
 #include "Lithe/Core/Application.hpp"
@@ -48,5 +49,13 @@ namespace Lithe
         auto& window = Application::GetInstance().GetWindow();
         auto status = glfwGetMouseButton(window.GetNativeHandle<GLFWwindow*>(), ToGlfwMouseButton(button));
         return status == GLFW_PRESS;
+    }
+
+    glm::vec2 WindowsMouse::GetPositionImpl()
+    {
+        auto& window = Application::GetInstance().GetWindow();
+        double xPos, yPos;
+        glfwGetCursorPos(window.GetNativeHandle<GLFWwindow*>(), &xPos, &yPos);
+        return {xPos, yPos};
     }
 }

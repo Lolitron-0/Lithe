@@ -1,6 +1,5 @@
 #pragma once
 #include "Lithe/Input/Keyboard.hpp"
-#include <unordered_map>
 
 namespace Lithe
 {

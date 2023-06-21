@@ -6,9 +6,7 @@
  * @date   June 2023
  *********************************************************************/
 #pragma once
-#include "Base.hpp"
 #include "Layer.hpp"
-#include <vector>
 
 namespace Lithe
 {

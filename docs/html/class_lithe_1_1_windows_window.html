@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_windows_window.html','
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_lithe_1_1_windows_window-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lithe::WindowsWindow Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
@@ -111,6 +112,16 @@ Inheritance diagram for Lithe::WindowsWindow:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aefc0c867c53a745f14a5beeb5ba9ca87"><td class="memItemLeft" align="right" valign="top"><a id="aefc0c867c53a745f14a5beeb5ba9ca87" name="aefc0c867c53a745f14a5beeb5ba9ca87"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>EventQueue</b> = std::queue&lt; Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &gt;</td></tr>
+<tr class="separator:aefc0c867c53a745f14a5beeb5ba9ca87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_class_lithe_1_1_window"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_lithe_1_1_window')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_lithe_1_1_window.html">Lithe::Window</a></td></tr>
+<tr class="memitem:a2c5b334e4f39ab35b56e524fad21847c inherit pub_types_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>EventCallbackFn</b> = std::function&lt; void(<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;)&gt;</td></tr>
+<tr class="separator:a2c5b334e4f39ab35b56e524fad21847c inherit pub_types_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3573ddae4ba361e4a36a3b6ccdc6c6a0"><td class="memItemLeft" align="right" valign="top"><a id="a3573ddae4ba361e4a36a3b6ccdc6c6a0" name="a3573ddae4ba361e4a36a3b6ccdc6c6a0"></a>
@@ -132,6 +143,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2c7e600d12fb36848fc188d5c77dbe24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa35a97e009b4742515b074412a2a243f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#aa35a97e009b4742515b074412a2a243f">MinimizeWindow</a> () const override</td></tr>
 <tr class="separator:aa35a97e009b4742515b074412a2a243f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc0a5dc0e690025de2f068597e94f6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a2cc0a5dc0e690025de2f068597e94f6d">PushEvent</a> (Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &amp;event) override</td></tr>
+<tr class="memdesc:a2cc0a5dc0e690025de2f068597e94f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to add an event to pull queue (Lithe uses non-blocking event system)  <br /></td></tr>
+<tr class="separator:a2cc0a5dc0e690025de2f068597e94f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67b43793bb15087166415427ff41b73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#ae67b43793bb15087166415427ff41b73">PullEvents</a> () override</td></tr>
+<tr class="memdesc:ae67b43793bb15087166415427ff41b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request dispatch of all events.  <br /></td></tr>
+<tr class="separator:ae67b43793bb15087166415427ff41b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14034863a73f67c6bafd29e663c42303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a14034863a73f67c6bafd29e663c42303">SetEventCallback</a> (const EventCallbackFn &amp;callback) override</td></tr>
 <tr class="memdesc:a14034863a73f67c6bafd29e663c42303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
 <tr class="separator:a14034863a73f67c6bafd29e663c42303"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,16 +178,18 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsVSync</b> (
 <tr class="memitem:a9ed5da6b5cd1618b1267efcc835d716e inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetVSync</b> (bool val)=0</td></tr>
 <tr class="separator:a9ed5da6b5cd1618b1267efcc835d716e inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf14802388c05616476f0f8bf63ccdae inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">PushEvent</a> (Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &amp;event)=0</td></tr>
+<tr class="memdesc:acf14802388c05616476f0f8bf63ccdae inherit pub_methods_class_lithe_1_1_window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to add an event to pull queue (Lithe uses non-blocking event system)  <br /></td></tr>
+<tr class="separator:acf14802388c05616476f0f8bf63ccdae inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c6a878c8c5f265187d141ff816b001 inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#ad5c6a878c8c5f265187d141ff816b001">PullEvents</a> ()=0</td></tr>
+<tr class="memdesc:ad5c6a878c8c5f265187d141ff816b001 inherit pub_methods_class_lithe_1_1_window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request dispatch of all events.  <br /></td></tr>
+<tr class="separator:ad5c6a878c8c5f265187d141ff816b001 inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb2cf790ed393886b52da6938f502420 inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">SetEventCallback</a> (const EventCallbackFn &amp;callback)=0</td></tr>
 <tr class="memdesc:acb2cf790ed393886b52da6938f502420 inherit pub_methods_class_lithe_1_1_window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
 <tr class="separator:acb2cf790ed393886b52da6938f502420 inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_class_lithe_1_1_window"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_lithe_1_1_window')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_lithe_1_1_window.html">Lithe::Window</a></td></tr>
-<tr class="memitem:a2c5b334e4f39ab35b56e524fad21847c inherit pub_types_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
-using&#160;</td><td class="memItemRight" valign="bottom"><b>EventCallbackFn</b> = std::function&lt; void(<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;)&gt;</td></tr>
-<tr class="separator:a2c5b334e4f39ab35b56e524fad21847c inherit pub_types_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_class_lithe_1_1_window"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_lithe_1_1_window')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_lithe_1_1_window.html">Lithe::Window</a></td></tr>
 <tr class="memitem:a517a5b7f570ab63a16f02bc337284d66 inherit pub_static_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">static Scope&lt; <a class="el" href="class_lithe_1_1_window.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a517a5b7f570ab63a16f02bc337284d66">Create</a> (const <a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a> &amp;props=<a class="el" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>())</td></tr>
 <tr class="memdesc:a517a5b7f570ab63a16f02bc337284d66 inherit pub_static_methods_class_lithe_1_1_window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory method to create platform independent window.  <br /></td></tr>
@@ -368,6 +387,71 @@ virtual std::any&#160;</td><td class="memItemRight" valign="bottom"><b>getNative
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_lithe_1_1_window.html">Lithe::Window</a>.</p>
+
+</div>
+</div>
+<a id="ae67b43793bb15087166415427ff41b73" name="ae67b43793bb15087166415427ff41b73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae67b43793bb15087166415427ff41b73">&#9670;&#160;</a></span>PullEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::WindowsWindow::PullEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Request dispatch of all events. </p>
+
+<p>Implements <a class="el" href="class_lithe_1_1_window.html#ad5c6a878c8c5f265187d141ff816b001">Lithe::Window</a>.</p>
+
+</div>
+</div>
+<a id="a2cc0a5dc0e690025de2f068597e94f6d" name="a2cc0a5dc0e690025de2f068597e94f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc0a5dc0e690025de2f068597e94f6d">&#9670;&#160;</a></span>PushEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::WindowsWindow::PushEvent </td>
+          <td>(</td>
+          <td class="paramtype">Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to add an event to pull queue (Lithe uses non-blocking event system) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td><a class="el" href="class_lithe_1_1_event.html" title="Base class for all event types, categories and sources.">Event</a> to push </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">Lithe::Window</a>.</p>
 
 </div>
 </div>

@@ -57,7 +57,7 @@ namespace Lithe
         virtual std::string ToString() const override
         {
             std::stringstream ss;
-            ss << "KeyPressed: key=" << Keyboard::KeyToString(GetKeyCode()) << " repeat=" << m_IsRepeated;
+            ss << "KeyPressed: key=" << Keyboard::KeyToString(GetKeyCode()) << " repeat=" << (m_IsRepeated ? "true" : "false");
             return ss.str();
         }
 

@@ -32,6 +32,8 @@ namespace Lithe
 			glClearColor(1, 1, 0, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+			m_MainWindow->PullEvents();
+			
 			for (LayerPtr layer : m_LayerStack)
 				layer->OnUpdate();
 

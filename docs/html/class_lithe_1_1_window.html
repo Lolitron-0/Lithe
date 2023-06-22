@@ -143,6 +143,12 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsVSync</b> (
 <tr class="memitem:a9ed5da6b5cd1618b1267efcc835d716e"><td class="memItemLeft" align="right" valign="top"><a id="a9ed5da6b5cd1618b1267efcc835d716e" name="a9ed5da6b5cd1618b1267efcc835d716e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetVSync</b> (bool val)=0</td></tr>
 <tr class="separator:a9ed5da6b5cd1618b1267efcc835d716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf14802388c05616476f0f8bf63ccdae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">PushEvent</a> (Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &amp;event)=0</td></tr>
+<tr class="memdesc:acf14802388c05616476f0f8bf63ccdae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to add an event to pull queue (Lithe uses non-blocking event system)  <br /></td></tr>
+<tr class="separator:acf14802388c05616476f0f8bf63ccdae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c6a878c8c5f265187d141ff816b001"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#ad5c6a878c8c5f265187d141ff816b001">PullEvents</a> ()=0</td></tr>
+<tr class="memdesc:ad5c6a878c8c5f265187d141ff816b001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request dispatch of all events.  <br /></td></tr>
+<tr class="separator:ad5c6a878c8c5f265187d141ff816b001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb2cf790ed393886b52da6938f502420"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">SetEventCallback</a> (const EventCallbackFn &amp;callback)=0</td></tr>
 <tr class="memdesc:acb2cf790ed393886b52da6938f502420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
 <tr class="separator:acb2cf790ed393886b52da6938f502420"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,6 +236,71 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Hanldle </dd></dl>
+
+</div>
+</div>
+<a id="ad5c6a878c8c5f265187d141ff816b001" name="ad5c6a878c8c5f265187d141ff816b001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c6a878c8c5f265187d141ff816b001">&#9670;&#160;</a></span>PullEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::Window::PullEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Request dispatch of all events. </p>
+
+<p>Implemented in <a class="el" href="class_lithe_1_1_windows_window.html#ae67b43793bb15087166415427ff41b73">Lithe::WindowsWindow</a>.</p>
+
+</div>
+</div>
+<a id="acf14802388c05616476f0f8bf63ccdae" name="acf14802388c05616476f0f8bf63ccdae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf14802388c05616476f0f8bf63ccdae">&#9670;&#160;</a></span>PushEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lithe::Window::PushEvent </td>
+          <td>(</td>
+          <td class="paramtype">Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Used to add an event to pull queue (Lithe uses non-blocking event system) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td><a class="el" href="class_lithe_1_1_event.html" title="Base class for all event types, categories and sources.">Event</a> to push </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_lithe_1_1_windows_window.html#a2cc0a5dc0e690025de2f068597e94f6d">Lithe::WindowsWindow</a>.</p>
 
 </div>
 </div>

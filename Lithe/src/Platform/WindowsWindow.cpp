@@ -59,8 +59,8 @@ namespace Lithe
         glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* window)
             {
                 WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
-                WindowClosedEvent event{};
-                data.EventCallback(event);
+                auto event = std::make_shared<WindowClosedEvent>();
+                data.EventQueue.push(event);
             });
 
         glfwSetWindowSizeCallback(m_Handle, [](GLFWwindow* window, int width, int height)
@@ -69,16 +69,16 @@ namespace Lithe
                 data.Width = width;
                 data.Height = height;
 
-                WindowResizedEvent event{ static_cast<unsigned int>(width), static_cast<unsigned int>(height) };
-                data.EventCallback(event);
+                auto event = std::make_shared<MouseMovedEvent>(static_cast<unsigned int>(width), static_cast<unsigned int>(height));
+                data.EventQueue.push(event);
             });
 
         glfwSetCursorPosCallback(m_Handle, [](GLFWwindow* window, double xPos, double yPos)
             {
                 WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
 
-                MouseMovedEvent event{ static_cast<float>(xPos), static_cast<float>(yPos) };
-                data.EventCallback(event);
+                auto event = std::make_shared <MouseMovedEvent>( static_cast<float>(xPos), static_cast<float>(yPos) );
+                data.EventQueue.push(event);
             });
 
         glfwSetMouseButtonCallback(m_Handle, [](GLFWwindow* window, int button, int action, int mods)
@@ -89,14 +89,14 @@ namespace Lithe
                 {
                 case GLFW_PRESS:
                 {
-                    MouseButtonPressedEvent event{ FromGlfwMouseButton(button) };
-                    data.EventCallback(event);
+                    auto event = std::make_shared <MouseButtonPressedEvent>( FromGlfwMouseButton(button) );
+                    data.EventQueue.push(std::move(event));
                     break;
                 }
                 case GLFW_RELEASE:
                 {
-                    MouseButtonReleasedEvent event{ FromGlfwMouseButton(button) };
-                    data.EventCallback(event);
+                    auto event = std::make_shared <MouseButtonReleasedEvent>( FromGlfwMouseButton(button) );
+                    data.EventQueue.push(std::move(event));
                     break;
                 }
                 default:
@@ -111,20 +111,20 @@ namespace Lithe
                 {
                 case GLFW_PRESS:
                 {
-                    KeyPressedEvent event{ FromGlfwKey(key), false };
-                    data.EventCallback(event);
+                    auto event = std::make_shared <KeyPressedEvent>( FromGlfwKey(key), false );
+                    data.EventQueue.push(std::move(event));
                     break;
                 }
                 case GLFW_REPEAT:
                 {
-                    KeyPressedEvent event{ FromGlfwKey(key), true };
-                    data.EventCallback(event);
+                    auto event = std::make_shared <KeyPressedEvent>( FromGlfwKey(key), true );
+                    data.EventQueue.push(event);
                     break;
                 }
                 case GLFW_RELEASE:
                 {
-                    KeyReleasedEvent event{ FromGlfwKey(key) };
-                    data.EventCallback(event);
+                    auto event = std::make_shared <KeyReleasedEvent>(FromGlfwKey(key));
+                    data.EventQueue.push(event);
                     break;
                 }
                 default:
@@ -134,14 +134,13 @@ namespace Lithe
 
         glfwSetScrollCallback(m_Handle, [](GLFWwindow* window, double xOffset, double yOffset) {
             WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
-            MouseScrolledEvent event{ static_cast<float>(xOffset), static_cast<float>(yOffset) };
-            data.EventCallback(event);
+            auto event = std::make_shared<MouseScrolledEvent>( static_cast<float>(xOffset), static_cast<float>(yOffset) );
+            data.EventQueue.push(event);
             });
     }
 
     void WindowsWindow::OnUpdate()
     {
-        glfwPollEvents();
         glfwSwapBuffers(m_Handle);
     }
 
@@ -158,6 +157,22 @@ namespace Lithe
     void WindowsWindow::MinimizeWindow() const
     {
         glfwIconifyWindow(m_Handle);
+    }
+
+    void WindowsWindow::PushEvent(Ref<Event>& event)
+    {
+        m_Data.EventQueue.push(event);
+    }
+
+    void WindowsWindow::PullEvents()
+    {
+        glfwPollEvents();
+
+        while (!m_Data.EventQueue.empty())
+        {
+            m_Data.EventCallback(std::move(*m_Data.EventQueue.front()));
+            m_Data.EventQueue.pop();
+        }
     }
 
     std::any WindowsWindow::getNativeHandleImpl_() const

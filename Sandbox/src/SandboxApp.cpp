@@ -9,6 +9,11 @@ public:
         :Lithe::Layer("MyLayer")
     {}
 
+    void OnEvent(Lithe::Event& event) override
+    {
+        LITHE_LOG_DEBUG(event);
+    }
+
     void OnImGuiDraw() override
     {
         static bool show = true;

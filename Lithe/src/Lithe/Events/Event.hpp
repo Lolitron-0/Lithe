@@ -12,6 +12,7 @@
 
 namespace Lithe
 {
+
 	/// Enum class for all (?) event types
 	enum class EventType
 	{

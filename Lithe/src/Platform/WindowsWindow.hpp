@@ -12,45 +12,51 @@
 
 namespace Lithe
 {
-	///Specialisation for a Windows window.
-	class LITHE_API WindowsWindow final : public Window
-	{
-	public:
-		WindowsWindow(const WindowProperties& props);
+    ///Specialisation for a Windows window.
+    class LITHE_API WindowsWindow final : public Window
+    {
+    public:
+        using EventQueue = std::queue<Ref<Event>>;
 
-		virtual ~WindowsWindow();
+        WindowsWindow(const WindowProperties& props);
 
-		void OnUpdate() override;
+        virtual ~WindowsWindow();
 
-		unsigned int GetWidth() const override { return m_Data.Width; };
-		unsigned int GetHeight() const override { return m_Data.Height; };
+        void OnUpdate() override;
 
-		virtual std::any getNativeHandleImpl_() const override;
+        unsigned int GetWidth() const override { return m_Data.Width; };
+        unsigned int GetHeight() const override { return m_Data.Height; };
 
-		virtual bool IsVSync() const override;
-		virtual void SetVSync(bool val) override;
+        virtual std::any getNativeHandleImpl_() const override;
 
-		void MaximizeWindow() const override;
-		void MinimizeWindow() const override;
+        virtual bool IsVSync() const override;
+        virtual void SetVSync(bool val) override;
 
-		void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; };
-	private:
-		void Init(const WindowProperties& props);
-		void Shutdown();
-	private:
+        void MaximizeWindow() const override;
+        void MinimizeWindow() const override;
 
-		GLFWwindow* m_Handle;
+        void PushEvent(Ref<Event>& event) override;
+        void PullEvents() override;
 
-		struct WindowData {
-			std::string Title;
-			unsigned int Width;
-			unsigned int Height;
-			bool VSync;
+        void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; };
+    private:
+        void Init(const WindowProperties& props);
+        void Shutdown();
+    private:
 
-			EventCallbackFn EventCallback;
-		};
+        GLFWwindow* m_Handle;
 
-		WindowData m_Data;
-	};
+        struct WindowData {
+            std::string Title;
+            unsigned int Width;
+            unsigned int Height;
+            bool VSync;
+
+            EventCallbackFn EventCallback;
+            EventQueue EventQueue;
+        };
+
+        WindowData m_Data;
+    };
 }
 

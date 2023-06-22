@@ -96,63 +96,69 @@ $(document).ready(function(){initNavTree('_window_8hpp_source.html',''); initRes
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_event_8hpp.html">Lithe/Events/Event.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;any&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span>Lithe</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="struct_lithe_1_1_window_properties.html">   17</a></span>    <span class="keyword">struct </span>LITHE_API <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        std::string Title;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Width;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Height;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>(<span class="keyword">const</span> std::string title = <span class="stringliteral">&quot;Lithe Engine&quot;</span>,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width = 1920,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height = 1080)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            :Title(title), Width(width), Height(height)</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {}</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    };</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>Lithe</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_lithe_1_1_window_properties.html">   18</a></span>    <span class="keyword">struct </span>LITHE_API <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        std::string Title;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Width;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Height;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>(<span class="keyword">const</span> std::string title = <span class="stringliteral">&quot;Lithe Engine&quot;</span>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width = 1920,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height = 1080)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            :Title(title), Width(width), Height(height)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        {}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    };</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html">   34</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_window.html">Window</a></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">using </span>EventCallbackFn = std::function&lt;void(<a class="code hl_class" href="class_lithe_1_1_event.html">Event</a>&amp;)&gt;;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="class_lithe_1_1_window.html">~Window</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> OnUpdate() = 0;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GetWidth() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GetHeight() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> MaximizeWindow() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> MinimizeWindow() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">   55</a></span>        T <a class="code hl_function" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">GetNativeHandle</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">return</span> std::any_cast&lt;T&gt;(getNativeHandleImpl_());</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> IsVSync() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVSync(<span class="keywordtype">bool</span> val) = 0;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">   68</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">SetEventCallback</a>(<span class="keyword">const</span> EventCallbackFn&amp; callback) = 0;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">static</span> Scope&lt;Window&gt; Create(<span class="keyword">const</span> <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>&amp; props = <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>());</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">virtual</span> std::any getNativeHandleImpl_() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_class" href="class_lithe_1_1_window.html">Window</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    };</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html">   35</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_window.html">Window</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">using </span>EventCallbackFn = std::function&lt;void(<a class="code hl_class" href="class_lithe_1_1_event.html">Event</a>&amp;)&gt;;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="class_lithe_1_1_window.html">~Window</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> OnUpdate() = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GetWidth() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GetHeight() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> MaximizeWindow() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> MinimizeWindow() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">   56</a></span>        T <a class="code hl_function" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">GetNativeHandle</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> std::any_cast&lt;T&gt;(getNativeHandleImpl_());</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> IsVSync() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVSync(<span class="keywordtype">bool</span> val) = 0;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">   67</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">PushEvent</a>(Ref&lt;Event&gt;&amp; event) = 0;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> PullEvents() = 0;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">   80</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">SetEventCallback</a>(<span class="keyword">const</span> EventCallbackFn&amp; callback) = 0;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">static</span> Scope&lt;Window&gt; Create(<span class="keyword">const</span> <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>&amp; props = <a class="code hl_struct" href="struct_lithe_1_1_window_properties.html">WindowProperties</a>());</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">virtual</span> std::any getNativeHandleImpl_() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_class" href="class_lithe_1_1_window.html">Window</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    };</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
 <div class="ttc" id="a_event_8hpp_html"><div class="ttname"><a href="_event_8hpp.html">Event.hpp</a></div><div class="ttdoc">Event system core stuff.</div></div>
-<div class="ttc" id="aclass_lithe_1_1_event_html"><div class="ttname"><a href="class_lithe_1_1_event.html">Lithe::Event</a></div><div class="ttdoc">Base class for all event types, categories and sources.</div><div class="ttdef"><b>Definition</b> Event.hpp:59</div></div>
-<div class="ttc" id="aclass_lithe_1_1_window_html"><div class="ttname"><a href="class_lithe_1_1_window.html">Lithe::Window</a></div><div class="ttdef"><b>Definition</b> Window.hpp:35</div></div>
-<div class="ttc" id="aclass_lithe_1_1_window_html_a2e0b8c274cf72ff4ca0f1f54b845323a"><div class="ttname"><a href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">Lithe::Window::GetNativeHandle</a></div><div class="ttdeci">T GetNativeHandle() const</div><div class="ttdoc">Getter for backend dependent handle (e.g. GLFWwindow*)</div><div class="ttdef"><b>Definition</b> Window.hpp:55</div></div>
+<div class="ttc" id="aclass_lithe_1_1_event_html"><div class="ttname"><a href="class_lithe_1_1_event.html">Lithe::Event</a></div><div class="ttdoc">Base class for all event types, categories and sources.</div><div class="ttdef"><b>Definition</b> Event.hpp:60</div></div>
+<div class="ttc" id="aclass_lithe_1_1_window_html"><div class="ttname"><a href="class_lithe_1_1_window.html">Lithe::Window</a></div><div class="ttdef"><b>Definition</b> Window.hpp:36</div></div>
+<div class="ttc" id="aclass_lithe_1_1_window_html_a2e0b8c274cf72ff4ca0f1f54b845323a"><div class="ttname"><a href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">Lithe::Window::GetNativeHandle</a></div><div class="ttdeci">T GetNativeHandle() const</div><div class="ttdoc">Getter for backend dependent handle (e.g. GLFWwindow*)</div><div class="ttdef"><b>Definition</b> Window.hpp:56</div></div>
 <div class="ttc" id="aclass_lithe_1_1_window_html_acb2cf790ed393886b52da6938f502420"><div class="ttname"><a href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">Lithe::Window::SetEventCallback</a></div><div class="ttdeci">virtual void SetEventCallback(const EventCallbackFn &amp;callback)=0</div><div class="ttdoc">Set main event callback function.</div></div>
-<div class="ttc" id="astruct_lithe_1_1_window_properties_html"><div class="ttname"><a href="struct_lithe_1_1_window_properties.html">Lithe::WindowProperties</a></div><div class="ttdoc">Class (or struct even) that contains general data needed to construct a window.</div><div class="ttdef"><b>Definition</b> Window.hpp:18</div></div>
+<div class="ttc" id="aclass_lithe_1_1_window_html_acf14802388c05616476f0f8bf63ccdae"><div class="ttname"><a href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">Lithe::Window::PushEvent</a></div><div class="ttdeci">virtual void PushEvent(Ref&lt; Event &gt; &amp;event)=0</div><div class="ttdoc">Used to add an event to pull queue (Lithe uses non-blocking event system)</div></div>
+<div class="ttc" id="astruct_lithe_1_1_window_properties_html"><div class="ttname"><a href="struct_lithe_1_1_window_properties.html">Lithe::WindowProperties</a></div><div class="ttdoc">Struct that contains general data needed to construct a window.</div><div class="ttdef"><b>Definition</b> Window.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,7 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_lithe_1_1_mouse_button_released_event.html":[1,0,0,14],
-"class_lithe_1_1_mouse_button_released_event.html#a701e89541f9701f2cf7b93d3218a0f1c":[1,0,0,14,0],
 "class_lithe_1_1_mouse_moved_event.html":[1,0,0,15],
 "class_lithe_1_1_mouse_moved_event.html#a45b3aa8e7bc3f27b0ec2aee98eb83145":[1,0,0,15,2],
 "class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42":[1,0,0,15,0],

@@ -10,12 +10,12 @@ workspace "Lithe"
 	
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-IncludeDir = {}
-IncludeDir["spdlog"] =	"%{wks.location}/%{prj.name}/thirdparty/spdlog/include/"
-IncludeDir["GLFW"] =	"%{prj.name}/thirdparty/GLFW/include/"
-IncludeDir["Glad"] =	"%{prj.name}/thirdparty/glad/include/"
-IncludeDir["ImGui"] =	"%{prj.name}/thirdparty/ImGui/"
-IncludeDir["glm"] =		"%{prj.name}/thirdparty/glm/"
+IncludeDir = {}	
+IncludeDir["spdlog"] =	"%{wks.location}/Lithe/thirdparty/spdlog/include"
+IncludeDir["GLFW"] =	"%{wks.location}/Lithe/thirdparty/GLFW/include"
+IncludeDir["Glad"] =	"%{wks.location}/Lithe/thirdparty/glad/include"
+IncludeDir["ImGui"] =	"%{wks.location}/Lithe/thirdparty/ImGui/"
+IncludeDir["glm"] =		"%{wks.location}/Lithe/thirdparty/glm/"
 
 include "Lithe/thirdparty/GLFW"
 include "Lithe/thirdparty/Glad"
@@ -46,7 +46,6 @@ project "Lithe"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"G:/dev/Lithe/Lithe/thirdparty/spdlog/include/",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
@@ -111,11 +110,11 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Lithe/src",
-		"Lithe/thirdparty",
+		"%{wks.location}/Lithe/src",
+		"%{wks.location}/Lithe/thirdparty",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.spdlog}",
-
+		"%{IncludeDir.ImGui}",
 	}
 
 	links

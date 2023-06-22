@@ -23,7 +23,7 @@ namespace Lithe
 		Application();
 		virtual ~Application();
 
-		/// Start main cycle
+		/// Starts main cycle
 		void Run();
 
 		/**
@@ -55,7 +55,7 @@ namespace Lithe
 	private:
 		LayerStack m_LayerStack;
 		Scope<Window> m_MainWindow;
-		//Ref<ImGuiLayer> m_ImGuiLayer;
+		Ref<ImGuiLayer> m_ImGuiLayer;
 		bool m_Running{ true };
 	};
 

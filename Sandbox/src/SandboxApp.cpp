@@ -1,6 +1,6 @@
 #include <Lithe.hpp>
-//#include <glm/vec2.hpp>
-//#include <ImGui/imgui.h>
+#include <glm/vec2.hpp>
+#include <ImGui/imgui.h>
 
 class MyLayer : public Lithe::Layer
 {
@@ -11,9 +11,11 @@ public:
 
     void OnImGuiDraw() override
     {
-        //ImGui::Begin("window");
-        //ImGui::Text("bruh");
-        //ImGui::End();
+        static bool show = true;
+
+        ImGui::Begin("window", &show);
+        ImGui::Text("bruh");
+        ImGui::End();
     }
 };
 

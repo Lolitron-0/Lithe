@@ -20,7 +20,7 @@ namespace Lithe
     * Static class holding two spdlog::logger instances: for client app logging and for core logging
     */
     class LITHE_API Log
-    {
+    {   
     public:
         typedef std::shared_ptr<spdlog::logger> LoggerPtr;
 

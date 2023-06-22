@@ -12,7 +12,7 @@
 namespace Lithe
 {
 	/**
-	 * @brief Class (or struct even) that contains general data needed to construct a window.
+	 * @brief Struct that contains general data needed to construct a window.
 	 */
 	struct LITHE_API WindowProperties
 	{

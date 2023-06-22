@@ -39,7 +39,7 @@ namespace Lithe
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init("#version 410");
 
-        LITHE_CORE_TRACE("ImGui attached");
+        LITHE_LOG_CORE_TRACE("ImGui attached");
     }
 
     void ImGuiLayer::OnDetach()

@@ -9,9 +9,9 @@ int main(int argc, char** argv)
 {
 	Lithe::Application* app{ Lithe::CreateApplication() };
 	app->Run();
-	LITHE_CORE_TRACE("Shutting down...");
+	LITHE_LOG_CORE_TRACE("Shutting down...");
 	delete app;
-	LITHE_CORE_INFO("Exited successfully!");
+	LITHE_LOG_CORE_INFO("Exited successfully!");
 }
 
 #endif // LT_PLATFORM_WINDOWS

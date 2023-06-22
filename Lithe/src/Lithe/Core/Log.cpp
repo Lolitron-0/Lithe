@@ -18,6 +18,6 @@ namespace Lithe
         m_ClientLogger = spdlog::stdout_color_mt("APP");
         m_ClientLogger->set_level(spdlog::level::trace);
 
-        LITHE_CORE_WARN("Logger initialised!");
+        LITHE_LOG_CORE_WARN("Logger initialised!");
     }
 }

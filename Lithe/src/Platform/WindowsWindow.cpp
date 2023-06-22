@@ -31,19 +31,19 @@ namespace Lithe
 
         if (!s_GlfwInitialised)
         {
-            LITHE_CORE_TRACE("Initialising GLFW for the first time...");
+            LITHE_LOG_CORE_TRACE("Initialising GLFW for the first time...");
 
             int success{ glfwInit() };
             LITHE_CORE_ASSERT(success, "GLFW initalisation failed");
 
             s_GlfwInitialised = true;
-            LITHE_CORE_INFO("Initialised GLFW!");
+            LITHE_LOG_CORE_INFO("Initialised GLFW!");
         }
 
         m_Handle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
         LITHE_CORE_ASSERT(m_Handle, "GLFWwindow instance not created!");
 
-        LITHE_CORE_TRACE("Created GLFWwindow instance.");
+        LITHE_LOG_CORE_TRACE("Created GLFWwindow instance.");
 
         //TODO: will be replaced with rendering context
         glfwMakeContextCurrent(m_Handle);
@@ -51,7 +51,7 @@ namespace Lithe
         int status{ gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) };
         LITHE_CORE_ASSERT(status, "Failed to initialize Glad!");
         std::string version{ (const char*)glGetString(GL_VERSION) };
-        LITHE_CORE_INFO("OpenGL loaded version: {0}", version);
+        LITHE_LOG_CORE_INFO("OpenGL loaded version: {0}", version);
 
         glfwSetWindowUserPointer(m_Handle, &m_Data);
         SetVSync(true);

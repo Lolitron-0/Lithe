@@ -70,29 +70,29 @@ inline OStream& operator<<(OStream& os, const glm::qua<T, Q>& q)
 
 
 /// Core fatal error logging
-#define LITHE_CORE_FATAL(...)   ::Lithe::Log::GetCoreLogger()->fatal(__VA_ARGS__);
+#define LITHE_LOG_CORE_FATAL(...)   ::Lithe::Log::GetCoreLogger()->fatal(__VA_ARGS__);
 /// Core error logging
-#define LITHE_CORE_ERROR(...)   ::Lithe::Log::GetCoreLogger()->error(__VA_ARGS__);
+#define LITHE_LOG_CORE_ERROR(...)   ::Lithe::Log::GetCoreLogger()->error(__VA_ARGS__);
 /// Core warning logging
-#define LITHE_CORE_WARN(...)    ::Lithe::Log::GetCoreLogger()->warn(__VA_ARGS__);
+#define LITHE_LOG_CORE_WARN(...)    ::Lithe::Log::GetCoreLogger()->warn(__VA_ARGS__);
 /// Core info logging
-#define LITHE_CORE_INFO(...)    ::Lithe::Log::GetCoreLogger()->info(__VA_ARGS__);
+#define LITHE_LOG_CORE_INFO(...)    ::Lithe::Log::GetCoreLogger()->info(__VA_ARGS__);
 /// Core trace messages logging
-#define LITHE_CORE_TRACE(...)   ::Lithe::Log::GetCoreLogger()->trace(__VA_ARGS__);
+#define LITHE_LOG_CORE_TRACE(...)   ::Lithe::Log::GetCoreLogger()->trace(__VA_ARGS__);
 /// Core debug messages logging
-#define LITHE_CORE_DEBUG(...)   ::Lithe::Log::GetCoreLogger()->debug(__VA_ARGS__);
+#define LITHE_LOG_CORE_DEBUG(...)   ::Lithe::Log::GetCoreLogger()->debug(__VA_ARGS__);
 
 /// Client fatal error logging
-#define LITHE_FATAL(...)        ::Lithe::Log::GetClientLogger()->fatal(__VA_ARGS__);
+#define LITHE_LOG_FATAL(...)        ::Lithe::Log::GetClientLogger()->fatal(__VA_ARGS__);
 /// Client error logging
-#define LITHE_ERROR(...)        ::Lithe::Log::GetClientLogger()->error(__VA_ARGS__);
+#define LITHE_LOG_ERROR(...)        ::Lithe::Log::GetClientLogger()->error(__VA_ARGS__);
 /// Client warning logging
-#define LITHE_WARN(...)         ::Lithe::Log::GetClientLogger()->warn(__VA_ARGS__);
+#define LITHE_LOG_WARN(...)         ::Lithe::Log::GetClientLogger()->warn(__VA_ARGS__);
 /// Client info messages logging
-#define LITHE_INFO(...)         ::Lithe::Log::GetClientLogger()->info(__VA_ARGS__);
+#define LITHE_LOG_INFO(...)         ::Lithe::Log::GetClientLogger()->info(__VA_ARGS__);
 /// Client trace messages logging
-#define LITHE_TRACE(...)        ::Lithe::Log::GetClientLogger()->trace(__VA_ARGS__);
+#define LITHE_LOG_TRACE(...)        ::Lithe::Log::GetClientLogger()->trace(__VA_ARGS__);
 /// Client debug messages logging
-#define LITHE_DEBUG(...)        ::Lithe::Log::GetClientLogger()->debug(__VA_ARGS__);
+#define LITHE_LOG_DEBUG(...)        ::Lithe::Log::GetClientLogger()->debug(__VA_ARGS__);
 
 #pragma warning( pop )

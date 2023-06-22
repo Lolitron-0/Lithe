@@ -20,7 +20,7 @@ namespace Lithe
 
 	Lithe::Application::~Application()
 	{
-		LITHE_CORE_TRACE("Freing memory...");
+		LITHE_LOG_CORE_TRACE("Freing memory...");
 	}
 
 	void Lithe::Application::Run()

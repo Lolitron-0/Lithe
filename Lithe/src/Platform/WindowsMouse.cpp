@@ -32,7 +32,7 @@ namespace Lithe
         }
         catch (const std::exception& e)
         {
-            LITHE_CORE_WARN("Caught unknown mouse button!")
+            LITHE_LOG_CORE_WARN("Caught unknown mouse button!")
         }
         return -1;
     }

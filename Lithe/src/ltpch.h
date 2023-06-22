@@ -4,6 +4,8 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
+#include <any>
+
 
 #include <string>
 #include <sstream>
@@ -14,4 +16,5 @@
 #include <unordered_set>
 
 #include "Lithe/Core/Base.hpp"
-//#include "Lithe/Core/Log.hpp"
+#include "Lithe/Core/Log.hpp"
+#include "Lithe/Core/Assert.hpp"

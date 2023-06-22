@@ -7,6 +7,7 @@
  *********************************************************************/
 #pragma once
 #include "Lithe/Events/Event.hpp"
+#include "Lithe/Renderer/RenderingContext.hpp"
 #include <any>
 #include <queue>
 
@@ -90,6 +91,8 @@ namespace Lithe
         virtual std::any getNativeHandleImpl_() const = 0;
 
         Window() = default;
+
+        Scope<RenderingContext> m_RenderingContext;
 
     };
 

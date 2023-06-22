@@ -31,13 +31,13 @@ namespace Lithe
 
         if (!s_GlfwInitialised)
         {
-            LITHE_LOG_CORE_TRACE("Initialising GLFW for the first time...");
+            LITHE_LOG_CORE_TRACE("Initializing GLFW for the first time...");
 
             int success{ glfwInit() };
-            LITHE_CORE_ASSERT(success, "GLFW initalisation failed");
+            LITHE_CORE_ASSERT(success, "GLFW initalization failed");
 
             s_GlfwInitialised = true;
-            LITHE_LOG_CORE_INFO("Initialised GLFW!");
+            LITHE_LOG_CORE_INFO("Initialized GLFW!");
         }
 
         m_Handle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
@@ -45,13 +45,7 @@ namespace Lithe
 
         LITHE_LOG_CORE_TRACE("Created GLFWwindow instance.");
 
-        //TODO: will be replaced with rendering context
-        glfwMakeContextCurrent(m_Handle);
-
-        int status{ gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) };
-        LITHE_CORE_ASSERT(status, "Failed to initialize Glad!");
-        std::string version{ (const char*)glGetString(GL_VERSION) };
-        LITHE_LOG_CORE_INFO("OpenGL loaded version: {0}", version);
+        m_RenderingContext = RenderingContext::Create(m_Handle);
 
         glfwSetWindowUserPointer(m_Handle, &m_Data);
         SetVSync(true);
@@ -69,7 +63,7 @@ namespace Lithe
                 data.Width = width;
                 data.Height = height;
 
-                auto event = std::make_shared<MouseMovedEvent>(static_cast<unsigned int>(width), static_cast<unsigned int>(height));
+                auto event = std::make_shared<WindowResizedEvent>(static_cast<unsigned int>(width), static_cast<unsigned int>(height));
                 data.EventQueue.push(event);
             });
 
@@ -141,7 +135,7 @@ namespace Lithe
 
     void WindowsWindow::OnUpdate()
     {
-        glfwSwapBuffers(m_Handle);
+        m_RenderingContext->SwapBuffers();
     }
 
     void WindowsWindow::Shutdown()

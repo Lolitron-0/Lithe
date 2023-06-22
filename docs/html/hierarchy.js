@@ -29,6 +29,9 @@ var hierarchy =
     [ "Lithe::Mouse", "class_lithe_1_1_mouse.html", [
       [ "Lithe::WindowsMouse", "class_lithe_1_1_windows_mouse.html", null ]
     ] ],
+    [ "Lithe::RenderingContext", "class_lithe_1_1_rendering_context.html", [
+      [ "Lithe::OpenGLContext", "class_lithe_1_1_open_g_l_context.html", null ]
+    ] ],
     [ "Lithe::Singleton< T >", "class_lithe_1_1_singleton.html", null ],
     [ "Lithe::Singleton< Application >", "class_lithe_1_1_singleton.html", [
       [ "Lithe::Application", "class_lithe_1_1_application.html", null ]

@@ -11,7 +11,7 @@ namespace Lithe
         {
             Unknown = -1,
 
-            Space = 2,
+            Space = 1,
             Apostrophe,         /*!< ' */
             Comma,              /*!< , */
             Minus,              /*!< \- */

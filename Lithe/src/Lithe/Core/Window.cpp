@@ -1,6 +1,6 @@
 #include "ltpch.h"
 #include "Window.hpp"
-#include "Platform/WindowsWindow.hpp"
+#include "Platform//Windows/WindowsWindow.hpp"
 
 namespace Lithe
 {

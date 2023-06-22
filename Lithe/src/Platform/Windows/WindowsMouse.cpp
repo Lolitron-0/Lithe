@@ -30,7 +30,7 @@ namespace Lithe
         {
             return WindowsMouse::s_ButtonToGlfwMap.at(button);
         }
-        catch (const std::exception& e)
+        catch (const std::exception&)
         {
             LITHE_LOG_CORE_WARN("Caught unknown mouse button!")
         }

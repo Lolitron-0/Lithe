@@ -18,6 +18,8 @@ var annotated_dup =
       [ "MouseButtonReleasedEvent", "class_lithe_1_1_mouse_button_released_event.html", "class_lithe_1_1_mouse_button_released_event" ],
       [ "MouseMovedEvent", "class_lithe_1_1_mouse_moved_event.html", "class_lithe_1_1_mouse_moved_event" ],
       [ "MouseScrolledEvent", "class_lithe_1_1_mouse_scrolled_event.html", "class_lithe_1_1_mouse_scrolled_event" ],
+      [ "OpenGLContext", "class_lithe_1_1_open_g_l_context.html", null ],
+      [ "RenderingContext", "class_lithe_1_1_rendering_context.html", null ],
       [ "Singleton", "class_lithe_1_1_singleton.html", null ],
       [ "Window", "class_lithe_1_1_window.html", "class_lithe_1_1_window" ],
       [ "WindowClosedEvent", "class_lithe_1_1_window_closed_event.html", "class_lithe_1_1_window_closed_event" ],

@@ -11,7 +11,7 @@ public:
 
     void OnEvent(Lithe::Event& event) override
     {
-        LITHE_LOG_DEBUG(event);
+        //LITHE_LOG_DEBUG(event);
     }
 
     void OnImGuiDraw() override

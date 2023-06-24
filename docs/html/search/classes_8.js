@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['singleton_0',['Singleton',['../class_lithe_1_1_singleton.html',1,'Lithe']]],
-  ['singleton_3c_20application_20_3e_1',['Singleton&lt; Application &gt;',['../class_lithe_1_1_singleton.html',1,'Lithe']]]
+  ['renderer_0',['Renderer',['../class_ra_1_1_renderer.html',1,'Ra']]],
+  ['renderingcontext_1',['RenderingContext',['../class_ra_1_1_rendering_context.html',1,'Ra']]]
 ];

@@ -15,7 +15,7 @@
 #include "Lithe/Input/Keyboard.hpp"
 #include "Lithe/Input/Mouse.hpp"
 
-//#include "Lithe/ImGui/ImGuiLayer.hpp"
+#include "Lithe/ImGui/ImGuiLayer.hpp"
 
 // --------- Entry Point --------- 
 #include "Lithe/Core/EntryPoint.hpp"

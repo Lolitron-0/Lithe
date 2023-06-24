@@ -53,6 +53,7 @@ project "Lithe"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.RenderAbstraction}",
 	}
 
 	links
@@ -116,6 +117,7 @@ project "Sandbox"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.RenderAbstraction}",
 	}
 
 	links

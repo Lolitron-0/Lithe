@@ -27,7 +27,7 @@ namespace Lithe
 		glBindVertexArray(m_VertexArray);
 
 		glGenBuffers(1, &m_VertexData);
-		glBindBuffer(GL_ARRAY_BUFFER, m_VertexData);
+		glBindBuffer(GL_ARRAY_BUFFER, m_VertexData); 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(data), &data, GL_STATIC_DRAW);
 
 		glEnableVertexAttribArray(0);
@@ -95,6 +95,7 @@ namespace Lithe
 
 	bool Application::OnWindowResized(const WindowResizedEvent& event)
 	{
+		glViewport(0,0, event.GetNewWidth(), event.GetNewHeight());
 		return false;
 	}
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['imguilayer_0',['ImGuiLayer',['../class_lithe_1_1_im_gui_layer.html',1,'Lithe']]]
+  ['event_0',['Event',['../class_lithe_1_1_event.html',1,'Lithe']]],
+  ['eventdispatcher_1',['EventDispatcher',['../class_lithe_1_1_event_dispatcher.html',1,'Lithe']]]
 ];

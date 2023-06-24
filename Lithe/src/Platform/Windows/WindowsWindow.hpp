@@ -12,7 +12,7 @@
 
 namespace Lithe
 {
-    ///Specialisation for a Windows window.
+    ///Specialization for a Windows window.
     class LITHE_API WindowsWindow final : public Window
     {
     public:
@@ -27,10 +27,10 @@ namespace Lithe
         unsigned int GetWidth() const override { return m_Data.Width; };
         unsigned int GetHeight() const override { return m_Data.Height; };
 
-        virtual std::any getNativeHandleImpl_() const override;
+        std::any getNativeHandleImpl_() const override;
 
-        virtual bool IsVSync() const override;
-        virtual void SetVSync(bool val) override;
+        bool IsVSync() const override;
+        void SetVSync(bool val) override;
 
         void MaximizeWindow() const override;
         void MinimizeWindow() const override;
@@ -47,13 +47,15 @@ namespace Lithe
         GLFWwindow* m_Handle;
 
         struct WindowData {
+            using EventQueue_t = EventQueue;
+
             std::string Title;
             unsigned int Width;
             unsigned int Height;
             bool VSync;
 
             EventCallbackFn EventCallback;
-            EventQueue EventQueue;
+            EventQueue_t EventQueue;
         };
 
         WindowData m_Data;

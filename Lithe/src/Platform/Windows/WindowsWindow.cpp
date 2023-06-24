@@ -34,7 +34,7 @@ namespace Lithe
             LITHE_LOG_CORE_TRACE("Initializing GLFW for the first time...");
 
             int success{ glfwInit() };
-            LITHE_CORE_ASSERT(success, "GLFW initalization failed");
+            LITHE_CORE_ASSERT(success, "GLFW initialization failed");
 
             s_GlfwInitialised = true;
             LITHE_LOG_CORE_INFO("Initialized GLFW!");
@@ -45,7 +45,18 @@ namespace Lithe
 
         LITHE_LOG_CORE_TRACE("Created GLFWwindow instance.");
 
-        m_RenderingContext = RenderingContext::Create(m_Handle);
+        m_RenderingContext = Ra::RenderingContext::Create(m_Handle);
+
+        LITHE_CORE_ASSERT(m_RenderingContext->IsLoaded(), "Failed to initialize Glad!");
+        auto info = m_RenderingContext->GetInfo();
+        LITHE_LOG_CORE_DEBUG("OpenGL info:");
+        LITHE_LOG_CORE_DEBUG("Vendor: {0}", info.Vendor);
+        LITHE_LOG_CORE_DEBUG("Renderer: {0}", info.Renderer);
+        LITHE_LOG_CORE_DEBUG("Version: {0}", info.Version);
+        auto version = std::any_cast<gladGLversionStruct>(info.NativeInfo);
+        LITHE_CORE_ASSERT(version.major > 4 || (version.major == 4 && version.minor >= 5), "Lithe needs at least OpenGL version 4.5!");
+
+        LITHE_LOG_CORE_INFO("Created OpenGL rendering context!");
 
         glfwSetWindowUserPointer(m_Handle, &m_Data);
         SetVSync(true);

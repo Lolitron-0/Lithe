@@ -7,7 +7,7 @@
  *********************************************************************/
 #pragma once
 #include "Lithe/Events/Event.hpp"
-#include "Lithe/Renderer/RenderingContext.hpp"
+#include <RenderAbstraction.hpp>
 #include <any>
 #include <queue>
 
@@ -92,7 +92,7 @@ namespace Lithe
 
         Window() = default;
 
-        Scope<RenderingContext> m_RenderingContext;
+        Scope<Ra::RenderingContext> m_RenderingContext;
 
     };
 

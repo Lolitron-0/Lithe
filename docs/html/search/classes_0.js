@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['application_0',['Application',['../class_lithe_1_1_application.html',1,'Lithe']]]
+  ['apiinfo_0',['APIinfo',['../struct_ra_1_1_rendering_context_1_1_a_p_iinfo.html',1,'Ra::RenderingContext']]],
+  ['application_1',['Application',['../class_lithe_1_1_application.html',1,'Lithe']]]
 ];

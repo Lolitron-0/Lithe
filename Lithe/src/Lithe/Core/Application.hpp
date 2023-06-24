@@ -58,6 +58,8 @@ namespace Lithe
 		Ref<ImGuiLayer> m_ImGuiLayer;
 		bool m_Running{ true };
 
+		Ref<Ra::VertexBuffer> m_VertexBuffer;
+
 		unsigned int m_VertexData;
 		unsigned int m_VertexArray;
 		unsigned int m_IndexBuffer;

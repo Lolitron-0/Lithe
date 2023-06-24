@@ -11,15 +11,17 @@ workspace "Lithe"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}	
-IncludeDir["spdlog"] =	"%{wks.location}/Lithe/thirdparty/spdlog/include"
-IncludeDir["GLFW"] =	"%{wks.location}/Lithe/thirdparty/GLFW/include"
-IncludeDir["Glad"] =	"%{wks.location}/Lithe/thirdparty/glad/include"
-IncludeDir["ImGui"] =	"%{wks.location}/Lithe/thirdparty/ImGui/"
-IncludeDir["glm"] =		"%{wks.location}/Lithe/thirdparty/glm/"
+IncludeDir["spdlog"] =				"%{wks.location}/Lithe/thirdparty/spdlog/include"
+IncludeDir["GLFW"] =				"%{wks.location}/Lithe/thirdparty/GLFW/include"
+IncludeDir["Glad"] =				"%{wks.location}/Lithe/thirdparty/glad/include"
+IncludeDir["ImGui"] =				"%{wks.location}/Lithe/thirdparty/ImGui/"
+IncludeDir["glm"] =					"%{wks.location}/Lithe/thirdparty/glm/"
+IncludeDir["RenderAbstraction"] =	"%{wks.location}/Lithe/thirdparty/RenderAbstraction/include"
 
 include "Lithe/thirdparty/GLFW"
 include "Lithe/thirdparty/Glad"
 include "Lithe/thirdparty/ImGui"
+include "Lithe/thirdparty/RenderAbstraction"
 
 project "Lithe"
 	location "Lithe"
@@ -58,6 +60,7 @@ project "Lithe"
 		"GLFW",
 		"Glad",
 		"ImGui", 
+		"RenderAbstraction", 
 		"opengl32.lib"
 	}
 	

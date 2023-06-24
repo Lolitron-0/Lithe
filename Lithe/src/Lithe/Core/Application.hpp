@@ -57,6 +57,10 @@ namespace Lithe
 		Scope<Window> m_MainWindow;
 		Ref<ImGuiLayer> m_ImGuiLayer;
 		bool m_Running{ true };
+
+		unsigned int m_VertexData;
+		unsigned int m_VertexArray;
+		unsigned int m_IndexBuffer;
 	};
 
 	///Defined in client

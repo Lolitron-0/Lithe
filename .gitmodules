@@ -11,3 +11,6 @@
 [submodule "Lithe/thirdparty/glm"]
 	path = Lithe/thirdparty/glm
 	url = https://github.com/g-truc/glm
+[submodule "Lithe/thirdparty/RenderAbstraction"]
+	path = Lithe/thirdparty/RenderAbstraction
+	url = https://github.com/Lolitron-0/RenderingAbstraction

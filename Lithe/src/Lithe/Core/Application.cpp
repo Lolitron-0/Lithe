@@ -44,11 +44,6 @@ namespace Lithe
 		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
-        TCHAR buffer[MAX_PATH] = { 0 };
-        GetModuleFileName(NULL, buffer, MAX_PATH);
-		std::filesystem::path a("..\\..\\..\\Lithe\\src\\Lithe\\Core");
-		LITHE_LOG_CORE_DEBUG(a.root_path().string());
-
 		m_TestShader = Ra::Shader::Create(
             R"(C:\Users\niten01\Projects\Lithe\Lithe\src\Lithe\Core\test.vert)",
             R"(C:\Users\niten01\Projects\Lithe\Lithe\src\Lithe\Core\test.frag)");

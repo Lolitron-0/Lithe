@@ -5,10 +5,6 @@
 namespace Lithe
 {
 
-    void Window::PullEvents()
-    {
-    }
-
     Scope<Window> Window::Create(const WindowProperties& props)
     {
         #ifdef LT_PLATFORM_WINDOWS

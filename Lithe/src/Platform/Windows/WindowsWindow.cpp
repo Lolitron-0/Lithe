@@ -40,6 +40,8 @@ namespace Lithe
             LITHE_LOG_CORE_INFO("Initialized GLFW!");
         }
 
+        glfwWindowHint(GLFW_SAMPLES, 4); /// @todo runtime switch
+
         m_Handle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
         LITHE_CORE_ASSERT(m_Handle, "GLFWwindow instance not created!");
 

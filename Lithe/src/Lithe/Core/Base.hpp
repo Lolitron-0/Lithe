@@ -9,13 +9,13 @@
 #include <memory>
 
 #ifdef LT_PLATFORM_WINDOWS
-	#ifdef LT_BUILD_DLL
+	#ifdef LT_BUILD_STATIC
 		#define LITHE_API //__declspec(dllexport)
 	#else
 		#define LITHE_API //__declspec(dllimport)
 	#endif
 #else
-	#error Lithe only supports Windows (for now)
+	#error Lithe only supports Windows!
 #endif
 
 #ifdef LT_DEBUG

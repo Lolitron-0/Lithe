@@ -52,17 +52,18 @@ namespace Lithe
 		bool OnWindowClosed(const WindowClosedEvent& event);
 		bool OnWindowResized(const WindowResizedEvent& event);
 
+		static void OnRendererError_(const std::string& errorMessage);
+
 	private:
 		LayerStack m_LayerStack;
 		Scope<Window> m_MainWindow;
 		Ref<ImGuiLayer> m_ImGuiLayer;
 		bool m_Running{ true };
 
+		Ref<Ra::Shader> m_TestShader;
 		Ref<Ra::VertexBuffer> m_VertexBuffer;
-
-		unsigned int m_VertexData;
-		unsigned int m_VertexArray;
-		unsigned int m_IndexBuffer;
+		Ref<Ra::IndexBuffer> m_IndexBuffer;
+		Ref<Ra::VertexArray> m_VertexArray;
 	};
 
 	///Defined in client

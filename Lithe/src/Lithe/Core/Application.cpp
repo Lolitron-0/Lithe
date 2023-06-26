@@ -3,13 +3,18 @@
 #include "Window.hpp"
 #include "LayerStack.hpp"
 #include <glad/glad.h>
+#include "Base.hpp"
 
 namespace Lithe
 {
 
 	Lithe::Application::Application()
 	{
+		Ra::SetErrorCallback(Application::OnRendererError_); 
+		Ra::Renderer::SetAPI(Ra::RendererAPI::API::OpenGL);
+
 		Log::Init();
+
 		m_MainWindow = Window::Create();
 		m_MainWindow->SetEventCallback(LT_BIND_EVENT_FN(Application::OnEvent));
 		m_MainWindow->MaximizeWindow();  // Needed to send initial resize event
@@ -17,27 +22,36 @@ namespace Lithe
 		m_ImGuiLayer = std::make_shared<ImGuiLayer>();
 		m_LayerStack.PushOverlay(m_ImGuiLayer);
 
+		Ra::Renderer::Init();
+
 		float data[3 * 3] = {
 			-0.5f, -0.5f, 0.0f,
 			 0.5f, -0.5f, 0.0f,
 			 0.f,   0.5f, 0.0f
 		};
+		
+		m_VertexArray = Ra::VertexArray::Create();
 
-		glGenVertexArrays(1,&m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		m_VertexBuffer = Ra::VertexBuffer::Create(data, sizeof(data));
+		Ra::BufferLayout layout = {
+			{Ra::UniformDataType::Float3, "position"},
+		};
+		m_VertexBuffer->SetLayout(layout);
 
-		glGenBuffers(1, &m_VertexData);
-		glBindBuffer(GL_ARRAY_BUFFER, m_VertexData); 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(data), &data, GL_STATIC_DRAW);
-
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
-
-		glGenBuffers(1, &m_IndexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
 		unsigned int indices[3] = {0,1,2};
+		m_IndexBuffer = Ra::IndexBuffer::Create(indices, 3);
 
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), &indices, GL_STATIC_DRAW);
+		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
+		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
+
+        TCHAR buffer[MAX_PATH] = { 0 };
+        GetModuleFileName(NULL, buffer, MAX_PATH);
+		std::filesystem::path a("..\\..\\..\\Lithe\\src\\Lithe\\Core");
+		LITHE_LOG_CORE_DEBUG(a.root_path().string());
+
+		m_TestShader = Ra::Shader::Create(
+            R"(C:\Users\niten01\Projects\Lithe\Lithe\src\Lithe\Core\test.vert)",
+            R"(C:\Users\niten01\Projects\Lithe\Lithe\src\Lithe\Core\test.frag)");
 	}
 
 	Lithe::Application::~Application()
@@ -51,24 +65,23 @@ namespace Lithe
 
 		while (m_Running)
 		{
-			glClearColor(1, 1, 0, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-
+			Ra::RenderCommand::SetClearColor({ 1.f, 1.f, 0.f, 0.f });
+			Ra::RenderCommand::Clear();
 
 			m_MainWindow->PullEvents();
 			
-			for (LayerPtr layer : m_LayerStack)
+			for (const LayerPtr& layer : m_LayerStack)
 				layer->OnUpdate();
 
 			m_ImGuiLayer->Begin();
 
-			for (LayerPtr layer : m_LayerStack)
+			for (const LayerPtr& layer : m_LayerStack)
 				layer->OnImGuiDraw();
 
 			m_ImGuiLayer->End();
 
-			glBindVertexArray(m_VertexArray);
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			m_TestShader->Bind();
+			Ra::RenderCommand::DrawIndexed(m_VertexArray, 3);
 
 			m_MainWindow->OnUpdate();
 		}
@@ -97,6 +110,11 @@ namespace Lithe
 	{
 		glViewport(0,0, event.GetNewWidth(), event.GetNewHeight());
 		return false;
+	}
+
+	void Application::OnRendererError_(const std::string& errorMessage)
+	{
+		LITHE_LOG_CORE_ERROR(errorMessage);
 	}
 
 	const Window& Application::GetWindow() const

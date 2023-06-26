@@ -73,9 +73,10 @@ project "Lithe"
 		defines 
 		{
 			"LT_PLATFORM_WINDOWS", 
-			"LT_BUILD_DLL",
+			"LT_BUILD_STATIC",
 			"GLFW_INCLUDE_NONE",
 			"_CRT_SECURE_NO_WARNINGS",
+			"RA_WINDOWS",
 		}
 
 		postbuildcommands
@@ -132,7 +133,8 @@ project "Sandbox"
 
 		defines 
 		{
-			"LT_PLATFORM_WINDOWS"
+			"LT_PLATFORM_WINDOWS",
+			"RA_WINDOWS"
 		}
 
 	filter "configurations:Debug"

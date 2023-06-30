@@ -14,3 +14,6 @@
 [submodule "Lithe/thirdparty/RenderAbstraction"]
 	path = Lithe/thirdparty/RenderAbstraction
 	url = https://github.com/Lolitron-0/RenderingAbstraction
+	master = master
+	branch = master
+	update = rebase

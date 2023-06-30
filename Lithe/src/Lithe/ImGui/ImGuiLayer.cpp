@@ -60,9 +60,9 @@ namespace Lithe
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-    
-        ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
+        //ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+   
     }
 
     void ImGuiLayer::End()

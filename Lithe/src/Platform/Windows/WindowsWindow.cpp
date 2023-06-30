@@ -48,6 +48,8 @@ namespace Lithe
         LITHE_LOG_CORE_TRACE("Created GLFWwindow instance.");
 
         m_RenderingContext = Ra::RenderingContext::Create(m_Handle);
+        glfwSetInputMode(m_Handle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
 
         LITHE_CORE_ASSERT(m_RenderingContext->IsLoaded(), "Failed to initialize Glad!");
         auto info = m_RenderingContext->GetInfo();

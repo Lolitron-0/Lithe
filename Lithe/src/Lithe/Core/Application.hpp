@@ -11,6 +11,7 @@
 #include "Lithe/Utils/Singleton.hpp"
 #include "LayerStack.hpp"
 #include "Lithe/ImGui/ImGuiLayer.hpp"
+#include "Lithe/Input/CameraController.hpp"
 
 namespace Lithe
 {
@@ -64,6 +65,7 @@ namespace Lithe
 		Ref<Ra::VertexBuffer> m_VertexBuffer;
 		Ref<Ra::IndexBuffer> m_IndexBuffer;
 		Ref<Ra::VertexArray> m_VertexArray;
+		Ref<FlyCameraController> m_CameraController;
 	};
 
 	///Defined in client

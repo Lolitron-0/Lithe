@@ -51,7 +51,7 @@ namespace Lithe
         /**
          * @brief Getter for backend dependent handle (e.g. GLFWwindow*)
          * @tparam Handle type
-         * @return Hanldle
+         * @return Handle
         */
         template<typename T>
         T GetNativeHandle() const {

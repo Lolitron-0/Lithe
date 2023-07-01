@@ -27,16 +27,16 @@ namespace Lithe
 
         /**
          * @brief Mouse y position getter.
-         * \todo position coordinate system
          *
-         * @return cursor y position in some coordinate system :^)
+         * @return Cursor y position relative to top-left window corner
+         * @note When cursor is hidden mouse movement is unlimited (but is also relative to top-left corner)
          */
         float GetMouseX() const { return m_MouseX; }
         /**
         * @brief Mouse x position getter.
-        * \todo position coordinate system
         *
-        * @return cursor x position in some coordinate system :^)
+        * @return Cursor x position relative to top-left window corner
+        * @note When cursor is hidden mouse movement is unlimited (but is also relative to top-left corner)
         */
         float GetMouseY() const { return m_MouseY; }
 

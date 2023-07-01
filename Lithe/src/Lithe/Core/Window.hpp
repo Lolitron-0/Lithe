@@ -30,9 +30,8 @@ namespace Lithe
     };
 
 
-    /**
-     * Platform independent window interface.
-     */
+    
+    /// Platform independent window interface.
     class LITHE_API Window
     {
     public:

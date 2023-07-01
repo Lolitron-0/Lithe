@@ -2,6 +2,7 @@
 
 namespace Lithe
 {
+    /// Static class for general purpose platform specific functions
     class Platform
     {
     public:

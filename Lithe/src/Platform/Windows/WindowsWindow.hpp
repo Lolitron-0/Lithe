@@ -12,7 +12,7 @@
 
 namespace Lithe
 {
-    ///Specialization for a Windows window.
+    ///Implementation of a Windows window.
     class LITHE_API WindowsWindow final : public Window
     {
     public:

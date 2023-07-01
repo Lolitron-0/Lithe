@@ -4,6 +4,7 @@
 
 namespace Lithe
 {
+    /// Layer that handles ImGui Begin/End frame logic
     class LITHE_API ImGuiLayer : public Layer
     {
     public:

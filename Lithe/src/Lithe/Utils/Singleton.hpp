@@ -2,6 +2,7 @@
 
 namespace Lithe
 {
+    /// Utility to create singleton classes (based on Loki)
     template<class T>
     class Singleton
     {

@@ -4,6 +4,7 @@
 
 namespace Lithe
 {
+    /// Implementation of Windows specific general purpose functions
     class WindowsPlatform : public Platform
     {
     protected:

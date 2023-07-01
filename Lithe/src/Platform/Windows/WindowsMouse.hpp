@@ -3,6 +3,7 @@
 
 namespace Lithe
 {
+    /// Mouse class implementation for Windows
     class WindowsMouse final : public Mouse
     {
     public:

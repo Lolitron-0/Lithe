@@ -86,7 +86,7 @@ namespace Lithe
 	};
 
 	/**
-	 * Class for WindowMoved event type, holds offset values.
+	 * @brief Class for WindowMoved event type, holds offset values.
 	 * \todo look up actual implementation (in GLFW)
 	 */
 	class LITHE_API WindowMovedEvent : public Event

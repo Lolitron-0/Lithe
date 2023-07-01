@@ -3,6 +3,7 @@
 
 namespace Lithe
 {
+    /// Keyboard class implementation for Windows
     class WindowsKeyboard final : public Keyboard
     {
     public:

@@ -48,8 +48,8 @@ namespace Lithe
         LITHE_LOG_CORE_TRACE("Created GLFWwindow instance.");
 
         m_RenderingContext = Ra::RenderingContext::Create(m_Handle);
-        glfwSetInputMode(m_Handle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
+        HideCursor();
 
         LITHE_CORE_ASSERT(m_RenderingContext->IsLoaded(), "Failed to initialize Glad!");
         auto info = m_RenderingContext->GetInfo();
@@ -158,14 +158,29 @@ namespace Lithe
         glfwDestroyWindow(m_Handle);
     }
 
-    void WindowsWindow::MaximizeWindow() const
+    void WindowsWindow::MaximizeWindow()
     {
         glfwMaximizeWindow(m_Handle);
     }
 
-    void WindowsWindow::MinimizeWindow() const
+    void WindowsWindow::MinimizeWindow() 
     {
         glfwIconifyWindow(m_Handle);
+    }
+
+    void WindowsWindow::ShowCursor()
+    {
+        glfwSetInputMode(m_Handle, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    }
+
+    void WindowsWindow::HideCursor()
+    {
+        glfwSetInputMode(m_Handle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    }
+
+    bool WindowsWindow::IsCursorHidden() const
+    {
+        return glfwGetInputMode(m_Handle, GLFW_CURSOR) == GLFW_CURSOR_DISABLED;
     }
 
     void WindowsWindow::PushEvent(Ref<Event>& event)

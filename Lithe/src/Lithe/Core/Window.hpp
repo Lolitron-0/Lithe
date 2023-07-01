@@ -45,8 +45,12 @@ namespace Lithe
         virtual unsigned int GetWidth() const = 0;
         virtual unsigned int GetHeight() const = 0;
 
-        virtual void MaximizeWindow() const = 0;
-        virtual void MinimizeWindow() const = 0;
+        virtual void MaximizeWindow() = 0;
+        virtual void MinimizeWindow() = 0;
+
+        virtual void ShowCursor() = 0;
+        virtual void HideCursor() = 0;
+        virtual bool IsCursorHidden() const = 0;
 
         /**
          * @brief Getter for backend dependent handle (e.g. GLFWwindow*)

@@ -32,8 +32,12 @@ namespace Lithe
         bool IsVSync() const override;
         void SetVSync(bool val) override;
 
-        void MaximizeWindow() const override;
-        void MinimizeWindow() const override;
+        void MaximizeWindow() override;
+        void MinimizeWindow() override;
+
+        void ShowCursor() override;
+        void HideCursor() override;
+        bool IsCursorHidden() const override;
 
         void PushEvent(Ref<Event>& event) override;
         void PullEvents() override;

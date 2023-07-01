@@ -119,17 +119,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0332844fabf049520e89b7339e44e742"><td class="memItemLeft" align="right" valign="top"><a id="a0332844fabf049520e89b7339e44e742" name="a0332844fabf049520e89b7339e44e742"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEvent</b> (<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;event)</td></tr>
 <tr class="separator:a0332844fabf049520e89b7339e44e742"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e9629ce6f81757455a1682102791b20"><td class="memItemLeft" align="right" valign="top"><a id="a2e9629ce6f81757455a1682102791b20" name="a2e9629ce6f81757455a1682102791b20"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnUpdate</b> ()</td></tr>
-<tr class="separator:a2e9629ce6f81757455a1682102791b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ed0ec453bf31ad32ddadcea5676b0b"><td class="memItemLeft" align="right" valign="top"><a id="a34ed0ec453bf31ad32ddadcea5676b0b" name="a34ed0ec453bf31ad32ddadcea5676b0b"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnUpdate</b> (const <a class="el" href="class_lithe_1_1_timestep.html">Timestep</a> &amp;ts)</td></tr>
+<tr class="separator:a34ed0ec453bf31ad32ddadcea5676b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5296ae8ccb1250a499bcd16ff80a5e35"><td class="memItemLeft" align="right" valign="top"><a id="a5296ae8ccb1250a499bcd16ff80a5e35" name="a5296ae8ccb1250a499bcd16ff80a5e35"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnImGuiDraw</b> ()</td></tr>
 <tr class="separator:a5296ae8ccb1250a499bcd16ff80a5e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af918bc25912c8ba493d3dacab731135b"><td class="memItemLeft" align="right" valign="top"><a id="af918bc25912c8ba493d3dacab731135b" name="af918bc25912c8ba493d3dacab731135b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnAttach</b> ()</td></tr>
+<tr class="memitem:af918bc25912c8ba493d3dacab731135b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_layer.html#af918bc25912c8ba493d3dacab731135b">OnAttach</a> ()</td></tr>
+<tr class="memdesc:af918bc25912c8ba493d3dacab731135b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is pushed to <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>.  <br /></td></tr>
 <tr class="separator:af918bc25912c8ba493d3dacab731135b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24be4c492fa0c86015bef28cf255278"><td class="memItemLeft" align="right" valign="top"><a id="ae24be4c492fa0c86015bef28cf255278" name="ae24be4c492fa0c86015bef28cf255278"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnDetach</b> ()</td></tr>
+<tr class="memitem:ae24be4c492fa0c86015bef28cf255278"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_layer.html#ae24be4c492fa0c86015bef28cf255278">OnDetach</a> ()</td></tr>
+<tr class="memdesc:ae24be4c492fa0c86015bef28cf255278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is popped from <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>.  <br /></td></tr>
 <tr class="separator:ae24be4c492fa0c86015bef28cf255278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -140,7 +140,66 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_DebugName</b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for all layers, such as ui/overlays and game world objects. User can create own layers by implementing this class. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af918bc25912c8ba493d3dacab731135b" name="af918bc25912c8ba493d3dacab731135b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af918bc25912c8ba493d3dacab731135b">&#9670;&#160;</a></span>OnAttach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lithe::Layer::OnAttach </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is pushed to <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>. </p>
+
+<p>Reimplemented in <a class="el" href="class_lithe_1_1_im_gui_layer.html#a5a455f52f53ba35378cdf3d0b03265a1">Lithe::ImGuiLayer</a>.</p>
+
+</div>
+</div>
+<a id="ae24be4c492fa0c86015bef28cf255278" name="ae24be4c492fa0c86015bef28cf255278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24be4c492fa0c86015bef28cf255278">&#9670;&#160;</a></span>OnDetach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lithe::Layer::OnDetach </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is popped from <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>. </p>
+
+<p>Reimplemented in <a class="el" href="class_lithe_1_1_im_gui_layer.html#acf42646c2e9b39e123ad7c486f20085f">Lithe::ImGuiLayer</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>G:/dev/Lithe/Lithe/src/Lithe/Core/<a class="el" href="_layer_8hpp_source.html">Layer.hpp</a></li>
 <li>G:/dev/Lithe/Lithe/src/Lithe/Core/Layer.cpp</li>
 </ul>

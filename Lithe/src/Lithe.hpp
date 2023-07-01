@@ -10,12 +10,16 @@
 #include "Lithe/Core/Application.hpp"
 #include "Lithe/Core/Log.hpp"
 #include "Lithe/Core/Layer.hpp"
+#include "Lithe/Core/Platform.hpp"
+#include "Lithe/Core/Timestep.hpp"
 
 #include "Lithe/Events/Events.hpp"
 #include "Lithe/Input/Keyboard.hpp"
 #include "Lithe/Input/Mouse.hpp"
+#include "Lithe/Input/CameraController.hpp"
 
 #include "Lithe/ImGui/ImGuiLayer.hpp"
+
 
 // --------- Entry Point --------- 
 #include "Lithe/Core/EntryPoint.hpp"

@@ -33,6 +33,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
@@ -51,7 +52,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_application_8hpp.html",
-"class_lithe_1_1_mouse_button_pressed_event.html#a32b485b025ac5adcbdbcb9205fd669a7"
+"class_lithe_1_1_layer_stack.html#a0067d3b3085798bfc1e87231411c7daf"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

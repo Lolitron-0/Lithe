@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * @file   Application.hpp
  * @brief  Application class header
- * 
+ *
  * @author Lolitron
  * @date   June 2023
  *********************************************************************/
@@ -15,59 +15,55 @@
 
 namespace Lithe
 {
-	/**
-	 * @brief Base class for all applications
-	 */
-	class LITHE_API Application : public Singleton<Application>
-	{
-	public:
-		Application();
-		virtual ~Application();
+    /**
+     * @brief Base class for all applications
+     */
+    class LITHE_API Application : public Singleton<Application>
+    {
+    public:
+        Application();
+        virtual ~Application();
 
-		/// Starts main cycle
-		void Run();
+        /// Starts main cycle
+        void Run();
 
-		/**
-		 * @brief Wrapper around LayerStack corresponding method.
-		 * See LayerStack::PushLayer for more information
-		 */
-		void PushLayer(LayerPtr layer)
-		{
-			return m_LayerStack.PushLayer(layer);
-		}
+        /**
+         * @brief Wrapper around LayerStack corresponding method.
+         * See LayerStack::PushLayer for more information
+         */
+        void PushLayer(LayerPtr layer)
+        {
+            return m_LayerStack.PushLayer(layer);
+        }
 
-		/**
-		* @brief Wrapper around LayerStack corresponding methods.
-		* See LayerStack::PushLayer for more information
-		*/
-		void PushOverlay(LayerPtr layer)
-		{
-			return m_LayerStack.PushOverlay(layer);
-		}
+        /**
+        * @brief Wrapper around LayerStack corresponding methods.
+        * See LayerStack::PushLayer for more information
+        */
+        void PushOverlay(LayerPtr layer)
+        {
+            return m_LayerStack.PushOverlay(layer);
+        }
 
-		const Window& GetWindow() const;
+        Window& GetWindow() const;
 
-	private:
-		void OnEvent(Event& event);
+    private:
+        void OnEvent(Event& event);
 
-		bool OnWindowClosed(const WindowClosedEvent& event);
-		bool OnWindowResized(const WindowResizedEvent& event);
+        bool OnWindowClosed(const WindowClosedEvent& event);
+        bool OnWindowResized(const WindowResizedEvent& event);
 
-		static void OnRendererError_(const std::string& errorMessage);
+        static void OnRendererError_(const std::string& errorMessage);
 
-	private:
-		LayerStack m_LayerStack;
-		Scope<Window> m_MainWindow;
-		Ref<ImGuiLayer> m_ImGuiLayer;
-		bool m_Running{ true };
+    private:
+        LayerStack m_LayerStack;
+        Scope<Window> m_MainWindow;
+        Ref<ImGuiLayer> m_ImGuiLayer;
+        bool m_Running{ true };
 
-		Ref<Ra::Shader> m_TestShader;
-		Ref<Ra::VertexBuffer> m_VertexBuffer;
-		Ref<Ra::IndexBuffer> m_IndexBuffer;
-		Ref<Ra::VertexArray> m_VertexArray;
-		Ref<FlyCameraController> m_CameraController;
-	};
+        double m_LastFrameTimeSec{ 0.0 };
+    };
 
-	///Defined in client
-	Application* CreateApplication();
+    ///Defined in client
+    Application* CreateApplication();
 }

@@ -108,8 +108,10 @@ Inheritance diagram for Lithe::ImGuiLayer:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a455f52f53ba35378cdf3d0b03265a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_im_gui_layer.html#a5a455f52f53ba35378cdf3d0b03265a1">OnAttach</a> () override</td></tr>
+<tr class="memdesc:a5a455f52f53ba35378cdf3d0b03265a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is pushed to <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>.  <br /></td></tr>
 <tr class="separator:a5a455f52f53ba35378cdf3d0b03265a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf42646c2e9b39e123ad7c486f20085f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_im_gui_layer.html#acf42646c2e9b39e123ad7c486f20085f">OnDetach</a> () override</td></tr>
+<tr class="memdesc:acf42646c2e9b39e123ad7c486f20085f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is popped from <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>.  <br /></td></tr>
 <tr class="separator:acf42646c2e9b39e123ad7c486f20085f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ae6c65c14e95eea482d3ddd54c4a5ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_im_gui_layer.html#a7ae6c65c14e95eea482d3ddd54c4a5ef">OnImGuiDraw</a> () override</td></tr>
 <tr class="separator:a7ae6c65c14e95eea482d3ddd54c4a5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,17 +128,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>End</b> ()</td></tr>
 <tr class="memitem:a0332844fabf049520e89b7339e44e742 inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEvent</b> (<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;event)</td></tr>
 <tr class="separator:a0332844fabf049520e89b7339e44e742 inherit pub_methods_class_lithe_1_1_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e9629ce6f81757455a1682102791b20 inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnUpdate</b> ()</td></tr>
-<tr class="separator:a2e9629ce6f81757455a1682102791b20 inherit pub_methods_class_lithe_1_1_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ed0ec453bf31ad32ddadcea5676b0b inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnUpdate</b> (const <a class="el" href="class_lithe_1_1_timestep.html">Timestep</a> &amp;ts)</td></tr>
+<tr class="separator:a34ed0ec453bf31ad32ddadcea5676b0b inherit pub_methods_class_lithe_1_1_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5296ae8ccb1250a499bcd16ff80a5e35 inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnImGuiDraw</b> ()</td></tr>
 <tr class="separator:a5296ae8ccb1250a499bcd16ff80a5e35 inherit pub_methods_class_lithe_1_1_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af918bc25912c8ba493d3dacab731135b inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnAttach</b> ()</td></tr>
+<tr class="memitem:af918bc25912c8ba493d3dacab731135b inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_layer.html#af918bc25912c8ba493d3dacab731135b">OnAttach</a> ()</td></tr>
+<tr class="memdesc:af918bc25912c8ba493d3dacab731135b inherit pub_methods_class_lithe_1_1_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is pushed to <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>.  <br /></td></tr>
 <tr class="separator:af918bc25912c8ba493d3dacab731135b inherit pub_methods_class_lithe_1_1_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24be4c492fa0c86015bef28cf255278 inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnDetach</b> ()</td></tr>
+<tr class="memitem:ae24be4c492fa0c86015bef28cf255278 inherit pub_methods_class_lithe_1_1_layer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_layer.html#ae24be4c492fa0c86015bef28cf255278">OnDetach</a> ()</td></tr>
+<tr class="memdesc:ae24be4c492fa0c86015bef28cf255278 inherit pub_methods_class_lithe_1_1_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is popped from <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>.  <br /></td></tr>
 <tr class="separator:ae24be4c492fa0c86015bef28cf255278 inherit pub_methods_class_lithe_1_1_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -170,7 +172,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_DebugName</b
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_lithe_1_1_layer.html">Lithe::Layer</a>.</p>
+<p>Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is pushed to <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>. </p>
+
+<p>Reimplemented from <a class="el" href="class_lithe_1_1_layer.html#af918bc25912c8ba493d3dacab731135b">Lithe::Layer</a>.</p>
 
 </div>
 </div>
@@ -197,7 +201,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_DebugName</b
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_lithe_1_1_layer.html">Lithe::Layer</a>.</p>
+<p>Called whet this <a class="el" href="class_lithe_1_1_layer.html" title="Base class for all layers, such as ui/overlays and game world objects. User can create own layers by ...">Layer</a> is popped from <a class="el" href="class_lithe_1_1_layer_stack.html" title="Class for layer creation and storage. First half of the stack is game world layers,...">LayerStack</a>. </p>
+
+<p>Reimplemented from <a class="el" href="class_lithe_1_1_layer.html#ae24be4c492fa0c86015bef28cf255278">Lithe::Layer</a>.</p>
 
 </div>
 </div>

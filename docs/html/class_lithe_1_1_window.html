@@ -128,12 +128,21 @@ virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetWi
 <tr class="memitem:a8155874c552f7e29874cf08b8f3673a5"><td class="memItemLeft" align="right" valign="top"><a id="a8155874c552f7e29874cf08b8f3673a5" name="a8155874c552f7e29874cf08b8f3673a5"></a>
 virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>GetHeight</b> () const =0</td></tr>
 <tr class="separator:a8155874c552f7e29874cf08b8f3673a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8083fcb8adf2dd60723c78c72118ddc"><td class="memItemLeft" align="right" valign="top"><a id="af8083fcb8adf2dd60723c78c72118ddc" name="af8083fcb8adf2dd60723c78c72118ddc"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MaximizeWindow</b> () const =0</td></tr>
-<tr class="separator:af8083fcb8adf2dd60723c78c72118ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb7f13f9de946ebbbf786d519407eb88"><td class="memItemLeft" align="right" valign="top"><a id="adb7f13f9de946ebbbf786d519407eb88" name="adb7f13f9de946ebbbf786d519407eb88"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MinimizeWindow</b> () const =0</td></tr>
-<tr class="separator:adb7f13f9de946ebbbf786d519407eb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f6d56d904eaa2b04d4725554787085"><td class="memItemLeft" align="right" valign="top"><a id="ae2f6d56d904eaa2b04d4725554787085" name="ae2f6d56d904eaa2b04d4725554787085"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MaximizeWindow</b> ()=0</td></tr>
+<tr class="separator:ae2f6d56d904eaa2b04d4725554787085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53cc0b88f6e5b3e70ba8f4f6a641e642"><td class="memItemLeft" align="right" valign="top"><a id="a53cc0b88f6e5b3e70ba8f4f6a641e642" name="a53cc0b88f6e5b3e70ba8f4f6a641e642"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>MinimizeWindow</b> ()=0</td></tr>
+<tr class="separator:a53cc0b88f6e5b3e70ba8f4f6a641e642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc24d80b1561b93ed07645ca95993be7"><td class="memItemLeft" align="right" valign="top"><a id="acc24d80b1561b93ed07645ca95993be7" name="acc24d80b1561b93ed07645ca95993be7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ShowCursor</b> ()=0</td></tr>
+<tr class="separator:acc24d80b1561b93ed07645ca95993be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4627c2e150d1ea37657f4bee1b9cad9a"><td class="memItemLeft" align="right" valign="top"><a id="a4627c2e150d1ea37657f4bee1b9cad9a" name="a4627c2e150d1ea37657f4bee1b9cad9a"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>HideCursor</b> ()=0</td></tr>
+<tr class="separator:a4627c2e150d1ea37657f4bee1b9cad9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac279929cdfcadd1601e045a2c95e6a4d"><td class="memItemLeft" align="right" valign="top"><a id="ac279929cdfcadd1601e045a2c95e6a4d" name="ac279929cdfcadd1601e045a2c95e6a4d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsCursorHidden</b> () const =0</td></tr>
+<tr class="separator:ac279929cdfcadd1601e045a2c95e6a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">GetNativeHandle</a> () const</td></tr>
 <tr class="memdesc:a2e0b8c274cf72ff4ca0f1f54b845323a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for backend dependent handle (e.g. GLFWwindow*)  <br /></td></tr>
@@ -147,9 +156,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetVSync</b> 
 <tr class="memitem:acf14802388c05616476f0f8bf63ccdae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">PushEvent</a> (Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &amp;event)=0</td></tr>
 <tr class="memdesc:acf14802388c05616476f0f8bf63ccdae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to add an event to pull queue (Lithe uses non-blocking event system)  <br /></td></tr>
 <tr class="separator:acf14802388c05616476f0f8bf63ccdae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5c6a878c8c5f265187d141ff816b001"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#ad5c6a878c8c5f265187d141ff816b001">PullEvents</a> ()=0</td></tr>
-<tr class="memdesc:ad5c6a878c8c5f265187d141ff816b001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request dispatch of all events.  <br /></td></tr>
-<tr class="separator:ad5c6a878c8c5f265187d141ff816b001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b48cc6e8bc819be11c7a39b67caab7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#ab3b48cc6e8bc819be11c7a39b67caab7">PullEvents</a> ()=0</td></tr>
+<tr class="memdesc:ab3b48cc6e8bc819be11c7a39b67caab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request dispatch of all events.  <br /></td></tr>
+<tr class="separator:ab3b48cc6e8bc819be11c7a39b67caab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb2cf790ed393886b52da6938f502420"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#acb2cf790ed393886b52da6938f502420">SetEventCallback</a> (const EventCallbackFn &amp;callback)=0</td></tr>
 <tr class="memdesc:acb2cf790ed393886b52da6938f502420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set main event callback function.  <br /></td></tr>
 <tr class="separator:acb2cf790ed393886b52da6938f502420"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,7 +182,7 @@ Scope&lt; <a class="el" href="class_ra_1_1_rendering_context.html">Ra::Rendering
 <tr class="separator:a2fd50565ccd8459affec9d68b2f68046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Platform independent window interface. </p>
+<div class="textblock"><p><a class="el" href="class_lithe_1_1_platform.html">Platform</a> independent window interface. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a517a5b7f570ab63a16f02bc337284d66" name="a517a5b7f570ab63a16f02bc337284d66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a517a5b7f570ab63a16f02bc337284d66">&#9670;&#160;</a></span>Create()</h2>
@@ -242,12 +251,12 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Hanldle </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle </dd></dl>
 
 </div>
 </div>
-<a id="ad5c6a878c8c5f265187d141ff816b001" name="ad5c6a878c8c5f265187d141ff816b001"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5c6a878c8c5f265187d141ff816b001">&#9670;&#160;</a></span>PullEvents()</h2>
+<a id="ab3b48cc6e8bc819be11c7a39b67caab7" name="ab3b48cc6e8bc819be11c7a39b67caab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b48cc6e8bc819be11c7a39b67caab7">&#9670;&#160;</a></span>PullEvents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +265,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lithe::Window::PullEvents </td>
+          <td class="memname">virtual void Lithe::Window::PullEvents </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

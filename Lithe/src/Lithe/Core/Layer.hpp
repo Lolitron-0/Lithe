@@ -8,6 +8,7 @@
 
 #pragma once
 #include "Lithe/Events/Events.hpp"
+#include "Timestep.hpp"
 
 namespace Lithe
 {
@@ -22,10 +23,12 @@ namespace Lithe
 		virtual ~Layer() = default;
 
 		virtual void OnEvent(Event& event) {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(const Timestep& ts) {}
 		virtual void OnImGuiDraw() {}
 
+		/// Called whet this Layer is pushed to LayerStack
 		virtual void OnAttach() {}
+        /// Called whet this Layer is popped from LayerStack
 		virtual void OnDetach() {}
 
 

@@ -90,48 +90,93 @@ $(document).ready(function(){initNavTree('class_ra_1_1_renderer.html',''); initR
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_ra_1_1_renderer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Ra::Renderer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">Ra::Renderer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for Ra::Renderer:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_ra_1_1_renderer.png" usemap="#Ra::Renderer_map" alt=""/>
-  <map id="Ra::Renderer_map" name="Ra::Renderer_map">
-<area href="class_ra_1_1_open_g_l_renderer.html" alt="Ra::OpenGLRenderer" shape="rect" coords="0,56,133,80"/>
-  </map>
-</div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aea7b78147111450392394d598ba11bea"><td class="memItemLeft" align="right" valign="top"><a id="aea7b78147111450392394d598ba11bea" name="aea7b78147111450392394d598ba11bea"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>API</b> { <b>None</b> = -1
-, <b>OpenGL</b>
- }</td></tr>
-<tr class="separator:aea7b78147111450392394d598ba11bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ab918a051b7999498c12773e71de0ba12"><td class="memItemLeft" align="right" valign="top"><a id="ab918a051b7999498c12773e71de0ba12" name="ab918a051b7999498c12773e71de0ba12"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetViewport</b> (uint32_t x, uint32_t y, uint32_t width, uint32_t height)=0</td></tr>
-<tr class="separator:ab918a051b7999498c12773e71de0ba12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a993aec5d2dd9d512d38efefdbd479f95"><td class="memItemLeft" align="right" valign="top"><a id="a993aec5d2dd9d512d38efefdbd479f95" name="a993aec5d2dd9d512d38efefdbd479f95"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetClearColor</b> (const glm::vec4 &amp;color)=0</td></tr>
-<tr class="separator:a993aec5d2dd9d512d38efefdbd479f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d24028f5568ccb568bb4994e027bd9e"><td class="memItemLeft" align="right" valign="top"><a id="a6d24028f5568ccb568bb4994e027bd9e" name="a6d24028f5568ccb568bb4994e027bd9e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()=0</td></tr>
-<tr class="separator:a6d24028f5568ccb568bb4994e027bd9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6c90cdad35289e65bfde36a322442fd0"><td class="memItemLeft" align="right" valign="top"><a id="a6c90cdad35289e65bfde36a322442fd0" name="a6c90cdad35289e65bfde36a322442fd0"></a>
-static API&#160;</td><td class="memItemRight" valign="bottom"><b>GetAPI</b> ()</td></tr>
-<tr class="separator:a6c90cdad35289e65bfde36a322442fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a183f12ea6bd4b9b60adb35c0f56eab3c"><td class="memItemLeft" align="right" valign="top"><a id="a183f12ea6bd4b9b60adb35c0f56eab3c" name="a183f12ea6bd4b9b60adb35c0f56eab3c"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
+<tr class="separator:a183f12ea6bd4b9b60adb35c0f56eab3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e704ed1ccb0b33aebfed814f3c1257f"><td class="memItemLeft" align="right" valign="top"><a id="a5e704ed1ccb0b33aebfed814f3c1257f" name="a5e704ed1ccb0b33aebfed814f3c1257f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>Shutdown</b> ()</td></tr>
+<tr class="separator:a5e704ed1ccb0b33aebfed814f3c1257f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c0960c31886a06ee29ead7bae14ea9f"><td class="memItemLeft" align="right" valign="top"><a id="a4c0960c31886a06ee29ead7bae14ea9f" name="a4c0960c31886a06ee29ead7bae14ea9f"></a>
+static RendererAPI::API&#160;</td><td class="memItemRight" valign="bottom"><b>GetAPI</b> ()</td></tr>
+<tr class="separator:a4c0960c31886a06ee29ead7bae14ea9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38fb6a8507d4ad750b1d117ec5574df9"><td class="memItemLeft" align="right" valign="top"><a id="a38fb6a8507d4ad750b1d117ec5574df9" name="a38fb6a8507d4ad750b1d117ec5574df9"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAPI</b> (RendererAPI::API api)</td></tr>
+<tr class="memdesc:a38fb6a8507d4ad750b1d117ec5574df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets current rendering API. Can only be set once. <br /></td></tr>
+<tr class="separator:a38fb6a8507d4ad750b1d117ec5574df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="memItemLeft" align="right" valign="top"><a id="ad94d79e2ce7a4b0b00fe3320cdad8083" name="ad94d79e2ce7a4b0b00fe3320cdad8083"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const <a class="el" href="class_ra_1_1_camera.html">Camera</a> &amp;camera)</td></tr>
+<tr class="memdesc:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given camera. <br /></td></tr>
+<tr class="separator:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="memItemLeft" align="right" valign="top"><a id="ac8f7a324e434a0cc5e6ae9d1987bb534" name="ac8f7a324e434a0cc5e6ae9d1987bb534"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> ()</td></tr>
+<tr class="memdesc:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks scene as finished. <br /></td></tr>
+<tr class="separator:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e1206f99553ecf31216559f2a71d22"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_renderer.html#a40e1206f99553ecf31216559f2a71d22">Submit</a> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;vertexArray, const Ref&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt; &amp;shader, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
+<tr class="memdesc:a40e1206f99553ecf31216559f2a71d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits draw command to a renderer.  <br /></td></tr>
+<tr class="separator:a40e1206f99553ecf31216559f2a71d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a40e1206f99553ecf31216559f2a71d22" name="a40e1206f99553ecf31216559f2a71d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e1206f99553ecf31216559f2a71d22">&#9670;&#160;</a></span>Submit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Ra::Renderer::Submit </td>
+          <td>(</td>
+          <td class="paramtype">const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertexArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Ref&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RendererAPI::DrawMode&#160;</td>
+          <td class="paramname"><em>mode</em> = <code>RendererAPI::DrawMode::Triangles</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Submits draw command to a renderer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_ra_1_1_vertex_array.html" title="Abstract interface of a vertex array structure.">VertexArray</a></td><td>vertex array to draw </td></tr>
+    <tr><td class="paramname">shader</td><td><a class="el" href="class_ra_1_1_shader.html" title="Shader abstraction class.">Shader</a> to use for drawing </td></tr>
+    <tr><td class="paramname">mode</td><td>Drawing mode (e.g. triangles, lines, points, etc.) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>G:/dev/Lithe/Lithe/thirdparty/RenderAbstraction/include/<a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a></li>
 </ul>

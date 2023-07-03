@@ -135,25 +135,27 @@ $(document).ready(function(){initNavTree('_camera_8hpp_source.html',''); initRes
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_ra_1_1_camera.html#aea1e4a9343c1d43f4d572c887beb9ccd">   48</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_ra_1_1_camera.html#aea1e4a9343c1d43f4d572c887beb9ccd">ShiftPosition</a>(<span class="keyword">const</span> glm::vec3&amp; val) { m_Position += val; RecalculateMatrix_(); }</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_ra_1_1_camera.html#ab5f97cb7de62636a7c253b9b6fbac554">   50</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_ra_1_1_camera.html#ab5f97cb7de62636a7c253b9b6fbac554">ShiftPosition</a>(<span class="keyword">const</span> CameraDirection&amp; dir, <span class="keywordtype">float</span> val);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">void</span> RecalculateMatrix_();</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        glm::vec3 m_Position;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">float</span> m_Yaw;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">float</span> m_Pitch;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        glm::vec3 m_Rotation;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        glm::vec3 m_WorldUp;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">void</span> SetPerspective(<span class="keywordtype">float</span> fov, <span class="keywordtype">float</span> aspectRatio, <span class="keywordtype">float</span> near = .1f, <span class="keywordtype">float</span> far = 100.f);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">void</span> RecalculateMatrix_();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        glm::vec3 m_Position;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordtype">float</span> m_Yaw;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">float</span> m_Pitch;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        glm::vec3 m_Rotation;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        glm::vec3 m_Front;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        glm::vec3 m_Up;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        glm::vec3 m_Right;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        glm::mat4 m_ProjMatrix;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        glm::mat4 m_ViewMatrix;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        glm::mat4 m_ViewProjMatrix;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    };</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        glm::vec3 m_WorldUp;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        glm::vec3 m_Front;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        glm::vec3 m_Up;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        glm::vec3 m_Right;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        glm::mat4 m_ProjMatrix;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        glm::mat4 m_ViewMatrix;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        glm::mat4 m_ViewProjMatrix;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    };</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
 <div class="ttc" id="aclass_ra_1_1_camera_html"><div class="ttname"><a href="class_ra_1_1_camera.html">Ra::Camera</a></div><div class="ttdoc">Camera abstraction class.</div><div class="ttdef"><b>Definition</b> Camera.hpp:19</div></div>
 <div class="ttc" id="aclass_ra_1_1_camera_html_a0e6fa0a958cdfd4fa652435f1319e2c1"><div class="ttname"><a href="class_ra_1_1_camera.html#a0e6fa0a958cdfd4fa652435f1319e2c1">Ra::Camera::ShiftYaw</a></div><div class="ttdeci">void ShiftYaw(float val)</div><div class="ttdoc">Adds val to camera's yaw rotation (in degrees)</div><div class="ttdef"><b>Definition</b> Camera.hpp:45</div></div>
 <div class="ttc" id="aclass_ra_1_1_camera_html_a12dab524708142f599e4625366b952da"><div class="ttname"><a href="class_ra_1_1_camera.html#a12dab524708142f599e4625366b952da">Ra::Camera::ShiftPitch</a></div><div class="ttdeci">void ShiftPitch(float val)</div><div class="ttdoc">Adds val to camera's pitch rotation (in degrees)</div><div class="ttdef"><b>Definition</b> Camera.hpp:43</div></div>

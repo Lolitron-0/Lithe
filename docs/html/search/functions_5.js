@@ -12,7 +12,7 @@ var searchData=
   ['getmicroseconds_9',['GetMicroseconds',['../class_lithe_1_1_timestep.html#aa0e5e470487881ef08522d1b9d3c08ac',1,'Lithe::Timestep']]],
   ['getmilliseconds_10',['GetMilliseconds',['../class_lithe_1_1_timestep.html#a6590abec5e68f95e2db33fbd93a38d60',1,'Lithe::Timestep']]],
   ['getmousebutton_11',['GetMouseButton',['../class_lithe_1_1_mouse_button_event.html#a4ad9a5a1164a95a8cce14c568e060c33',1,'Lithe::MouseButtonEvent']]],
-  ['getmousesensitivity_12',['GetMouseSensitivity',['../class_lithe_1_1_fly_camera_controller.html#a8a1cb0aecf6d397a87fcd666b7730c84',1,'Lithe::FlyCameraController']]],
+  ['getmousesensitivity_12',['GetMouseSensitivity',['../class_lithe_1_1_fly_camera_controller_impl.html#af476035bf1dd3d3c748d74900d4b1ab0',1,'Lithe::FlyCameraControllerImpl']]],
   ['getmousex_13',['GetMouseX',['../class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42',1,'Lithe::MouseMovedEvent']]],
   ['getmousey_14',['GetMouseY',['../class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694',1,'Lithe::MouseMovedEvent']]],
   ['getname_15',['GetName',['../class_lithe_1_1_event.html#a7bbb04a1d34375700ce533aa678009c4',1,'Lithe::Event']]],

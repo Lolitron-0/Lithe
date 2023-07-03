@@ -1,5 +1,4 @@
 #pragma once
-#include "Log.hpp"
 
 #ifdef LT_PLATFORM_WINDOWS
 

@@ -17,10 +17,14 @@ IncludeDir["Glad"] =				"%{wks.location}/Lithe/thirdparty/glad/include"
 IncludeDir["ImGui"] =				"%{wks.location}/Lithe/thirdparty/ImGui/"
 IncludeDir["glm"] =					"%{wks.location}/Lithe/thirdparty/glm/"
 IncludeDir["RenderAbstraction"] =	"%{wks.location}/Lithe/thirdparty/RenderAbstraction/include"
+IncludeDir["EnTT"] =				"%{wks.location}/Lithe/thirdparty/EnTT/include"
 
-include "Lithe/thirdparty/GLFW"
-include "Lithe/thirdparty/Glad"
-include "Lithe/thirdparty/ImGui"
+group "Dependencies"
+	include "Lithe/thirdparty/GLFW"
+	include "Lithe/thirdparty/Glad"
+	include "Lithe/thirdparty/ImGui"
+group ""
+
 include "Lithe/thirdparty/RenderAbstraction"
 
 project "Lithe"
@@ -54,6 +58,7 @@ project "Lithe"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.RenderAbstraction}",
+		"%{IncludeDir.EnTT}",
 	}
 
 	links
@@ -119,6 +124,61 @@ project "Sandbox"
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.RenderAbstraction}",
+		"%{IncludeDir.EnTT}",
+	}
+
+	links
+	{
+		"Lithe"
+	}
+
+	filter "system:windows"
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		defines 
+		{
+			"LT_PLATFORM_WINDOWS",
+			"RA_WINDOWS"
+		}
+
+	filter "configurations:Debug"
+		defines "LT_DEBUG"
+		symbols "On"
+	filter "configurations:Release"
+		defines "LT_RELEASE"
+		optimize "On"
+	filter "configurations:Dist"
+		defines "LT_DIST"
+		optimize "On"
+
+
+project "Lithe-Editor"
+	location "Lithe-Editor"
+	kind "ConsoleApp"
+
+	language "C++"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.hpp",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"%{wks.location}/Lithe/src",
+		"%{wks.location}/Lithe/thirdparty",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.RenderAbstraction}",
+		"%{IncludeDir.EnTT}",
 	}
 
 	links

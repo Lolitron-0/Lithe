@@ -101,15 +101,26 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_camera_controller.html
  <a href="class_lithe_1_1_camera_controller.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_camera_controller_8hpp_source.html">CameraController.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Lithe::CameraController&lt; Derived &gt;:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_lithe_1_1_camera_controller.png" usemap="#Lithe::CameraController_3C_20Derived_20_3E_map" alt=""/>
+  <map id="Lithe::CameraController_3C_20Derived_20_3E_map" name="Lithe::CameraController_3C_20Derived_20_3E_map">
+<area href="class_lithe_1_1_fly_camera_controller_impl.html" alt="Lithe::FlyCameraControllerImpl&lt; RMBCaptureFlyCameraController &gt;" shape="rect" coords="0,56,399,80"/>
+<area href="class_lithe_1_1_fly_camera_controller_impl.html" title="Preset camera controller class Controls are WASD for flying around and QE for ascend/descend...." alt="Lithe::FlyCameraControllerImpl&lt; Derived &gt;" shape="rect" coords="409,56,808,80"/>
+<area href="class_lithe_1_1_r_m_b_capture_fly_camera_controller.html" title="Preset camera controller class Controls are WASD for flying around and QE for ascend/descend...." alt="Lithe::RMBCaptureFlyCameraController" shape="rect" coords="0,112,399,136"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e482914a60bafaa430599cf151b5b0a"><td class="memItemLeft" align="right" valign="top"><a id="a1e482914a60bafaa430599cf151b5b0a" name="a1e482914a60bafaa430599cf151b5b0a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CameraController</b> (const <a class="el" href="class_ra_1_1_camera.html">Ra::Camera</a> &amp;camera)</td></tr>
 <tr class="separator:a1e482914a60bafaa430599cf151b5b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac668a59149a81f5479d025b943f76e10"><td class="memItemLeft" align="right" valign="top"><a id="ac668a59149a81f5479d025b943f76e10" name="ac668a59149a81f5479d025b943f76e10"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEvent</b> (<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;event)</td></tr>
-<tr class="separator:ac668a59149a81f5479d025b943f76e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc11c4a44a7313a6f3f86396977d8a4"><td class="memItemLeft" align="right" valign="top"><a id="adcc11c4a44a7313a6f3f86396977d8a4" name="adcc11c4a44a7313a6f3f86396977d8a4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEvent</b> (<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;event)</td></tr>
+<tr class="separator:adcc11c4a44a7313a6f3f86396977d8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ab58384761d2239ca15301790c40f4"><td class="memItemLeft" align="right" valign="top"><a id="a10ab58384761d2239ca15301790c40f4" name="a10ab58384761d2239ca15301790c40f4"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnUpdate</b> (const <a class="el" href="class_lithe_1_1_timestep.html">Timestep</a> &amp;ts)</td></tr>
 <tr class="separator:a10ab58384761d2239ca15301790c40f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,6 +133,12 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnKeyReleased
 <tr class="memitem:adaa697a435383e567c9172b7b8851a16"><td class="memItemLeft" align="right" valign="top"><a id="adaa697a435383e567c9172b7b8851a16" name="adaa697a435383e567c9172b7b8851a16"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnMouseMoved</b> (<a class="el" href="class_lithe_1_1_mouse_moved_event.html">MouseMovedEvent</a> &amp;)</td></tr>
 <tr class="separator:adaa697a435383e567c9172b7b8851a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eb8830b71d7e58bde3498f7b3020b14"><td class="memItemLeft" align="right" valign="top"><a id="a5eb8830b71d7e58bde3498f7b3020b14" name="a5eb8830b71d7e58bde3498f7b3020b14"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnMouseButtonPressed</b> (<a class="el" href="class_lithe_1_1_mouse_button_pressed_event.html">MouseButtonPressedEvent</a> &amp;)</td></tr>
+<tr class="separator:a5eb8830b71d7e58bde3498f7b3020b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba18a0cdd63bd4fbad2283a5ac9111cc"><td class="memItemLeft" align="right" valign="top"><a id="aba18a0cdd63bd4fbad2283a5ac9111cc" name="aba18a0cdd63bd4fbad2283a5ac9111cc"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnMouseButtonReleased</b> (<a class="el" href="class_lithe_1_1_mouse_button_released_event.html">MouseButtonReleasedEvent</a> &amp;)</td></tr>
+<tr class="separator:aba18a0cdd63bd4fbad2283a5ac9111cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac07703f7a2de55d61d679b4d8a991d97"><td class="memItemLeft" align="right" valign="top"><a id="ac07703f7a2de55d61d679b4d8a991d97" name="ac07703f7a2de55d61d679b4d8a991d97"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnMouseScrolled</b> (<a class="el" href="class_lithe_1_1_mouse_scrolled_event.html">MouseScrolledEvent</a> &amp;)</td></tr>
 <tr class="separator:ac07703f7a2de55d61d679b4d8a991d97"><td class="memSeparator" colspan="2">&#160;</td></tr>

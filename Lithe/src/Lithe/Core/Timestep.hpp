@@ -12,6 +12,7 @@ namespace Lithe
         /**
          * @brief Use this method to get proper FPS scale to multiply your movement data
          * @return FPS scale of this frame (non-linear) 
+         * @note For code readability it is recommended to just multiply a value on a Timestep object using implicit conversion
         */
         double GetFpsScale() const { return m_FpsScale; }
 
@@ -24,6 +25,8 @@ namespace Lithe
 
         /// Static time scale multiplier, default is 1.0
         static float TimeScale;
+
+        operator double() const;
 
     private:
         constexpr static float s_LitheDefaultUnitsMult = 20.f;

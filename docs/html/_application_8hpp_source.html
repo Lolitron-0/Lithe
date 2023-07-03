@@ -110,46 +110,47 @@ $(document).ready(function(){initNavTree('_application_8hpp_source.html',''); in
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="class_lithe_1_1_application.html">~Application</a>();</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">void</span> Run();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_lithe_1_1_application.html#a866bf7a3acee509fedd15a04d61c4f9d">   34</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_application.html#a866bf7a3acee509fedd15a04d61c4f9d">PushLayer</a>(<a class="code hl_typedef" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> layer)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keywordflow">return</span> m_LayerStack.PushLayer(layer);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_lithe_1_1_application.html#a9313c23a47ab976f937ef67aa275f635">   43</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_application.html#a9313c23a47ab976f937ef67aa275f635">PushOverlay</a>(<a class="code hl_typedef" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> layer)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">return</span> m_LayerStack.PushOverlay(layer);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_class" href="class_lithe_1_1_window.html">Window</a>&amp; GetWindow() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">void</span> Close();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_lithe_1_1_application.html#a866bf7a3acee509fedd15a04d61c4f9d">   36</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_application.html#a866bf7a3acee509fedd15a04d61c4f9d">PushLayer</a>(<a class="code hl_typedef" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> layer)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> m_LayerStack.PushLayer(layer);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_lithe_1_1_application.html#a9313c23a47ab976f937ef67aa275f635">   45</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_lithe_1_1_application.html#a9313c23a47ab976f937ef67aa275f635">PushOverlay</a>(<a class="code hl_typedef" href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">LayerPtr</a> layer)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">return</span> m_LayerStack.PushOverlay(layer);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordtype">void</span> OnEvent(<a class="code hl_class" href="class_lithe_1_1_event.html">Event</a>&amp; event);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">bool</span> OnWindowClosed(<span class="keyword">const</span> <a class="code hl_class" href="class_lithe_1_1_window_closed_event.html">WindowClosedEvent</a>&amp; event);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">bool</span> OnWindowResized(<span class="keyword">const</span> <a class="code hl_class" href="class_lithe_1_1_window_resized_event.html">WindowResizedEvent</a>&amp; event);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> OnRendererError_(<span class="keyword">const</span> std::string&amp; errorMessage);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_class" href="class_lithe_1_1_window.html">Window</a>&amp; GetWindow() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">void</span> OnEvent(<a class="code hl_class" href="class_lithe_1_1_event.html">Event</a>&amp; event);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">bool</span> OnWindowClosed(<span class="keyword">const</span> <a class="code hl_class" href="class_lithe_1_1_window_closed_event.html">WindowClosedEvent</a>&amp; event);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">bool</span> OnWindowResized(<span class="keyword">const</span> <a class="code hl_class" href="class_lithe_1_1_window_resized_event.html">WindowResizedEvent</a>&amp; event);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_class" href="class_lithe_1_1_layer_stack.html">LayerStack</a> m_LayerStack;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        Scope&lt;Window&gt; m_MainWindow;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        Ref&lt;ImGuiLayer&gt; m_ImGuiLayer;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordtype">bool</span> m_Running{ <span class="keyword">true</span> };</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">double</span> m_LastFrameTimeSec{ 0.0 };</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="_application_8hpp.html#a20cd46b6c9a26c689c8370d1f095a435">   68</a></span>    <a class="code hl_class" href="class_lithe_1_1_application.html">Application</a>* <a class="code hl_function" href="_application_8hpp.html#a20cd46b6c9a26c689c8370d1f095a435">CreateApplication</a>();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> OnRendererError_(<span class="keyword">const</span> std::string&amp; errorMessage);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_class" href="class_lithe_1_1_layer_stack.html">LayerStack</a> m_LayerStack;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        Scope&lt;Window&gt; m_MainWindow;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        Ref&lt;ImGuiLayer&gt; m_ImGuiLayer;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">bool</span> m_Running{ <span class="keyword">true</span> };</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">double</span> m_LastFrameTimeSec{ 0.0 };</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    };</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="_application_8hpp.html#a20cd46b6c9a26c689c8370d1f095a435">   70</a></span>    <a class="code hl_class" href="class_lithe_1_1_application.html">Application</a>* <a class="code hl_function" href="_application_8hpp.html#a20cd46b6c9a26c689c8370d1f095a435">CreateApplication</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
 <div class="ttc" id="a_application_8hpp_html_a20cd46b6c9a26c689c8370d1f095a435"><div class="ttname"><a href="_application_8hpp.html#a20cd46b6c9a26c689c8370d1f095a435">Lithe::CreateApplication</a></div><div class="ttdeci">Application * CreateApplication()</div><div class="ttdoc">Defined in client.</div></div>
 <div class="ttc" id="a_events_8hpp_html"><div class="ttname"><a href="_events_8hpp.html">Events.hpp</a></div><div class="ttdoc">File for easy single-header include of all event system module.</div></div>
 <div class="ttc" id="a_layer_stack_8hpp_html"><div class="ttname"><a href="_layer_stack_8hpp.html">LayerStack.hpp</a></div><div class="ttdoc">LayerStack header file.</div></div>
 <div class="ttc" id="a_layer_stack_8hpp_html_a962ecac393d3a4c5cb24c7a9b0602c95"><div class="ttname"><a href="_layer_stack_8hpp.html#a962ecac393d3a4c5cb24c7a9b0602c95">Lithe::LayerPtr</a></div><div class="ttdeci">std::shared_ptr&lt; Layer &gt; LayerPtr</div><div class="ttdoc">Alias for smart pointer type which is holding Layer objects.</div><div class="ttdef"><b>Definition</b> LayerStack.hpp:14</div></div>
 <div class="ttc" id="a_window_8hpp_html"><div class="ttname"><a href="_window_8hpp.html">Window.hpp</a></div><div class="ttdoc">Window class header.</div></div>
 <div class="ttc" id="aclass_lithe_1_1_application_html"><div class="ttname"><a href="class_lithe_1_1_application.html">Lithe::Application</a></div><div class="ttdoc">Base class for all applications.</div><div class="ttdef"><b>Definition</b> Application.hpp:22</div></div>
-<div class="ttc" id="aclass_lithe_1_1_application_html_a866bf7a3acee509fedd15a04d61c4f9d"><div class="ttname"><a href="class_lithe_1_1_application.html#a866bf7a3acee509fedd15a04d61c4f9d">Lithe::Application::PushLayer</a></div><div class="ttdeci">void PushLayer(LayerPtr layer)</div><div class="ttdoc">Wrapper around LayerStack corresponding method. See LayerStack::PushLayer for more information.</div><div class="ttdef"><b>Definition</b> Application.hpp:34</div></div>
-<div class="ttc" id="aclass_lithe_1_1_application_html_a9313c23a47ab976f937ef67aa275f635"><div class="ttname"><a href="class_lithe_1_1_application.html#a9313c23a47ab976f937ef67aa275f635">Lithe::Application::PushOverlay</a></div><div class="ttdeci">void PushOverlay(LayerPtr layer)</div><div class="ttdoc">Wrapper around LayerStack corresponding methods. See LayerStack::PushLayer for more information.</div><div class="ttdef"><b>Definition</b> Application.hpp:43</div></div>
+<div class="ttc" id="aclass_lithe_1_1_application_html_a866bf7a3acee509fedd15a04d61c4f9d"><div class="ttname"><a href="class_lithe_1_1_application.html#a866bf7a3acee509fedd15a04d61c4f9d">Lithe::Application::PushLayer</a></div><div class="ttdeci">void PushLayer(LayerPtr layer)</div><div class="ttdoc">Wrapper around LayerStack corresponding method. See LayerStack::PushLayer for more information.</div><div class="ttdef"><b>Definition</b> Application.hpp:36</div></div>
+<div class="ttc" id="aclass_lithe_1_1_application_html_a9313c23a47ab976f937ef67aa275f635"><div class="ttname"><a href="class_lithe_1_1_application.html#a9313c23a47ab976f937ef67aa275f635">Lithe::Application::PushOverlay</a></div><div class="ttdeci">void PushOverlay(LayerPtr layer)</div><div class="ttdoc">Wrapper around LayerStack corresponding methods. See LayerStack::PushLayer for more information.</div><div class="ttdef"><b>Definition</b> Application.hpp:45</div></div>
 <div class="ttc" id="aclass_lithe_1_1_event_html"><div class="ttname"><a href="class_lithe_1_1_event.html">Lithe::Event</a></div><div class="ttdoc">Base class for all event types, categories and sources.</div><div class="ttdef"><b>Definition</b> Event.hpp:60</div></div>
 <div class="ttc" id="aclass_lithe_1_1_layer_stack_html"><div class="ttname"><a href="class_lithe_1_1_layer_stack.html">Lithe::LayerStack</a></div><div class="ttdoc">Class for layer creation and storage. First half of the stack is game world layers,...</div><div class="ttdef"><b>Definition</b> LayerStack.hpp:22</div></div>
 <div class="ttc" id="aclass_lithe_1_1_singleton_html"><div class="ttname"><a href="class_lithe_1_1_singleton.html">Lithe::Singleton</a></div><div class="ttdoc">Utility to create singleton classes (based on Loki)</div><div class="ttdef"><b>Definition</b> Singleton.hpp:8</div></div>

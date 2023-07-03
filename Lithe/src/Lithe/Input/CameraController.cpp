@@ -1,48 +1,49 @@
 #include "ltpch.h"
 #include "CameraController.hpp"
 #include "Inputs.hpp"
+#include "Lithe/Core/Application.hpp"
 
 namespace Lithe
 {
-
     /************************************************************************/
-    /* Fly camera controller                                                */
+    /* RMB Fly camera controller                                            */
     /************************************************************************/
 
-    void FlyCameraController::OnUpdate(const Timestep& ts)
+    RMBCaptureFlyCameraController::RMBCaptureFlyCameraController(const Ra::Camera& camera)
+        :FlyCameraControllerImpl(camera)
     {
-        auto fpsScale = static_cast<float>(ts.GetFpsScale());
-        if (Keyboard::IsKeyPressed(Keyboard::Key::W))
-            m_Camera->ShiftPosition(Ra::CameraDirection::Forward, m_FlySpeed * fpsScale);
-        if (Keyboard::IsKeyPressed(Keyboard::Key::A))
-            m_Camera->ShiftPosition(Ra::CameraDirection::Left, m_FlySpeed * fpsScale);
-        if (Keyboard::IsKeyPressed(Keyboard::Key::S))
-            m_Camera->ShiftPosition(Ra::CameraDirection::Backward, m_FlySpeed * fpsScale);
-        if (Keyboard::IsKeyPressed(Keyboard::Key::D))
-            m_Camera->ShiftPosition(Ra::CameraDirection::Right, m_FlySpeed * fpsScale);
-        if (Keyboard::IsKeyPressed(Keyboard::Key::Q))
-            m_Camera->ShiftPosition(Ra::CameraDirection::Down, m_FlySpeed * fpsScale);
-        if (Keyboard::IsKeyPressed(Keyboard::Key::E))
-            m_Camera->ShiftPosition(Ra::CameraDirection::Up, m_FlySpeed * fpsScale);
+        Application::GetInstance().GetWindow().ShowCursor();
     }
 
-    bool FlyCameraController::OnMouseMoved(MouseMovedEvent& event)
+    void RMBCaptureFlyCameraController::OnUpdate(const Timestep& ts)
     {
-        auto xOffset = m_LastMouseX == -1 ? 0.f : event.GetMouseX() - m_LastMouseX;
-        auto yOffset = m_LastMouseY == -1 ? 0.f :  m_LastMouseY - event.GetMouseY();
+        if (m_Captured)
+            Base::OnUpdate(ts);
+    }
 
-        m_Camera->ShiftYaw(xOffset * m_MouseSensitivity);
-        m_Camera->ShiftPitch(yOffset * m_MouseSensitivity);
+    bool RMBCaptureFlyCameraController::OnMouseMoved(MouseMovedEvent& event)
+    {
+        if (m_Captured)
+            Base::OnMouseMoved(event);
 
-        if (m_Camera->GetPitch() > 89.f)
-            m_Camera->SetPitch(89.f);   
-        
-        if (m_Camera->GetPitch() < -89.f)
-            m_Camera->SetPitch(-89.f);
+        m_LastMousePos.x = event.GetMouseX();
+        m_LastMousePos.y = event.GetMouseY();
+        return false;
+    }
 
-        m_LastMouseX = event.GetMouseX();
-        m_LastMouseY = event.GetMouseY();
+    bool RMBCaptureFlyCameraController::OnMouseButtonPressed(MouseButtonPressedEvent& event)
+    {
+        m_Captured = event.GetMouseButton() == Mouse::Button::Right;
+        auto& window = Application::GetInstance().GetWindow();
+        if (m_Captured && !window.IsCursorHidden())
+            window.HideCursor();
+        return false;
+    }
 
+    bool RMBCaptureFlyCameraController::OnMouseButtonReleased(MouseButtonReleasedEvent&)
+    {
+        m_Captured = false;
+        Application::GetInstance().GetWindow().ShowCursor();
         return false;
     }
 

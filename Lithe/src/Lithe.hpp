@@ -20,7 +20,7 @@
 
 #include "Lithe/ImGui/ImGuiLayer.hpp"
 
-
-// --------- Entry Point --------- 
-#include "Lithe/Core/EntryPoint.hpp"
-// -------------------------------
+#include <ImGui/imgui.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <EnTT/entt.hpp>

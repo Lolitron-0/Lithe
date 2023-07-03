@@ -26,6 +26,8 @@ namespace Lithe
 
         /// Starts main cycle
         void Run();
+        /// Asks application instance to end cycle
+        void Close();
 
         /**
          * @brief Wrapper around LayerStack corresponding method.

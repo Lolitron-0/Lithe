@@ -141,6 +141,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()
 <tr class="memitem:a927a6146f67217db7c529ce91fc43a8d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#a927a6146f67217db7c529ce91fc43a8d">SetVec3</a> (const std::string name, float x, float y, float z)=0</td></tr>
 <tr class="memdesc:a927a6146f67217db7c529ce91fc43a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform vec3 variable setter.  <br /></td></tr>
 <tr class="separator:a927a6146f67217db7c529ce91fc43a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e9e2a886bbbcf1dfd20aae651cc1726"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#a0e9e2a886bbbcf1dfd20aae651cc1726">SetVec4</a> (const std::string name, const glm::vec4 &amp;vec)=0</td></tr>
+<tr class="memdesc:a0e9e2a886bbbcf1dfd20aae651cc1726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform vec4 variable setter.  <br /></td></tr>
+<tr class="separator:a0e9e2a886bbbcf1dfd20aae651cc1726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd276371f3b8a05e384e046d72b2b90"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#a0fd276371f3b8a05e384e046d72b2b90">SetVec4</a> (const std::string name, float x, float y, float z, float w)=0</td></tr>
+<tr class="memdesc:a0fd276371f3b8a05e384e046d72b2b90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform vec4 variable setter.  <br /></td></tr>
+<tr class="separator:a0fd276371f3b8a05e384e046d72b2b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -492,6 +498,104 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>LoadSourceFrom
 <p>Uniform vec3 variable setter. </p>
 
 <p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_shader.html#aaba722f28b33e9c32a713af1a112ed14">Ra::OpenGLShader</a>.</p>
+
+</div>
+</div>
+<a id="a0e9e2a886bbbcf1dfd20aae651cc1726" name="a0e9e2a886bbbcf1dfd20aae651cc1726"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e9e2a886bbbcf1dfd20aae651cc1726">&#9670;&#160;</a></span>SetVec4() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Ra::Shader::SetVec4 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec4 &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uniform vec4 variable setter. </p>
+
+<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_shader.html#add34fdcaddd9b4198551a5de0c93d2cb">Ra::OpenGLShader</a>.</p>
+
+</div>
+</div>
+<a id="a0fd276371f3b8a05e384e046d72b2b90" name="a0fd276371f3b8a05e384e046d72b2b90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd276371f3b8a05e384e046d72b2b90">&#9670;&#160;</a></span>SetVec4() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Ra::Shader::SetVec4 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uniform vec4 variable setter. </p>
+
+<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_shader.html#a6c770344445cb027b790125d490d6151">Ra::OpenGLShader</a>.</p>
 
 </div>
 </div>

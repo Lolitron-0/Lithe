@@ -1,6 +1,4 @@
 #include <Lithe.hpp>
-#include <glm/vec2.hpp>
-#include <ImGui/imgui.h>
 
 class MyLayer : public Lithe::Layer
 {
@@ -10,7 +8,7 @@ public:
     {
         Ra::Camera cam{{0, 3, 5}, 16.f / 9.f};
         cam.ShiftPitch(-30);
-        m_CameraController = std::make_shared<Lithe::FlyCameraController>(cam);
+        m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(cam);
 
         float data[] = {
             // front
@@ -80,11 +78,6 @@ public:
 
     void OnUpdate(const Lithe::Timestep& ts) override
     {
-        if (Lithe::Application::GetInstance().GetWindow().IsCursorHidden() && Lithe::Keyboard::IsKeyPressed(Lithe::Keyboard::Key::LeftAlt))
-            Lithe::Application::GetInstance().GetWindow().ShowCursor();
-        else if (!Lithe::Application::GetInstance().GetWindow().IsCursorHidden() && !Lithe::Keyboard::IsKeyPressed(Lithe::Keyboard::Key::LeftAlt))
-            Lithe::Application::GetInstance().GetWindow().HideCursor();
-
         m_CameraController->OnUpdate(ts);
 
         Ra::RenderCommand::SetClearColor({ 1.f, 0.f, 1.f, 0.f });
@@ -102,7 +95,7 @@ private:
     Lithe::Ref<Ra::VertexBuffer> m_VertexBuffer;
     Lithe::Ref<Ra::IndexBuffer> m_IndexBuffer;
     Lithe::Ref<Ra::VertexArray> m_VertexArray;
-    Lithe::Ref<Lithe::FlyCameraController> m_CameraController;
+    Lithe::Ref<Lithe::RMBCaptureFlyCameraController> m_CameraController;
 };
 
 class Sandbox : public Lithe::Application

@@ -68,6 +68,7 @@ var hierarchy =
     [ "Lithe::Singleton< Application >", "class_lithe_1_1_singleton.html", [
       [ "Lithe::Application", "class_lithe_1_1_application.html", null ]
     ] ],
+    [ "Ra::TextureSpecification", "struct_ra_1_1_texture_specification.html", null ],
     [ "Lithe::Timestep", "class_lithe_1_1_timestep.html", null ],
     [ "Ra::VertexArray", "class_ra_1_1_vertex_array.html", [
       [ "Ra::OpenGLVertexArray", "class_ra_1_1_open_g_l_vertex_array.html", null ]

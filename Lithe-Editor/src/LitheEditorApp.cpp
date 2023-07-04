@@ -10,7 +10,6 @@ namespace Lithe
     public:
         LitheEditor()
         {
-            Ref<EditorLayer> myLayer{std::make_shared<EditorLayer>()};
             this->PushLayer(std::make_shared<EditorLayer>());
         }
 

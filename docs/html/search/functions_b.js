@@ -16,5 +16,7 @@ var searchData=
   ['shiftpitch_13',['ShiftPitch',['../class_ra_1_1_camera.html#a12dab524708142f599e4625366b952da',1,'Ra::Camera']]],
   ['shiftposition_14',['ShiftPosition',['../class_ra_1_1_camera.html#aea1e4a9343c1d43f4d572c887beb9ccd',1,'Ra::Camera::ShiftPosition(const glm::vec3 &amp;val)'],['../class_ra_1_1_camera.html#ab5f97cb7de62636a7c253b9b6fbac554',1,'Ra::Camera::ShiftPosition(const CameraDirection &amp;dir, float val)']]],
   ['shiftyaw_15',['ShiftYaw',['../class_ra_1_1_camera.html#a0e6fa0a958cdfd4fa652435f1319e2c1',1,'Ra::Camera']]],
-  ['submit_16',['Submit',['../class_ra_1_1_renderer.html#a40e1206f99553ecf31216559f2a71d22',1,'Ra::Renderer']]]
+  ['startwriting_16',['StartWriting',['../class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4',1,'Ra::Framebuffer::StartWriting()'],['../class_ra_1_1_open_g_l_framebuffer.html#af1a85213d36d66428a89b1813b3490dd',1,'Ra::OpenGLFramebuffer::StartWriting()']]],
+  ['stopwriting_17',['StopWriting',['../class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6',1,'Ra::Framebuffer::StopWriting()'],['../class_ra_1_1_open_g_l_framebuffer.html#ac3a51f500b12310efc4699f1be56a6e6',1,'Ra::OpenGLFramebuffer::StopWriting()']]],
+  ['submit_18',['Submit',['../class_ra_1_1_renderer.html#a40e1206f99553ecf31216559f2a71d22',1,'Ra::Renderer']]]
 ];

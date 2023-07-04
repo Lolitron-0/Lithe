@@ -101,7 +101,7 @@ Inheritance diagram for Ra::OpenGLFramebuffer:</div>
  <div class="center">
   <img src="class_ra_1_1_open_g_l_framebuffer.png" usemap="#Ra::OpenGLFramebuffer_map" alt=""/>
   <map id="Ra::OpenGLFramebuffer_map" name="Ra::OpenGLFramebuffer_map">
-<area href="class_ra_1_1_framebuffer.html" alt="Ra::Framebuffer" shape="rect" coords="0,0,150,24"/>
+<area href="class_ra_1_1_framebuffer.html" title="Framebuffer object abstraction." alt="Ra::Framebuffer" shape="rect" coords="0,0,150,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -111,27 +111,36 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>OpenGLFramebuffer</b> (const <a class="el" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a> &amp;props)</td></tr>
 <tr class="separator:abd4d2f974c53e9b0c3a1e0be592ed4f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1a85213d36d66428a89b1813b3490dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#af1a85213d36d66428a89b1813b3490dd">StartWriting</a> () override</td></tr>
+<tr class="memdesc:af1a85213d36d66428a89b1813b3490dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this framebuffer.  <br /></td></tr>
 <tr class="separator:af1a85213d36d66428a89b1813b3490dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3a51f500b12310efc4699f1be56a6e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#ac3a51f500b12310efc4699f1be56a6e6">StopWriting</a> () override</td></tr>
+<tr class="memdesc:ac3a51f500b12310efc4699f1be56a6e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs multi sampling resolving if needed.  <br /></td></tr>
 <tr class="separator:ac3a51f500b12310efc4699f1be56a6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bb3f58f8da35443c70cd9d905e6e262"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#a9bb3f58f8da35443c70cd9d905e6e262">Resize</a> (std::uint32_t width, std::uint32_t height) override</td></tr>
 <tr class="separator:a9bb3f58f8da35443c70cd9d905e6e262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3828b874ab3f488abd2d23d88e0360c1"><td class="memItemLeft" align="right" valign="top">RendererId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#a3828b874ab3f488abd2d23d88e0360c1">GetColorAttachmentHandle</a> () const override</td></tr>
-<tr class="separator:a3828b874ab3f488abd2d23d88e0360c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a48423812319ccb803e4254e989a11a"><td class="memItemLeft" align="right" valign="top">RendererId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#a3a48423812319ccb803e4254e989a11a">GetColorAttachmentHandle</a> (std::size_t index) const override</td></tr>
+<tr class="memdesc:a3a48423812319ccb803e4254e989a11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns color attachment with given index.  <br /></td></tr>
+<tr class="separator:a3a48423812319ccb803e4254e989a11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab67323deac2bb0efb4bcf8c8450c522c"><td class="memItemLeft" align="right" valign="top">RendererId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#ab67323deac2bb0efb4bcf8c8450c522c">GetDrawTextureHandle</a> (std::size_t index=0) const override</td></tr>
+<tr class="memdesc:ab67323deac2bb0efb4bcf8c8450c522c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given index for others.  <br /></td></tr>
+<tr class="separator:ab67323deac2bb0efb4bcf8c8450c522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65d900ee0cb79982a9964adb968dc379"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#a65d900ee0cb79982a9964adb968dc379">GetProperties</a> () const override</td></tr>
 <tr class="separator:a65d900ee0cb79982a9964adb968dc379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc50a59e676da405f01ef741f785d6c4"><td class="memItemLeft" align="right" valign="top"><a id="acc50a59e676da405f01ef741f785d6c4" name="acc50a59e676da405f01ef741f785d6c4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>StartWriting</b> ()=0</td></tr>
+<tr class="memitem:acc50a59e676da405f01ef741f785d6c4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">StartWriting</a> ()=0</td></tr>
+<tr class="memdesc:acc50a59e676da405f01ef741f785d6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this framebuffer.  <br /></td></tr>
 <tr class="separator:acc50a59e676da405f01ef741f785d6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa41e08d80fd4059cbad6b3539104e9a6"><td class="memItemLeft" align="right" valign="top"><a id="aa41e08d80fd4059cbad6b3539104e9a6" name="aa41e08d80fd4059cbad6b3539104e9a6"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>StopWriting</b> ()=0</td></tr>
+<tr class="memitem:aa41e08d80fd4059cbad6b3539104e9a6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6">StopWriting</a> ()=0</td></tr>
+<tr class="memdesc:aa41e08d80fd4059cbad6b3539104e9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs multi sampling resolving if needed.  <br /></td></tr>
 <tr class="separator:aa41e08d80fd4059cbad6b3539104e9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11b3a5a6f862d91aedea10c53ea493c3"><td class="memItemLeft" align="right" valign="top"><a id="a11b3a5a6f862d91aedea10c53ea493c3" name="a11b3a5a6f862d91aedea10c53ea493c3"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Resize</b> (std::uint32_t width, std::uint32_t height)=0</td></tr>
 <tr class="separator:a11b3a5a6f862d91aedea10c53ea493c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab97e3af693733668a3b9fc93bdb81f7f"><td class="memItemLeft" align="right" valign="top"><a id="ab97e3af693733668a3b9fc93bdb81f7f" name="ab97e3af693733668a3b9fc93bdb81f7f"></a>
-virtual RendererId&#160;</td><td class="memItemRight" valign="bottom"><b>GetColorAttachmentHandle</b> () const =0</td></tr>
-<tr class="separator:ab97e3af693733668a3b9fc93bdb81f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9cdf64af721be678de25945af0d9a0"><td class="memItemLeft" align="right" valign="top">virtual RendererId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">GetColorAttachmentHandle</a> (std::size_t index=0) const =0</td></tr>
+<tr class="memdesc:a4e9cdf64af721be678de25945af0d9a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns color attachment with given index.  <br /></td></tr>
+<tr class="separator:a4e9cdf64af721be678de25945af0d9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df2fae0c53089fc3438bbcdb743bf77"><td class="memItemLeft" align="right" valign="top">virtual RendererId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">GetDrawTextureHandle</a> (std::size_t index=0) const =0</td></tr>
+<tr class="memdesc:a7df2fae0c53089fc3438bbcdb743bf77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given index for others.  <br /></td></tr>
+<tr class="separator:a7df2fae0c53089fc3438bbcdb743bf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5202109d1f9303f21b1628e748e30ac8"><td class="memItemLeft" align="right" valign="top"><a id="a5202109d1f9303f21b1628e748e30ac8" name="a5202109d1f9303f21b1628e748e30ac8"></a>
 virtual const <a class="el" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetProperties</b> () const =0</td></tr>
 <tr class="separator:a5202109d1f9303f21b1628e748e30ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,8 +153,8 @@ static Ref&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer</a
 <tr class="separator:a3917890034a241d8005d5dd91ce25343 inherit pub_static_methods_class_ra_1_1_framebuffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3828b874ab3f488abd2d23d88e0360c1" name="a3828b874ab3f488abd2d23d88e0360c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3828b874ab3f488abd2d23d88e0360c1">&#9670;&#160;</a></span>GetColorAttachmentHandle()</h2>
+<a id="a3a48423812319ccb803e4254e989a11a" name="a3a48423812319ccb803e4254e989a11a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a48423812319ccb803e4254e989a11a">&#9670;&#160;</a></span>GetColorAttachmentHandle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,7 +165,8 @@ static Ref&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer</a
         <tr>
           <td class="memname">RendererId Ra::OpenGLFramebuffer::GetColorAttachmentHandle </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -167,7 +177,40 @@ static Ref&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer</a
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html">Ra::Framebuffer</a>.</p>
+<p>Returns color attachment with given index. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This method does exactly what it's name says, so in case of multisampled framebuffer, multisampled texture will be returned. To receive just the 2d texture to draw use <a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#ab67323deac2bb0efb4bcf8c8450c522c" title="Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given in...">GetDrawTextureHandle()</a>; </dd></dl>
+
+<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">Ra::Framebuffer</a>.</p>
+
+</div>
+</div>
+<a id="ab67323deac2bb0efb4bcf8c8450c522c" name="ab67323deac2bb0efb4bcf8c8450c522c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab67323deac2bb0efb4bcf8c8450c522c">&#9670;&#160;</a></span>GetDrawTextureHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RendererId Ra::OpenGLFramebuffer::GetDrawTextureHandle </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>index</em> = <code>0</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given index for others. </p>
+
+<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">Ra::Framebuffer</a>.</p>
 
 </div>
 </div>
@@ -259,7 +302,9 @@ static Ref&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer</a
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html">Ra::Framebuffer</a>.</p>
+<p>Binds this framebuffer. </p>
+
+<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">Ra::Framebuffer</a>.</p>
 
 </div>
 </div>
@@ -286,7 +331,9 @@ static Ref&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer</a
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html">Ra::Framebuffer</a>.</p>
+<p>Performs multi sampling resolving if needed. </p>
+
+<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6">Ra::Framebuffer</a>.</p>
 
 </div>
 </div>

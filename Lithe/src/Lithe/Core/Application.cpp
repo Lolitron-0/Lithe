@@ -5,7 +5,6 @@
 #include "Window.hpp"
 #include "LayerStack.hpp"
 #include <glad/glad.h>
-
 namespace Lithe
 {
 

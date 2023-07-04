@@ -68,6 +68,7 @@ namespace Lithe
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
         props.Height = Application::GetInstance().GetWindow().GetHeight();
+        props.Attachments = { Ra::TextureFormat::Color, Ra::TextureFormat::Depth };
         m_Framebuffer = Ra::Framebuffer::Create(props);
     }
 
@@ -149,14 +150,14 @@ namespace Lithe
             ImGui::Begin("Viewport", &p_ViewportOpen);
 
             auto viewportPanesSize = ImGui::GetContentRegionAvail();
-            if (m_ViewportSize != *((glm::vec2*)&viewportPanesSize)) // haha type punning goes brr
+            if (m_ViewportSize != *(glm::vec2*)&viewportPanesSize) // haha type punning goes brr
             {
                 m_Framebuffer->Resize((uint32_t)viewportPanesSize.x, (uint32_t)viewportPanesSize.y);
                 m_CameraController->GetCamera().SetPerspective(45.f, viewportPanesSize.x / viewportPanesSize.y);
                 m_ViewportSize = { viewportPanesSize.x, viewportPanesSize.y };
             }
-            auto textureId = m_Framebuffer->GetColorAttachmentHandle();
-            ImGui::Image((void*)(uintptr_t)textureId, ImVec2{
+            auto textureId = m_Framebuffer->GetDrawTextureHandle();
+            ImGui::Image(reinterpret_cast<void*>(textureId), ImVec2{
                 static_cast<float>(m_Framebuffer->GetProperties().Width),
                 static_cast<float>(m_Framebuffer->GetProperties().Height) },
                 ImVec2{ 0,1 }, ImVec2{ 1,0 });
@@ -172,7 +173,7 @@ namespace Lithe
 
         m_Framebuffer->StartWriting();
 
-        Ra::RenderCommand::SetClearColor({ 1.f, 0.f, 1.f, 0.f });
+        Ra::RenderCommand::SetClearColor({ 1.f, 0.f, 1.f, 1.f });
         Ra::RenderCommand::Clear();
 
         Ra::Renderer::BeginScene(m_CameraController->GetCamera());

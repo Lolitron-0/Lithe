@@ -42,11 +42,11 @@ var annotated_dup =
       [ "BufferElement", "struct_ra_1_1_buffer_element.html", null ],
       [ "BufferLayout", "class_ra_1_1_buffer_layout.html", null ],
       [ "Camera", "class_ra_1_1_camera.html", "class_ra_1_1_camera" ],
-      [ "Framebuffer", "class_ra_1_1_framebuffer.html", null ],
+      [ "Framebuffer", "class_ra_1_1_framebuffer.html", "class_ra_1_1_framebuffer" ],
       [ "FramebufferProperties", "struct_ra_1_1_framebuffer_properties.html", null ],
       [ "IndexBuffer", "class_ra_1_1_index_buffer.html", "class_ra_1_1_index_buffer" ],
       [ "OpenGLContext", "class_ra_1_1_open_g_l_context.html", "class_ra_1_1_open_g_l_context" ],
-      [ "OpenGLFramebuffer", "class_ra_1_1_open_g_l_framebuffer.html", null ],
+      [ "OpenGLFramebuffer", "class_ra_1_1_open_g_l_framebuffer.html", "class_ra_1_1_open_g_l_framebuffer" ],
       [ "OpenGLIndexBuffer", "class_ra_1_1_open_g_l_index_buffer.html", "class_ra_1_1_open_g_l_index_buffer" ],
       [ "OpenGLRendererAPI", "class_ra_1_1_open_g_l_renderer_a_p_i.html", null ],
       [ "OpenGLShader", "class_ra_1_1_open_g_l_shader.html", "class_ra_1_1_open_g_l_shader" ],
@@ -57,6 +57,7 @@ var annotated_dup =
       [ "RendererAPI", "class_ra_1_1_renderer_a_p_i.html", null ],
       [ "RenderingContext", "class_ra_1_1_rendering_context.html", "class_ra_1_1_rendering_context" ],
       [ "Shader", "class_ra_1_1_shader.html", "class_ra_1_1_shader" ],
+      [ "TextureSpecification", "struct_ra_1_1_texture_specification.html", null ],
       [ "VertexArray", "class_ra_1_1_vertex_array.html", "class_ra_1_1_vertex_array" ],
       [ "VertexBuffer", "class_ra_1_1_vertex_buffer.html", null ]
     ] ]

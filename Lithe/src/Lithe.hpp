@@ -20,6 +20,10 @@
 
 #include "Lithe/ImGui/ImGuiLayer.hpp"
 
+#include "Lithe/Scene/Scene.hpp"
+#include "Lithe/Scene/Entity.hpp"
+#include "Lithe/Scene/Components.hpp"
+
 #include <ImGui/imgui.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

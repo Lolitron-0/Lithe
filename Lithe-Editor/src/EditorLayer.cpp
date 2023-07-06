@@ -55,13 +55,9 @@ namespace Lithe
         m_VertexArray->AddVertexBuffer(m_VertexBuffer);
         m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
-        m_TestShader = Ra::Shader::Create(
-            R"(G:\dev\Lithe\Lithe\thirdparty\RenderAbstraction\src\shaders\test.vert)",
-            R"(G:\dev\Lithe\Lithe\thirdparty\RenderAbstraction\src\shaders\test.frag)");
+        m_TestShader = Ra::Shader::Create(R"(assets\shaders\test.glsl)");
 
-        m_SolidColorShader = Ra::Shader::Create(
-            R"(G:\dev\Lithe\Lithe\thirdparty\RenderAbstraction\src\shaders\solid_color.vert)",
-            R"(G:\dev\Lithe\Lithe\thirdparty\RenderAbstraction\src\shaders\solid_color.frag)");
+        m_SolidColorShader = Ra::Shader::Create(R"(assets\shaders\solid_color.glsl)");
         m_SolidColorShader->Bind();
         m_SolidColorShader->SetVec4("u_BaseColor", 0.f, 0.f, 0.f, 1.f);
 
@@ -70,6 +66,10 @@ namespace Lithe
         props.Height = Application::GetInstance().GetWindow().GetHeight();
         props.Attachments = { Ra::TextureFormat::Color, Ra::TextureFormat::Depth };
         m_Framebuffer = Ra::Framebuffer::Create(props);
+
+        m_CurrentScene = std::make_shared<Scene>();
+        m_Thing = m_CurrentScene->CreateEntity();
+        auto& trans = m_Thing.AddComponent<TransformComponent>();
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -157,7 +157,7 @@ namespace Lithe
                 m_ViewportSize = { viewportPanesSize.x, viewportPanesSize.y };
             }
             auto textureId = m_Framebuffer->GetDrawTextureHandle();
-            ImGui::Image(reinterpret_cast<void*>(textureId), ImVec2{
+            ImGui::Image(reinterpret_cast<void*>((std::uintptr_t)textureId), ImVec2{
                 static_cast<float>(m_Framebuffer->GetProperties().Width),
                 static_cast<float>(m_Framebuffer->GetProperties().Height) },
                 ImVec2{ 0,1 }, ImVec2{ 1,0 });
@@ -173,7 +173,7 @@ namespace Lithe
 
         m_Framebuffer->StartWriting();
 
-        Ra::RenderCommand::SetClearColor({ 1.f, 0.f, 1.f, 1.f });
+        Ra::RenderCommand::SetClearColor({ 1.f, 1.f, 1.f, 0.1f });
         Ra::RenderCommand::Clear();
 
         Ra::Renderer::BeginScene(m_CameraController->GetCamera());

@@ -4,22 +4,6 @@
 
 namespace Lithe
 {
-
-    class TransformComponent
-    {
-    public:
-        glm::mat4 Transform{ 1.f };
-
-        TransformComponent() = default;
-        TransformComponent(const TransformComponent&) = default;
-        TransformComponent(const glm::mat4& transform)
-            :Transform(transform)
-        {}
-
-        operator glm::mat4& () { return Transform; }
-        operator const glm::mat4& () const { return Transform; }
-    };
-
     class MeshRendererComponent
     {
     public:
@@ -43,19 +27,6 @@ namespace Lithe
         TagComponent(const std::string& tag)
             :Tag(tag)
         {}
-    };
-
-    class CameraComponent
-    {
-    public:
-        CameraComponent(const glm::mat4& proj)
-            :m_Projection(proj)
-        {}
-        CameraComponent(float fov, float aspectRatio)
-        CameraComponent(const CameraComponent& other) = default;
-        
-    private:
-        glm::mat4 m_Projection;
     };
 
 }

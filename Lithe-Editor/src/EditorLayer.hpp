@@ -25,8 +25,8 @@ namespace Lithe
         Ref<Ra::VertexArray> m_VertexArray;
         Ref<Ra::Framebuffer> m_Framebuffer;
         Ref<RMBCaptureFlyCameraController> m_CameraController;
-        Entity m_Thing;
         Ref<Scene> m_CurrentScene;
+        Entity m_Cube;
 
         glm::vec2 m_ViewportSize;
 

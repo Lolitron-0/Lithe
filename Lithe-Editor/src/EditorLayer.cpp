@@ -9,52 +9,6 @@ namespace Lithe
         cam.ShiftPitch(-30);
         m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(cam);
 
-        float data[] = {
-            // front
-            -1.0, -1.0,  1.0,
-             1.0, -1.0,  1.0,
-             1.0,  1.0,  1.0,
-            -1.0,  1.0,  1.0,
-            // back
-            -1.0, -1.0, -1.0,
-             1.0, -1.0, -1.0,
-             1.0,  1.0, -1.0,
-            -1.0,  1.0, -1.0
-        };
-
-        m_VertexArray = Ra::VertexArray::Create();
-
-        m_VertexBuffer = Ra::VertexBuffer::Create(data, sizeof(data));
-        Ra::BufferLayout layout = {
-            {Ra::UniformDataType::Float3, "position"},
-        };
-        m_VertexBuffer->SetLayout(layout);
-
-        unsigned int indices[] = {
-            // front
-            0, 1, 2,
-            2, 3, 0,
-            // right
-            1, 5, 6,
-            6, 2, 1,
-            // back
-            7, 6, 5,
-            5, 4, 7,
-            // left
-            4, 0, 3,
-            3, 7, 4,
-            // bottom
-            4, 5, 1,
-            1, 0, 4,
-            // top
-            3, 2, 6,
-            6, 7, 3
-        };
-        m_IndexBuffer = Ra::IndexBuffer::Create(indices, 36);
-
-        m_VertexArray->AddVertexBuffer(m_VertexBuffer);
-        m_VertexArray->SetIndexBuffer(m_IndexBuffer);
-
         m_TestShader = Ra::Shader::Create(R"(assets\shaders\test.glsl)");
 
         m_SolidColorShader = Ra::Shader::Create(R"(assets\shaders\solid_color.glsl)");
@@ -65,11 +19,12 @@ namespace Lithe
         props.Width = Application::GetInstance().GetWindow().GetWidth();
         props.Height = Application::GetInstance().GetWindow().GetHeight();
         props.Attachments = { Ra::TextureFormat::Color, Ra::TextureFormat::Depth };
+        props.Samples = 8;
         m_Framebuffer = Ra::Framebuffer::Create(props);
 
         m_CurrentScene = std::make_shared<Scene>();
-        m_Thing = m_CurrentScene->CreateEntity();
-        auto& trans = m_Thing.AddComponent<TransformComponent>();
+        m_Cube = m_CurrentScene->CreateEntity();
+        m_Cube.AddComponent<MeshRendererComponent>(m_TestShader);
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -177,8 +132,9 @@ namespace Lithe
         Ra::RenderCommand::Clear();
 
         Ra::Renderer::BeginScene(m_CameraController->GetCamera());
-        Ra::Renderer::Submit(m_VertexArray, m_TestShader);
-        Ra::Renderer::Submit(m_VertexArray, m_SolidColorShader, Ra::RendererAPI::DrawMode::LineLoop);
+        auto& trans = m_Cube.GetComponent<TransformComponent>();
+        trans = glm::rotate((glm::mat4)trans, (float)glm::radians(50 * ts), glm::vec3{ 1,1,1 });
+        m_CurrentScene->OnUpdate(ts); 
         Ra::Renderer::EndScene();
 
         m_Framebuffer->StopWriting();

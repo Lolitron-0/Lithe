@@ -27,7 +27,7 @@ public:
 
         m_VertexBuffer = Ra::VertexBuffer::Create(data, sizeof(data));
         Ra::BufferLayout layout = {
-            {Ra::UniformDataType::Float3, "position"},
+            {Ra::BufferDataType::Float3, "position"},
         };
         m_VertexBuffer->SetLayout(layout);
 

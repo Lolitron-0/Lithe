@@ -6,6 +6,7 @@
 
 namespace Lithe
 {
+
     /**
      * @brief Base class for user-defined camera controllers
      * Camera controllers are wrappers around camera object, handling user input.
@@ -32,12 +33,12 @@ namespace Lithe
         void OnEvent(Event& event)
         {
             EventDispatcher dispatcher{ event };
-            dispatcher.Dispatch<MouseMovedEvent>(std::bind(&Derived::OnMouseMoved, static_cast<Derived*>(this), std::placeholders::_1));
-            dispatcher.Dispatch<MouseButtonPressedEvent>(std::bind(&Derived::OnMouseButtonPressed, static_cast<Derived*>(this), std::placeholders::_1));
-            dispatcher.Dispatch<MouseButtonReleasedEvent>(std::bind(&Derived::OnMouseButtonReleased, static_cast<Derived*>(this), std::placeholders::_1));
-            dispatcher.Dispatch<KeyPressedEvent>(std::bind(&Derived::OnKeyPressed, static_cast<Derived*>(this), std::placeholders::_1));
-            dispatcher.Dispatch<KeyReleasedEvent>(std::bind(&Derived::OnKeyReleased, static_cast<Derived*>(this), std::placeholders::_1));
-            dispatcher.Dispatch<MouseScrolledEvent>(std::bind(&Derived::OnMouseScrolled, static_cast<Derived*>(this), std::placeholders::_1));
+            dispatcher.Dispatch<MouseMovedEvent>(LT_BIND_EVENT_FN_CASTED_THIS(OnMouseMoved, Derived));
+            dispatcher.Dispatch<MouseButtonPressedEvent>(LT_BIND_EVENT_FN_CASTED_THIS(OnMouseButtonPressed, Derived));
+            dispatcher.Dispatch<MouseButtonReleasedEvent>(LT_BIND_EVENT_FN_CASTED_THIS(OnMouseButtonReleased, Derived));
+            dispatcher.Dispatch<KeyPressedEvent>(LT_BIND_EVENT_FN_CASTED_THIS(OnKeyPressed, Derived));
+            dispatcher.Dispatch<KeyReleasedEvent>(LT_BIND_EVENT_FN_CASTED_THIS(OnKeyReleased, Derived));
+            dispatcher.Dispatch<MouseScrolledEvent>(LT_BIND_EVENT_FN_CASTED_THIS(OnMouseScrolled, Derived));
         }
         virtual void OnUpdate(const Timestep& ts) {}
         virtual bool OnKeyPressed(KeyPressedEvent& event) { return false; };
@@ -72,10 +73,10 @@ namespace Lithe
     template<class Derived = void>
     class FlyCameraControllerImpl : public CameraController
         <
-            typename enable_ifelse< std::is_void<Derived>::value,
-                FlyCameraControllerImpl<>,
-                Derived>
-            ::type
+        typename enable_ifelse< std::is_void<Derived>::value,
+        FlyCameraControllerImpl<>,
+        Derived>
+        ::type
         >
     {
     public:

@@ -117,8 +117,6 @@ namespace Lithe
             m_LastMousePos.x = event.GetMouseX();
             m_LastMousePos.y = event.GetMouseY();
 
-            LITHE_LOG_CORE_DEBUG(m_Transform->GetRotation());
-
             return false;
         }
 

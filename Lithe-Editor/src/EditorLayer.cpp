@@ -134,7 +134,7 @@ namespace Lithe
         Ra::RenderCommand::Clear();
 
         auto& trans = m_Cube.GetComponent<TransformComponent>();
-        trans = glm::rotate((glm::mat4)trans, (float)glm::radians(50 * ts), glm::vec3{ 1,1,1 });
+        trans.RotateX(100.f * ts);
         m_CurrentScene->OnUpdate(ts); 
 
         m_Framebuffer->StopWriting();

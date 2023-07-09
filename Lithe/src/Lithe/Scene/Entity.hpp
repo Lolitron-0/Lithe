@@ -1,10 +1,9 @@
 #pragma once
 #include <EnTT/entt.hpp>
+#include "Scene.hpp"
 
 namespace Lithe
 {
-    class Scene;
-
     class Entity
     {
     public:

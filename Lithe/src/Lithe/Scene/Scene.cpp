@@ -17,6 +17,21 @@ namespace Lithe
 
     void Scene::OnUpdate(const Timestep& ts)
     {
+        {
+            auto group = m_Registry.group<CameraComponent>(entt::get<TransformComponent>);
+            for (auto& entity : group)
+            {
+                auto& [camera, transform] = group.get(entity);
+                if (camera.Primary)
+                {
+                    m_ViewProjection = camera.Camera.GetProjection() * glm::inverse(transform.GetMatrix());
+                    break;
+                }
+            }
+        }
+
+        Ra::Renderer::BeginScene(m_ViewProjection);
+
         auto& group = m_Registry.group<TransformComponent>(entt::get<MeshRendererComponent>);
 
         for (auto& entity : group)
@@ -25,6 +40,8 @@ namespace Lithe
 
             Ra::Renderer::DrawCube(transform, mesh.Shader, mesh.DrawingMode);
         }
+
+        Ra::Renderer::EndScene();
     }
 
 }

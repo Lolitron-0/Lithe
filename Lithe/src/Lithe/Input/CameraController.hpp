@@ -2,6 +2,8 @@
 #include <RenderAbstraction.hpp>
 #include "Lithe/Core/Timestep.hpp"
 #include "Lithe/Events/Events.hpp"
+#include "Lithe/Scene/Components.hpp"
+#include "Lithe/Scene/Entity.hpp"
 #include <functional>
 
 namespace Lithe
@@ -24,9 +26,9 @@ namespace Lithe
     class CameraController
     {
     public:
-        CameraController(const Ra::Camera& camera)
+        CameraController(Entity& camera)
+            :m_Camera(camera), m_Transform(&camera.GetComponent<TransformComponent>())
         {
-            m_Camera = std::make_unique<Ra::Camera>(camera);
         }
         virtual ~CameraController() = default;
 
@@ -48,10 +50,12 @@ namespace Lithe
         virtual bool OnMouseButtonReleased(MouseButtonReleasedEvent&) { return false; };
         virtual bool OnMouseScrolled(MouseScrolledEvent&) { return false; };
 
-        Ra::Camera& GetCamera() { return *m_Camera; }
+        Camera& GetCamera() { return m_Camera.GetComponent<CameraComponent>().Camera; }
+        TransformComponent& GetTransform() { return *m_Transform; }
 
     protected:
-        Scope<Ra::Camera> m_Camera;
+        TransformComponent* m_Transform;
+        Entity m_Camera;
     };
 
     /************************************************************************/
@@ -80,42 +84,40 @@ namespace Lithe
         >
     {
     public:
-        FlyCameraControllerImpl(const Ra::Camera& camera)
+        FlyCameraControllerImpl(Entity& camera)
             :CameraController(camera)
         {}
 
         virtual void OnUpdate(const Timestep& ts) override
         {
             if (Keyboard::IsKeyPressed(Keyboard::Key::W))
-                m_Camera->ShiftPosition(Ra::CameraDirection::Forward, m_FlySpeed * (float)ts);
+                m_Transform->Translate(m_Transform->GetFront()*m_FlySpeed*(float)ts);
             if (Keyboard::IsKeyPressed(Keyboard::Key::A))
-                m_Camera->ShiftPosition(Ra::CameraDirection::Left, m_FlySpeed * (float)ts);
+                m_Transform->Translate(-m_Transform->GetRight()*m_FlySpeed*(float)ts);
             if (Keyboard::IsKeyPressed(Keyboard::Key::S))
-                m_Camera->ShiftPosition(Ra::CameraDirection::Backward, m_FlySpeed * (float)ts);
+                m_Transform->Translate(-m_Transform->GetFront()*m_FlySpeed*(float)ts);
             if (Keyboard::IsKeyPressed(Keyboard::Key::D))
-                m_Camera->ShiftPosition(Ra::CameraDirection::Right, m_FlySpeed * (float)ts);
-            if (Keyboard::IsKeyPressed(Keyboard::Key::Q))
-                m_Camera->ShiftPosition(Ra::CameraDirection::Down, m_FlySpeed * (float)ts);
-            if (Keyboard::IsKeyPressed(Keyboard::Key::E))
-                m_Camera->ShiftPosition(Ra::CameraDirection::Up, m_FlySpeed * (float)ts);
+                m_Transform->Translate(m_Transform->GetRight()*m_FlySpeed*(float)ts);
         }
 
         virtual bool OnMouseMoved(MouseMovedEvent& event) override
         {
-            auto xOffset = m_LastMousePos.x == -1 ? 0.f : event.GetMouseX() - m_LastMousePos.x;
+            auto xOffset = m_LastMousePos.x == -1 ? 0.f : m_LastMousePos.x - event.GetMouseX();
             auto yOffset = m_LastMousePos.y == -1 ? 0.f : m_LastMousePos.y - event.GetMouseY();
 
-            m_Camera->ShiftYaw(xOffset * m_MouseSensitivity);
-            m_Camera->ShiftPitch(yOffset * m_MouseSensitivity);
+            m_Transform->RotateX(xOffset * m_MouseSensitivity);
+            m_Transform->RotateY(yOffset * m_MouseSensitivity);
 
-            if (m_Camera->GetPitch() > 89.f)
-                m_Camera->SetPitch(89.f);
+            /*if (m_Transform->GetRotation().y > 89.f)
+                m_Transform->SetRotationY(89.f);
 
-            if (m_Camera->GetPitch() < -89.f)
-                m_Camera->SetPitch(-89.f);
+            if (m_Transform->GetRotation().y < -89.f)
+                m_Transform->SetRotationY(-89.f);*/
 
             m_LastMousePos.x = event.GetMouseX();
             m_LastMousePos.y = event.GetMouseY();
+
+            LITHE_LOG_CORE_DEBUG(m_Transform->GetRotation());
 
             return false;
         }
@@ -159,7 +161,7 @@ namespace Lithe
     class RMBCaptureFlyCameraController : public FlyCameraControllerImpl<RMBCaptureFlyCameraController>
     {
     public:
-        RMBCaptureFlyCameraController(const Ra::Camera& camera);
+        RMBCaptureFlyCameraController(Entity& camera);
 
         void OnUpdate(const Timestep& ts) override;
 

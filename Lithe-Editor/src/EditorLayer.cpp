@@ -5,10 +5,6 @@ namespace Lithe
 
     EditorLayer::EditorLayer() :Layer("EditorLayer")
     {
-        Ra::Camera cam{{0, 3, 5}, 16.f / 9.f};
-        cam.ShiftPitch(-30);
-        m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(cam);
-
         m_TestShader = Ra::Shader::Create(R"(assets\shaders\test.glsl)");
 
         m_SolidColorShader = Ra::Shader::Create(R"(assets\shaders\solid_color.glsl)");
@@ -23,8 +19,14 @@ namespace Lithe
         m_Framebuffer = Ra::Framebuffer::Create(props);
 
         m_CurrentScene = std::make_shared<Scene>();
+
         m_Cube = m_CurrentScene->CreateEntity();
         m_Cube.AddComponent<MeshRendererComponent>(m_TestShader);
+
+        m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
+        m_EditorCamera.AddComponent<CameraComponent>(45.f, 16.f/9.f, true);
+
+        m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(m_EditorCamera);
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -131,11 +133,9 @@ namespace Lithe
         Ra::RenderCommand::SetClearColor({ 1.f, 1.f, 1.f, 0.1f });
         Ra::RenderCommand::Clear();
 
-        Ra::Renderer::BeginScene(m_CameraController->GetCamera());
         auto& trans = m_Cube.GetComponent<TransformComponent>();
         trans = glm::rotate((glm::mat4)trans, (float)glm::radians(50 * ts), glm::vec3{ 1,1,1 });
         m_CurrentScene->OnUpdate(ts); 
-        Ra::Renderer::EndScene();
 
         m_Framebuffer->StopWriting();
     }

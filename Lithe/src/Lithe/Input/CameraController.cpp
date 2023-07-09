@@ -9,7 +9,7 @@ namespace Lithe
     /* RMB Fly camera controller                                            */
     /************************************************************************/
 
-    RMBCaptureFlyCameraController::RMBCaptureFlyCameraController(const Ra::Camera& camera)
+    RMBCaptureFlyCameraController::RMBCaptureFlyCameraController(Entity& camera)
         :FlyCameraControllerImpl(camera)
     {
         Application::GetInstance().GetWindow().ShowCursor();

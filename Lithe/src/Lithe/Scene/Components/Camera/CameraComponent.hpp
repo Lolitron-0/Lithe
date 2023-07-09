@@ -7,10 +7,14 @@ namespace Lithe
     {
     public:
         Lithe::Camera Camera;
+        bool Primary;
 
-        CameraComponent()
+        CameraComponent(bool primary)
+            :Primary(primary)
         {}
-        CameraComponent(float fov, float aspectRatio);
+        CameraComponent(float fov, float aspectRatio, bool primary)
+            :Camera{ fov, aspectRatio }, Primary(primary)
+        {}
         CameraComponent(const CameraComponent& other) = default;
     };
 

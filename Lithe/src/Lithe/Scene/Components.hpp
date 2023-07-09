@@ -1,6 +1,8 @@
 #pragma once
 #include <glm/glm.hpp>
 #include <RenderAbstraction.hpp>
+#include "Components/Camera/CameraComponent.hpp"
+#include "Components/TransformComponent.hpp"
 
 namespace Lithe
 {

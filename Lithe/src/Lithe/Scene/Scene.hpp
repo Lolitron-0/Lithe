@@ -1,5 +1,6 @@
 #pragma once
 #include "EnTT/entt.hpp"
+#include "Lithe/Core/Math.hpp"
 
 namespace Lithe
 {
@@ -18,6 +19,7 @@ namespace Lithe
 
     private:
         entt::registry m_Registry;
+        Mat4 m_ViewProjection;
     };
 
 }

@@ -14,12 +14,14 @@ namespace Lithe
 
         Entity CreateEntity(const std::string& name = std::string{});
         void OnUpdate(const Timestep& ts);
+        void OnViewportResize(std::uint32_t width, std::uint32_t height);
 
         friend class Entity;
 
     private:
         entt::registry m_Registry;
         Mat4 m_ViewProjection;
+        Vec2 m_ViewportSize{ 0.f };
     };
 
 }

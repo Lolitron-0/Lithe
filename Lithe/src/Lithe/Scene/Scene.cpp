@@ -24,7 +24,7 @@ namespace Lithe
                 auto& [camera, transform] = group.get(entity);
                 if (camera.Primary)
                 {
-                    m_ViewProjection = camera.Camera.GetProjection() * glm::inverse(transform.GetMatrix());
+                    m_ViewProjection = camera.Camera->GetProjection() * glm::inverse(transform.GetMatrix());
                     break;
                 }
             }
@@ -42,6 +42,19 @@ namespace Lithe
         }
 
         Ra::Renderer::EndScene();
+    }
+
+    void Scene::OnViewportResize(std::uint32_t width, std::uint32_t height)
+    {
+        m_ViewportSize = { width, height };
+
+        auto view = m_Registry.view<CameraComponent>();
+        for (auto& entity : view)
+        {
+            auto& cameraComponent = view.get<CameraComponent>(entity);
+            if (!cameraComponent.FixedAspectRatio)
+                cameraComponent.Camera->SetAspectRatio(width / (float)height);
+        }
     }
 
 }

@@ -51,8 +51,6 @@ namespace Lithe
 
     void ImGuiLayer::OnImGuiDraw()
     {
-        static bool show = true;
-        ImGui::ShowDemoWindow(&show);
     }
 
     void ImGuiLayer::Begin()
@@ -60,9 +58,6 @@ namespace Lithe
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-
-        //ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
-   
     }
 
     void ImGuiLayer::End()

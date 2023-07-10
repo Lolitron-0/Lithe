@@ -24,9 +24,12 @@ namespace Lithe
         m_Cube.AddComponent<MeshRendererComponent>(m_TestShader);
 
         m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
-        m_EditorCamera.AddComponent<CameraComponent>(45.f, 16.f/9.f, true);
+        auto cam = std::make_shared<PerspectiveCamera>(45.f, 16.f / 9.f);
+        m_EditorCamera.AddComponent<CameraComponent>(cam, true);
 
         m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(m_EditorCamera);
+        m_CameraController->GetTransform().SetPosition({0, 2, 2});
+        //m_CameraController->GetTransform().LookAt({0,0,0});
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -40,6 +43,8 @@ namespace Lithe
         static bool opt_fullscreen = true;
         static bool opt_padding = false;
         static bool p_ViewportOpen = true;
+        static float rot[] = { 0,0,0 };
+        static float fov = 45.f;
         static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
 
         // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
@@ -106,12 +111,12 @@ namespace Lithe
         if (p_ViewportOpen) {
             ImGui::Begin("Viewport", &p_ViewportOpen);
 
-            auto viewportPanesSize = ImGui::GetContentRegionAvail();
-            if (m_ViewportSize != *(glm::vec2*)&viewportPanesSize) // haha type punning goes brr
+            auto viewportPanelSize = ImGui::GetContentRegionAvail();
+            if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha type punning goes brr
             {
-                m_Framebuffer->Resize((uint32_t)viewportPanesSize.x, (uint32_t)viewportPanesSize.y);
-                m_CameraController->GetCamera().SetPerspective(45.f, viewportPanesSize.x / viewportPanesSize.y);
-                m_ViewportSize = { viewportPanesSize.x, viewportPanesSize.y };
+                m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
+                m_CurrentScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
+                m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
             }
             auto textureId = m_Framebuffer->GetDrawTextureHandle();
             ImGui::Image(reinterpret_cast<void*>((std::uintptr_t)textureId), ImVec2{
@@ -122,6 +127,18 @@ namespace Lithe
             ImGui::End();
         }
         ImGui::PopStyleVar();
+
+        ImGui::Begin("Settings");
+        if (ImGui::DragFloat3("Rotation", rot, 1, -360, 360))
+            m_Cube.GetComponent<TransformComponent>().SetRotation(Vec3{rot[0],rot[1], rot[2]});
+        if (ImGui::DragFloat("FOV", &fov, 1, 0, 360))
+        {
+            auto props = m_CameraController->GetCamera()->GetCameraProperties<PerspectiveCameraProperties>();
+            props.Fov = fov;
+            m_CameraController->GetCamera()->SetCameraProperties(props);
+            LITHE_LOG_CORE_DEBUG(m_CameraController->GetCamera()->GetCameraProperties<PerspectiveCameraProperties>().Fov);
+        }
+        ImGui::End();
     }
 
     void EditorLayer::OnUpdate(const Lithe::Timestep& ts)
@@ -134,7 +151,7 @@ namespace Lithe
         Ra::RenderCommand::Clear();
 
         auto& trans = m_Cube.GetComponent<TransformComponent>();
-        trans.RotateX(100.f * ts);
+        //trans.RotateX(100.f * ts);
         m_CurrentScene->OnUpdate(ts); 
 
         m_Framebuffer->StopWriting();

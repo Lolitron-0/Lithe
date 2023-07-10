@@ -50,7 +50,7 @@ namespace Lithe
         virtual bool OnMouseButtonReleased(MouseButtonReleasedEvent&) { return false; };
         virtual bool OnMouseScrolled(MouseScrolledEvent&) { return false; };
 
-        Camera& GetCamera() { return m_Camera.GetComponent<CameraComponent>().Camera; }
+        Ref<Camera> GetCamera() { return m_Camera.GetComponent<CameraComponent>().Camera; }
         TransformComponent& GetTransform() { return *m_Transform; }
 
     protected:
@@ -116,7 +116,6 @@ namespace Lithe
 
             m_LastMousePos.x = event.GetMouseX();
             m_LastMousePos.y = event.GetMouseY();
-
             return false;
         }
 

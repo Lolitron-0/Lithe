@@ -38,7 +38,7 @@ namespace Lithe
 
     Lithe::Vec3 TransformComponent::GetRight() const
     {
-        return Cross(GetFront(), { 0,1,0 });
+        return Normalized(Cross(GetFront(), { 0,1,0 }));
     }
 
     Lithe::TransformComponent& TransformComponent::SetPosition(const Vec3& pos)
@@ -143,7 +143,9 @@ namespace Lithe
 
     Lithe::TransformComponent& TransformComponent::LookAt(const Vec3& target)
     {
-        auto q = glm::quatLookAt(Normalized(m_Position - target), {0.00001,1,0});
+        auto q = glm::quatLookAt(Normalized(target - m_Position), {0,1,0});
+        float r1, r2, r3;
+        glm::extractEulerAngleXYZ(glm::lookAt(m_Position, target, { 0,0,1 }), r1, r2, r3);
         return this->SetRotation(q);
     }
 

@@ -23,6 +23,8 @@
 #include "Lithe/Scene/Scene.hpp"
 #include "Lithe/Scene/Entity.hpp"
 #include "Lithe/Scene/Components.hpp"
+#include "Lithe/Scene/Components/Camera/Camera.hpp"
+#include "Lithe/Scene/Components/Camera/PerspectiveCamera.hpp"
 
 #include <ImGui/imgui.h>
 #include <glm/glm.hpp>

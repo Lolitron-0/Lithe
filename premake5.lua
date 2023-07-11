@@ -43,10 +43,6 @@ project "Lithe"
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.hpp",
 		"%{prj.name}/src/**.cpp",
-
-		"%{prj.name}/thirdparty/glm/glm/**.hpp",
-		"%{prj.name}/thirdparty/glm/glm/**.inl",
-
 	}
 
 	includedirs
@@ -82,11 +78,6 @@ project "Lithe"
 			"GLFW_INCLUDE_NONE",
 			"_CRT_SECURE_NO_WARNINGS",
 			"RA_WINDOWS",
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/"..outputdir.."/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -168,6 +159,7 @@ project "Lithe-Editor"
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.hpp",
 		"%{prj.name}/src/**.cpp"
+		
 	}
 
 	includedirs

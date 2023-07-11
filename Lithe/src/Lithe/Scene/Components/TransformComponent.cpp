@@ -145,7 +145,7 @@ namespace Lithe
     {
         auto q = glm::quatLookAt(Normalized(target - m_Position), {0,1,0});
         float r1, r2, r3;
-        glm::extractEulerAngleXYZ(glm::lookAt(m_Position, target, { 0,0,1 }), r1, r2, r3);
+        glm::extractEulerAngleXYZ(glm::lookAt(m_Position, target, { 0,1,0 }), r1, r2, r3);
         return this->SetRotation(q);
     }
 

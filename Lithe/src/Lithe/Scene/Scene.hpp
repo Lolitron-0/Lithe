@@ -20,7 +20,7 @@ namespace Lithe
 
     private:
         entt::registry m_Registry;
-        Mat4 m_ViewProjection;
+        Mat4 m_ViewProjection{ 1.f };
         Vec2 m_ViewportSize{ 0.f };
     };
 

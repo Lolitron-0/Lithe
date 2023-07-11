@@ -56,7 +56,7 @@ namespace Lithe
             std::string Title;
             unsigned int Width;
             unsigned int Height;
-            bool VSync;
+            bool VSync{true};
 
             EventCallbackFn EventCallback;
             EventQueue_t EventQueue;

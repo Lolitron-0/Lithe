@@ -5,11 +5,11 @@ namespace Lithe
 
     EditorLayer::EditorLayer() :Layer("EditorLayer")
     {
-        m_TestShader = Ra::Shader::Create(R"(assets\shaders\test.glsl)");
-
-        m_SolidColorShader = Ra::Shader::Create(R"(assets\shaders\solid_color.glsl)");
-        m_SolidColorShader->Bind();
-        m_SolidColorShader->SetVec4("u_BaseColor", 0.f, 0.f, 0.f, 1.f);
+        m_TestShader = Ra::Shader::Create(R"(assets\shaders\test.vert)", R"(assets\shaders\test.frag)");
+        m_TestShader->Bind();
+        m_TestShader->SetInt("material.DiffuseMap", 0);
+        m_Texture = Ra::Texture::Create();
+        m_Texture->LoadFromFile(R"(assets\container2.png)");
 
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
@@ -29,7 +29,7 @@ namespace Lithe
 
         m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(m_EditorCamera);
         m_CameraController->GetTransform().SetPosition({0, 2, 2});
-        //m_CameraController->GetTransform().LookAt({0,0,0});
+        m_CameraController->GetTransform().RotateY(-45);
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -131,12 +131,11 @@ namespace Lithe
         ImGui::Begin("Settings");
         if (ImGui::DragFloat3("Rotation", rot, 1, -360, 360))
             m_Cube.GetComponent<TransformComponent>().SetRotation(Vec3{rot[0],rot[1], rot[2]});
-        if (ImGui::DragFloat("FOV", &fov, 1, 0, 360))
+        if (ImGui::DragFloat("FOV", &fov, 1, 30, 170))
         {
             auto props = m_CameraController->GetCamera()->GetCameraProperties<PerspectiveCameraProperties>();
             props.Fov = fov;
             m_CameraController->GetCamera()->SetCameraProperties(props);
-            LITHE_LOG_CORE_DEBUG(m_CameraController->GetCamera()->GetCameraProperties<PerspectiveCameraProperties>().Fov);
         }
         ImGui::End();
     }
@@ -152,6 +151,7 @@ namespace Lithe
 
         auto& trans = m_Cube.GetComponent<TransformComponent>();
         //trans.RotateX(100.f * ts);
+        m_Texture->Bind();
         m_CurrentScene->OnUpdate(ts); 
 
         m_Framebuffer->StopWriting();

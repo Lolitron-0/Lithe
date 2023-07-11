@@ -43,6 +43,7 @@ namespace Lithe
         TransformComponent& RotateX(float value);
         TransformComponent& RotateY(float value);
         TransformComponent& RotateZ(float value);
+        /// @todo NOT WORKING
         TransformComponent& LookAt(const Vec3& target);
 
         TransformComponent& Scale(const Vec3& factor);

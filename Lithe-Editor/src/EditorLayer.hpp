@@ -19,6 +19,7 @@ namespace Lithe
 
     private:
         Ref<Ra::Shader> m_TestShader;
+        Ref<Ra::Texture> m_Texture;
         Ref<Ra::Shader> m_SolidColorShader;
         Ref<Ra::VertexBuffer> m_VertexBuffer;
         Ref<Ra::IndexBuffer> m_IndexBuffer;

@@ -27,6 +27,7 @@ namespace Lithe
         Ref<RMBCaptureFlyCameraController> m_CameraController;
         Ref<Scene> m_CurrentScene;
         Entity m_Cube;
+        Entity m_Lamp;
         Ra::Material m_Material;
         Entity m_EditorCamera;
 

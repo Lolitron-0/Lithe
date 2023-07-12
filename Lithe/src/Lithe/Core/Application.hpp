@@ -21,7 +21,7 @@ namespace Lithe
     class LITHE_API Application : public Singleton<Application>
     {
     public:
-        Application();
+        Application(Ra::RendererAPI::API renderingApi = Ra::RendererAPI::API::OpenGL);
         virtual ~Application();
 
         /// Starts main cycle

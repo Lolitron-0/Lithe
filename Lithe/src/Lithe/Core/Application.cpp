@@ -8,10 +8,10 @@
 namespace Lithe
 {
 
-    Lithe::Application::Application()
+    Lithe::Application::Application(Ra::RendererAPI::API renderingApi)
     {
         Ra::SetErrorCallback(Application::OnRendererError_);
-        Ra::Renderer::SetAPI(Ra::RendererAPI::API::OpenGL);
+        Ra::Renderer::SetAPI(renderingApi);
 
         Log::Init();
 

@@ -19,6 +19,18 @@ namespace Lithe
         {}
     };
 
+    class PointLightComponent
+    {
+    public:
+        Ra::PointLight Light;
+
+        PointLightComponent() = default;
+        PointLightComponent(const PointLightComponent&) = default;
+        PointLightComponent(const Ra::PointLight& light)
+            :Light(light)
+        {}
+    };
+
     class TagComponent
     {
     public:

@@ -7,8 +7,10 @@ namespace Lithe
     {
         m_Texture = Ra::Texture::Create();
         m_Texture->LoadFromFile(R"(assets\container2.png)");
+        Ref<Ra::Texture> spec = Ra::Texture::Create();
+        spec->LoadFromFile(R"(assets\container2_specular.png)");
         m_Material.DiffuseMap = m_Texture;
-        m_Material.Transparency = 0.8;
+        m_Material.SpecularMap = spec;
 
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
@@ -19,16 +21,21 @@ namespace Lithe
 
         m_CurrentScene = std::make_shared<Scene>();
 
-        m_Cube = m_CurrentScene->CreateEntity();
+        m_Cube = m_CurrentScene->CreateEntity("Cube");
         m_Cube.AddComponent<MeshRendererComponent>(m_Material);
+
+        m_Lamp = m_CurrentScene->CreateEntity("Point light");
+        m_Lamp.AddComponent<PointLightComponent>();
+        m_Lamp.GetComponent<TransformComponent>().SetPosition({ 1.5,1.5,1.5 });
 
         m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
         auto cam = std::make_shared<PerspectiveCamera>(45.f, 16.f / 9.f);
         m_EditorCamera.AddComponent<CameraComponent>(cam, true);
 
         m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(m_EditorCamera);
-        m_CameraController->GetTransform().SetPosition({0, 2, 2});
+        m_CameraController->GetTransform().SetPosition({ 0, 2, 2 });
         m_CameraController->GetTransform().RotateY(-45);
+        m_CameraController->GetTransform().LookAt({0,0,0});
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -89,7 +96,7 @@ namespace Lithe
             if (ImGui::BeginMenu("File"))
             {
                 if (ImGui::MenuItem("Exit", NULL, false, &show != NULL))
-                    Application::GetInstance().Close();            
+                    Application::GetInstance().Close();
                 ImGui::EndMenu();
             }
 
@@ -129,7 +136,7 @@ namespace Lithe
 
         ImGui::Begin("Settings");
         if (ImGui::DragFloat3("Rotation", rot, 1, -360, 360))
-            m_Cube.GetComponent<TransformComponent>().SetRotation(Vec3{rot[0],rot[1], rot[2]});
+            m_Cube.GetComponent<TransformComponent>().SetRotation(Vec3{ rot[0],rot[1], rot[2] });
         if (ImGui::DragFloat("FOV", &fov, 1, 30, 170))
         {
             auto props = m_CameraController->GetCamera()->GetCameraProperties<PerspectiveCameraProperties>();
@@ -150,7 +157,7 @@ namespace Lithe
 
         auto& trans = m_Cube.GetComponent<TransformComponent>();
         //trans.RotateX(100.f * ts);
-        m_CurrentScene->OnUpdate(ts); 
+        m_CurrentScene->OnUpdate(ts);
 
         m_Framebuffer->StopWriting();
     }

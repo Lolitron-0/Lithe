@@ -17,6 +17,7 @@ namespace Lithe
 
     void Scene::OnUpdate(const Timestep& ts)
     {
+        TransformComponent* activeCameraTransform = nullptr;
         {
             auto group = m_Registry.group<CameraComponent>(entt::get<TransformComponent>);
             for (auto& entity : group)
@@ -24,19 +25,30 @@ namespace Lithe
                 auto& [camera, transform] = group.get(entity);
                 if (camera.Primary)
                 {
+                    activeCameraTransform = &transform;
                     m_ViewProjection = camera.Camera->GetProjection() * glm::inverse(transform.GetMatrix());
                     break;
                 }
             }
         }
 
-        Ra::Renderer::BeginScene(m_ViewProjection);
+        Ra::Renderer::BeginScene(m_ViewProjection, activeCameraTransform->GetPosition());
+
+        {
+            auto pointLightGroup = m_Registry.group<PointLightComponent>(entt::get<TransformComponent>);
+            for (auto& entitiy : pointLightGroup)
+            {
+                auto& [pointLight, transform] = pointLightGroup.get(entitiy);
+                Ra::Renderer::SubmitPointLight(pointLight.Light, transform.GetPosition());
+            }
+        }
+
 
         auto& group = m_Registry.group<TransformComponent>(entt::get<MeshRendererComponent>);
 
         for (auto& entity : group)
         {
-            auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity); 
+            auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity);
 
             Ra::Renderer::DrawCube(transform, mesh.Material, mesh.DrawingMode);
         }

@@ -38,7 +38,7 @@ namespace Lithe
         {
             auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity); 
 
-            Ra::Renderer::DrawCube(transform, mesh.Shader, mesh.DrawingMode);
+            Ra::Renderer::DrawCube(transform, mesh.Material, mesh.DrawingMode);
         }
 
         Ra::Renderer::EndScene();

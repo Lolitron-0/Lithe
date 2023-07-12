@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_camera_controller.html
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for user-defined camera controllers Camera controllers are wrappers around camera object, handling user input. There are a bunch of methods to optionally override, they should be called in corresponding layer methods.  
+<p>Base class for user-defined camera controllers <a class="el" href="class_lithe_1_1_camera.html">Camera</a> controllers are wrappers around camera object, handling user input. There are a bunch of methods to optionally override, they should be called in corresponding layer methods.  
  <a href="class_lithe_1_1_camera_controller.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_camera_controller_8hpp_source.html">CameraController.hpp</a>&gt;</code></p>
@@ -115,9 +115,9 @@ Inheritance diagram for Lithe::CameraController&lt; Derived &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1e482914a60bafaa430599cf151b5b0a"><td class="memItemLeft" align="right" valign="top"><a id="a1e482914a60bafaa430599cf151b5b0a" name="a1e482914a60bafaa430599cf151b5b0a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CameraController</b> (const <a class="el" href="class_ra_1_1_camera.html">Ra::Camera</a> &amp;camera)</td></tr>
-<tr class="separator:a1e482914a60bafaa430599cf151b5b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fca349703c1fec6366e116de3b6467c"><td class="memItemLeft" align="right" valign="top"><a id="a8fca349703c1fec6366e116de3b6467c" name="a8fca349703c1fec6366e116de3b6467c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CameraController</b> (<a class="el" href="class_lithe_1_1_entity.html">Entity</a> &amp;camera)</td></tr>
+<tr class="separator:a8fca349703c1fec6366e116de3b6467c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcc11c4a44a7313a6f3f86396977d8a4"><td class="memItemLeft" align="right" valign="top"><a id="adcc11c4a44a7313a6f3f86396977d8a4" name="adcc11c4a44a7313a6f3f86396977d8a4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEvent</b> (<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;event)</td></tr>
 <tr class="separator:adcc11c4a44a7313a6f3f86396977d8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,25 +142,31 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnMouseButton
 <tr class="memitem:ac07703f7a2de55d61d679b4d8a991d97"><td class="memItemLeft" align="right" valign="top"><a id="ac07703f7a2de55d61d679b4d8a991d97" name="ac07703f7a2de55d61d679b4d8a991d97"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>OnMouseScrolled</b> (<a class="el" href="class_lithe_1_1_mouse_scrolled_event.html">MouseScrolledEvent</a> &amp;)</td></tr>
 <tr class="separator:ac07703f7a2de55d61d679b4d8a991d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03b01781d14bd64f80dfdf2800b67f9b"><td class="memItemLeft" align="right" valign="top"><a id="a03b01781d14bd64f80dfdf2800b67f9b" name="a03b01781d14bd64f80dfdf2800b67f9b"></a>
-<a class="el" href="class_ra_1_1_camera.html">Ra::Camera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCamera</b> ()</td></tr>
-<tr class="separator:a03b01781d14bd64f80dfdf2800b67f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad99f3d1d508764854a5eeae2ae152dd1"><td class="memItemLeft" align="right" valign="top"><a id="ad99f3d1d508764854a5eeae2ae152dd1" name="ad99f3d1d508764854a5eeae2ae152dd1"></a>
+Ref&lt; <a class="el" href="class_lithe_1_1_camera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCamera</b> ()</td></tr>
+<tr class="separator:ad99f3d1d508764854a5eeae2ae152dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f1a0b3e930f5622cf36933827713b97"><td class="memItemLeft" align="right" valign="top"><a id="a8f1a0b3e930f5622cf36933827713b97" name="a8f1a0b3e930f5622cf36933827713b97"></a>
+<a class="el" href="class_lithe_1_1_transform_component.html">TransformComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetTransform</b> ()</td></tr>
+<tr class="separator:a8f1a0b3e930f5622cf36933827713b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ab61dcfe568ab4ad7853a6edf583aa0d8"><td class="memItemLeft" align="right" valign="top"><a id="ab61dcfe568ab4ad7853a6edf583aa0d8" name="ab61dcfe568ab4ad7853a6edf583aa0d8"></a>
-Scope&lt; <a class="el" href="class_ra_1_1_camera.html">Ra::Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_Camera</b></td></tr>
-<tr class="separator:ab61dcfe568ab4ad7853a6edf583aa0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c133dc9f9f135f704879e0c8e52e8b"><td class="memItemLeft" align="right" valign="top"><a id="a41c133dc9f9f135f704879e0c8e52e8b" name="a41c133dc9f9f135f704879e0c8e52e8b"></a>
+<a class="el" href="class_lithe_1_1_transform_component.html">TransformComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_Transform</b></td></tr>
+<tr class="separator:a41c133dc9f9f135f704879e0c8e52e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadabdee9bddd0b035251a903c8a95b92"><td class="memItemLeft" align="right" valign="top"><a id="aadabdee9bddd0b035251a903c8a95b92" name="aadabdee9bddd0b035251a903c8a95b92"></a>
+<a class="el" href="class_lithe_1_1_entity.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Camera</b></td></tr>
+<tr class="separator:aadabdee9bddd0b035251a903c8a95b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class Derived&gt;<br />
-class Lithe::CameraController&lt; Derived &gt;</div><p>Base class for user-defined camera controllers Camera controllers are wrappers around camera object, handling user input. There are a bunch of methods to optionally override, they should be called in corresponding layer methods. </p>
+class Lithe::CameraController&lt; Derived &gt;</div><p>Base class for user-defined camera controllers <a class="el" href="class_lithe_1_1_camera.html">Camera</a> controllers are wrappers around camera object, handling user input. There are a bunch of methods to optionally override, they should be called in corresponding layer methods. </p>
 <dl class="section attention"><dt>Attention</dt><dd>OnEvent call is necessary for the event handlers to work </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This class uses CRTP to dispatch events. So deriving should look like this <div class="fragment"><div class="line"><span class="keyword">class </span>MyController : <span class="keyword">public</span> <a class="code hl_class" href="class_lithe_1_1_camera_controller.html">CameraController</a>&lt;MyController&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line">};</div>
-<div class="ttc" id="aclass_lithe_1_1_camera_controller_html"><div class="ttname"><a href="class_lithe_1_1_camera_controller.html">Lithe::CameraController</a></div><div class="ttdoc">Base class for user-defined camera controllers Camera controllers are wrappers around camera object,...</div><div class="ttdef"><b>Definition</b> CameraController.hpp:24</div></div>
+<div class="ttc" id="aclass_lithe_1_1_camera_controller_html"><div class="ttname"><a href="class_lithe_1_1_camera_controller.html">Lithe::CameraController</a></div><div class="ttdoc">Base class for user-defined camera controllers Camera controllers are wrappers around camera object,...</div><div class="ttdef"><b>Definition</b> CameraController.hpp:27</div></div>
 </div><!-- fragment --> </dd></dl>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>G:/dev/Lithe/Lithe/src/Lithe/Input/<a class="el" href="_camera_controller_8hpp_source.html">CameraController.hpp</a></li>

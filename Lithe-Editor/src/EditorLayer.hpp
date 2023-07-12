@@ -18,7 +18,6 @@ namespace Lithe
         void OnAttach() override;
 
     private:
-        Ref<Ra::Shader> m_TestShader;
         Ref<Ra::Texture> m_Texture;
         Ref<Ra::Shader> m_SolidColorShader;
         Ref<Ra::VertexBuffer> m_VertexBuffer;
@@ -28,6 +27,7 @@ namespace Lithe
         Ref<RMBCaptureFlyCameraController> m_CameraController;
         Ref<Scene> m_CurrentScene;
         Entity m_Cube;
+        Ra::Material m_Material;
         Entity m_EditorCamera;
 
         glm::vec2 m_ViewportSize;

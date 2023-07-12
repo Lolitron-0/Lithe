@@ -9,13 +9,13 @@ namespace Lithe
     class MeshRendererComponent
     {
     public:
-        Ref<Ra::Shader> Shader;
+        Ra::Material Material;
         Ra::RendererAPI::DrawMode DrawingMode{ Ra::RendererAPI::DrawMode::Triangles };
 
         MeshRendererComponent() = default;
         MeshRendererComponent(const MeshRendererComponent&) = default;
-        MeshRendererComponent(const Ref<Ra::Shader>& shader)
-            :Shader(shader)
+        MeshRendererComponent(const Ra::Material& material)
+            :Material(material)
         {}
     };
 

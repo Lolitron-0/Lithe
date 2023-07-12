@@ -121,19 +121,26 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAPI</b> (Re
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const <a class="el" href="class_ra_1_1_camera.html">Camera</a> &amp;camera)</td></tr>
 <tr class="memdesc:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given camera. <br /></td></tr>
 <tr class="separator:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87c0bf74fa10115e23ff579313d9833d"><td class="memItemLeft" align="right" valign="top"><a id="a87c0bf74fa10115e23ff579313d9833d" name="a87c0bf74fa10115e23ff579313d9833d"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const glm::mat4 &amp;viewProjection)</td></tr>
+<tr class="memdesc:a87c0bf74fa10115e23ff579313d9833d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given view-projection matrix (for custom camera systems) <br /></td></tr>
+<tr class="separator:a87c0bf74fa10115e23ff579313d9833d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="memItemLeft" align="right" valign="top"><a id="ac8f7a324e434a0cc5e6ae9d1987bb534" name="ac8f7a324e434a0cc5e6ae9d1987bb534"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> ()</td></tr>
 <tr class="memdesc:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks scene as finished. <br /></td></tr>
 <tr class="separator:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e1206f99553ecf31216559f2a71d22"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_renderer.html#a40e1206f99553ecf31216559f2a71d22">Submit</a> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;vertexArray, const Ref&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt; &amp;shader, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
-<tr class="memdesc:a40e1206f99553ecf31216559f2a71d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits draw command to a renderer.  <br /></td></tr>
-<tr class="separator:a40e1206f99553ecf31216559f2a71d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab486e4c3ef71ab06645a7ad23abc039"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_renderer.html#aab486e4c3ef71ab06645a7ad23abc039">Submit</a> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;vertexArray, const glm::mat4 &amp;transform, const <a class="el" href="class_ra_1_1_material.html">Material</a> &amp;material, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
+<tr class="memdesc:aab486e4c3ef71ab06645a7ad23abc039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits draw command to a renderer.  <br /></td></tr>
+<tr class="separator:aab486e4c3ef71ab06645a7ad23abc039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c1466a64746413db63f76c6382a646"><td class="memItemLeft" align="right" valign="top"><a id="a26c1466a64746413db63f76c6382a646" name="a26c1466a64746413db63f76c6382a646"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawCube</b> (const glm::mat4 &amp;transform, const <a class="el" href="class_ra_1_1_material.html">Material</a> &amp;material, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
+<tr class="separator:a26c1466a64746413db63f76c6382a646"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>High level rendering commands (Scene level) </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a40e1206f99553ecf31216559f2a71d22" name="a40e1206f99553ecf31216559f2a71d22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40e1206f99553ecf31216559f2a71d22">&#9670;&#160;</a></span>Submit()</h2>
+<a id="aab486e4c3ef71ab06645a7ad23abc039" name="aab486e4c3ef71ab06645a7ad23abc039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab486e4c3ef71ab06645a7ad23abc039">&#9670;&#160;</a></span>Submit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,8 +157,14 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> (
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Ref&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>shader</em>, </td>
+          <td class="paramtype">const glm::mat4 &amp;&#160;</td>
+          <td class="paramname"><em>transform</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_ra_1_1_material.html">Material</a> &amp;&#160;</td>
+          <td class="paramname"><em>material</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -176,7 +189,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> (
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="class_ra_1_1_vertex_array.html" title="Abstract interface of a vertex array structure.">VertexArray</a></td><td>vertex array to draw </td></tr>
-    <tr><td class="paramname">shader</td><td><a class="el" href="class_ra_1_1_shader.html" title="Shader abstraction class.">Shader</a> to use for drawing </td></tr>
+    <tr><td class="paramname">material</td><td><a class="el" href="class_ra_1_1_material.html">Material</a> to use for drawing </td></tr>
     <tr><td class="paramname">mode</td><td>Drawing mode (e.g. triangles, lines, points, etc.) </td></tr>
   </table>
   </dd>

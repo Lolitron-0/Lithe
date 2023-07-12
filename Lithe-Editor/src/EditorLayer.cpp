@@ -5,11 +5,10 @@ namespace Lithe
 
     EditorLayer::EditorLayer() :Layer("EditorLayer")
     {
-        m_TestShader = Ra::Shader::Create(R"(assets\shaders\test.vert)", R"(assets\shaders\test.frag)");
-        m_TestShader->Bind();
-        m_TestShader->SetInt("material.DiffuseMap", 0);
         m_Texture = Ra::Texture::Create();
         m_Texture->LoadFromFile(R"(assets\container2.png)");
+        m_Material.DiffuseMap = m_Texture;
+        m_Material.Transparency = 0.8;
 
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
@@ -21,7 +20,7 @@ namespace Lithe
         m_CurrentScene = std::make_shared<Scene>();
 
         m_Cube = m_CurrentScene->CreateEntity();
-        m_Cube.AddComponent<MeshRendererComponent>(m_TestShader);
+        m_Cube.AddComponent<MeshRendererComponent>(m_Material);
 
         m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
         auto cam = std::make_shared<PerspectiveCamera>(45.f, 16.f / 9.f);
@@ -151,7 +150,6 @@ namespace Lithe
 
         auto& trans = m_Cube.GetComponent<TransformComponent>();
         //trans.RotateX(100.f * ts);
-        m_Texture->Bind();
         m_CurrentScene->OnUpdate(ts); 
 
         m_Framebuffer->StopWriting();

@@ -94,65 +94,54 @@ $(document).ready(function(){initNavTree('_framebuffer_8hpp_source.html',''); in
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once </span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Base.hpp&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span>Ra</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keyword">enum class</span> TextureFormat</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        RGBA8,</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        RedInteger,</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        Depth24Stencil8,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="comment">//defaults</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        Color = RGBA8,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        Depth = Depth24Stencil8</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;Texture.hpp&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>Ra</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="struct_ra_1_1_attachment_specification.html">    8</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_ra_1_1_attachment_specification.html">AttachmentSpecification</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <a class="code hl_struct" href="struct_ra_1_1_attachment_specification.html">AttachmentSpecification</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_struct" href="struct_ra_1_1_attachment_specification.html">AttachmentSpecification</a>(TextureFormat format)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>            :Format(format)</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        {}</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        TextureFormat Format;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    };</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct_ra_1_1_texture_specification.html">   20</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_ra_1_1_texture_specification.html">TextureSpecification</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct_ra_1_1_framebuffer_properties.html">   20</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_struct" href="struct_ra_1_1_texture_specification.html">TextureSpecification</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_struct" href="struct_ra_1_1_texture_specification.html">TextureSpecification</a>(TextureFormat format)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            :Format(format)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        std::uint32_t Width, Height;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        std::vector&lt;AttachmentSpecification&gt; Attachments;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        std::uint32_t Samples = 1;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    };</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        TextureFormat Format;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    };</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_ra_1_1_framebuffer_properties.html">   33</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        std::uint32_t Width, Height;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::vector&lt;TextureSpecification&gt; Attachments;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        std::uint32_t Samples = 1;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    };</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html">   35</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_ra_1_1_framebuffer.html">Framebuffer</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="class_ra_1_1_framebuffer.html">~Framebuffer</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html">   48</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_ra_1_1_framebuffer.html">Framebuffer</a></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="class_ra_1_1_framebuffer.html">~Framebuffer</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">   54</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">StartWriting</a>() = 0;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6">   56</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6">StopWriting</a>() = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">   41</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">StartWriting</a>() = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6">   43</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6">StopWriting</a>() = 0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Resize(std::uint32_t width, std::uint32_t height) = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">   52</a></span>        <span class="keyword">virtual</span> RendererId <a class="code hl_function" href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">GetColorAttachmentHandle</a>(std::size_t index = 0) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">   56</a></span>        <span class="keyword">virtual</span> RendererId <a class="code hl_function" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">GetDrawTextureHandle</a>(std::size_t index = 0) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Resize(std::uint32_t width, std::uint32_t height) = 0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_struct" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a>&amp; GetProperties() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">   65</a></span>        <span class="keyword">virtual</span> RendererId <a class="code hl_function" href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">GetColorAttachmentHandle</a>(std::size_t index = 0) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">   69</a></span>        <span class="keyword">virtual</span> RendererId <a class="code hl_function" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">GetDrawTextureHandle</a>(std::size_t index = 0) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_struct" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a>&amp; GetProperties() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">static</span> Ref&lt;Framebuffer&gt; Create(<span class="keyword">const</span> <a class="code hl_struct" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a>&amp; props);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
-<div class="ttc" id="aclass_ra_1_1_framebuffer_html"><div class="ttname"><a href="class_ra_1_1_framebuffer.html">Ra::Framebuffer</a></div><div class="ttdoc">Framebuffer object abstraction.</div><div class="ttdef"><b>Definition</b> Framebuffer.hpp:49</div></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">static</span> Scope&lt;Framebuffer&gt; Create(<span class="keyword">const</span> <a class="code hl_struct" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a>&amp; props);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    };</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+<div class="ttc" id="aclass_ra_1_1_framebuffer_html"><div class="ttname"><a href="class_ra_1_1_framebuffer.html">Ra::Framebuffer</a></div><div class="ttdoc">Framebuffer object abstraction.</div><div class="ttdef"><b>Definition</b> Framebuffer.hpp:36</div></div>
 <div class="ttc" id="aclass_ra_1_1_framebuffer_html_a4e9cdf64af721be678de25945af0d9a0"><div class="ttname"><a href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">Ra::Framebuffer::GetColorAttachmentHandle</a></div><div class="ttdeci">virtual RendererId GetColorAttachmentHandle(std::size_t index=0) const =0</div><div class="ttdoc">Returns color attachment with given index.</div></div>
 <div class="ttc" id="aclass_ra_1_1_framebuffer_html_a7df2fae0c53089fc3438bbcdb743bf77"><div class="ttname"><a href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">Ra::Framebuffer::GetDrawTextureHandle</a></div><div class="ttdeci">virtual RendererId GetDrawTextureHandle(std::size_t index=0) const =0</div><div class="ttdoc">Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given in...</div></div>
 <div class="ttc" id="aclass_ra_1_1_framebuffer_html_aa41e08d80fd4059cbad6b3539104e9a6"><div class="ttname"><a href="class_ra_1_1_framebuffer.html#aa41e08d80fd4059cbad6b3539104e9a6">Ra::Framebuffer::StopWriting</a></div><div class="ttdeci">virtual void StopWriting()=0</div><div class="ttdoc">Performs multi sampling resolving if needed.</div></div>
 <div class="ttc" id="aclass_ra_1_1_framebuffer_html_acc50a59e676da405f01ef741f785d6c4"><div class="ttname"><a href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">Ra::Framebuffer::StartWriting</a></div><div class="ttdeci">virtual void StartWriting()=0</div><div class="ttdoc">Binds this framebuffer.</div></div>
-<div class="ttc" id="astruct_ra_1_1_framebuffer_properties_html"><div class="ttname"><a href="struct_ra_1_1_framebuffer_properties.html">Ra::FramebufferProperties</a></div><div class="ttdoc">Framebuffer settings.</div><div class="ttdef"><b>Definition</b> Framebuffer.hpp:34</div></div>
-<div class="ttc" id="astruct_ra_1_1_texture_specification_html"><div class="ttname"><a href="struct_ra_1_1_texture_specification.html">Ra::TextureSpecification</a></div><div class="ttdoc">Data needed for texture initialization.</div><div class="ttdef"><b>Definition</b> Framebuffer.hpp:21</div></div>
+<div class="ttc" id="astruct_ra_1_1_attachment_specification_html"><div class="ttname"><a href="struct_ra_1_1_attachment_specification.html">Ra::AttachmentSpecification</a></div><div class="ttdoc">Data needed for attachment initialization.</div><div class="ttdef"><b>Definition</b> Framebuffer.hpp:9</div></div>
+<div class="ttc" id="astruct_ra_1_1_framebuffer_properties_html"><div class="ttname"><a href="struct_ra_1_1_framebuffer_properties.html">Ra::FramebufferProperties</a></div><div class="ttdoc">Framebuffer settings.</div><div class="ttdef"><b>Definition</b> Framebuffer.hpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -150,9 +150,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2c9763431225b62156d2f9bf45998323"><td class="memItemLeft" align="right" valign="top">static Ref&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#a2c9763431225b62156d2f9bf45998323">Create</a> (const std::string &amp;vertPath, const std::string &amp;fragPath)</td></tr>
-<tr class="memdesc:a2c9763431225b62156d2f9bf45998323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory static method to create rendering API independent shaders.  <br /></td></tr>
-<tr class="separator:a2c9763431225b62156d2f9bf45998323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41217672caa9a4978d234b9cda29f834"><td class="memItemLeft" align="right" valign="top">static Scope&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#a41217672caa9a4978d234b9cda29f834">Create</a> (const std::string &amp;vertPath, const std::string &amp;fragPath)</td></tr>
+<tr class="memdesc:a41217672caa9a4978d234b9cda29f834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory static method to create rendering API independent shaders.  <br /></td></tr>
+<tr class="separator:a41217672caa9a4978d234b9cda29f834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abad4d0ead77ea697e295225dae065f7d"><td class="memItemLeft" align="right" valign="top">static Scope&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#abad4d0ead77ea697e295225dae065f7d">Create</a> (const std::string &amp;shaderPath)</td></tr>
+<tr class="memdesc:abad4d0ead77ea697e295225dae065f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory static method to create rendering API independent shaders.  <br /></td></tr>
+<tr class="separator:abad4d0ead77ea697e295225dae065f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -163,8 +166,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>LoadSourceFrom
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_ra_1_1_shader.html" title="Shader abstraction class.">Shader</a> abstraction class. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2c9763431225b62156d2f9bf45998323" name="a2c9763431225b62156d2f9bf45998323"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c9763431225b62156d2f9bf45998323">&#9670;&#160;</a></span>Create()</h2>
+<a id="abad4d0ead77ea697e295225dae065f7d" name="abad4d0ead77ea697e295225dae065f7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abad4d0ead77ea697e295225dae065f7d">&#9670;&#160;</a></span>Create() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,7 +176,42 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>LoadSourceFrom
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static Ref&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt; Ra::Shader::Create </td>
+          <td class="memname">static Scope&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt; Ra::Shader::Create </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>shaderPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Factory static method to create rendering API independent shaders. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shaderPath</td><td>Path to source file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Ref-counted object with created shader. Or nullptr if rendering API is unknown/unset </dd></dl>
+
+</div>
+</div>
+<a id="a41217672caa9a4978d234b9cda29f834" name="a41217672caa9a4978d234b9cda29f834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41217672caa9a4978d234b9cda29f834">&#9670;&#160;</a></span>Create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Scope&lt; <a class="el" href="class_ra_1_1_shader.html">Shader</a> &gt; Ra::Shader::Create </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>vertPath</em>, </td>

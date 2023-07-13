@@ -9,7 +9,7 @@ namespace Lithe
     public:
         bool IsButtonPressedImpl(const Mouse::Button& button) override;
 
-        glm::vec2 GetPositionImpl() override;
+        Vec2 GetPositionImpl() override;
     private:
 
         static const std::unordered_map<Button, int> s_ButtonToGlfwMap;

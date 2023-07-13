@@ -32,7 +32,7 @@ namespace Lithe
         return res;
     }
 
-    inline Mat4 MakeRotationFromEuler(const Vec3& angles)
+    inline Mat3 MakeRotationFromEuler(const Vec3& angles)
     {
         return glm::yawPitchRoll(angles.x, angles.y, angles.z);
     }
@@ -50,7 +50,8 @@ namespace Lithe
 
     inline Vec3 MakeEulerAngles(const Quat& quaternion)
     {
-        return glm::eulerAngles(quaternion);
+        Vec3 yxz = glm::eulerAngles(quaternion);
+        return {yxz.y, yxz.x, yxz.z};
     }
 
     template<class T>

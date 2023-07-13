@@ -5,6 +5,7 @@
 #include "WindowsMouse.hpp"
 #include "WindowsKeyboard.hpp"
 #include <glad/glad.h>
+#include "Lithe/Core/Application.hpp"
 
 namespace Lithe
 {
@@ -28,6 +29,8 @@ namespace Lithe
         m_Data.Width = props.Width;
         m_Data.Height = props.Height;
         m_Data.Title = props.Title;
+        m_Data.LastMouseX = props.Width / 2.f;
+        m_Data.LastMouseY = props.Height / 2.f;
 
         if (!s_GlfwInitialised)
         {
@@ -65,6 +68,8 @@ namespace Lithe
         glfwSetWindowUserPointer(m_Handle, &m_Data);
         SetVSync(true);
 
+        glfwSetCursorPos(m_Handle, m_Data.LastMouseX, m_Data.LastMouseY);
+
         glfwSetWindowCloseCallback(m_Handle, [](GLFWwindow* window)
             {
                 WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
@@ -86,8 +91,20 @@ namespace Lithe
             {
                 WindowData& data{ *reinterpret_cast<WindowData*>(glfwGetWindowUserPointer(window)) };
 
-                auto event = std::make_shared <MouseMovedEvent>( static_cast<float>(xPos), static_cast<float>(yPos) );
-                data.EventQueue.push(event);
+                float x = static_cast<float>(xPos);
+                float y = static_cast<float>(yPos);
+
+                if (data.WrapCursor && (xPos >= data.Width - 3))
+                {
+                    glfwSetCursorPos(Application::GetInstance().GetWindow().GetNativeHandle<GLFWwindow*>(), 1, yPos);
+                }
+                else
+                {
+                    auto event = std::make_shared<MouseMovedEvent>(x, y, x - data.LastMouseX, data.LastMouseY - y);
+                    data.EventQueue.push(event);
+                }
+                data.LastMouseX = x;
+                data.LastMouseY = y;
             });
 
         glfwSetMouseButtonCallback(m_Handle, [](GLFWwindow* window, int button, int action, int mods)
@@ -98,13 +115,13 @@ namespace Lithe
                 {
                 case GLFW_PRESS:
                 {
-                    auto event = std::make_shared <MouseButtonPressedEvent>( FromGlfwMouseButton(button) );
+                    auto event = std::make_shared<MouseButtonPressedEvent>( FromGlfwMouseButton(button) );
                     data.EventQueue.push(std::move(event));
                     break;
                 }
                 case GLFW_RELEASE:
                 {
-                    auto event = std::make_shared <MouseButtonReleasedEvent>( FromGlfwMouseButton(button) );
+                    auto event = std::make_shared<MouseButtonReleasedEvent>( FromGlfwMouseButton(button) );
                     data.EventQueue.push(std::move(event));
                     break;
                 }
@@ -156,6 +173,11 @@ namespace Lithe
     void WindowsWindow::Shutdown()
     {
         glfwDestroyWindow(m_Handle);
+    }
+
+    void WindowsWindow::SetCursorWrap(bool wrap)
+    {
+        m_Data.WrapCursor = wrap;
     }
 
     void WindowsWindow::MaximizeWindow()

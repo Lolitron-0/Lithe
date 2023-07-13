@@ -6,6 +6,7 @@ namespace Lithe
 {
     class TransformComponent : public ComponentBase
     {
+        MAKE_COMPONENT(TransformComponent)
     public:
 
         TransformComponent() = default;

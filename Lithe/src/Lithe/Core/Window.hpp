@@ -51,6 +51,8 @@ namespace Lithe
         virtual void HideCursor() = 0;
         virtual bool IsCursorHidden() const = 0;
 
+        virtual void SetCursorWrap(bool wrap) = 0;
+
         /**
          * @brief Getter for backend dependent handle (e.g. GLFWwindow*)
          * @tparam Handle type

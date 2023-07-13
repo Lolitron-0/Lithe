@@ -51,7 +51,7 @@ namespace Lithe
         return status == GLFW_PRESS;
     }
 
-    glm::vec2 WindowsMouse::GetPositionImpl()
+    Vec2 WindowsMouse::GetPositionImpl()
     {
         auto& window = Application::GetInstance().GetWindow();
         double xPos, yPos;

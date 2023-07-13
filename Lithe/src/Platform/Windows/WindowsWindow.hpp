@@ -38,6 +38,7 @@ namespace Lithe
         void ShowCursor() override;
         void HideCursor() override;
         bool IsCursorHidden() const override;
+        void SetCursorWrap(bool wrap) override;
 
         void PushEvent(Ref<Event>& event) override;
         void PullEvents() override;
@@ -56,13 +57,18 @@ namespace Lithe
             std::string Title;
             unsigned int Width;
             unsigned int Height;
-            bool VSync{true};
+            bool VSync{ true };
+            bool WrapCursor{ false };
+
+            float LastMouseX;
+            float LastMouseY;
 
             EventCallbackFn EventCallback;
             EventQueue_t EventQueue;
         };
 
         WindowData m_Data;
+
     };
 }
 

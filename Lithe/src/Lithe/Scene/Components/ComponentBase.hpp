@@ -18,7 +18,11 @@ namespace Lithe
         static void Call(Entity& entity)
         {
             if (entity.HasComponent<T>())
-                entity.GetComponent<T>().OnImGuiPropertiesDraw();
+            {
+                auto& comp = entity.GetComponent<T>();
+                ImGui::SeparatorText(T::GetComponentName());
+                comp.OnImGuiPropertiesDraw();
+            }
         }
     };
 

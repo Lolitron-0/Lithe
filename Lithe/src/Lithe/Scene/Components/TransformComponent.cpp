@@ -1,5 +1,6 @@
 #include "ltpch.h"
 #include "TransformComponent.hpp"
+#include "Lithe/Core/Application.hpp"
 
 namespace Lithe
 {
@@ -143,9 +144,8 @@ namespace Lithe
 
     Lithe::TransformComponent& TransformComponent::LookAt(const Vec3& target)
     {
-        auto q = glm::quatLookAt(Normalized(target - m_Position), {0,1,0});
-        float r1, r2, r3;
-        glm::extractEulerAngleXYZ(glm::lookAt(m_Position, target, { 0,1,0 }), r1, r2, r3);
+        auto q = glm::quatLookAt(Normalized(target - m_Position), {0.0001f,1,0});
+
         return this->SetRotation(q);
     }
 
@@ -187,6 +187,8 @@ namespace Lithe
         if (ImGui::DragFloat3("Scale", glm::value_ptr(m_Scale), .01f))
             m_ShouldUpdateMatrix = true;
 
+        if(ImGui::IsMouseDragging(ImGuiMouseButton_Left))
+            Application::GetInstance().GetWindow().SetCursorWrap(true);
     }
 
 }

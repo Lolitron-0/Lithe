@@ -35,7 +35,7 @@ namespace Lithe
         m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(m_EditorCamera);
         m_CameraController->GetTransform().SetPosition({ 0, 2, 2 });
         m_CameraController->GetTransform().RotateY(-45);
-        m_CameraController->GetTransform().LookAt({0,0,0});
+        m_CameraController->GetTransform().LookAt({ 0,0,0 });
 
         // Panels
         m_SceneHierarchyPanel.SetTrackScene(m_CurrentScene);

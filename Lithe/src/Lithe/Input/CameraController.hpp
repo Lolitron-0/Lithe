@@ -105,8 +105,8 @@ namespace Lithe
             auto xOffset = m_LastMousePos.x == -1 ? 0.f : m_LastMousePos.x - event.GetMouseX();
             auto yOffset = m_LastMousePos.y == -1 ? 0.f : m_LastMousePos.y - event.GetMouseY();
 
-            m_Transform->RotateX(xOffset * m_MouseSensitivity);
-            m_Transform->RotateY(yOffset * m_MouseSensitivity);
+            m_Transform->RotateX(-event.GetOffsetX() * m_MouseSensitivity);
+            m_Transform->RotateY(event.GetOffsetY() * m_MouseSensitivity);
 
             /*if (m_Transform->GetRotation().y > 89.f)
                 m_Transform->SetRotationY(89.f);

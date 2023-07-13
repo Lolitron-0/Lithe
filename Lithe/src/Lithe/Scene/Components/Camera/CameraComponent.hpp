@@ -20,7 +20,7 @@ namespace Lithe
 
         void OnImGuiPropertiesDraw() override
         {
-            throw std::logic_error("The method or operation is not implemented.");
+            
         }
 
     };

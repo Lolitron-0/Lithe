@@ -21,8 +21,8 @@ namespace Lithe
     class LITHE_API MouseMovedEvent : public Event
     {
     public:
-        MouseMovedEvent(float mouseX, float mouseY)
-            : m_MouseX(mouseX), m_MouseY(mouseY)
+        MouseMovedEvent(float mouseX, float mouseY, float offsetX, float offsetY)
+            : m_MouseX(mouseX), m_MouseY(mouseY), m_OffsetX(offsetX), m_OffsetY(offsetY)
         {}
 
         /**
@@ -40,10 +40,23 @@ namespace Lithe
         */
         float GetMouseY() const { return m_MouseY; }
 
+        /**
+        * @brief Mouse x offset getter.
+        *
+        * @return Cursor x offset since last event
+        */
+        float GetOffsetX() const { return m_OffsetX; }
+        /**
+        * @brief Mouse y offset getter.
+        *
+        * @return Cursor y offset since last event
+        */
+        float GetOffsetY() const { return m_OffsetY; }
+
         virtual std::string ToString() const override
         {
             std::stringstream ss;
-            ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
+            ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY << " (" << m_OffsetX << "; " << m_OffsetY << ')';
             return ss.str();
         }
 
@@ -51,6 +64,7 @@ namespace Lithe
             EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
     private:
         float m_MouseX, m_MouseY;
+        float m_OffsetX, m_OffsetY;
     };
 
     /**

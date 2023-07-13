@@ -1,5 +1,6 @@
 #pragma once
 #include "Lithe.hpp"
+#include "Panels/SceneHierarchyPanel.hpp"
 
 namespace Lithe
 {
@@ -32,6 +33,9 @@ namespace Lithe
         Entity m_EditorCamera;
 
         glm::vec2 m_ViewportSize;
+
+        // Panels
+        SceneHierarchyPanel m_SceneHierarchyPanel;
 
     };
 

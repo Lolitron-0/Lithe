@@ -121,10 +121,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAPI</b> (Re
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const <a class="el" href="class_ra_1_1_camera.html">Camera</a> &amp;camera)</td></tr>
 <tr class="memdesc:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given camera. <br /></td></tr>
 <tr class="separator:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87c0bf74fa10115e23ff579313d9833d"><td class="memItemLeft" align="right" valign="top"><a id="a87c0bf74fa10115e23ff579313d9833d" name="a87c0bf74fa10115e23ff579313d9833d"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const glm::mat4 &amp;viewProjection)</td></tr>
-<tr class="memdesc:a87c0bf74fa10115e23ff579313d9833d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given view-projection matrix (for custom camera systems) <br /></td></tr>
-<tr class="separator:a87c0bf74fa10115e23ff579313d9833d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae08c0bf5243d2f5138ab6f255c7da223"><td class="memItemLeft" align="right" valign="top"><a id="ae08c0bf5243d2f5138ab6f255c7da223" name="ae08c0bf5243d2f5138ab6f255c7da223"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const glm::mat4 &amp;viewProjection, const glm::vec3 &amp;cameraPosition)</td></tr>
+<tr class="memdesc:ae08c0bf5243d2f5138ab6f255c7da223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given view-projection matrix (for custom camera systems) <br /></td></tr>
+<tr class="separator:ae08c0bf5243d2f5138ab6f255c7da223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="memItemLeft" align="right" valign="top"><a id="ac8f7a324e434a0cc5e6ae9d1987bb534" name="ac8f7a324e434a0cc5e6ae9d1987bb534"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> ()</td></tr>
 <tr class="memdesc:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks scene as finished. <br /></td></tr>
@@ -135,6 +135,9 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> (
 <tr class="memitem:a26c1466a64746413db63f76c6382a646"><td class="memItemLeft" align="right" valign="top"><a id="a26c1466a64746413db63f76c6382a646" name="a26c1466a64746413db63f76c6382a646"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawCube</b> (const glm::mat4 &amp;transform, const <a class="el" href="class_ra_1_1_material.html">Material</a> &amp;material, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
 <tr class="separator:a26c1466a64746413db63f76c6382a646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefeabd162671598090e902a4d73b44ba"><td class="memItemLeft" align="right" valign="top"><a id="aefeabd162671598090e902a4d73b44ba" name="aefeabd162671598090e902a4d73b44ba"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SubmitPointLight</b> (const <a class="el" href="struct_ra_1_1_point_light.html">PointLight</a> &amp;light, const glm::vec3 &amp;position)</td></tr>
+<tr class="separator:aefeabd162671598090e902a4d73b44ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>High level rendering commands (Scene level) </p>

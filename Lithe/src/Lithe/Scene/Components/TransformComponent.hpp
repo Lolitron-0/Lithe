@@ -1,9 +1,10 @@
 #pragma once
 #include "Lithe/Core/Math.hpp"
+#include "ComponentBase.hpp"
 
 namespace Lithe
 {
-    class TransformComponent
+    class TransformComponent : public ComponentBase
     {
     public:
 
@@ -52,6 +53,9 @@ namespace Lithe
         TransformComponent& ScaleY(float factor);
         TransformComponent& ScaleZ(float factor);
     
+
+        void OnImGuiPropertiesDraw() override;
+
     private:
         Vec3 m_Position{ 0,0,0 };
         Vec3 m_Rotation{ 0,0,0 };

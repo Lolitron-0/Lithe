@@ -129,6 +129,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()
 <tr class="memitem:acd1228f899a8a4793dc45299881a228b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#acd1228f899a8a4793dc45299881a228b">SetFloat</a> (const std::string name, float value)=0</td></tr>
 <tr class="memdesc:acd1228f899a8a4793dc45299881a228b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform float variable setter.  <br /></td></tr>
 <tr class="separator:acd1228f899a8a4793dc45299881a228b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add6d47667a3667ae9a96abfc1c86d074"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#add6d47667a3667ae9a96abfc1c86d074">SetMat3</a> (const std::string name, const float *value)=0</td></tr>
+<tr class="memdesc:add6d47667a3667ae9a96abfc1c86d074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform 3x3 matrix variable setter.  <br /></td></tr>
+<tr class="separator:add6d47667a3667ae9a96abfc1c86d074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e85c0b265b9615ebfb9ec015e897d40"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#a1e85c0b265b9615ebfb9ec015e897d40">SetMat3</a> (const std::string name, const glm::mat3 &amp;mat)=0</td></tr>
+<tr class="memdesc:a1e85c0b265b9615ebfb9ec015e897d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform 3x3 matrix variable setter.  <br /></td></tr>
+<tr class="separator:a1e85c0b265b9615ebfb9ec015e897d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f335bd29f4ad998473a6603602bb78b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_shader.html#a3f335bd29f4ad998473a6603602bb78b">SetMat4</a> (const std::string name, const float *value)=0</td></tr>
 <tr class="memdesc:a3f335bd29f4ad998473a6603602bb78b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform 4x4 matrix variable setter.  <br /></td></tr>
 <tr class="separator:a3f335bd29f4ad998473a6603602bb78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -364,6 +370,86 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>LoadSourceFrom
 <p>Uniform int variable setter. </p>
 
 <p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_shader.html#abec9a467e3b3129a6c021f19d92d3a84">Ra::OpenGLShader</a>.</p>
+
+</div>
+</div>
+<a id="add6d47667a3667ae9a96abfc1c86d074" name="add6d47667a3667ae9a96abfc1c86d074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add6d47667a3667ae9a96abfc1c86d074">&#9670;&#160;</a></span>SetMat3() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Ra::Shader::SetMat3 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uniform 3x3 matrix variable setter. </p>
+
+<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_shader.html#a6730e30b7719da362edf266cebff770c">Ra::OpenGLShader</a>.</p>
+
+</div>
+</div>
+<a id="a1e85c0b265b9615ebfb9ec015e897d40" name="a1e85c0b265b9615ebfb9ec015e897d40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e85c0b265b9615ebfb9ec015e897d40">&#9670;&#160;</a></span>SetMat3() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Ra::Shader::SetMat3 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::mat3 &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uniform 3x3 matrix variable setter. </p>
+
+<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_shader.html#a23b8a4fe903640ba7989226e01e6ec74">Ra::OpenGLShader</a>.</p>
 
 </div>
 </div>

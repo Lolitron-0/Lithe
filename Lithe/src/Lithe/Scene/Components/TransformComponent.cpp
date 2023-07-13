@@ -176,5 +176,18 @@ namespace Lithe
         return this->Scale({ 1.f, 1.f, factor });
     }
 
+    void TransformComponent::OnImGuiPropertiesDraw()
+    {
+        if (ImGui::DragFloat3("Position", glm::value_ptr(m_Position), .01f))
+            m_ShouldUpdateMatrix = true; 
+
+        if (ImGui::DragFloat3("Rotation", glm::value_ptr(m_Rotation), .5f))
+            m_ShouldUpdateMatrix = true;
+
+        if (ImGui::DragFloat3("Scale", glm::value_ptr(m_Scale), .01f))
+            m_ShouldUpdateMatrix = true;
+
+    }
+
 }
 

@@ -22,7 +22,7 @@
 
 #include "Lithe/Scene/Scene.hpp"
 #include "Lithe/Scene/Entity.hpp"
-#include "Lithe/Scene/Components.hpp"
+#include "Lithe/Scene/Components/Components.hpp"
 #include "Lithe/Scene/Components/Camera/Camera.hpp"
 #include "Lithe/Scene/Components/Camera/PerspectiveCamera.hpp"
 

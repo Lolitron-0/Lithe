@@ -36,6 +36,9 @@ namespace Lithe
         m_CameraController->GetTransform().SetPosition({ 0, 2, 2 });
         m_CameraController->GetTransform().RotateY(-45);
         m_CameraController->GetTransform().LookAt({0,0,0});
+
+        // Panels
+        m_SceneHierarchyPanel.SetTrackScene(m_CurrentScene);
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -134,16 +137,8 @@ namespace Lithe
         }
         ImGui::PopStyleVar();
 
-        ImGui::Begin("Settings");
-        if (ImGui::DragFloat3("Rotation", rot, 1, -360, 360))
-            m_Cube.GetComponent<TransformComponent>().SetRotation(Vec3{ rot[0],rot[1], rot[2] });
-        if (ImGui::DragFloat("FOV", &fov, 1, 30, 170))
-        {
-            auto props = m_CameraController->GetCamera()->GetCameraProperties<PerspectiveCameraProperties>();
-            props.Fov = fov;
-            m_CameraController->GetCamera()->SetCameraProperties(props);
-        }
-        ImGui::End();
+        // Panels
+        m_SceneHierarchyPanel.OnImGuiDraw();
     }
 
     void EditorLayer::OnUpdate(const Lithe::Timestep& ts)

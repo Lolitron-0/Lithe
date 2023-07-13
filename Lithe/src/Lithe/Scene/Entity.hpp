@@ -7,7 +7,7 @@ namespace Lithe
     class Entity
     {
     public:
-        Entity() = default;
+        Entity();
         Entity(entt::entity id, std::weak_ptr<Scene> parent);
 
         template<class Component>
@@ -20,6 +20,12 @@ namespace Lithe
         Component& AddComponent(Args&&... args)
         {
             return m_Scene.lock()->m_Registry.emplace<Component>(m_Handle, std::forward<Args>(args)...);
+        }
+
+        template<class Component>
+        Component& GetComponent() const
+        {
+            return m_Scene.lock()->m_Registry.get<Component>(m_Handle);
         }
 
         template<class Component>
@@ -37,7 +43,7 @@ namespace Lithe
         template<class T>
         bool HasComponent()
         {
-            return m_Scene.lock()->m_Registry.has<T>();
+            return m_Scene.lock()->m_Registry.all_of<T>(m_Handle);
         }
 
         template<class T>
@@ -47,6 +53,10 @@ namespace Lithe
         }
 
         operator bool() const { return m_Handle != entt::null; }
+        operator std::uint32_t() const { return (std::uint32_t)m_Handle; }
+
+        bool operator==(const Entity& other) const;
+        bool operator!=(const Entity& other) const;
 
     private:
         entt::entity m_Handle{ entt::null };

@@ -2,7 +2,7 @@
 #include <RenderAbstraction.hpp>
 #include "Lithe/Core/Timestep.hpp"
 #include "Lithe/Events/Events.hpp"
-#include "Lithe/Scene/Components.hpp"
+#include "Lithe/Scene/Components/Components.hpp"
 #include "Lithe/Scene/Entity.hpp"
 #include <functional>
 

@@ -17,6 +17,7 @@ namespace Lithe
         void OnViewportResize(std::uint32_t width, std::uint32_t height);
 
         friend class Entity;
+        friend class SceneHierarchyPanel;
 
     private:
         entt::registry m_Registry;

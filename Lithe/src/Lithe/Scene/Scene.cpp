@@ -1,7 +1,7 @@
 #include "ltpch.h"
 #include "Scene.hpp"
 #include "Entity.hpp"
-#include "Components.hpp"
+#include "Components/Components.hpp"
 #include "Lithe/Core/Timestep.hpp"
 
 namespace Lithe

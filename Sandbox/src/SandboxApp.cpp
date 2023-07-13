@@ -83,9 +83,6 @@ public:
         Ra::RenderCommand::SetClearColor({ 1.f, 0.f, 1.f, 0.f });
         Ra::RenderCommand::Clear();
 
-        Ra::Renderer::BeginScene(m_CameraController->GetCamera());
-        Ra::Renderer::Submit(m_VertexArray, m_TestShader);
-        Ra::Renderer::EndScene();
     }
 
 

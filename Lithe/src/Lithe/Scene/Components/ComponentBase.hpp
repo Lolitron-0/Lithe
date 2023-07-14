@@ -44,6 +44,7 @@ namespace Lithe
                 auto& comp = entity.GetComponent<T>();
                 if (T::Removable)
                 {
+                    ImGui::PushID(T::GetComponentName());
                     ImGui::Columns(2);
 
                     float buttonWidth{ ImGui::CalcTextSize(ICON_FA_TRASH).x + GImGui->Style.FramePadding.y * 2.f };
@@ -57,11 +58,13 @@ namespace Lithe
                     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f, 0.35f, 0.4f, 1 });
                     ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f, 0.55f, 0.5f, 1 });
                     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.7f, 0.25f, 0.27f, 1 });
+
                     if (ImGui::Button(ICON_FA_TRASH, buttonSize))
                         removedComponent = true;
                     ImGui::PopStyleColor(3);
 
                     ImGui::Columns(1);
+                    ImGui::PopID();
                 }
                 else
                     ImGui::SeparatorText(T::GetComponentName());

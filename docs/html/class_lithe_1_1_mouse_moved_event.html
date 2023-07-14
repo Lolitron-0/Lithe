@@ -112,15 +112,21 @@ Inheritance diagram for Lithe::MouseMovedEvent:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0646715cfd428dd62c4ee626b6729867"><td class="memItemLeft" align="right" valign="top"><a id="a0646715cfd428dd62c4ee626b6729867" name="a0646715cfd428dd62c4ee626b6729867"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MouseMovedEvent</b> (float mouseX, float mouseY)</td></tr>
-<tr class="separator:a0646715cfd428dd62c4ee626b6729867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bb9ce427c4168cb238acf70f435b880"><td class="memItemLeft" align="right" valign="top"><a id="a0bb9ce427c4168cb238acf70f435b880" name="a0bb9ce427c4168cb238acf70f435b880"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MouseMovedEvent</b> (float mouseX, float mouseY, float offsetX, float offsetY)</td></tr>
+<tr class="separator:a0bb9ce427c4168cb238acf70f435b880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eb54817e707b0cb5760f78616d45a42"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse_moved_event.html#a5eb54817e707b0cb5760f78616d45a42">GetMouseX</a> () const</td></tr>
 <tr class="memdesc:a5eb54817e707b0cb5760f78616d45a42"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> y position getter.  <br /></td></tr>
 <tr class="separator:a5eb54817e707b0cb5760f78616d45a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa22dc4729cdd150336f5a748120fb694"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse_moved_event.html#aa22dc4729cdd150336f5a748120fb694">GetMouseY</a> () const</td></tr>
 <tr class="memdesc:aa22dc4729cdd150336f5a748120fb694"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> x position getter.  <br /></td></tr>
 <tr class="separator:aa22dc4729cdd150336f5a748120fb694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b65127ca28a8d6573479db678a2a6a5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse_moved_event.html#a4b65127ca28a8d6573479db678a2a6a5">GetOffsetX</a> () const</td></tr>
+<tr class="memdesc:a4b65127ca28a8d6573479db678a2a6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> x offset getter.  <br /></td></tr>
+<tr class="separator:a4b65127ca28a8d6573479db678a2a6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bc49ea2114e67960f05da0606362e6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse_moved_event.html#af2bc49ea2114e67960f05da0606362e6">GetOffsetY</a> () const</td></tr>
+<tr class="memdesc:af2bc49ea2114e67960f05da0606362e6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> y offset getter.  <br /></td></tr>
+<tr class="separator:af2bc49ea2114e67960f05da0606362e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45b3aa8e7bc3f27b0ec2aee98eb83145"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_mouse_moved_event.html#a45b3aa8e7bc3f27b0ec2aee98eb83145">ToString</a> () const override</td></tr>
 <tr class="memdesc:a45b3aa8e7bc3f27b0ec2aee98eb83145"><td class="mdescLeft">&#160;</td><td class="mdescRight">C#-style method for logging and debugging purposes.  <br /></td></tr>
 <tr class="separator:a45b3aa8e7bc3f27b0ec2aee98eb83145"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,6 +217,62 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>Handled</b> { false }
 <p><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> x position getter. </p>
 <dl class="section return"><dt>Returns</dt><dd>Cursor x position relative to top-left window corner </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>When cursor is hidden mouse movement is unlimited (but is also relative to top-left corner) </dd></dl>
+
+</div>
+</div>
+<a id="a4b65127ca28a8d6573479db678a2a6a5" name="a4b65127ca28a8d6573479db678a2a6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b65127ca28a8d6573479db678a2a6a5">&#9670;&#160;</a></span>GetOffsetX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Lithe::MouseMovedEvent::GetOffsetX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> x offset getter. </p>
+<dl class="section return"><dt>Returns</dt><dd>Cursor x offset since last event </dd></dl>
+
+</div>
+</div>
+<a id="af2bc49ea2114e67960f05da0606362e6" name="af2bc49ea2114e67960f05da0606362e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2bc49ea2114e67960f05da0606362e6">&#9670;&#160;</a></span>GetOffsetY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Lithe::MouseMovedEvent::GetOffsetY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_lithe_1_1_mouse.html" title="Static class describing mouse states.">Mouse</a> y offset getter. </p>
+<dl class="section return"><dt>Returns</dt><dd>Cursor y offset since last event </dd></dl>
 
 </div>
 </div>

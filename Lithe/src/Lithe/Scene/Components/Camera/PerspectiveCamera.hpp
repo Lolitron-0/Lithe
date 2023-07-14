@@ -13,6 +13,7 @@ namespace Lithe
     class PerspectiveCamera : public Camera
     {
     public:
+        PerspectiveCamera();
         PerspectiveCamera(float aspectRatio);
         PerspectiveCamera(float fov, float aspectRatio, float nearPlane = 0.1, float farPlane = 100.f);
     private:

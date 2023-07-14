@@ -7,6 +7,7 @@ namespace Lithe
     class Camera
     {
     public:
+        Camera();
         Camera(float aspectRatio);
         Camera(const Mat4& projection);
         Camera(const Camera&) = default;

@@ -149,6 +149,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af538d6b6eeddf13cac451d6b3b7671a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2fa9f24f1d786e2ca314a04a4a3bce4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#aa2fa9f24f1d786e2ca314a04a4a3bce4">IsCursorHidden</a> () const override</td></tr>
 <tr class="separator:aa2fa9f24f1d786e2ca314a04a4a3bce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6393787b55d3801241c23869febe496"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#ae6393787b55d3801241c23869febe496">SetCursorWrap</a> (bool wrap) override</td></tr>
+<tr class="separator:ae6393787b55d3801241c23869febe496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cc0a5dc0e690025de2f068597e94f6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_windows_window.html#a2cc0a5dc0e690025de2f068597e94f6d">PushEvent</a> (Ref&lt; <a class="el" href="class_lithe_1_1_event.html">Event</a> &gt; &amp;event) override</td></tr>
 <tr class="memdesc:a2cc0a5dc0e690025de2f068597e94f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to add an event to pull queue (Lithe uses non-blocking event system)  <br /></td></tr>
 <tr class="separator:a2cc0a5dc0e690025de2f068597e94f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +185,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>HideCursor</b
 <tr class="memitem:ac279929cdfcadd1601e045a2c95e6a4d inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsCursorHidden</b> () const =0</td></tr>
 <tr class="separator:ac279929cdfcadd1601e045a2c95e6a4d inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c3708eb0f7c02e55c218180cd62cb3e inherit pub_methods_class_lithe_1_1_window"><td class="memItemLeft" align="right" valign="top">
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCursorWrap</b> (bool wrap)=0</td></tr>
+<tr class="separator:a2c3708eb0f7c02e55c218180cd62cb3e inherit pub_methods_class_lithe_1_1_window"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_window.html#a2e0b8c274cf72ff4ca0f1f54b845323a">GetNativeHandle</a> () const</td></tr>
 <tr class="memdesc:a2e0b8c274cf72ff4ca0f1f54b845323a inherit pub_methods_class_lithe_1_1_window"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for backend dependent handle (e.g. GLFWwindow*)  <br /></td></tr>
@@ -525,6 +530,34 @@ Scope&lt; <a class="el" href="class_ra_1_1_rendering_context.html">Ra::Rendering
 </dl>
 
 <p>Implements <a class="el" href="class_lithe_1_1_window.html#acf14802388c05616476f0f8bf63ccdae">Lithe::Window</a>.</p>
+
+</div>
+</div>
+<a id="ae6393787b55d3801241c23869febe496" name="ae6393787b55d3801241c23869febe496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6393787b55d3801241c23869febe496">&#9670;&#160;</a></span>SetCursorWrap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lithe::WindowsWindow::SetCursorWrap </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>wrap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_lithe_1_1_window.html">Lithe::Window</a>.</p>
 
 </div>
 </div>

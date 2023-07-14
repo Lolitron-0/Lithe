@@ -1,6 +1,6 @@
 #pragma once
 #include "Lithe.hpp"
-#include "Panels/SceneHierarchyPanel.hpp"
+#include "Panels/Panels.hpp"
 
 namespace Lithe
 {
@@ -20,10 +20,6 @@ namespace Lithe
 
     private:
         Ref<Ra::Texture> m_Texture;
-        Ref<Ra::Shader> m_SolidColorShader;
-        Ref<Ra::VertexBuffer> m_VertexBuffer;
-        Ref<Ra::IndexBuffer> m_IndexBuffer;
-        Ref<Ra::VertexArray> m_VertexArray;
         Ref<Ra::Framebuffer> m_Framebuffer;
         Ref<RMBCaptureFlyCameraController> m_CameraController;
         Ref<Scene> m_CurrentScene;
@@ -33,6 +29,8 @@ namespace Lithe
         Entity m_EditorCamera;
 
         glm::vec2 m_ViewportSize;
+
+        bool m_ViewportFocused{ true };
 
         // Panels
         SceneHierarchyPanel m_SceneHierarchyPanel;

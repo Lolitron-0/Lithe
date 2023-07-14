@@ -47,6 +47,8 @@ namespace Lithe
             return m_LayerStack.PushOverlay(layer);
         }
 
+        Ref<ImGuiLayer> GetImGuiLayer() { return m_ImGuiLayer; }
+
         Window& GetWindow() const;
 
     private:

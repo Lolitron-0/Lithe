@@ -15,6 +15,10 @@ namespace Lithe
         m_Properties.FarPlane = farPlane;
     }
 
+    PerspectiveCamera::PerspectiveCamera()
+        :PerspectiveCamera(16. / 9)
+    {}
+
     void PerspectiveCamera::RecalculateProjection_() const
     {
         m_Projection = MakePerspective(m_Properties.Fov, m_AspectRatio, m_Properties.NearPlane, m_Properties.FarPlane);

@@ -1,4 +1,6 @@
 #include "EditorLayer.hpp"
+#include <IconsFontAwesome5.h>
+#include <imgui.h>
 
 namespace Lithe
 {
@@ -22,7 +24,7 @@ namespace Lithe
         m_CurrentScene = std::make_shared<Scene>();
 
         m_Cube = m_CurrentScene->CreateEntity("Cube");
-        m_Cube.AddComponent<MeshRendererComponent>(m_Material);
+        m_Cube.AddComponent<MeshRendererComponent>(Ra::Renderer::Storage.CubeVertexArray ,m_Material);
 
         m_Lamp = m_CurrentScene->CreateEntity("Point light");
         m_Lamp.AddComponent<PointLightComponent>();
@@ -98,7 +100,7 @@ namespace Lithe
         {
             if (ImGui::BeginMenu("File"))
             {
-                if (ImGui::MenuItem("Exit", NULL, false, &show != NULL))
+                if (ImGui::MenuItem("Exit", nullptr, false, &show != nullptr))
                     Application::GetInstance().Close();
                 ImGui::EndMenu();
             }
@@ -119,6 +121,10 @@ namespace Lithe
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
         if (p_ViewportOpen) {
             ImGui::Begin("Viewport", &p_ViewportOpen);
+            HOVER_FOCUS();
+
+            m_ViewportFocused = ImGui::IsWindowFocused();
+            Application::GetInstance().GetImGuiLayer()->BlockEvents(!m_ViewportFocused);
 
             auto viewportPanelSize = ImGui::GetContentRegionAvail();
             if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha type punning goes brr
@@ -150,8 +156,6 @@ namespace Lithe
         Ra::RenderCommand::SetClearColor({ 1.f, 1.f, 1.f, 0.1f });
         Ra::RenderCommand::Clear();
 
-        auto& trans = m_Cube.GetComponent<TransformComponent>();
-        //trans.RotateX(100.f * ts);
         m_CurrentScene->OnUpdate(ts);
 
         m_Framebuffer->StopWriting();
@@ -159,6 +163,17 @@ namespace Lithe
 
     void EditorLayer::OnAttach()
     {
+        ImGuiIO& io = ImGui::GetIO();
+        io.Fonts->AddFontDefault();
+        float baseFontSize = 18.0f; 
+        float iconFontSize = baseFontSize * 2.0f / 3.0f; 
+
+        static const ImWchar icons_ranges[] = { ICON_MIN_FA, ICON_MAX_16_FA, 0 };
+        ImFontConfig icons_config;
+        icons_config.MergeMode = true;
+        icons_config.PixelSnapH = true;
+        icons_config.GlyphMinAdvanceX = iconFontSize;
+        io.Fonts->AddFontFromFileTTF("assets/fonts/" FONT_ICON_FILE_NAME_FAS, iconFontSize, &icons_config, icons_ranges);
     }
 
 }

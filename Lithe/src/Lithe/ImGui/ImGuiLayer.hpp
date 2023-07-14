@@ -15,10 +15,15 @@ namespace Lithe
         void OnDetach() override;
         void OnImGuiDraw() override;
 
+        void OnEvent(Event& event) override;
+
         void Begin();
         void End();
 
+        void BlockEvents(bool block);
+
     private:
         float m_Time{ 0.f };
+        bool m_BlockEvents{ false };
     };
 }

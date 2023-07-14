@@ -1,5 +1,6 @@
 #pragma once
 #include "Camera.hpp"
+#include "PerspectiveCamera.hpp"
 #include "../ComponentBase.hpp"
 
 namespace Lithe
@@ -10,9 +11,12 @@ namespace Lithe
 
     public:
         Ref<Lithe::Camera> Camera;
-        bool Primary;
+        bool Primary{ false };
         bool FixedAspectRatio{ false };
 
+        CameraComponent()
+            :Camera(MakeRef<Lithe::PerspectiveCamera>())
+        {}
         CameraComponent(const Ref<Lithe::Camera>& camera, bool primary)
             :Primary(primary), Camera(camera)
         {}
@@ -20,7 +24,7 @@ namespace Lithe
 
         void OnImGuiPropertiesDraw() override
         {
-            
+
         }
 
     };

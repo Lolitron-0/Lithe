@@ -13,6 +13,8 @@ namespace Lithe
         Scene() = default;
 
         Entity CreateEntity(const std::string& name = std::string{});
+        void DestroyEntity(const Entity& entity);
+
         void OnUpdate(const Timestep& ts);
         void OnViewportResize(std::uint32_t width, std::uint32_t height);
 

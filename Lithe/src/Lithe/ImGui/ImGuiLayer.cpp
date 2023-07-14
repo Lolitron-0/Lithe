@@ -16,7 +16,6 @@ namespace Lithe
     {
     }
 
-
     void ImGuiLayer::OnAttach()
     {
         IMGUI_CHECKVERSION();
@@ -49,6 +48,17 @@ namespace Lithe
         ImGui::DestroyContext();
     }
 
+
+    void ImGuiLayer::OnEvent(Event& event)
+    {
+        if (m_BlockEvents)
+        {
+            ImGuiIO& io = ImGui::GetIO();
+            event.Handled |= io.WantCaptureMouse & event.IsInCategory(EventCategoryMouse);
+            event.Handled |= io.WantCaptureKeyboard & event.IsInCategory(EventCategoryKeyboard);
+        }
+    }
+
     void ImGuiLayer::OnImGuiDraw()
     {
     }
@@ -77,4 +87,10 @@ namespace Lithe
             glfwMakeContextCurrent(backup_current_context);
         }
     }
+
+    void ImGuiLayer::BlockEvents(bool block)
+    {
+        m_BlockEvents = block;
+    }
+
 }

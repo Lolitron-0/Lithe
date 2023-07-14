@@ -11,6 +11,12 @@ namespace Lithe
         :m_Projection(projection)
     {}
 
+    Camera::Camera()
+        :Camera(16./9.)
+    {
+
+    }
+
     Lithe::Mat4& Camera::GetProjection()
     {
         if (m_ShouldRecalculateProjection)

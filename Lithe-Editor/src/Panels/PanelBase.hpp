@@ -1,6 +1,8 @@
 #pragma once
 #include "Lithe.hpp"
 
+#define HOVER_FOCUS() do{if(ImGui::IsWindowHovered()) ImGui::SetWindowFocus();}while(0);
+
 namespace Lithe
 {
     class PanelBase

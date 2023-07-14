@@ -23,6 +23,7 @@ var hierarchy =
       [ "Lithe::TagComponent", "class_lithe_1_1_tag_component.html", null ],
       [ "Lithe::TransformComponent", "class_lithe_1_1_transform_component.html", null ]
     ] ],
+    [ "Lithe::DrawAddComponentsListPopupFunctor< T >", "class_lithe_1_1_draw_add_components_list_popup_functor.html", null ],
     [ "Lithe::DrawComponentsFunctor< T >", "class_lithe_1_1_draw_components_functor.html", null ],
     [ "Lithe::enable_ifelse< B, T, F >", "struct_lithe_1_1enable__ifelse.html", null ],
     [ "Lithe::enable_ifelse< true, T, F >", "struct_lithe_1_1enable__ifelse_3_01true_00_01_t_00_01_f_01_4.html", null ],
@@ -86,6 +87,7 @@ var hierarchy =
     [ "Ra::PointLight", "struct_ra_1_1_point_light.html", null ],
     [ "Ra::RenderCommand", "class_ra_1_1_render_command.html", null ],
     [ "Ra::Renderer", "class_ra_1_1_renderer.html", null ],
+    [ "Ra::Renderer3DData", "struct_ra_1_1_renderer3_d_data.html", null ],
     [ "Ra::RendererAPI", "class_ra_1_1_renderer_a_p_i.html", [
       [ "Ra::OpenGLRendererAPI", "class_ra_1_1_open_g_l_renderer_a_p_i.html", null ]
     ] ],

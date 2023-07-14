@@ -4,9 +4,14 @@
 namespace Lithe
 {
 
-    MeshRendererComponent::MeshRendererComponent(const Ra::Material& material)
-        :Material(material)
+    MeshRendererComponent::MeshRendererComponent(const Ref<Ra::VertexArray>& vertexArray, const Ra::Material& material)
+        :Material(material), VertexArray(vertexArray)
     {}
+
+    MeshRendererComponent::MeshRendererComponent()
+    {
+        VertexArray = Ra::Renderer::Storage.CubeVertexArray;
+    }
 
     void MeshRendererComponent::OnImGuiPropertiesDraw()
     {

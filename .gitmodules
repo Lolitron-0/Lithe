@@ -17,3 +17,6 @@
 	master = master
 	branch = master
 	update = rebase
+[submodule "Lithe/thirdparty/IconFontCppHeaders"]
+	path = Lithe/thirdparty/IconFontCppHeaders
+	url = https://github.com/juliettef/IconFontCppHeaders

@@ -23,20 +23,29 @@ namespace Lithe
         }
 
         template<class Component>
+        Component& TryAddComponent()
+        {
+            return m_Scene.lock()->m_Registry.get_or_emplace<Component>(m_Handle);
+        }
+
+        template<class Component>
         Component& GetComponent() const
         {
+            LITHE_ASSERT(this, "Attenpted to access deleted entity!");
             return m_Scene.lock()->m_Registry.get<Component>(m_Handle);
         }
 
         template<class Component>
         Component& GetComponent()
         {
+            LITHE_ASSERT(this, "Attenpted to access deleted entity!");
             return m_Scene.lock()->m_Registry.get<Component>(m_Handle);
         }
 
         template<class... Components>
         std::tuple<Components...>& GetComponents()
         {
+            LITHE_ASSERT(this, "Attenpted to access deleted entity!");
             return m_Scene.lock()->m_Registry.get<Components...>(m_Handle);
         }
 
@@ -49,11 +58,12 @@ namespace Lithe
         template<class T>
         void RemoveComponent()
         {
-            m_Scene.lock()->m_Registry.remove<T>();
+            m_Scene.lock()->m_Registry.remove<T>(m_Handle);
         }
 
         operator bool() const { return m_Handle != entt::null; }
         operator std::uint32_t() const { return (std::uint32_t)m_Handle; }
+        operator entt::entity() const { return m_Handle; }
 
         bool operator==(const Entity& other) const;
         bool operator!=(const Entity& other) const;

@@ -1,9 +1,10 @@
 #pragma once
 #include <EnTT/entt.hpp>
-#include "Scene.hpp"
 
 namespace Lithe
 {
+    class Scene;
+
     class Entity
     {
     public:
@@ -11,55 +12,28 @@ namespace Lithe
         Entity(entt::entity id, std::weak_ptr<Scene> parent);
 
         template<class Component>
-        Component& AddComponent()
-        {
-            return m_Scene.lock()->m_Registry.emplace<Component>(m_Handle);
-        }
+        Component& AddComponent();
 
         template<class Component, class... Args>
-        Component& AddComponent(Args&&... args)
-        {
-            return m_Scene.lock()->m_Registry.emplace<Component>(m_Handle, std::forward<Args>(args)...);
-        }
+        Component& AddComponent(Args&&... args);
 
         template<class Component>
-        Component& TryAddComponent()
-        {
-            return m_Scene.lock()->m_Registry.get_or_emplace<Component>(m_Handle);
-        }
+        Component& TryAddComponent();
 
         template<class Component>
-        Component& GetComponent() const
-        {
-            LITHE_ASSERT(this, "Attenpted to access deleted entity!");
-            return m_Scene.lock()->m_Registry.get<Component>(m_Handle);
-        }
+        Component& GetComponent() const;
 
         template<class Component>
-        Component& GetComponent()
-        {
-            LITHE_ASSERT(this, "Attenpted to access deleted entity!");
-            return m_Scene.lock()->m_Registry.get<Component>(m_Handle);
-        }
+        Component& GetComponent();
 
         template<class... Components>
-        std::tuple<Components...>& GetComponents()
-        {
-            LITHE_ASSERT(this, "Attenpted to access deleted entity!");
-            return m_Scene.lock()->m_Registry.get<Components...>(m_Handle);
-        }
+        std::tuple<Components...>& GetComponents();
 
         template<class T>
-        bool HasComponent()
-        {
-            return m_Scene.lock()->m_Registry.all_of<T>(m_Handle);
-        }
+        bool HasComponent();
 
         template<class T>
-        void RemoveComponent()
-        {
-            m_Scene.lock()->m_Registry.remove<T>(m_Handle);
-        }
+        void RemoveComponent();
 
         operator bool() const { return m_Handle != entt::null; }
         operator std::uint32_t() const { return (std::uint32_t)m_Handle; }
@@ -72,5 +46,6 @@ namespace Lithe
         entt::entity m_Handle{ entt::null };
         std::weak_ptr<Scene> m_Scene;
     };
-
 }
+
+#include "Entity.inl"

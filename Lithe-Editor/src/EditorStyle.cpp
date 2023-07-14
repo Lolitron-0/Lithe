@@ -38,7 +38,7 @@ namespace Lithe
     void EditorStyle::SetupDarkThemeColors()
     {
         auto& colors = ImGui::GetStyle().Colors;
-        Vec4 baseColor{ 0.3f, 0.15f, 0.3f, 1.f };
+        Vec4 baseColor{ 0.36f, 0.17f, 0.36f, 1.f };
 
         colors[ImGuiCol_WindowBg] = ImVec4{ 0.1f, 0.09f, 0.1f, 1.f };
 

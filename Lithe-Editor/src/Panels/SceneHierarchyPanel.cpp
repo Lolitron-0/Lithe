@@ -33,20 +33,20 @@ namespace Lithe
 
         ImGui::Begin("Properties");
         HOVER_FOCUS();
-        if (m_SelectedEntity)
-            this->DrawProperties_(m_SelectedEntity);
+        if (m_Scene->m_SelectedEntity)
+            this->DrawProperties_(m_Scene->m_SelectedEntity);
 
         ImGui::End();
     }
 
     void SceneHierarchyPanel::DrawEntityNode_(const Entity& entity)
     {
-        ImGuiTreeNodeFlags flags{ ImGuiTreeNodeFlags_OpenOnArrow | (m_SelectedEntity == entity ? ImGuiTreeNodeFlags_Selected : 0) };
+        ImGuiTreeNodeFlags flags{ ImGuiTreeNodeFlags_OpenOnArrow | (m_Scene->m_SelectedEntity == entity ? ImGuiTreeNodeFlags_Selected : 0) };
         flags |= ImGuiTreeNodeFlags_SpanAvailWidth;
         bool opened = ImGui::TreeNodeEx(reinterpret_cast<void*>((std::uintptr_t)(std::uint32_t)entity), flags, entity.GetComponent<TagComponent>().Tag.c_str());
         if (ImGui::IsItemClicked())
         {
-            m_SelectedEntity = entity;
+            m_Scene->m_SelectedEntity = entity;
         }
 
         bool entityDeleted = false;
@@ -66,7 +66,7 @@ namespace Lithe
         if (entityDeleted)
         {
             m_Scene->DestroyEntity(entity);
-            m_SelectedEntity = {};
+            m_Scene->m_SelectedEntity = {};
         }
     }
 

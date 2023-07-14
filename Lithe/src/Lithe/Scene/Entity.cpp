@@ -25,5 +25,4 @@ namespace Lithe
         return !operator==(other);
     }
 
-
 }

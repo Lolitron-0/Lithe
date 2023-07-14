@@ -15,6 +15,5 @@ namespace Lithe
         void DrawEntityNode_(const Entity& entity);
         void DrawProperties_(Entity& entity);
     private:
-        mutable Entity m_SelectedEntity;
     };
 }

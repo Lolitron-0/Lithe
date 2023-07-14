@@ -1,6 +1,7 @@
 #include "EditorLayer.hpp"
 #include "EditorStyle.hpp"
 #include <imgui.h>
+#include <ImGuizmo.h>
 
 namespace Lithe
 {
@@ -142,6 +143,45 @@ namespace Lithe
                 static_cast<float>(m_Framebuffer->GetProperties().Width),
                 static_cast<float>(m_Framebuffer->GetProperties().Height) },
                 ImVec2{ 0,1 }, ImVec2{ 1,0 });
+
+            // Gizmo
+            auto selectedEntity = m_CurrentScene->GetSelectedEntity();
+            if (selectedEntity)
+            {
+                ImGuizmo::SetOrthographic(false);
+                ImGuizmo::SetDrawlist();
+                auto winPos = ImGui::GetWindowPos();
+                auto winWidth = ImGui::GetWindowWidth();
+                auto winHeight = ImGui::GetWindowHeight();
+                ImGuizmo::SetRect(winPos.x, winPos.y, winWidth, winHeight);
+
+                auto cameraEntity = m_CurrentScene->GetPrimaryCameraEntity();
+                const auto& camera = cameraEntity.GetComponent<CameraComponent>();
+                Mat4 cameraView = Inverse(cameraEntity.GetComponent<TransformComponent>().GetMatrix());
+                const Mat4& cameraProjection = camera.Camera->GetProjection();
+
+                auto& transformComponent = selectedEntity.GetComponent<TransformComponent>();
+                Mat4 transform = transformComponent.GetMatrix();
+
+                ImGuizmo::Manipulate(glm::value_ptr(cameraView),
+                    glm::value_ptr(cameraProjection),
+                    ImGuizmo::OPERATION::ROTATE,
+                    ImGuizmo::MODE::LOCAL,
+                    glm::value_ptr(transform)
+                    );
+
+                if (ImGuizmo::IsUsing())
+                {
+                    Vec3 translation, rotation, scale;
+                    DecomposeMatrix(transform, translation, rotation, scale);
+
+                    Vec3 deltaRotation = rotation - transformComponent.GetRotation();
+
+                    transformComponent.SetPosition(translation);
+                    transformComponent.Rotate(deltaRotation);
+                    transformComponent.SetScale(scale);
+                }
+            }
 
             ImGui::End();
         }

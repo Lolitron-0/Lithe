@@ -19,6 +19,8 @@ namespace Lithe
         {}
 
         const Mat4& GetMatrix() const;
+        const Mat4& GetNormalMatrix() const;
+
         operator const Mat4& () const { return GetMatrix(); }
 
         Vec3 GetPosition() const; 
@@ -62,6 +64,7 @@ namespace Lithe
         Vec3 m_Rotation{ 0,0,0 };
         Vec3 m_Scale{ 1,1,1 };
         mutable Mat4 m_Transform{ 1.f };
+        mutable Mat4 m_NormalMatrix{ 1.f };
         mutable bool m_ShouldUpdateMatrix{ true };
     };
 

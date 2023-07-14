@@ -23,7 +23,8 @@ project "Lithe-Editor"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.RenderAbstraction}",
 		"%{IncludeDir.EnTT}",
-        "%{IncludeDir.IconFontCppHeaders}"
+        "%{IncludeDir.IconFontCppHeaders}",
+        "%{IncludeDir.ImGuizmo}",
 	}
 
 	links

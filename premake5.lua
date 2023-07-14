@@ -19,6 +19,7 @@ IncludeDir["glm"] =					"%{wks.location}/Lithe/thirdparty/glm/"
 IncludeDir["RenderAbstraction"] =	"%{wks.location}/Lithe/thirdparty/RenderAbstraction/include"
 IncludeDir["EnTT"] =				"%{wks.location}/Lithe/thirdparty/EnTT/include"
 IncludeDir["IconFontCppHeaders"] =	"%{wks.location}/Lithe/thirdparty/IconFontCppHeaders"
+IncludeDir["ImGuizmo"] =			"%{wks.location}/Lithe/thirdparty/ImGuizmo"
 
 group "Dependencies"
 	include "Lithe/thirdparty/GLFW"
@@ -44,6 +45,9 @@ project "Lithe"
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.hpp",
 		"%{prj.name}/src/**.cpp",
+
+		"%{prj.location}/thirdparty/ImGuizmo/ImGuizmo.h",
+		"%{prj.location}/thirdparty/ImGuizmo/ImGuizmo.cpp",
 	}
 
 	includedirs
@@ -57,6 +61,7 @@ project "Lithe"
 		"%{IncludeDir.RenderAbstraction}",
 		"%{IncludeDir.EnTT}",
 		"%{IncludeDir.IconFontCppHeaders}",
+		"%{IncludeDir.ImGuizmo}",
 	}
 
 	links
@@ -67,6 +72,9 @@ project "Lithe"
 		"RenderAbstraction", 
 		"opengl32.lib"
 	}
+
+	filter "files:Lithe/thirdparty/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 	
 	filter "system:windows"
 		cppdialect "C++17"

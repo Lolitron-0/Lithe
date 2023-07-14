@@ -26,7 +26,6 @@ namespace Lithe
 
     void Scene::OnUpdate(const Timestep& ts)
     {
-        TransformComponent* activeCameraTransform = nullptr;
         {
             auto group = m_Registry.group<CameraComponent>(entt::get<TransformComponent>);
             for (auto& entity : group)
@@ -34,16 +33,16 @@ namespace Lithe
                 auto& [camera, transform] = group.get(entity);
                 if (camera.Primary)
                 {
-                    activeCameraTransform = &transform;
-                    m_ViewProjection = camera.Camera->GetProjection() * glm::inverse(transform.GetMatrix());
+                    m_ViewProjection = camera.Camera->GetProjection() * glm::inverse(transform.GetMatrix()); // splitted storage to avoid multiply+inverse several times
+                    m_PrimaryCamera = Entity{ entity, weak_from_this() };
                     break;
                 }
             }
         }
 
-        if (activeCameraTransform)
+        if (m_PrimaryCamera)
         {
-            Ra::Renderer::BeginScene(m_ViewProjection, activeCameraTransform->GetPosition());
+            Ra::Renderer::BeginScene(m_ViewProjection, m_PrimaryCamera.GetComponent<TransformComponent>().GetPosition());
 
             {
                 auto pointLightGroup = m_Registry.group<PointLightComponent>(entt::get<TransformComponent>);
@@ -61,7 +60,7 @@ namespace Lithe
             {
                 auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity);
 
-                Ra::Renderer::Submit(mesh.VertexArray, transform, mesh.Material, mesh.DrawingMode);
+                Ra::Renderer::Submit(mesh.VertexArray, {transform.GetMatrix(), transform.GetNormalMatrix()}, mesh.Material, mesh.DrawingMode);
             }
 
             Ra::Renderer::EndScene();
@@ -79,6 +78,16 @@ namespace Lithe
             if (!cameraComponent.FixedAspectRatio)
                 cameraComponent.Camera->SetAspectRatio(width / (float)height);
         }
+    }
+
+    Entity Scene::GetSelectedEntity() const
+    {
+        return m_SelectedEntity;
+    }
+
+    Lithe::Entity Scene::GetPrimaryCameraEntity() const
+    {
+        return m_PrimaryCamera;
     }
 
 }

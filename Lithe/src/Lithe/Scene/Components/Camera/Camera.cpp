@@ -12,7 +12,7 @@ namespace Lithe
     {}
 
     Camera::Camera()
-        :Camera(16./9.)
+        :Camera(16.f/9)
     {
 
     }

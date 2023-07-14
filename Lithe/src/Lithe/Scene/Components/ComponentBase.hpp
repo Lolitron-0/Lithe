@@ -47,10 +47,11 @@ namespace Lithe
                     ImGui::PushID(T::GetComponentName());
                     ImGui::Columns(2);
 
-                    float buttonWidth{ ImGui::CalcTextSize(ICON_FA_TRASH).x + GImGui->Style.FramePadding.y * 2.f };
-                    ImVec2 buttonSize{ buttonWidth, buttonWidth };
+                    auto deleteIcon = ICON_FA_TRASH;
+                    float buttonWidth{ ImGui::CalcTextSize(deleteIcon).x + GImGui->Style.FramePadding.y * 2.f };
+                    ImVec2 buttonSize{ buttonWidth, ImGui::CalcTextSize(deleteIcon).y + GImGui->Style.FramePadding.y * 2.f };
 
-                    ImGui::SetColumnWidth(0, ImGui::GetWindowWidth() - buttonSize.x * 2.f);
+                    ImGui::SetColumnWidth(0, ImGui::GetWindowContentRegionMax().x - buttonSize.x * 1.3f);
                     ImGui::SeparatorText(T::GetComponentName());
 
                     ImGui::NextColumn();
@@ -59,7 +60,7 @@ namespace Lithe
                     ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f, 0.55f, 0.5f, 1 });
                     ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.7f, 0.25f, 0.27f, 1 });
 
-                    if (ImGui::Button(ICON_FA_TRASH, buttonSize))
+                    if (ImGui::Button(deleteIcon, buttonSize))
                         removedComponent = true;
                     ImGui::PopStyleColor(3);
 

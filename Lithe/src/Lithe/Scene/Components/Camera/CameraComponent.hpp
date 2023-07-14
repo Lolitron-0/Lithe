@@ -24,7 +24,7 @@ namespace Lithe
 
         void OnImGuiPropertiesDraw() override
         {
-
+            ImGui::Checkbox("Primary", &Primary);
         }
 
     };

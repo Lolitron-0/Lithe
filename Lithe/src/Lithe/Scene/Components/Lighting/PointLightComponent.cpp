@@ -10,9 +10,9 @@ namespace Lithe
 
     void PointLightComponent::OnImGuiPropertiesDraw()
     {
-        static float color[] = { 1,1,1 };
-        if (ImGui::ColorEdit3("Color", color))
-            Light.Color = { color[0], color[1], color[2] };
+        ImGui::ColorEdit3("Color", glm::value_ptr(Light.Color));
+        ImGuiSliderFlags flags = ImGuiSliderFlags_AlwaysClamp | ImGuiSliderFlags_Logarithmic;
+        ImGui::SliderFloat("Intensity", &Light.Intensity, 0.1f, 100.f, "%.3f", flags);
     }
 
 }

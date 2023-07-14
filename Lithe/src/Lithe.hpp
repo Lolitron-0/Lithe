@@ -12,6 +12,7 @@
 #include "Lithe/Core/Layer.hpp"
 #include "Lithe/Core/Platform.hpp"
 #include "Lithe/Core/Timestep.hpp"
+#include "Lithe/Core/Math.hpp"
 
 #include "Lithe/Events/Events.hpp"
 #include "Lithe/Input/Keyboard.hpp"

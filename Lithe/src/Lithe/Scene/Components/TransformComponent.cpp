@@ -7,6 +7,9 @@ namespace Lithe
 {
     bool DrawVec3Control(const std::string& label, Vec3& values, float speed = 0.01f, float resertValue = 0.0f, float columnWidth = 100.f)
     {
+        ImGuiIO& io = ImGui::GetIO();
+        auto boldFont = io.Fonts->Fonts[1];
+
         ImGui::PushID(label.c_str());
 
         bool ret = false;
@@ -26,11 +29,13 @@ namespace Lithe
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f, 0.1f, 0.15f, 1 });
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f, 0.25f, 0.2f, 1 });
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.7f, 0.05f, 0.07f, 1 });
+        ImGui::PushFont(boldFont);
         if (ImGui::Button("X", buttonSize)) 
         {
             values.x = resertValue;
             ret = true;
         }
+        ImGui::PopFont();
         ImGui::PopStyleColor(3);
 
         ImGui::SameLine();
@@ -42,11 +47,13 @@ namespace Lithe
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.75f, 0.17f, 1 });
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.9f, 0.2f, 1 });
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.05f, 0.7f, 0.07f, 1 });
+        ImGui::PushFont(boldFont);
         if (ImGui::Button("Y", buttonSize))
         {
             values.y = resertValue;
             ret = true;
         }
+        ImGui::PopFont();
         ImGui::PopStyleColor(3);
 
         ImGui::SameLine();
@@ -58,11 +65,13 @@ namespace Lithe
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.25f, 0.8f, 1 });
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.15f, 0.25f, 0.9f, 1 });
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.05f, 0.05f, 0.7f, 1 });
+        ImGui::PushFont(boldFont);
         if (ImGui::Button("Z", buttonSize))
         {
             values.z = resertValue;
             ret = true;
         }
+        ImGui::PopFont();
         ImGui::PopStyleColor(3);
 
         ImGui::SameLine();

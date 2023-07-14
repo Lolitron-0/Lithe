@@ -17,6 +17,7 @@ project "Lithe-Editor"
 	{
 		"%{wks.location}/Lithe/src",
 		"%{wks.location}/Lithe/thirdparty",
+		"%{prj.location}/src",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.ImGui}",

@@ -1,5 +1,5 @@
 #include "EditorLayer.hpp"
-#include <IconsFontAwesome5.h>
+#include "EditorStyle.hpp"
 #include <imgui.h>
 
 namespace Lithe
@@ -92,9 +92,13 @@ namespace Lithe
         ImGui::PopStyleVar();
         ImGui::PopStyleVar(2);
 
-
+        ImGuiIO& io = ImGui::GetIO();
+        ImGuiStyle& style = ImGui::GetStyle();
+        float defaultMinWindowWidth = style.WindowMinSize.x;
+        style.WindowMinSize.x = 370.f;
         ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
         ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
+        style.WindowMinSize.x = defaultMinWindowWidth;
 
         if (ImGui::BeginMenuBar())
         {
@@ -107,7 +111,7 @@ namespace Lithe
 
             if (ImGui::BeginMenu("Window"))
             {
-                if (ImGui::MenuItem("Viewport"))
+                if (ImGui::MenuItem("Viewport", nullptr, &p_ViewportOpen))
                     p_ViewportOpen = true;
                 ImGui::EndMenu();
             }
@@ -153,7 +157,7 @@ namespace Lithe
 
         m_Framebuffer->StartWriting();
 
-        Ra::RenderCommand::SetClearColor({ 1.f, 1.f, 1.f, 0.1f });
+        Ra::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.f });
         Ra::RenderCommand::Clear();
 
         m_CurrentScene->OnUpdate(ts);
@@ -163,17 +167,8 @@ namespace Lithe
 
     void EditorLayer::OnAttach()
     {
-        ImGuiIO& io = ImGui::GetIO();
-        io.Fonts->AddFontDefault();
-        float baseFontSize = 18.0f; 
-        float iconFontSize = baseFontSize * 2.0f / 3.0f; 
-
-        static const ImWchar icons_ranges[] = { ICON_MIN_FA, ICON_MAX_16_FA, 0 };
-        ImFontConfig icons_config;
-        icons_config.MergeMode = true;
-        icons_config.PixelSnapH = true;
-        icons_config.GlyphMinAdvanceX = iconFontSize;
-        io.Fonts->AddFontFromFileTTF("assets/fonts/" FONT_ICON_FILE_NAME_FAS, iconFontSize, &icons_config, icons_ranges);
+        EditorStyle::SetupDarkThemeColors();
+        EditorStyle::SetupFonts();
     }
 
 }

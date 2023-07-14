@@ -16,7 +16,7 @@ namespace Lithe
     }
 
     PerspectiveCamera::PerspectiveCamera()
-        :PerspectiveCamera(16. / 9)
+        :PerspectiveCamera(16.f / 9)
     {}
 
     void PerspectiveCamera::RecalculateProjection_() const

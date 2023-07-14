@@ -42,6 +42,7 @@ namespace Lithe
     void SceneHierarchyPanel::DrawEntityNode_(const Entity& entity)
     {
         ImGuiTreeNodeFlags flags{ ImGuiTreeNodeFlags_OpenOnArrow | (m_SelectedEntity == entity ? ImGuiTreeNodeFlags_Selected : 0) };
+        flags |= ImGuiTreeNodeFlags_SpanAvailWidth;
         bool opened = ImGui::TreeNodeEx(reinterpret_cast<void*>((std::uintptr_t)(std::uint32_t)entity), flags, entity.GetComponent<TagComponent>().Tag.c_str());
         if (ImGui::IsItemClicked())
         {
@@ -73,8 +74,10 @@ namespace Lithe
     {
         ForEach<ComponentsList, DrawComponentsFunctor>::Iterate(entity);
 
-        ImGui::Separator();
-        if (ImGui::Button(ICON_FA_PLUS "Add component"))
+        ImGuiSeparatorFlags flags = ImGuiSeparatorFlags_Horizontal;
+        ImGui::SeparatorEx(flags, 3);
+
+        if (ImGui::Button(ICON_FA_PLUS "Add component", ImVec2{ ImGui::GetWindowContentRegionMax().x, GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.f }))
             ImGui::OpenPopup("AddComponent");
 
         if (ImGui::BeginPopup("AddComponent"))

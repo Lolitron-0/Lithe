@@ -34,13 +34,13 @@ namespace Lithe
 
         if (!s_GlfwInitialised)
         {
-            LITHE_LOG_CORE_TRACE("Initializing GLFW for the first time...");
+            LITHE_CORE_LOG_TRACE("Initializing GLFW for the first time...");
 
             int success{ glfwInit() };
             LITHE_CORE_ASSERT(success, "GLFW initialization failed");
 
             s_GlfwInitialised = true;
-            LITHE_LOG_CORE_INFO("Initialized GLFW!");
+            LITHE_CORE_LOG_INFO("Initialized GLFW!");
         }
 
         glfwWindowHint(GLFW_SAMPLES, 4); /// @todo runtime switch
@@ -48,7 +48,7 @@ namespace Lithe
         m_Handle = glfwCreateWindow(props.Width, props.Height, props.Title.c_str(), nullptr, nullptr);
         LITHE_CORE_ASSERT(m_Handle, "GLFWwindow instance not created!");
 
-        LITHE_LOG_CORE_TRACE("Created GLFWwindow instance.");
+        LITHE_CORE_LOG_TRACE("Created GLFWwindow instance.");
 
         m_RenderingContext = Ra::RenderingContext::Create(m_Handle);
 
@@ -56,14 +56,14 @@ namespace Lithe
 
         LITHE_CORE_ASSERT(m_RenderingContext->IsLoaded(), "Failed to initialize Glad!");
         auto info = m_RenderingContext->GetInfo();
-        LITHE_LOG_CORE_DEBUG("OpenGL info:");
-        LITHE_LOG_CORE_DEBUG("Vendor: {0}", info.Vendor);
-        LITHE_LOG_CORE_DEBUG("Renderer: {0}", info.Renderer);
-        LITHE_LOG_CORE_DEBUG("Version: {0}", info.Version);
+        LITHE_CORE_LOG_DEBUG("OpenGL info:");
+        LITHE_CORE_LOG_DEBUG("Vendor: {0}", info.Vendor);
+        LITHE_CORE_LOG_DEBUG("Renderer: {0}", info.Renderer);
+        LITHE_CORE_LOG_DEBUG("Version: {0}", info.Version);
         auto version = std::any_cast<gladGLversionStruct>(info.NativeInfo);
         LITHE_CORE_ASSERT(version.major > 4 || (version.major == 4 && version.minor >= 5), "Lithe needs at least OpenGL version 4.5!");
 
-        LITHE_LOG_CORE_INFO("Created OpenGL rendering context!");
+        LITHE_CORE_LOG_INFO("Created OpenGL rendering context!");
 
         glfwSetWindowUserPointer(m_Handle, &m_Data);
         SetVSync(true);

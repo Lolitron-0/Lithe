@@ -70,17 +70,17 @@ inline OStream& operator<<(OStream& os, const glm::qua<T, Q>& q)
 
 
 /// Core fatal error logging
-#define LITHE_LOG_CORE_FATAL(...)   ::Lithe::Log::GetCoreLogger()->fatal(__VA_ARGS__);
+#define LITHE_CORE_LOG_FATAL(...)   ::Lithe::Log::GetCoreLogger()->fatal(__VA_ARGS__);
 /// Core error logging
-#define LITHE_LOG_CORE_ERROR(...)   ::Lithe::Log::GetCoreLogger()->error(__VA_ARGS__);
+#define LITHE_CORE_LOG_ERROR(...)   ::Lithe::Log::GetCoreLogger()->error(__VA_ARGS__);
 /// Core warning logging
-#define LITHE_LOG_CORE_WARN(...)    ::Lithe::Log::GetCoreLogger()->warn(__VA_ARGS__);
+#define LITHE_CORE_LOG_WARN(...)    ::Lithe::Log::GetCoreLogger()->warn(__VA_ARGS__);
 /// Core info logging
-#define LITHE_LOG_CORE_INFO(...)    ::Lithe::Log::GetCoreLogger()->info(__VA_ARGS__);
+#define LITHE_CORE_LOG_INFO(...)    ::Lithe::Log::GetCoreLogger()->info(__VA_ARGS__);
 /// Core trace messages logging
-#define LITHE_LOG_CORE_TRACE(...)   ::Lithe::Log::GetCoreLogger()->trace(__VA_ARGS__);
+#define LITHE_CORE_LOG_TRACE(...)   ::Lithe::Log::GetCoreLogger()->trace(__VA_ARGS__);
 /// Core debug messages logging
-#define LITHE_LOG_CORE_DEBUG(...)   ::Lithe::Log::GetCoreLogger()->debug(__VA_ARGS__);
+#define LITHE_CORE_LOG_DEBUG(...)   ::Lithe::Log::GetCoreLogger()->debug(__VA_ARGS__);
 
 /// Client fatal error logging
 #define LITHE_LOG_FATAL(...)        ::Lithe::Log::GetClientLogger()->fatal(__VA_ARGS__);

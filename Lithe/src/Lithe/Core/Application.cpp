@@ -28,7 +28,7 @@ namespace Lithe
 
     Lithe::Application::~Application()
     {
-        LITHE_LOG_CORE_TRACE("Freing memory...");
+        LITHE_CORE_LOG_TRACE("Freing memory...");
         Ra::Renderer::Shutdown();
     }
 
@@ -92,7 +92,7 @@ namespace Lithe
 
     void Application::OnRendererError_(const std::string& errorMessage)
     {
-        LITHE_LOG_CORE_ERROR(errorMessage);
+        LITHE_CORE_LOG_ERROR(errorMessage);
     }
 
     Window& Application::GetWindow() const

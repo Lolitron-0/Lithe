@@ -1,5 +1,5 @@
 #include "EditorLayer.hpp"
-#include "EditorStyle.hpp"
+#include "EditorConfig.hpp"
 #include <imgui.h>
 
 namespace Lithe
@@ -174,8 +174,8 @@ namespace Lithe
 
     void EditorLayer::OnAttach()
     {
-        EditorStyle::SetupDarkThemeColors();
-        EditorStyle::Init();
+        EditorConfig::SetupDarkThemeColors();
+        EditorConfig::Init();
     }
 
     void EditorLayer::DrawGizmo_()
@@ -198,11 +198,12 @@ namespace Lithe
             auto& transformComponent = selectedEntity.GetComponent<TransformComponent>();
             Mat4 transform = transformComponent.GetMatrix();
 
+            bool snap = Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoSnap));
             ImGuizmo::Manipulate(&cameraView[0][0],
                 &cameraProjection[0][0],
                 m_CurrentGizmoOperation,
                 m_CurrentGizmoMode,
-                &transform[0][0]
+                &transform[0][0], nullptr, snap ? EditorConfig::GetGizmoSnap(m_CurrentGizmoOperation) : nullptr
             );
 
             if (ImGuizmo::IsUsing())
@@ -218,29 +219,47 @@ namespace Lithe
         }
     }
 
+#define HANDLE_AXIS_LOCK(operation) \
+if (lock == 1)\
+    m_CurrentGizmoOperation = ImGuizmo::OPERATION::##operation##_X;\
+else if (lock == 2)\
+    m_CurrentGizmoOperation = ImGuizmo::OPERATION::##operation##_Y;\
+else if (lock == 3)\
+    m_CurrentGizmoOperation = ImGuizmo::OPERATION::##operation##_Z;\
+
     void EditorLayer::DrawGizmoControls_()
     {
         static bool vals[] = { true, false, false, false };
         static ImTextureID textureIds[] =
         {
-            (ImTextureID)(std::uintptr_t)EditorStyle::TranslateIcon->GetNativeTerxtureHandle(),
-            (ImTextureID)(std::uintptr_t)EditorStyle::RotateIcon->GetNativeTerxtureHandle(),
-            (ImTextureID)(std::uintptr_t)EditorStyle::ScaleIcon->GetNativeTerxtureHandle(),
-            (ImTextureID)(std::uintptr_t)EditorStyle::UniTransformIcon->GetNativeTerxtureHandle()
+            (ImTextureID)(std::uintptr_t)EditorConfig::TranslateIcon->GetNativeTerxtureHandle(),
+            (ImTextureID)(std::uintptr_t)EditorConfig::RotateIcon->GetNativeTerxtureHandle(),
+            (ImTextureID)(std::uintptr_t)EditorConfig::ScaleIcon->GetNativeTerxtureHandle(),
+            (ImTextureID)(std::uintptr_t)EditorConfig::UniTransformIcon->GetNativeTerxtureHandle()
         };
         static int chosen = 0;
-        EditorStyle::DrawToggleImageList(textureIds, vals, &chosen, (std::size_t)4, { 30.f, 30.f });
+        EditorConfig::DrawToggleImageList(textureIds, vals, &chosen, (std::size_t)4, { 30.f, 30.f });
+        int lock = 0;
+        if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockX)))
+            lock = 1;
+        else if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockY)))
+            lock = 2;
+        else if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockZ)))
+            lock = 3;
 
         switch (chosen)
         {
         case 0:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::TRANSLATE;
+            HANDLE_AXIS_LOCK(TRANSLATE);
             break;
         case 1:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::ROTATE;
+            HANDLE_AXIS_LOCK(ROTATE);
             break;
         case 2:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::SCALE;
+            HANDLE_AXIS_LOCK(SCALE);
             break;
         case 3:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::UNIVERSAL;
@@ -251,7 +270,7 @@ namespace Lithe
 
         ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 50);
         static bool globalToggled = false;
-        if (EditorStyle::DrawToggleImageButton((ImTextureID)(std::uintptr_t)EditorStyle::GlobalIconMin->GetNativeTerxtureHandle(), &globalToggled, {30,30}))
+        if (EditorConfig::DrawToggleImageButton((ImTextureID)(std::uintptr_t)EditorConfig::GlobalIconMin->GetNativeTerxtureHandle(), &globalToggled, {30,30}))
             m_CurrentGizmoMode = globalToggled ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
         
     }

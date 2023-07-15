@@ -94,7 +94,7 @@ namespace Lithe
         if (m_ShouldUpdateMatrix)
         {
             Mat4 translation = glm::translate(Mat4{ 1.f }, m_Position);
-            Mat4 rotation = MakeRotationFromEuler(VecToRadians(m_Rotation));
+            Mat4 rotation = glm::toMat4(Quat(VecToRadians(m_Rotation)));
             Mat4 scale = glm::scale(Mat4{ 1.f }, m_Scale);
             m_Transform = translation * rotation * scale;
             m_NormalMatrix = glm::transpose(glm::inverse(m_Transform));

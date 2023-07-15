@@ -1,7 +1,6 @@
 #include "EditorLayer.hpp"
 #include "EditorStyle.hpp"
 #include <imgui.h>
-#include <ImGuizmo.h>
 
 namespace Lithe
 {
@@ -25,7 +24,7 @@ namespace Lithe
         m_CurrentScene = std::make_shared<Scene>();
 
         m_Cube = m_CurrentScene->CreateEntity("Cube");
-        m_Cube.AddComponent<MeshRendererComponent>(Ra::Renderer::Storage.CubeVertexArray ,m_Material);
+        m_Cube.AddComponent<MeshRendererComponent>(Ra::Renderer::Storage.CubeVertexArray, m_Material);
 
         m_Lamp = m_CurrentScene->CreateEntity("Point light");
         m_Lamp.AddComponent<PointLightComponent>();
@@ -123,69 +122,37 @@ namespace Lithe
         ImGui::End();
 
 
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
         if (p_ViewportOpen) {
+            ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, { 25, 70 });
             ImGui::Begin("Viewport", &p_ViewportOpen);
             HOVER_FOCUS();
 
             m_ViewportFocused = ImGui::IsWindowFocused();
             Application::GetInstance().GetImGuiLayer()->BlockEvents(!m_ViewportFocused);
 
-            auto viewportPanelSize = ImGui::GetContentRegionAvail();
-            if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha type punning goes brr
+            auto viewportPanelSize = ImVec2{ ImGui::GetWindowWidth(), ImGui::GetWindowHeight() };
+            if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha 
             {
                 m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
                 m_CurrentScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
                 m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
             }
+
             auto textureId = m_Framebuffer->GetDrawTextureHandle();
-            ImGui::Image(reinterpret_cast<void*>((std::uintptr_t)textureId), ImVec2{
-                static_cast<float>(m_Framebuffer->GetProperties().Width),
-                static_cast<float>(m_Framebuffer->GetProperties().Height) },
-                ImVec2{ 0,1 }, ImVec2{ 1,0 });
+            ImGui::GetCurrentWindow()->DrawList->AddImage((ImTextureID)(std::uintptr_t)textureId,
+                ImGui::GetWindowPos(),
+                { ImGui::GetWindowPos().x + static_cast<float>(viewportPanelSize.x),
+                ImGui::GetWindowPos().y +static_cast<float>(viewportPanelSize.y) }, { 0,1 }, { 1,0 });
+
 
             // Gizmo
-            auto selectedEntity = m_CurrentScene->GetSelectedEntity();
-            if (selectedEntity)
-            {
-                ImGuizmo::SetOrthographic(false);
-                ImGuizmo::SetDrawlist();
-                auto winPos = ImGui::GetWindowPos();
-                auto winWidth = ImGui::GetWindowWidth();
-                auto winHeight = ImGui::GetWindowHeight();
-                ImGuizmo::SetRect(winPos.x, winPos.y, winWidth, winHeight);
 
-                auto cameraEntity = m_CurrentScene->GetPrimaryCameraEntity();
-                const auto& camera = cameraEntity.GetComponent<CameraComponent>();
-                Mat4 cameraView = Inverse(cameraEntity.GetComponent<TransformComponent>().GetMatrix());
-                const Mat4& cameraProjection = camera.Camera->GetProjection();
-
-                auto& transformComponent = selectedEntity.GetComponent<TransformComponent>();
-                Mat4 transform = transformComponent.GetMatrix();
-
-                ImGuizmo::Manipulate(glm::value_ptr(cameraView),
-                    glm::value_ptr(cameraProjection),
-                    ImGuizmo::OPERATION::ROTATE,
-                    ImGuizmo::MODE::LOCAL,
-                    glm::value_ptr(transform)
-                    );
-
-                if (ImGuizmo::IsUsing())
-                {
-                    Vec3 translation, rotation, scale;
-                    DecomposeMatrix(transform, translation, rotation, scale);
-
-                    Vec3 deltaRotation = rotation - transformComponent.GetRotation();
-
-                    transformComponent.SetPosition(translation);
-                    transformComponent.Rotate(deltaRotation);
-                    transformComponent.SetScale(scale);
-                }
-            }
+            DrawGizmoControls_();
+            DrawGizmo_();
 
             ImGui::End();
+            ImGui::PopStyleVar();
         }
-        ImGui::PopStyleVar();
 
         // Panels
         m_SceneHierarchyPanel.OnImGuiDraw();
@@ -208,7 +175,85 @@ namespace Lithe
     void EditorLayer::OnAttach()
     {
         EditorStyle::SetupDarkThemeColors();
-        EditorStyle::SetupFonts();
+        EditorStyle::Init();
+    }
+
+    void EditorLayer::DrawGizmo_()
+    {
+        auto selectedEntity = m_CurrentScene->GetSelectedEntity();
+        if (selectedEntity)
+        {
+            ImGuizmo::SetOrthographic(false);
+            ImGuizmo::SetDrawlist();
+            auto winPos = ImGui::GetWindowPos();
+            auto winWidth = ImGui::GetWindowWidth();
+            auto winHeight = ImGui::GetWindowHeight();
+            ImGuizmo::SetRect(winPos.x, winPos.y, winWidth, winHeight);
+
+            auto cameraEntity = m_CurrentScene->GetPrimaryCameraEntity();
+            const auto& camera = cameraEntity.GetComponent<CameraComponent>();
+            Mat4 cameraView = Inverse(cameraEntity.GetComponent<TransformComponent>().GetMatrix());
+            const Mat4& cameraProjection = camera.Camera->GetProjection();
+
+            auto& transformComponent = selectedEntity.GetComponent<TransformComponent>();
+            Mat4 transform = transformComponent.GetMatrix();
+
+            ImGuizmo::Manipulate(&cameraView[0][0],
+                &cameraProjection[0][0],
+                m_CurrentGizmoOperation,
+                m_CurrentGizmoMode,
+                &transform[0][0]
+            );
+
+            if (ImGuizmo::IsUsing())
+            {
+                Vec3 translation{ 0.f }, scale{ 0.f }, rotation{ 0.f };
+                if (DecomposeMatrix(transform, translation, rotation, scale)) {
+                    transformComponent.SetPosition(translation);
+                    transformComponent.SetRotation(rotation);
+                    transformComponent.SetScale(scale);
+                }
+            }
+
+        }
+    }
+
+    void EditorLayer::DrawGizmoControls_()
+    {
+        static bool vals[] = { true, false, false, false };
+        static ImTextureID textureIds[] =
+        {
+            (ImTextureID)(std::uintptr_t)EditorStyle::TranslateIcon->GetNativeTerxtureHandle(),
+            (ImTextureID)(std::uintptr_t)EditorStyle::RotateIcon->GetNativeTerxtureHandle(),
+            (ImTextureID)(std::uintptr_t)EditorStyle::ScaleIcon->GetNativeTerxtureHandle(),
+            (ImTextureID)(std::uintptr_t)EditorStyle::UniTransformIcon->GetNativeTerxtureHandle()
+        };
+        static int chosen = 0;
+        EditorStyle::DrawToggleImageList(textureIds, vals, &chosen, (std::size_t)4, { 30.f, 30.f });
+
+        switch (chosen)
+        {
+        case 0:
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::TRANSLATE;
+            break;
+        case 1:
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::ROTATE;
+            break;
+        case 2:
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::SCALE;
+            break;
+        case 3:
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::UNIVERSAL;
+            break;
+        default:
+            break;
+        }
+
+        ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 50);
+        static bool globalToggled = false;
+        if (EditorStyle::DrawToggleImageButton((ImTextureID)(std::uintptr_t)EditorStyle::GlobalIconMin->GetNativeTerxtureHandle(), &globalToggled, {30,30}))
+            m_CurrentGizmoMode = globalToggled ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
+        
     }
 
 }

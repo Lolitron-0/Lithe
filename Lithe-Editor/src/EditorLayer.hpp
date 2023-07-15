@@ -1,6 +1,7 @@
 #pragma once
 #include "Lithe.hpp"
 #include "Panels/Panels.hpp"
+#include <ImGuizmo.h>
 
 namespace Lithe
 {
@@ -19,6 +20,9 @@ namespace Lithe
         void OnAttach() override;
 
     private:
+        void DrawGizmo_();
+        void DrawGizmoControls_();
+
         Ref<Ra::Texture> m_Texture;
         Ref<Ra::Framebuffer> m_Framebuffer;
         Ref<RMBCaptureFlyCameraController> m_CameraController;
@@ -35,6 +39,9 @@ namespace Lithe
         // Panels
         SceneHierarchyPanel m_SceneHierarchyPanel;
 
+        // Controls
+        ImGuizmo::OPERATION m_CurrentGizmoOperation{ImGuizmo::OPERATION::UNIVERSAL};
+        ImGuizmo::MODE m_CurrentGizmoMode{ImGuizmo::MODE::LOCAL};
     };
 
 }

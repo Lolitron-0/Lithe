@@ -36,7 +36,7 @@ namespace Lithe
         return res;
     }
 
-    inline Mat4 MakeRotationFromEuler(const Vec3& angles)
+    inline Mat3 MakeRotationFromEuler(const Vec3& angles)
     {
         return glm::yawPitchRoll(angles.y, angles.x, angles.z);
     }
@@ -68,7 +68,14 @@ namespace Lithe
         return glm::inverse(m);
     }
 
-    inline bool DecomposeMatrix(const Mat4& transform, Vec3& translation, Vec3& rotation, Vec3& scale)
+#define useQuatsForDecomp 0
+    inline bool DecomposeMatrix(const Mat4& transform, Vec3& translation, 
+#if useQuatsForDecomp
+        Quat& rotation, 
+#else
+        Vec3& rotation,
+#endif
+        Vec3& scale)
     {
         // From glm/gtx/matrix_decompose.hpp (.inl)
 
@@ -126,6 +133,42 @@ namespace Lithe
         }
 #endif
 
+#if useQuatsForDecomp
+        int i, j, k = 0;
+        T root, trace = Row[0].x + Row[1].y + Row[2].z;
+        if (trace > static_cast<T>(0))
+        {
+            root = sqrt(trace + static_cast<T>(1.0));
+            rotation.w = static_cast<T>(0.5) * root;
+            root = static_cast<T>(0.5) / root;
+            rotation.x = root * (Row[1].z - Row[2].y);
+            rotation.y = root * (Row[2].x - Row[0].z);
+            rotation.z = root * (Row[0].y - Row[1].x);
+        } // End if > 0
+        else
+        {
+            static int Next[3] = { 1, 2, 0 };
+            i = 0;
+            if (Row[1].y > Row[0].x) i = 1;
+            if (Row[2].z > Row[i][i]) i = 2;
+            j = Next[i];
+            k = Next[j];
+
+#           ifdef GLM_FORCE_QUAT_DATA_XYZW
+            int off = 0;
+#           else
+            int off = 1;
+#           endif
+
+            root = sqrt(Row[i][i] - Row[j][j] - Row[k][k] + static_cast<T>(1.0));
+
+            rotation[i + off] = static_cast<T>(0.5) * root;
+            root = static_cast<T>(0.5) / root;
+            rotation[j + off] = root * (Row[i][j] + Row[j][i]);
+            rotation[k + off] = root * (Row[i][k] + Row[k][i]);
+            rotation.w = root * (Row[j][k] - Row[k][j]);
+        } // End if <= 0
+#else
         rotation.y = asin(-Row[0][2]);
         if (cos(rotation.y) != 0) {
             rotation.x = atan2(Row[1][2], Row[2][2]);
@@ -136,6 +179,7 @@ namespace Lithe
             rotation.z = 0;
         }
         rotation = VecToDegrees(rotation);
+#endif
 
         return true;
     }

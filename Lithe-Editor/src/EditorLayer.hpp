@@ -12,6 +12,7 @@ namespace Lithe
         EditorLayer();
 
         void OnEvent(Event& event) override;
+        bool OnKeyPressed(KeyPressedEvent& event);
 
         void OnImGuiDraw() override;
 
@@ -25,7 +26,7 @@ namespace Lithe
 
         Ref<Ra::Texture> m_Texture;
         Ref<Ra::Framebuffer> m_Framebuffer;
-        Ref<RMBCaptureFlyCameraController> m_CameraController;
+        Ref<EditorCameraController> m_CameraController;
         Ref<Scene> m_CurrentScene;
         Entity m_Cube;
         Entity m_Lamp;

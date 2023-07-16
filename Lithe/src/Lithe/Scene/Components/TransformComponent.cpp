@@ -22,6 +22,7 @@ namespace Lithe
 
         ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth());
         ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 0, 0 });
+        ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 3.f);
 
         float lineHeight = GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.f;
         ImVec2 buttonSize{ lineHeight + 3.f, lineHeight };
@@ -30,7 +31,7 @@ namespace Lithe
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f, 0.25f, 0.2f, 1 });
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.7f, 0.05f, 0.07f, 1 });
         ImGui::PushFont(boldFont);
-        if (ImGui::Button("X", buttonSize)) 
+        if (ImGui::Button("X", buttonSize))
         {
             values.x = resertValue;
             ret = true;
@@ -79,7 +80,7 @@ namespace Lithe
             ret = true;
         ImGui::PopItemWidth();
 
-        ImGui::PopStyleVar();
+        ImGui::PopStyleVar(2);
 
         ImGui::Columns(1);
 
@@ -127,12 +128,17 @@ namespace Lithe
 
     Vec3 TransformComponent::GetFront() const
     {
-        return -Normalized(MakeRotationFromEuler(VecToRadians(m_Rotation)) * Vec4{ 0, 0, 1 , 1});
+        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, 0.f })), { 0, 0, -1.f });
     }
 
     Vec3 TransformComponent::GetRight() const
     {
-        return Normalized(Cross(GetFront(), { 0,1,0 }));
+        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, 0.f })), { 1.f, 0, 0 });
+    }
+
+    Lithe::Vec3 TransformComponent::GetUp() const
+    {
+        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, 0.f })), { 0, 1.f, 0 });
     }
 
     TransformComponent& TransformComponent::SetPosition(const Vec3& pos)
@@ -144,7 +150,7 @@ namespace Lithe
 
     TransformComponent& TransformComponent::SetRotation(const Vec3& rotation)
     {
-        m_Rotation = {0,0,0};
+        m_Rotation = { 0,0,0 };
         return this->Rotate(rotation);
     }
 
@@ -237,7 +243,7 @@ namespace Lithe
 
     TransformComponent& TransformComponent::LookAt(const Vec3& target)
     {
-        auto q = glm::quatLookAt(Normalized(target - m_Position), {0.0001f,1,0});
+        auto q = glm::quatLookAt(Normalized(target - m_Position), { 0.0001f,1,0 });
 
         return this->SetRotation(q);
     }

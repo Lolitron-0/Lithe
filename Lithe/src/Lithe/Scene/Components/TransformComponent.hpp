@@ -28,6 +28,7 @@ namespace Lithe
         Vec3 GetScale() const;
         Vec3 GetFront() const;
         Vec3 GetRight() const;
+        Vec3 GetUp() const;
 
         TransformComponent& SetPosition(const Vec3& pos);
         TransformComponent& SetRotation(const Vec3& rotation);

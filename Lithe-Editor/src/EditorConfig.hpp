@@ -23,7 +23,11 @@ namespace Lithe
         HoldGizmoLockX,
         HoldGizmoLockY,
         HoldGizmoLockZ,
-
+        GizmoModeTranslate,
+        GizmoModeRotate,
+        GizmoModeScale,
+        GizmoModeUniversal,
+        Focus,
     };
 
     class EditorConfig
@@ -38,6 +42,7 @@ namespace Lithe
         static ImFont* GetFont(FontStyle style);
         static Keyboard::Key GetOperationKey(KeybindOperations operation);
         static float* GetGizmoSnap(ImGuizmo::OPERATION operation);
+        static const Vec4 GetBaseColor();
 
         static Ref<Ra::Texture> TranslateIcon;
         static Ref<Ra::Texture> RotateIcon;
@@ -47,6 +52,7 @@ namespace Lithe
         static Ref<Ra::Texture> GlobalIconMin;
     private:
         static const std::unordered_map<KeybindOperations, Keyboard::Key> s_KeybindingsMap;
+        static Vec4 s_BaseColor;
     };
 
 }

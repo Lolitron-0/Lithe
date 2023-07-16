@@ -21,6 +21,10 @@ namespace Lithe
     {
         return ImVec4{ v.x + delta, v.y + delta,v.z + delta, v.w };
     }
+    inline Vec4 GetHighlight()
+    {
+        return Desaturate(Lightness(EditorConfig::GetBaseColor(), .135f), -0.35f);
+    }
 
     bool EditorConfig::DrawToggleButton(const char* label, bool* val, ImVec2 size)
     {
@@ -59,9 +63,10 @@ namespace Lithe
         auto& colors = ImGui::GetStyle().Colors;
         if (*val)
         {
-            ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32(145, 75, 145, 255));
-            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(171, 101, 171, 255));
-            ImGui::PushStyleColor(ImGuiCol_ButtonActive, IM_COL32(171, 101, 171, 255));
+            //ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.569, 0.294, 0.569, 1.f });
+            ImGui::PushStyleColor(ImGuiCol_Button, ToImGuiVec(GetHighlight()));
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ToImGuiVec(Lightness(GetHighlight(), 0.1f)));
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive, ToImGuiVec(Lightness(GetHighlight(), -0.15f)));
             if (ImGui::ImageButton(texId, size))
             {
                 *val = false;
@@ -86,41 +91,45 @@ namespace Lithe
 
     void EditorConfig::DrawToggleList(const char* labels[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize)
     {
+        for (std::size_t j{0}; j < count; j++)
+            vals[j] = false;
+        vals[*chosen] = true;
         for (std::size_t i{0}; i < count; i++)
         {
             if (DrawToggleButton(labels[i], &vals[i]) && !vals[i])
                 vals[i] = true;
             if (vals[i])
             {
+                vals[*chosen] = false;
                 *chosen = (int)i;
-                for (std::size_t j{0}; j < count; j++)
-                    if (j != i)
-                        vals[j] = false;
             }
         }
     }
 
     void EditorConfig::DrawToggleImageList(ImTextureID texIds[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize /*= {20,20}*/)
     {
+        for (std::size_t j{0}; j < count; j++)
+                vals[j] = false;
+        vals[*chosen] = true;
         for (std::size_t i{0}; i < count; i++)
         {
             if (DrawToggleImageButton(texIds[i], &vals[i], elSize))
-            {
                 vals[i] = true;
-                if (vals[i])
-                {
-                    *chosen = (int)i;
-                    for (std::size_t j{0}; j < count; j++)
-                        if (j != i)
-                            vals[j] = false;
-                }
+            if (vals[i])
+            {
+                vals[*chosen] = false;
+                *chosen = (int)i;
             }
-            //ImGui::SameLine();
         }
     }
 
     void EditorConfig::Init()
     {
+
+        // Theme
+        SetupDarkThemeColors();
+
+        // Fonts
         ImGuiIO& io = ImGui::GetIO();
         float baseFontSize = 18.0f;
         float iconFontSize = baseFontSize * 2.0f / 3.0f;
@@ -135,6 +144,13 @@ namespace Lithe
         io.Fonts->AddFontFromFileTTF("assets/fonts/Raleway/Raleway-ExtraBold.ttf", baseFontSize);
         io.Fonts->AddFontFromFileTTF("assets/fonts/Raleway/Raleway-Italic.ttf", baseFontSize);
 
+        // ImGui
+        auto& imguiStyle = ImGui::GetStyle();
+        imguiStyle.FrameRounding = 7.f;
+        imguiStyle.PopupRounding = 7.f;
+        imguiStyle.ScrollbarRounding = 7.f;
+
+        // Icons
         TranslateIcon = Ra::Texture::Create("assets/icons/translate70x70.png");
         RotateIcon = Ra::Texture::Create("assets/icons/rotate70x70.png");
         ScaleIcon = Ra::Texture::Create("assets/icons/scale70x70.png");
@@ -142,6 +158,7 @@ namespace Lithe
         GlobalIcon = Ra::Texture::Create("assets/icons/global.png");
         GlobalIconMin = Ra::Texture::Create("assets/icons/global70x70.png");
 
+        // Gizmo
         auto& imguizmoStyle = ImGuizmo::GetStyle();
         imguizmoStyle.TranslationLineThickness = 5.f;
         imguizmoStyle.TranslationLineArrowSize = 8.f;
@@ -165,7 +182,6 @@ namespace Lithe
     void EditorConfig::SetupDarkThemeColors()
     {
         auto& colors = ImGui::GetStyle().Colors;
-        Vec4 baseColor{ 0.36f, 0.17f, 0.36f, 1.f };
 
         colors[ImGuiCol_WindowBg] = ImVec4{ 0.1f, 0.09f, 0.1f, 1.f };
 
@@ -173,13 +189,13 @@ namespace Lithe
         colors[ImGuiCol_HeaderHovered] = ImVec4{ 0.3f, 0.29f, 0.3f, 1.f };
         colors[ImGuiCol_HeaderActive] = ImVec4{ 0.095f, 0.08f, 0.095f, 1.f };
 
-        colors[ImGuiCol_Tab] = ToImGuiVec(Lightness(baseColor, -.1f));
+        colors[ImGuiCol_Tab] = ToImGuiVec(Lightness(s_BaseColor, -.1f));
         colors[ImGuiCol_TabHovered] = ToImGuiVec(Lightness(ToVec(colors[ImGuiCol_Tab]), -.08f));
         colors[ImGuiCol_TabActive] = ImVec4{ 0.095f, 0.08f, 0.095f, 1.f };
         colors[ImGuiCol_TabUnfocused] = colors[ImGuiCol_Tab];
         colors[ImGuiCol_TabUnfocusedActive] = colors[ImGuiCol_TabActive];
 
-        colors[ImGuiCol_TitleBg] = ToImGuiVec(Lightness(Desaturate(baseColor, .4f), -.1f));
+        colors[ImGuiCol_TitleBg] = ToImGuiVec(Lightness(Desaturate(s_BaseColor, .4f), -.1f));
         colors[ImGuiCol_TitleBgActive] = ToImGuiVec(Lightness(ToVec(colors[ImGuiCol_TitleBg]), .05f));
         colors[ImGuiCol_TitleBgCollapsed] = ImVec4{ 0.095f, 0.05f, 0.095f, 1.f };
 
@@ -240,6 +256,11 @@ namespace Lithe
         return nullptr;
     }
 
+    const Vec4 EditorConfig::GetBaseColor()
+    {
+        return s_BaseColor;
+    }
+
     Ra::Ref<Ra::Texture> EditorConfig::TranslateIcon = nullptr;
     Ra::Ref<Ra::Texture> EditorConfig::RotateIcon = nullptr;
     Ra::Ref<Ra::Texture> EditorConfig::ScaleIcon = nullptr;
@@ -253,6 +274,13 @@ namespace Lithe
         {KeybindOperations::HoldGizmoLockX,     Keyboard::Key::A},
         {KeybindOperations::HoldGizmoLockY,     Keyboard::Key::S},
         {KeybindOperations::HoldGizmoLockZ,     Keyboard::Key::D},
+        {KeybindOperations::GizmoModeTranslate, Keyboard::Key::W},
+        {KeybindOperations::GizmoModeRotate,    Keyboard::Key::E},
+        {KeybindOperations::GizmoModeScale,     Keyboard::Key::R},
+        {KeybindOperations::GizmoModeUniversal, Keyboard::Key::T},
+        {KeybindOperations::Focus,              Keyboard::Key::F},
     };
+
+    Vec4 EditorConfig::s_BaseColor{0.36f, 0.17f, 0.36f, 1.f};
 
 }

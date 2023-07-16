@@ -5,6 +5,8 @@
 namespace Lithe
 {
 
+    int p_ChosenGizmoMode = 0;
+
     EditorLayer::EditorLayer() :Layer("EditorLayer")
     {
         m_Texture = Ra::Texture::Create();
@@ -21,7 +23,7 @@ namespace Lithe
         props.Samples = 8;
         m_Framebuffer = Ra::Framebuffer::Create(props);
 
-        m_CurrentScene = std::make_shared<Scene>();
+        m_CurrentScene = MakeRef<Scene>();
 
         m_Cube = m_CurrentScene->CreateEntity("Cube");
         m_Cube.AddComponent<MeshRendererComponent>(Ra::Renderer::Storage.CubeVertexArray, m_Material);
@@ -31,13 +33,10 @@ namespace Lithe
         m_Lamp.GetComponent<TransformComponent>().SetPosition({ 1.5,1.5,1.5 });
 
         m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
-        auto cam = std::make_shared<PerspectiveCamera>(45.f, 16.f / 9.f);
+        auto cam = MakeRef<PerspectiveCamera>(45.f, 16.f / 9.f);
         m_EditorCamera.AddComponent<CameraComponent>(cam, true);
 
-        m_CameraController = std::make_shared<Lithe::RMBCaptureFlyCameraController>(m_EditorCamera);
-        m_CameraController->GetTransform().SetPosition({ 0, 2, 2 });
-        m_CameraController->GetTransform().RotateY(-45);
-        m_CameraController->GetTransform().LookAt({ 0,0,0 });
+        m_CameraController = MakeRef<EditorCameraController>(m_EditorCamera);
 
         // Panels
         m_SceneHierarchyPanel.SetTrackScene(m_CurrentScene);
@@ -46,6 +45,41 @@ namespace Lithe
     void EditorLayer::OnEvent(Event& event)
     {
         m_CameraController->OnEvent(event);
+        EventDispatcher dispatcher{ event };
+        dispatcher.Dispatch<KeyPressedEvent>(LT_BIND_EVENT_FN(OnKeyPressed));
+    }
+
+    bool EditorLayer::OnKeyPressed(KeyPressedEvent& event)
+    {
+        auto key = event.GetKeyCode();
+        if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeTranslate))
+        {
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::TRANSLATE;
+            p_ChosenGizmoMode = 0;
+        }
+        else if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeRotate))
+        {
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::ROTATE;
+            p_ChosenGizmoMode = 1;
+        }
+        else if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeScale))
+        {
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::SCALE;
+            p_ChosenGizmoMode = 2;
+        }
+        else if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeUniversal))
+        {
+            m_CurrentGizmoOperation = ImGuizmo::OPERATION::UNIVERSAL;
+            p_ChosenGizmoMode = 3;
+        }
+
+        if (key == EditorConfig::GetOperationKey(KeybindOperations::Focus))
+        {
+            auto selection = m_CurrentScene->GetSelectedEntity();
+            m_CameraController->Focus(selection ? selection.GetComponent<TransformComponent>().GetPosition() : Vec3{0.f});
+        }
+        
+        return false;
     }
 
     void EditorLayer::OnImGuiDraw()
@@ -174,7 +208,6 @@ namespace Lithe
 
     void EditorLayer::OnAttach()
     {
-        EditorConfig::SetupDarkThemeColors();
         EditorConfig::Init();
     }
 
@@ -237,8 +270,7 @@ else if (lock == 3)\
             (ImTextureID)(std::uintptr_t)EditorConfig::ScaleIcon->GetNativeTerxtureHandle(),
             (ImTextureID)(std::uintptr_t)EditorConfig::UniTransformIcon->GetNativeTerxtureHandle()
         };
-        static int chosen = 0;
-        EditorConfig::DrawToggleImageList(textureIds, vals, &chosen, (std::size_t)4, { 30.f, 30.f });
+        EditorConfig::DrawToggleImageList(textureIds, vals, &p_ChosenGizmoMode, (std::size_t)4, { 30.f, 30.f });
         int lock = 0;
         if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockX)))
             lock = 1;
@@ -247,7 +279,7 @@ else if (lock == 3)\
         else if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockZ)))
             lock = 3;
 
-        switch (chosen)
+        switch (p_ChosenGizmoMode)
         {
         case 0:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::TRANSLATE;

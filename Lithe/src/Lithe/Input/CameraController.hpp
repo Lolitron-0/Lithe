@@ -26,7 +26,7 @@ namespace Lithe
     class CameraController
     {
     public:
-        CameraController(Entity& camera)
+        CameraController(const Entity& camera)
             :m_Camera(camera), m_Transform(&camera.GetComponent<TransformComponent>())
         {
         }
@@ -84,7 +84,7 @@ namespace Lithe
         >
     {
     public:
-        FlyCameraControllerImpl(Entity& camera)
+        FlyCameraControllerImpl(const Entity& camera)
             :CameraController(camera)
         {}
 
@@ -107,12 +107,6 @@ namespace Lithe
 
             m_Transform->RotateY(-event.GetOffsetX() * m_MouseSensitivity);
             m_Transform->RotateX(event.GetOffsetY() * m_MouseSensitivity);
-
-            /*if (m_Transform->GetRotation().y > 89.f)
-                m_Transform->SetRotationY(89.f);
-
-            if (m_Transform->GetRotation().y < -89.f)
-                m_Transform->SetRotationY(-89.f);*/
 
             m_LastMousePos.x = event.GetMouseX();
             m_LastMousePos.y = event.GetMouseY();

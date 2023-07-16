@@ -15,9 +15,11 @@
 #include "Lithe/Core/Math.hpp"
 
 #include "Lithe/Events/Events.hpp"
+
 #include "Lithe/Input/Keyboard.hpp"
 #include "Lithe/Input/Mouse.hpp"
 #include "Lithe/Input/CameraController.hpp"
+#include "Lithe/Input/EditorCameraController.hpp"
 
 #include "Lithe/ImGui/ImGuiLayer.hpp"
 

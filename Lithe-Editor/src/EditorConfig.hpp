@@ -35,8 +35,8 @@ namespace Lithe
     public:
         static bool DrawToggleButton(const char* label, bool* val, ImVec2 size = {0,0});
         static bool DrawToggleImageButton(ImTextureID texId, bool* val, ImVec2 size = {20,20});
-        static void DrawToggleList(const char* labels[],bool vals[], int* chosen, std::size_t count, ImVec2 elSize = { 20.f,20.f });
-        static void DrawToggleImageList(ImTextureID texIds[], bool vals[],int* chosen, std::size_t count, ImVec2 elSize = {20.f,20.f});
+        static void DrawToggleList(const char* labels[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize = { 20.f,20.f }, ImVec2 offset = {0,0});
+        static void DrawToggleImageList(ImTextureID texIds[], bool vals[],int* chosen, std::size_t count, ImVec2 elSize = {20.f,20.f}, ImVec2 offset = { 0,0 });
         static void Init();
         static void SetupDarkThemeColors();
         static ImFont* GetFont(FontStyle style);

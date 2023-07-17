@@ -89,13 +89,15 @@ namespace Lithe
         return ret;
     }
 
-    void EditorConfig::DrawToggleList(const char* labels[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize)
+    void EditorConfig::DrawToggleList(const char* labels[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize, ImVec2 offset)
     {
+        ImGui::SetCursorPosY(ImGui::GetCursorPosY() + offset.y);
         for (std::size_t j{0}; j < count; j++)
             vals[j] = false;
         vals[*chosen] = true;
         for (std::size_t i{0}; i < count; i++)
         {
+            ImGui::SetCursorPosX(ImGui::GetCursorPosX() + offset.x);
             if (DrawToggleButton(labels[i], &vals[i]) && !vals[i])
                 vals[i] = true;
             if (vals[i])
@@ -106,13 +108,15 @@ namespace Lithe
         }
     }
 
-    void EditorConfig::DrawToggleImageList(ImTextureID texIds[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize /*= {20,20}*/)
+    void EditorConfig::DrawToggleImageList(ImTextureID texIds[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize /*= {20,20}*/, ImVec2 offset)
     {
+        ImGui::SetCursorPosY(ImGui::GetCursorPosY() + offset.y );
         for (std::size_t j{0}; j < count; j++)
                 vals[j] = false;
         vals[*chosen] = true;
         for (std::size_t i{0}; i < count; i++)
         {
+            ImGui::SetCursorPosX( ImGui::GetCursorPosX() + offset.x);
             if (DrawToggleImageButton(texIds[i], &vals[i], elSize))
                 vals[i] = true;
             if (vals[i])

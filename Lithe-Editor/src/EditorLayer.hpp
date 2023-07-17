@@ -25,16 +25,17 @@ namespace Lithe
         void DrawGizmoControls_();
 
         Ref<Ra::Texture> m_Texture;
-        Ref<Ra::Framebuffer> m_Framebuffer;
-        Ref<EditorCameraController> m_CameraController;
         Ref<Scene> m_CurrentScene;
         Entity m_Cube;
         Entity m_Lamp;
         Ra::Material m_Material;
+
+        // Viewport
+        Vec2 m_ViewportSize;
+        Vec2 m_ViewportBounds[2];
         Entity m_EditorCamera;
-
-        glm::vec2 m_ViewportSize;
-
+        Ref<EditorCameraController> m_CameraController;
+        Ref<Ra::Framebuffer> m_Framebuffer;
         bool m_ViewportFocused{ true };
 
         // Panels

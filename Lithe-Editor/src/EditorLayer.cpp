@@ -19,8 +19,8 @@ namespace Lithe
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
         props.Height = Application::GetInstance().GetWindow().GetHeight();
-        props.Attachments = { Ra::TextureFormat::Color, Ra::TextureFormat::Depth };
-        props.Samples = 8;
+        props.Attachments = { Ra::TextureFormat::Color, Ra::TextureFormat::R32, Ra::TextureFormat::Depth };
+        props.Samples = 1;
         m_Framebuffer = Ra::Framebuffer::Create(props);
 
         m_CurrentScene = MakeRef<Scene>();
@@ -76,9 +76,9 @@ namespace Lithe
         if (key == EditorConfig::GetOperationKey(KeybindOperations::Focus))
         {
             auto selection = m_CurrentScene->GetSelectedEntity();
-            m_CameraController->Focus(selection ? selection.GetComponent<TransformComponent>().GetPosition() : Vec3{0.f});
+            m_CameraController->Focus(selection ? selection.GetComponent<TransformComponent>().GetPosition() : Vec3{ 0.f });
         }
-        
+
         return false;
     }
 
@@ -155,16 +155,22 @@ namespace Lithe
 
         ImGui::End();
 
-
-        if (p_ViewportOpen) {
-            ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, { 25, 70 });
+        // VIewport
+        if (p_ViewportOpen)
+        {
+            ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, { 0,0 });
             ImGui::Begin("Viewport", &p_ViewportOpen);
             HOVER_FOCUS();
 
             m_ViewportFocused = ImGui::IsWindowFocused();
             Application::GetInstance().GetImGuiLayer()->BlockEvents(!m_ViewportFocused);
 
-            auto viewportPanelSize = ImVec2{ ImGui::GetWindowWidth(), ImGui::GetWindowHeight() };
+            auto winPos = ImGui::GetWindowPos();
+            auto viewportPanelSize = ImGui::GetWindowSize();
+
+            m_ViewportBounds[0] = Vec2{ ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y };
+            m_ViewportBounds[1] = Vec2{ m_ViewportBounds[0].x + viewportPanelSize.x, m_ViewportBounds[0].y + viewportPanelSize.y };
+
             if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha 
             {
                 m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
@@ -174,13 +180,11 @@ namespace Lithe
 
             auto textureId = m_Framebuffer->GetDrawTextureHandle();
             ImGui::GetCurrentWindow()->DrawList->AddImage((ImTextureID)(std::uintptr_t)textureId,
-                ImGui::GetWindowPos(),
-                { ImGui::GetWindowPos().x + static_cast<float>(viewportPanelSize.x),
-                ImGui::GetWindowPos().y +static_cast<float>(viewportPanelSize.y) }, { 0,1 }, { 1,0 });
+                { m_ViewportBounds[0].x, m_ViewportBounds[0].y },
+                { m_ViewportBounds[1].x, m_ViewportBounds[1].y }, { 0,1 }, { 1,0 });
 
 
             // Gizmo
-
             DrawGizmoControls_();
             DrawGizmo_();
 
@@ -190,6 +194,15 @@ namespace Lithe
 
         // Panels
         m_SceneHierarchyPanel.OnImGuiDraw();
+
+
+        // Stats
+        ImGui::Begin("Renderer stats");
+        auto stats = Ra::Renderer::GetStats();
+        ImGui::LabelText("Draw calls", std::to_string(stats.DrawCalls).c_str());
+        ImGui::LabelText("Indices", std::to_string(stats.Indices).c_str());
+        ImGui::End();
+
     }
 
     void EditorLayer::OnUpdate(const Lithe::Timestep& ts)
@@ -202,6 +215,12 @@ namespace Lithe
         Ra::RenderCommand::Clear();
 
         m_CurrentScene->OnUpdate(ts);
+
+        // Mouse picking
+        auto [mouseLocX, mouseLocY] = ImGui::GetMousePos();
+        mouseLocX -= m_ViewportBounds[0].x;
+        mouseLocY -= m_ViewportBounds[0].y;
+        LITHE_CORE_LOG_DEBUG("{0}", m_Framebuffer->ReadPixel(1, mouseLocX, mouseLocY));
 
         m_Framebuffer->StopWriting();
     }
@@ -262,6 +281,8 @@ else if (lock == 3)\
 
     void EditorLayer::DrawGizmoControls_()
     {
+        ImVec2 controlsWindowPadding = { 25, 70 };
+
         static bool vals[] = { true, false, false, false };
         static ImTextureID textureIds[] =
         {
@@ -270,7 +291,7 @@ else if (lock == 3)\
             (ImTextureID)(std::uintptr_t)EditorConfig::ScaleIcon->GetNativeTerxtureHandle(),
             (ImTextureID)(std::uintptr_t)EditorConfig::UniTransformIcon->GetNativeTerxtureHandle()
         };
-        EditorConfig::DrawToggleImageList(textureIds, vals, &p_ChosenGizmoMode, (std::size_t)4, { 30.f, 30.f });
+        EditorConfig::DrawToggleImageList(textureIds, vals, &p_ChosenGizmoMode, (std::size_t)4, { 30.f, 30.f }, controlsWindowPadding);
         int lock = 0;
         if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockX)))
             lock = 1;
@@ -300,11 +321,12 @@ else if (lock == 3)\
             break;
         }
 
+        ImGui::SetCursorPosX(ImGui::GetCursorPosX() + controlsWindowPadding.x);
         ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 50);
         static bool globalToggled = false;
-        if (EditorConfig::DrawToggleImageButton((ImTextureID)(std::uintptr_t)EditorConfig::GlobalIconMin->GetNativeTerxtureHandle(), &globalToggled, {30,30}))
+        if (EditorConfig::DrawToggleImageButton((ImTextureID)(std::uintptr_t)EditorConfig::GlobalIconMin->GetNativeTerxtureHandle(), &globalToggled, { 30,30 }))
             m_CurrentGizmoMode = globalToggled ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
-        
+
     }
 
 }

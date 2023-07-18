@@ -11,6 +11,7 @@ namespace Lithe
     Lithe::Application::Application(Ra::RendererAPI::API renderingApi)
     {
         Ra::SetErrorCallback(Application::OnRendererError_);
+        Ra::SetLogCallback(Application::OnRendererLog_);
         Ra::Renderer::SetAPI(renderingApi);
 
         Log::Init();
@@ -93,6 +94,11 @@ namespace Lithe
     void Application::OnRendererError_(const std::string& errorMessage)
     {
         LITHE_CORE_LOG_ERROR(errorMessage);
+    }
+
+    void Application::OnRendererLog_(const std::string& message)
+    {
+        LITHE_CORE_LOG_TRACE(message);
     }
 
     Window& Application::GetWindow() const

@@ -9,13 +9,12 @@ namespace Lithe
     {
         MAKE_COMPONENT(MeshRendererComponent)
     public:
-        Ra::Material Material;
-        Ref<Ra::VertexArray> VertexArray;
+        Ra::Mesh Mesh;
         Ra::RendererAPI::DrawMode DrawingMode{ Ra::RendererAPI::DrawMode::Triangles };
 
-        MeshRendererComponent();
         MeshRendererComponent(const MeshRendererComponent&) = default;
-        MeshRendererComponent(const Ref<Ra::VertexArray>& vertexArray, const Ra::Material& material);
+        MeshRendererComponent(const Ra::Mesh& mesh);
+        MeshRendererComponent();
 
         void OnImGuiPropertiesDraw() override;
 

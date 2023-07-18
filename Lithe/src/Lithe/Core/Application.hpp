@@ -58,6 +58,7 @@ namespace Lithe
         bool OnWindowResized(const WindowResizedEvent& event);
 
         static void OnRendererError_(const std::string& errorMessage);
+        static void OnRendererLog_(const std::string& message);
 
     private:
         LayerStack m_LayerStack;

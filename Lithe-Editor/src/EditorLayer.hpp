@@ -24,11 +24,11 @@ namespace Lithe
         void DrawGizmo_();
         void DrawGizmoControls_();
 
-        Ref<Ra::Texture> m_Texture;
         Ref<Scene> m_CurrentScene;
         Entity m_Cube;
         Entity m_Lamp;
-        Ra::Material m_Material;
+
+        bool m_Loading{ true }; // @todo thread
 
         // Viewport
         Vec2 m_ViewportSize;

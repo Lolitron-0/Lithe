@@ -20,6 +20,7 @@ IncludeDir["RenderAbstraction"] =	"%{wks.location}/Lithe/thirdparty/RenderAbstra
 IncludeDir["EnTT"] =				"%{wks.location}/Lithe/thirdparty/EnTT/include"
 IncludeDir["IconFontCppHeaders"] =	"%{wks.location}/Lithe/thirdparty/IconFontCppHeaders"
 IncludeDir["ImGuizmo"] =			"%{wks.location}/Lithe/thirdparty/ImGuizmo"
+IncludeDir["assimp"] =				"%{wks.location}/Lithe/thirdparty/assimp/include"
 
 group "Dependencies"
 	include "Lithe/thirdparty/GLFW"
@@ -70,7 +71,7 @@ project "Lithe"
 		"Glad",
 		"ImGui", 
 		"RenderAbstraction", 
-		"opengl32.lib"
+		"opengl32.lib",
 	}
 
 	filter "files:Lithe/thirdparty/ImGuizmo/**.cpp"

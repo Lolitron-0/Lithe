@@ -9,13 +9,6 @@ namespace Lithe
 
     EditorLayer::EditorLayer() :Layer("EditorLayer")
     {
-        m_Texture = Ra::Texture::Create();
-        m_Texture->LoadFromFile(R"(assets\container2.png)");
-        Ref<Ra::Texture> spec = Ra::Texture::Create();
-        spec->LoadFromFile(R"(assets\container2_specular.png)");
-        m_Material.DiffuseMap = m_Texture;
-        m_Material.SpecularMap = spec;
-
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
         props.Height = Application::GetInstance().GetWindow().GetHeight();
@@ -25,12 +18,16 @@ namespace Lithe
 
         m_CurrentScene = MakeRef<Scene>();
 
-        m_Cube = m_CurrentScene->CreateEntity("Cube");
-        m_Cube.AddComponent<MeshRendererComponent>(Ra::Renderer::Storage.CubeVertexArray, m_Material);
+            m_Cube = m_CurrentScene->CreateEntity("Cube");
+            Ra::Mesh mesh{"assets/backpack.obj"};
+            m_Cube.AddComponent<MeshRendererComponent>(mesh);
 
-        m_Lamp = m_CurrentScene->CreateEntity("Point light");
-        m_Lamp.AddComponent<PointLightComponent>();
-        m_Lamp.GetComponent<TransformComponent>().SetPosition({ 1.5,1.5,1.5 });
+            m_Lamp = m_CurrentScene->CreateEntity("Point light");
+            m_Lamp.AddComponent<PointLightComponent>();
+            m_Lamp.GetComponent<TransformComponent>().SetPosition({ 1.5,1.5,1.5 });
+
+            m_Loading = false;
+
 
         m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
         auto cam = MakeRef<PerspectiveCamera>(45.f, 16.f / 9.f);
@@ -162,31 +159,37 @@ namespace Lithe
             ImGui::Begin("Viewport", &p_ViewportOpen);
             HOVER_FOCUS();
 
-            m_ViewportFocused = ImGui::IsWindowFocused();
-            Application::GetInstance().GetImGuiLayer()->BlockEvents(!m_ViewportFocused);
+            if (!m_Loading) {
+                m_ViewportFocused = ImGui::IsWindowFocused();
+                Application::GetInstance().GetImGuiLayer()->BlockEvents(!m_ViewportFocused);
 
-            auto winPos = ImGui::GetWindowPos();
-            auto viewportPanelSize = ImGui::GetWindowSize();
+                auto winPos = ImGui::GetWindowPos();
+                auto viewportPanelSize = ImGui::GetWindowSize();
 
-            m_ViewportBounds[0] = Vec2{ ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y };
-            m_ViewportBounds[1] = Vec2{ m_ViewportBounds[0].x + viewportPanelSize.x, m_ViewportBounds[0].y + viewportPanelSize.y };
+                m_ViewportBounds[0] = Vec2{ ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y };
+                m_ViewportBounds[1] = Vec2{ m_ViewportBounds[0].x + viewportPanelSize.x, m_ViewportBounds[0].y + viewportPanelSize.y };
 
-            if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha 
-            {
-                m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
-                m_CurrentScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
-                m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
+                if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha 
+                {
+                    m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
+                    m_CurrentScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
+                    m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
+                }
+
+                auto textureId = m_Framebuffer->GetDrawTextureHandle();
+                ImGui::GetCurrentWindow()->DrawList->AddImage((ImTextureID)(std::uintptr_t)textureId,
+                    { m_ViewportBounds[0].x, m_ViewportBounds[0].y },
+                    { m_ViewportBounds[1].x, m_ViewportBounds[1].y }, { 0,1 }, { 1,0 });
+
+
+                // Gizmo
+                DrawGizmoControls_();
+                DrawGizmo_();
             }
-
-            auto textureId = m_Framebuffer->GetDrawTextureHandle();
-            ImGui::GetCurrentWindow()->DrawList->AddImage((ImTextureID)(std::uintptr_t)textureId,
-                { m_ViewportBounds[0].x, m_ViewportBounds[0].y },
-                { m_ViewportBounds[1].x, m_ViewportBounds[1].y }, { 0,1 }, { 1,0 });
-
-
-            // Gizmo
-            DrawGizmoControls_();
-            DrawGizmo_();
+            else
+            {
+                ImGui::ProgressBar(1);
+            }
 
             ImGui::End();
             ImGui::PopStyleVar();
@@ -214,13 +217,14 @@ namespace Lithe
         Ra::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.f });
         Ra::RenderCommand::Clear();
 
-        m_CurrentScene->OnUpdate(ts);
+        if (!m_Loading)
+            m_CurrentScene->OnUpdate(ts);
 
         // Mouse picking
         auto [mouseLocX, mouseLocY] = ImGui::GetMousePos();
         mouseLocX -= m_ViewportBounds[0].x;
         mouseLocY -= m_ViewportBounds[0].y;
-        LITHE_CORE_LOG_DEBUG("{0}", m_Framebuffer->ReadPixel(1, mouseLocX, mouseLocY));
+        //LITHE_CORE_LOG_DEBUG("{0}", m_Framebuffer->ReadPixel(1, mouseLocX, mouseLocY));
 
         m_Framebuffer->StopWriting();
     }

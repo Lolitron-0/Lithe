@@ -60,7 +60,7 @@ namespace Lithe
             {
                 auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity);
 
-                Ra::Renderer::Submit(mesh.VertexArray, {transform.GetMatrix(), transform.GetNormalMatrix()}, mesh.Material, mesh.DrawingMode);
+                Ra::Renderer::Submit(mesh.Mesh, {transform.GetMatrix(), transform.GetNormalMatrix()}, mesh.DrawingMode);
             }
 
             Ra::Renderer::EndScene();

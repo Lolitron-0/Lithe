@@ -10,6 +10,7 @@ namespace Lithe
 
     Lithe::Application::Application(Ra::RendererAPI::API renderingApi)
     {
+        PROFILER_SCOPE("Application::Application()");
         Ra::SetErrorCallback(Application::OnRendererError_);
         Ra::SetLogCallback(Application::OnRendererLog_);
         Ra::Renderer::SetAPI(renderingApi);
@@ -29,12 +30,15 @@ namespace Lithe
 
     Lithe::Application::~Application()
     {
+        PROFILER_SCOPE("Application::~Application()");
         LITHE_CORE_LOG_TRACE("Freing memory...");
         Ra::Renderer::Shutdown();
     }
 
     void Lithe::Application::Run()
     {
+        PROFILER_SCOPE("Application::Run()");
+
         m_Running = true;
 
         while (m_Running)

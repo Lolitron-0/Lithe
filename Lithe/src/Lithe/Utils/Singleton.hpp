@@ -1,3 +1,4 @@
+#pragma once
 #include "Lithe/Core/Assert.hpp"
 
 namespace Lithe

@@ -66,6 +66,7 @@ namespace Lithe
 
     void ImGuiLayer::Begin()
     {
+        PROFILER_SCOPE("ImGuiLayer::Begin()");
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
@@ -74,6 +75,7 @@ namespace Lithe
 
     void ImGuiLayer::End()
     {
+        PROFILER_SCOPE("ImGuiLayer::End()");
         ImGuiIO& io = ImGui::GetIO();
         const auto& app = Application::GetInstance();
         io.DisplaySize = ImVec2(static_cast<float>(app.GetWindow().GetWidth()), static_cast<float>(app.GetWindow().GetHeight()));

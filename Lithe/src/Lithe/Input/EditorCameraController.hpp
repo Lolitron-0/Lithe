@@ -3,7 +3,7 @@
 
 namespace Lithe
 {
-
+    // @todo editable key bindings
     class EditorCameraController : public CameraController<EditorCameraController>
     {
     public:

@@ -52,7 +52,7 @@ namespace Lithe
 
         m_RenderingContext = Ra::RenderingContext::Create(m_Handle);
 
-        HideCursor();
+        //HideCursor();
 
         LITHE_CORE_ASSERT(m_RenderingContext->IsLoaded(), "Failed to initialize Glad!");
         auto info = m_RenderingContext->GetInfo();
@@ -212,6 +212,7 @@ namespace Lithe
 
     void WindowsWindow::PullEvents()
     {
+        PROFILER_SCOPE("WindowsWindow::PullEvents()");
         glfwPollEvents();
 
         while (!m_Data.EventQueue.empty())

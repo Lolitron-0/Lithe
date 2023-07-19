@@ -20,7 +20,7 @@ IncludeDir["RenderAbstraction"] =	"%{wks.location}/Lithe/thirdparty/RenderAbstra
 IncludeDir["EnTT"] =				"%{wks.location}/Lithe/thirdparty/EnTT/include"
 IncludeDir["IconFontCppHeaders"] =	"%{wks.location}/Lithe/thirdparty/IconFontCppHeaders"
 IncludeDir["ImGuizmo"] =			"%{wks.location}/Lithe/thirdparty/ImGuizmo"
-IncludeDir["assimp"] =				"%{wks.location}/Lithe/thirdparty/assimp/include"
+IncludeDir["Profiler"] =			"%{wks.location}/Lithe/thirdparty/Profiler/include"
 
 group "Dependencies"
 	include "Lithe/thirdparty/GLFW"
@@ -45,6 +45,7 @@ project "Lithe"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.hpp",
+		"%{prj.name}/src/**.inl",
 		"%{prj.name}/src/**.cpp",
 
 		"%{prj.location}/thirdparty/ImGuizmo/ImGuizmo.h",
@@ -63,6 +64,7 @@ project "Lithe"
 		"%{IncludeDir.EnTT}",
 		"%{IncludeDir.IconFontCppHeaders}",
 		"%{IncludeDir.ImGuizmo}",
+		"%{IncludeDir.Profiler}",
 	}
 
 	links
@@ -92,7 +94,7 @@ project "Lithe"
 		}
 
 	filter "configurations:Debug"
-		defines "LT_DEBUG"
+		defines { "LT_DEBUG", "PROFILER_ENABLE" }
 		symbols "On"
 	filter "configurations:Release"
 		defines "LT_RELEASE"

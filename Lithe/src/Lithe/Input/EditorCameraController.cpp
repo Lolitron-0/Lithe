@@ -16,9 +16,10 @@ namespace Lithe
 
     void EditorCameraController::OnUpdate(const Timestep& ts)
     {
+        PROFILER_SCOPE("EditorCameraController::OnUpdate()");
         if (Keyboard::IsKeyPressed(Keyboard::Key::LeftAlt))
         {
-            Application::GetInstance().GetWindow().HideCursor();
+            //Application::GetInstance().GetWindow().HideCursor();
             auto mousePos = Mouse::GetPosition();
             auto delta = m_LastMousePos.x != -1 ? (m_LastMousePos - mousePos) * (float)ts : Vec2{ 0.f, 0.f };
             m_LastMousePos = mousePos;
@@ -32,17 +33,20 @@ namespace Lithe
 
             UpdateTransform_();
         }
-        else if (Application::GetInstance().GetWindow().IsCursorHidden())
-            Application::GetInstance().GetWindow().ShowCursor();
+        /*else if (Application::GetInstance().GetWindow().IsCursorHidden())
+            Application::GetInstance().GetWindow().ShowCursor();*/
     }
 
     bool EditorCameraController::OnMouseScrolled(MouseScrolledEvent& event)
     {
-        m_Distance += -event.GetOffsetY() * ZoomSpeed() * 0.5f;
-        if (m_Distance < 1.f)
+        if (Keyboard::IsKeyPressed(Keyboard::Key::LeftAlt))
         {
-            m_FocalPoint += m_Transform->GetFront();
-            m_Distance = 1.f;
+            m_Distance += -event.GetOffsetY() * ZoomSpeed() * 0.5f;
+            if (m_Distance < 1.f)
+            {
+                m_FocalPoint += m_Transform->GetFront();
+                m_Distance = 1.f;
+            }
         }
         return false;
     }
@@ -57,7 +61,7 @@ namespace Lithe
     constexpr float EditorCameraController::ZoomSpeed()
     {
         auto distance = std::max(m_Distance, 0.001f);
-        return std::min( (float)glm::pow(distance, 1.5) * 0.1f, 100.f);
+        return std::min((float)glm::pow(distance, 1.5) * 0.1f, 100.f);
     }
 
     void EditorCameraController::MousePan_(const Vec2& delta)

@@ -26,7 +26,9 @@ namespace Lithe
 
     void Scene::OnUpdate(const Timestep& ts)
     {
+        PROFILER_SCOPE("Scene::OnUpdate()")
         {
+            PROFILER_SCOPE("Scene: primary camera lookup");
             auto group = m_Registry.group<CameraComponent>(entt::get<TransformComponent>);
             for (auto& entity : group)
             {
@@ -45,6 +47,7 @@ namespace Lithe
             Ra::Renderer::BeginScene(m_ViewProjection, m_PrimaryCamera.GetComponent<TransformComponent>().GetPosition());
 
             {
+                PROFILER_SCOPE("Scene: point light submission");
                 auto pointLightGroup = m_Registry.group<PointLightComponent>(entt::get<TransformComponent>);
                 for (auto& entitiy : pointLightGroup)
                 {
@@ -53,14 +56,16 @@ namespace Lithe
                 }
             }
 
-
-            auto& group = m_Registry.group<TransformComponent>(entt::get<MeshRendererComponent>);
-
-            for (auto& entity : group)
             {
-                auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity);
+                PROFILER_SCOPE("Scene: rendering");
+                auto& group = m_Registry.group<TransformComponent>(entt::get<MeshRendererComponent>);
 
-                Ra::Renderer::Submit(mesh.Mesh, {transform.GetMatrix(), transform.GetNormalMatrix()}, mesh.DrawingMode);
+                for (auto& entity : group)
+                {
+                    auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity);
+
+                    Ra::Renderer::Submit(mesh.Mesh, { transform.GetMatrix(), transform.GetNormalMatrix() }, mesh.DrawingMode);
+                }
             }
 
             Ra::Renderer::EndScene();

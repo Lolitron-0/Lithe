@@ -4,7 +4,6 @@
 
 namespace Lithe
 {
-
     int p_ChosenGizmoMode = 0;
 
     EditorLayer::EditorLayer() :Layer("EditorLayer")
@@ -19,7 +18,7 @@ namespace Lithe
         m_CurrentScene = MakeRef<Scene>();
 
             m_Cube = m_CurrentScene->CreateEntity("Cube");
-            Ra::Mesh mesh{"assets/backpack.obj"};
+            Ra::Mesh mesh{"assets/meshes/backpack.obj"};
             m_Cube.AddComponent<MeshRendererComponent>(mesh);
 
             m_Lamp = m_CurrentScene->CreateEntity("Point light");

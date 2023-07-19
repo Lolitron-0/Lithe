@@ -1,4 +1,6 @@
 #pragma once
+#define PROFILER_ENABLE
+
 #include <iostream>
 #include <memory>
 #include <utility>
@@ -19,3 +21,5 @@
 #include "Lithe/Core/Base.hpp"
 #include "Lithe/Core/Log.hpp"
 #include "Lithe/Core/Assert.hpp"
+
+#include <Profiler.hpp>

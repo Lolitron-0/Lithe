@@ -6,4 +6,4 @@ bin-int/
 *.vcxproj*
 docs/Doxyfile
 Cloc_*
-ProfilingResults*
+ProfilingResult*

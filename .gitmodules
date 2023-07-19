@@ -23,3 +23,7 @@
 [submodule "Lithe/thirdparty/ImGuizmo"]
 	path = Lithe/thirdparty/ImGuizmo
 	url = https://github.com/CedricGuillemet/ImGuizmo
+[submodule "Lithe/thirdparty/Profiler"]
+	path = Lithe/thirdparty/Profiler
+	url = https://github.com/Lolitron-0/Profiler
+	branch = master

@@ -1,5 +1,4 @@
 #pragma once
-#define PROFILER_ENABLE
 
 #include <iostream>
 #include <memory>

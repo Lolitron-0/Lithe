@@ -4,13 +4,13 @@
 namespace Lithe
 {
 
-    MeshRendererComponent::MeshRendererComponent(const Ra::Mesh& mesh)
-        :Mesh{ mesh }
+    MeshRendererComponent::MeshRendererComponent(const Ref<Ra::Mesh>& mesh)
+        :MeshObject{ mesh }
     {}
 
     MeshRendererComponent::MeshRendererComponent()
-        :Mesh{ "lmao" }
     {
+        MeshObject = Ra::Mesh::Create("assets/meshes/DefaultMesh.fbx");
     }
 
     void MeshRendererComponent::OnImGuiPropertiesDraw()

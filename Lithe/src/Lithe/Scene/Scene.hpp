@@ -23,6 +23,7 @@ namespace Lithe
 
         friend class Entity;
         friend class SceneHierarchyPanel;
+        friend class SceneSerializer;
 
     private:
         entt::registry m_Registry;

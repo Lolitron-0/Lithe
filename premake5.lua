@@ -20,7 +20,7 @@ IncludeDir["RenderAbstraction"] =	"%{wks.location}/Lithe/thirdparty/RenderAbstra
 IncludeDir["EnTT"] =				"%{wks.location}/Lithe/thirdparty/EnTT/include"
 IncludeDir["IconFontCppHeaders"] =	"%{wks.location}/Lithe/thirdparty/IconFontCppHeaders"
 IncludeDir["ImGuizmo"] =			"%{wks.location}/Lithe/thirdparty/ImGuizmo"
-IncludeDir["Profiler"] =			"%{wks.location}/Lithe/thirdparty/Profiler/include"
+IncludeDir["Profiler"] =			"%{wks.location}/Lithe/thirdparty/RenderAbstraction/thirdparty/Profiler/include"
 
 group "Dependencies"
 	include "Lithe/thirdparty/GLFW"

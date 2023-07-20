@@ -5,7 +5,7 @@ namespace Lithe
 {
 
     PointLightComponent::PointLightComponent(const Ra::PointLight& light) 
-        :Light(light)
+        :Light{ light }
     {}
 
     void PointLightComponent::OnImGuiPropertiesDraw()

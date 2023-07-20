@@ -6,7 +6,8 @@ namespace Lithe
 {
     int p_ChosenGizmoMode = 0;
 
-    EditorLayer::EditorLayer() :Layer("EditorLayer")
+    EditorLayer::EditorLayer()
+        :Layer("EditorLayer")
     {
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
@@ -17,22 +18,28 @@ namespace Lithe
 
         m_CurrentScene = MakeRef<Scene>();
 
-            m_Cube = m_CurrentScene->CreateEntity("Cube");
-            Ra::Mesh mesh{"assets/meshes/backpack.obj"};
-            m_Cube.AddComponent<MeshRendererComponent>(mesh);
+        m_Model = m_CurrentScene->CreateEntity("Model");
+        Ref<Ra::Mesh> mesh{  Ra::Mesh::Create("assets/meshes/sponza/sponza.obj") };
+        mesh->ForEashSubmesh([](auto& subMesh)
+            {
+                subMesh.GetMaterial().SkipLight = false;
+            });
+        m_Model.AddComponent<MeshRendererComponent>(mesh);
+        m_Model.GetComponent<TransformComponent>().SetScale(0.04f);
 
-            m_Lamp = m_CurrentScene->CreateEntity("Point light");
-            m_Lamp.AddComponent<PointLightComponent>();
-            m_Lamp.GetComponent<TransformComponent>().SetPosition({ 1.5,1.5,1.5 });
+        m_Sun = m_CurrentScene->CreateEntity("Dir light");
+        m_Sun.AddComponent<DirLightComponent>();
+        m_Sun.GetComponent<TransformComponent>().SetPosition({ 0, 3, 0 });
 
-            m_Loading = false;
+        m_Loading = false;
 
 
         m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
-        auto cam = MakeRef<PerspectiveCamera>(45.f, 16.f / 9.f);
+        auto cam = MakeRef<PerspectiveCamera>(45.f, 16.f / 9.f, 0.1f, 1000.f);
         m_EditorCamera.AddComponent<CameraComponent>(cam, true);
 
         m_CameraController = MakeRef<EditorCameraController>(m_EditorCamera);
+        m_FlyCameraController = MakeRef<FlyCameraController>(m_EditorCamera);
 
         // Panels
         m_SceneHierarchyPanel.SetTrackScene(m_CurrentScene);
@@ -40,7 +47,10 @@ namespace Lithe
 
     void EditorLayer::OnEvent(Event& event)
     {
-        m_CameraController->OnEvent(event);
+        if (m_FlyMode)
+            m_FlyCameraController->OnEvent(event);
+        else
+            m_CameraController->OnEvent(event);
         EventDispatcher dispatcher{ event };
         dispatcher.Dispatch<KeyPressedEvent>(LT_BIND_EVENT_FN(OnKeyPressed));
     }
@@ -48,28 +58,37 @@ namespace Lithe
     bool EditorLayer::OnKeyPressed(KeyPressedEvent& event)
     {
         auto key = event.GetKeyCode();
-        if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeTranslate))
+
+        if (EditorConfig::IsPressed(KeybindOperations::FlyModeToggle))
+        {
+            m_FlyMode = !m_FlyMode;
+            return false;
+        }
+
+        if (m_FlyMode) return false;
+
+        if (EditorConfig::IsPressed(KeybindOperations::GizmoModeTranslate))
         {
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::TRANSLATE;
             p_ChosenGizmoMode = 0;
         }
-        else if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeRotate))
+        else if (EditorConfig::IsPressed(KeybindOperations::GizmoModeRotate))
         {
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::ROTATE;
             p_ChosenGizmoMode = 1;
         }
-        else if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeScale))
+        else if (EditorConfig::IsPressed(KeybindOperations::GizmoModeScale))
         {
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::SCALE;
             p_ChosenGizmoMode = 2;
         }
-        else if (key == EditorConfig::GetOperationKey(KeybindOperations::GizmoModeUniversal))
+        else if (EditorConfig::IsPressed(KeybindOperations::GizmoModeUniversal))
         {
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::UNIVERSAL;
             p_ChosenGizmoMode = 3;
         }
 
-        if (key == EditorConfig::GetOperationKey(KeybindOperations::Focus))
+        if (EditorConfig::IsPressed(KeybindOperations::Focus))
         {
             auto selection = m_CurrentScene->GetSelectedEntity();
             m_CameraController->Focus(selection ? selection.GetComponent<TransformComponent>().GetPosition() : Vec3{ 0.f });
@@ -163,16 +182,18 @@ namespace Lithe
                 Application::GetInstance().GetImGuiLayer()->BlockEvents(!m_ViewportFocused);
 
                 auto winPos = ImGui::GetWindowPos();
-                auto viewportPanelSize = ImGui::GetWindowSize();
+                auto winSize = ImGui::GetWindowSize();
 
                 m_ViewportBounds[0] = Vec2{ ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y };
-                m_ViewportBounds[1] = Vec2{ m_ViewportBounds[0].x + viewportPanelSize.x, m_ViewportBounds[0].y + viewportPanelSize.y };
+                auto offset = Vec2{ m_ViewportBounds[0].x - winPos.x, m_ViewportBounds[0].y - winPos.y, };
+                m_ViewportBounds[1] = Vec2{ m_ViewportBounds[0].x + winSize.x - offset.x, m_ViewportBounds[0].y + winSize.y - offset.y };
+                auto viewportPanelSize{m_ViewportBounds[1] - m_ViewportBounds[0]};
 
-                if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize) // haha 
+                if (m_ViewportSize != viewportPanelSize)
                 {
                     m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
                     m_CurrentScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
-                    m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
+                    m_ViewportSize = viewportPanelSize;
                 }
 
                 auto textureId = m_Framebuffer->GetDrawTextureHandle();
@@ -203,13 +224,17 @@ namespace Lithe
         auto stats = Ra::Renderer::GetStats();
         ImGui::LabelText("Draw calls", std::to_string(stats.DrawCalls).c_str());
         ImGui::LabelText("Indices", std::to_string(stats.Indices).c_str());
+        ImGui::LabelText("ScPS", "%.1f", stats.ScenesPerSecond);
         ImGui::End();
 
     }
 
     void EditorLayer::OnUpdate(const Lithe::Timestep& ts)
     {
-        m_CameraController->OnUpdate(ts);
+        if (m_FlyMode)
+            m_FlyCameraController->OnUpdate(ts);
+        else
+            m_CameraController->OnUpdate(ts);
 
         m_Framebuffer->StartWriting();
 
@@ -240,10 +265,7 @@ namespace Lithe
         {
             ImGuizmo::SetOrthographic(false);
             ImGuizmo::SetDrawlist();
-            auto winPos = ImGui::GetWindowPos();
-            auto winWidth = ImGui::GetWindowWidth();
-            auto winHeight = ImGui::GetWindowHeight();
-            ImGuizmo::SetRect(winPos.x, winPos.y, winWidth, winHeight);
+            ImGuizmo::SetRect(m_ViewportBounds[0].x, m_ViewportBounds[0].y, m_ViewportSize.x, m_ViewportSize.y);
 
             auto cameraEntity = m_CurrentScene->GetPrimaryCameraEntity();
             const auto& camera = cameraEntity.GetComponent<CameraComponent>();
@@ -253,7 +275,7 @@ namespace Lithe
             auto& transformComponent = selectedEntity.GetComponent<TransformComponent>();
             Mat4 transform = transformComponent.GetMatrix();
 
-            bool snap = Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoSnap));
+            bool snap = EditorConfig::IsPressed(KeybindOperations::HoldGizmoSnap);
             ImGuizmo::Manipulate(&cameraView[0][0],
                 &cameraProjection[0][0],
                 m_CurrentGizmoOperation,
@@ -274,14 +296,6 @@ namespace Lithe
         }
     }
 
-#define HANDLE_AXIS_LOCK(operation) \
-if (lock == 1)\
-    m_CurrentGizmoOperation = ImGuizmo::OPERATION::##operation##_X;\
-else if (lock == 2)\
-    m_CurrentGizmoOperation = ImGuizmo::OPERATION::##operation##_Y;\
-else if (lock == 3)\
-    m_CurrentGizmoOperation = ImGuizmo::OPERATION::##operation##_Z;\
-
     void EditorLayer::DrawGizmoControls_()
     {
         ImVec2 controlsWindowPadding = { 25, 70 };
@@ -295,27 +309,17 @@ else if (lock == 3)\
             (ImTextureID)(std::uintptr_t)EditorConfig::UniTransformIcon->GetNativeTerxtureHandle()
         };
         EditorConfig::DrawToggleImageList(textureIds, vals, &p_ChosenGizmoMode, (std::size_t)4, { 30.f, 30.f }, controlsWindowPadding);
-        int lock = 0;
-        if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockX)))
-            lock = 1;
-        else if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockY)))
-            lock = 2;
-        else if (Keyboard::IsKeyPressed(EditorConfig::GetOperationKey(KeybindOperations::HoldGizmoLockZ)))
-            lock = 3;
-
+         
         switch (p_ChosenGizmoMode)
         {
         case 0:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::TRANSLATE;
-            HANDLE_AXIS_LOCK(TRANSLATE);
             break;
         case 1:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::ROTATE;
-            HANDLE_AXIS_LOCK(ROTATE);
             break;
         case 2:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::SCALE;
-            HANDLE_AXIS_LOCK(SCALE);
             break;
         case 3:
             m_CurrentGizmoOperation = ImGuizmo::OPERATION::UNIVERSAL;

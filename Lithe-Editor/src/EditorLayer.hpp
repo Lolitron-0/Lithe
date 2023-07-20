@@ -25,8 +25,8 @@ namespace Lithe
         void DrawGizmoControls_();
 
         Ref<Scene> m_CurrentScene;
-        Entity m_Cube;
-        Entity m_Lamp;
+        Entity m_Model;
+        Entity m_Sun;
 
         bool m_Loading{ true }; // @todo thread
 
@@ -34,7 +34,9 @@ namespace Lithe
         Vec2 m_ViewportSize;
         Vec2 m_ViewportBounds[2];
         Entity m_EditorCamera;
+        bool m_FlyMode{ false };
         Ref<EditorCameraController> m_CameraController;
+        Ref<FlyCameraController> m_FlyCameraController;
         Ref<Ra::Framebuffer> m_Framebuffer;
         bool m_ViewportFocused{ true };
 

@@ -218,9 +218,13 @@ namespace Lithe
         return io.Fonts->Fonts[(int)style];
     }
 
-    Lithe::Keyboard::Key EditorConfig::GetOperationKey(KeybindOperations operation)
+    bool EditorConfig::IsPressed(KeybindOperations operation)
     {
-        return s_KeybindingsMap.at(operation);
+        auto keys = s_KeybindingsMap.at(operation);
+        bool res = true;
+        for (const auto& key : keys)
+            res &= Keyboard::IsKeyPressed(key);
+        return res;
     }
 
     float* EditorConfig::GetGizmoSnap(ImGuizmo::OPERATION operation)
@@ -272,17 +276,15 @@ namespace Lithe
     Ra::Ref<Ra::Texture> EditorConfig::GlobalIcon = nullptr;
     Ra::Ref<Ra::Texture> EditorConfig::GlobalIconMin = nullptr;
 
-    const std::unordered_map<Lithe::KeybindOperations, Lithe::Keyboard::Key> EditorConfig::s_KeybindingsMap =
+    const std::unordered_map<Lithe::KeybindOperations, std::vector<Lithe::Keyboard::Key>> EditorConfig::s_KeybindingsMap =
     {
-        {KeybindOperations::HoldGizmoSnap,      Keyboard::Key::J},
-        {KeybindOperations::HoldGizmoLockX,     Keyboard::Key::A},
-        {KeybindOperations::HoldGizmoLockY,     Keyboard::Key::S},
-        {KeybindOperations::HoldGizmoLockZ,     Keyboard::Key::D},
-        {KeybindOperations::GizmoModeTranslate, Keyboard::Key::W},
-        {KeybindOperations::GizmoModeRotate,    Keyboard::Key::E},
-        {KeybindOperations::GizmoModeScale,     Keyboard::Key::R},
-        {KeybindOperations::GizmoModeUniversal, Keyboard::Key::T},
-        {KeybindOperations::Focus,              Keyboard::Key::F},
+        {KeybindOperations::HoldGizmoSnap,          {Keyboard::Key::J }},
+        { KeybindOperations::GizmoModeTranslate,    {Keyboard::Key::W }},
+        { KeybindOperations::GizmoModeRotate,       {Keyboard::Key::E }},
+        { KeybindOperations::GizmoModeScale,        {Keyboard::Key::R }},
+        { KeybindOperations::GizmoModeUniversal,    {Keyboard::Key::T }},
+        { KeybindOperations::Focus,                 {Keyboard::Key::F }},
+        { KeybindOperations::FlyModeToggle,         {Keyboard::Key::F, Keyboard::Key::LeftShift, Keyboard::Key::LeftControl }},
     };
 
     Vec4 EditorConfig::s_BaseColor{0.36f, 0.17f, 0.36f, 1.f};

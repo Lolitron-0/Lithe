@@ -129,17 +129,17 @@ namespace Lithe
 
     Vec3 TransformComponent::GetFront() const
     {
-        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, 0.f })), { 0, 0, -1.f });
+        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, m_Rotation.z })), { 0, 0, -1.f });
     }
 
     Vec3 TransformComponent::GetRight() const
     {
-        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, 0.f })), { 1.f, 0, 0 });
+        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, m_Rotation.z })), { 1.f, 0, 0 });
     }
 
     Lithe::Vec3 TransformComponent::GetUp() const
     {
-        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, 0.f })), { 0, 1.f, 0 });
+        return glm::rotate(Quat(VecToRadians(Vec3{ m_Rotation.x, m_Rotation.y, m_Rotation.z })), { 0, 1.f, 0 });
     }
 
     TransformComponent& TransformComponent::SetPosition(const Vec3& pos)

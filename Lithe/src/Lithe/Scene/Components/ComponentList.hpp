@@ -6,6 +6,7 @@ namespace Lithe
     class TransformComponent;
     class MeshRendererComponent;
     class PointLightComponent;
+    class DirLightComponent;
     class CameraComponent;
 
     using ComponentsList = TypeList
@@ -14,6 +15,7 @@ namespace Lithe
         TransformComponent,
         MeshRendererComponent,
         PointLightComponent,
+        DirLightComponent,
         CameraComponent
     >;
 }

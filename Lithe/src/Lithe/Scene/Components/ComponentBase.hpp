@@ -8,7 +8,7 @@
         static constexpr const char* GetComponentName() { return #className; } \
         static inline bool Removable = true;\
     private: \
-    static_assert(Contains<className, ComponentsList>::value);
+    static_assert(Contains<className, ComponentsList>::value, "Forgot to add to TypeList!");
 
 namespace Lithe
 {

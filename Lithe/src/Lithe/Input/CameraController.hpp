@@ -22,12 +22,12 @@ namespace Lithe
      * };
      * @endcode
     */
-    template<class Derived>
+    template<class Derived = NullType>
     class CameraController
     {
     public:
         CameraController(const Entity& camera)
-            :m_Camera(camera), m_Transform(&camera.GetComponent<TransformComponent>())
+            :m_Camera(camera)
         {
         }
         virtual ~CameraController() = default;
@@ -51,10 +51,9 @@ namespace Lithe
         virtual bool OnMouseScrolled(MouseScrolledEvent&) { return false; };
 
         Ref<Camera> GetCamera() { return m_Camera.GetComponent<CameraComponent>().Camera; }
-        TransformComponent& GetTransform() { return *m_Transform; }
+        TransformComponent& GetTransform() { return m_Camera.GetComponent<TransformComponent>(); }
 
     protected:
-        TransformComponent* m_Transform;
         Entity m_Camera;
     };
 
@@ -90,14 +89,16 @@ namespace Lithe
 
         virtual void OnUpdate(const Timestep& ts) override
         {
+            if (!Application::GetInstance().GetWindow().IsCursorHidden())
+                Application::GetInstance().GetWindow().HideCursor();
             if (Keyboard::IsKeyPressed(Keyboard::Key::W))
-                m_Transform->Translate(m_Transform->GetFront()*m_FlySpeed*(float)ts);
+                GetTransform().Translate(GetTransform().GetFront()*m_FlySpeed*(float)ts);
             if (Keyboard::IsKeyPressed(Keyboard::Key::A))
-                m_Transform->Translate(-m_Transform->GetRight()*m_FlySpeed*(float)ts);
+                GetTransform().Translate(-GetTransform().GetRight()*m_FlySpeed*(float)ts);
             if (Keyboard::IsKeyPressed(Keyboard::Key::S))
-                m_Transform->Translate(-m_Transform->GetFront()*m_FlySpeed*(float)ts);
+                GetTransform().Translate(-GetTransform().GetFront()*m_FlySpeed*(float)ts);
             if (Keyboard::IsKeyPressed(Keyboard::Key::D))
-                m_Transform->Translate(m_Transform->GetRight()*m_FlySpeed*(float)ts);
+                GetTransform().Translate(GetTransform().GetRight()*m_FlySpeed*(float)ts);
         }
 
         virtual bool OnMouseMoved(MouseMovedEvent& event) override
@@ -105,8 +106,8 @@ namespace Lithe
             auto xOffset = m_LastMousePos.x == -1 ? 0.f : m_LastMousePos.x - event.GetMouseX();
             auto yOffset = m_LastMousePos.y == -1 ? 0.f : m_LastMousePos.y - event.GetMouseY();
 
-            m_Transform->RotateY(-event.GetOffsetX() * m_MouseSensitivity);
-            m_Transform->RotateX(event.GetOffsetY() * m_MouseSensitivity);
+            GetTransform().RotateY(-event.GetOffsetX() * m_MouseSensitivity);
+            GetTransform().RotateX(event.GetOffsetY() * m_MouseSensitivity);
 
             m_LastMousePos.x = event.GetMouseX();
             m_LastMousePos.y = event.GetMouseY();
@@ -131,7 +132,7 @@ namespace Lithe
         glm::vec2 m_LastMousePos{ -1,-1 };
 
         float m_MouseSensitivity{ .1f };
-        float m_FlySpeed{ 3.f };
+        float m_FlySpeed{ 10.f };
     };
 
     /**

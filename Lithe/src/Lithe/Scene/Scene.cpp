@@ -52,7 +52,19 @@ namespace Lithe
                 for (auto& entitiy : pointLightGroup)
                 {
                     auto& [pointLight, transform] = pointLightGroup.get(entitiy);
-                    Ra::Renderer::SubmitPointLight(pointLight.Light, transform.GetPosition());
+                    Ra::Renderer::SubmitLight(pointLight.Light, transform.GetPosition());
+                }
+            }
+
+            {
+                PROFILER_SCOPE("Scene: dir light submission");
+                auto dirLightGroup = m_Registry.group<DirLightComponent>(entt::get<TransformComponent>);
+                for (auto& entitiy : dirLightGroup)
+                {
+                    auto& [dirLight, transform] = dirLightGroup.get(entitiy);
+                    dirLight.Light.Direction = transform.GetFront();
+                    Ra::Renderer::SubmitLight(dirLight.Light);
+                    Ra::Renderer::DrawVector(transform.GetPosition(), dirLight.Light.Direction);
                 }
             }
 
@@ -64,7 +76,7 @@ namespace Lithe
                 {
                     auto& [transform, mesh] = group.get<TransformComponent, MeshRendererComponent>(entity);
 
-                    Ra::Renderer::Submit(mesh.Mesh, { transform.GetMatrix(), transform.GetNormalMatrix() }, mesh.DrawingMode);
+                    Ra::Renderer::Submit(mesh.MeshObject, { transform.GetMatrix(), transform.GetNormalMatrix() }, mesh.DrawingMode);
                 }
             }
 

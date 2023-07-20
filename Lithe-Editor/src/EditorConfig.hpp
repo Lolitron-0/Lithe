@@ -20,13 +20,11 @@ namespace Lithe
     enum class KeybindOperations
     {
         HoldGizmoSnap,
-        HoldGizmoLockX,
-        HoldGizmoLockY,
-        HoldGizmoLockZ,
         GizmoModeTranslate,
         GizmoModeRotate,
         GizmoModeScale,
         GizmoModeUniversal,
+        FlyModeToggle,
         Focus,
     };
 
@@ -40,7 +38,7 @@ namespace Lithe
         static void Init();
         static void SetupDarkThemeColors();
         static ImFont* GetFont(FontStyle style);
-        static Keyboard::Key GetOperationKey(KeybindOperations operation);
+        static bool IsPressed(KeybindOperations operation);
         static float* GetGizmoSnap(ImGuizmo::OPERATION operation);
         static const Vec4 GetBaseColor();
 
@@ -51,7 +49,7 @@ namespace Lithe
         static Ref<Ra::Texture> GlobalIcon;
         static Ref<Ra::Texture> GlobalIconMin;
     private:
-        static const std::unordered_map<KeybindOperations, Keyboard::Key> s_KeybindingsMap;
+        static const std::unordered_map<KeybindOperations, std::vector<Keyboard::Key>> s_KeybindingsMap;
         static Vec4 s_BaseColor;
     };
 

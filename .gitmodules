@@ -27,3 +27,6 @@
 	path = Lithe/thirdparty/Profiler
 	url = https://github.com/Lolitron-0/Profiler
 	branch = master
+[submodule "Lithe-Editor/assets/meshes/Sponza"]
+	path = Lithe-Editor/assets/meshes/Sponza
+	url = https://github.com/jimmiebergmann/Sponza

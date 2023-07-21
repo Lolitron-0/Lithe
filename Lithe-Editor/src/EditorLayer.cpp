@@ -10,6 +10,11 @@ namespace Lithe
     EditorLayer::EditorLayer()
         :Layer("EditorLayer")
     {
+        Log::SetCoreLoggerCustomFunc([](const std::string& message, const Log::Severity& severity)
+            {
+                ImGuiCustom::ShowToast(message, severity, 5000U);
+            });
+
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
         props.Height = Application::GetInstance().GetWindow().GetHeight();
@@ -63,7 +68,7 @@ namespace Lithe
         if (EditorConfig::IsPressed(KeybindOperations::FlyModeToggle))
         {
             m_FlyMode = !m_FlyMode;
-            ImGuiCustom::ShowToast(std::string("Toggle fly mode: ") + (m_FlyMode ? "On" : "Off"), ImGuiCustom::ImGuiToast::Severity::Warning);
+            LITHE_CORE_LOG_WARN(std::string("Toggle fly mode: ") + (m_FlyMode ? "On" : "Off"));
             return false;
         }
 
@@ -189,6 +194,9 @@ namespace Lithe
                 m_ViewportBounds[0] = Vec2{ ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y };
                 auto offset = Vec2{ m_ViewportBounds[0].x - winPos.x, m_ViewportBounds[0].y - winPos.y, };
                 m_ViewportBounds[1] = Vec2{ m_ViewportBounds[0].x + winSize.x - offset.x, m_ViewportBounds[0].y + winSize.y - offset.y };
+
+                ImGuiCustom::SetBounds(m_ViewportBounds);
+
                 auto viewportPanelSize{m_ViewportBounds[1] - m_ViewportBounds[0]};
 
                 if (m_ViewportSize != viewportPanelSize)

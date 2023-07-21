@@ -4,6 +4,14 @@
 namespace Lithe {
     namespace ImGuiCustom {
 
+        Vec2 g_ContentAreaBounds[2];
+
+        void SetBounds(Vec2 bounds[2])
+        {
+            g_ContentAreaBounds[0] = bounds[0];
+            g_ContentAreaBounds[1] = bounds[1];
+        }
+
         bool DrawToggleButton(const char* label, bool* val, ImVec2 size)
         {
             bool ret{ false };
@@ -107,17 +115,15 @@ namespace Lithe {
 
         std::vector<ImGuiToast> activeToasts;
 
-        void ShowToast(const std::string message, ImGuiToast::Severity severity /*= ImGuiToast::Severity::Message*/, std::uint32_t lifetimeMs /*= 3000*/)
-        {
+        void ShowToast(const std::string message, Log::Severity severity /*= Log::Severity::Trace*/, std::uint32_t lifetimeMs /*= 3000*/)
+        {  
             activeToasts.emplace_back(message, severity, lifetimeMs);
         }
 
         void Render()
         {
             std::uint32_t i{ 0 };
-            auto minBound = ImGui::GetWindowContentRegionMin();
-            auto maxBound = ImGui::GetWindowContentRegionMax();
-            ImVec2 currentPos = { minBound.x + ImGuiToast::Padding.x, (maxBound.y - minBound.y) - ImGui::CalcTextSize("A").y - ImGuiToast::Padding.y };
+            ImVec2 currentPos = { g_ContentAreaBounds[0].x + ImGuiToast::Padding.x, (g_ContentAreaBounds[1].y - g_ContentAreaBounds[0].y) - ImGui::CalcTextSize("A").y - ImGuiToast::Padding.y };
             for (; i < activeToasts.size(); i++)
             {
                 if (activeToasts[i].Dead())
@@ -126,7 +132,8 @@ namespace Lithe {
                     i--;
                     continue;
                 }
-                ImGui::SetCursorPos(currentPos);
+                if (!activeToasts[i].IsPositioned()) 
+                    activeToasts[i].SetPosition(currentPos);
                 activeToasts[i].Render();
                 currentPos.y -= activeToasts[i].GetSize().y;
             }

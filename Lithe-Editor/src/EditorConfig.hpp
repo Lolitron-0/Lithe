@@ -31,10 +31,6 @@ namespace Lithe
     class EditorConfig
     {
     public:
-        static bool DrawToggleButton(const char* label, bool* val, ImVec2 size = {0,0});
-        static bool DrawToggleImageButton(ImTextureID texId, bool* val, ImVec2 size = {20,20});
-        static void DrawToggleList(const char* labels[], bool vals[], int* chosen, std::size_t count, ImVec2 elSize = { 20.f,20.f }, ImVec2 offset = {0,0});
-        static void DrawToggleImageList(ImTextureID texIds[], bool vals[],int* chosen, std::size_t count, ImVec2 elSize = {20.f,20.f}, ImVec2 offset = { 0,0 });
         static void Init();
         static void SetupDarkThemeColors();
         static ImFont* GetFont(FontStyle style);
@@ -52,5 +48,28 @@ namespace Lithe
         static const std::unordered_map<KeybindOperations, std::vector<Keyboard::Key>> s_KeybindingsMap;
         static Vec4 s_BaseColor;
     };
+
+    inline ImVec4 ToImGuiVec(const Vec4& v) { return ImVec4{ v.r,v.g,v.b,v.a }; }
+    inline Vec4 ToVec(const ImVec4& v) { return Vec4{ v.x,v.y,v.z,v.w }; }
+    inline Vec4 Desaturate(const Vec4& v, float value)
+    {
+        float i = (v.r + v.g + v.b) / 3;
+        auto dr = i - v.r;
+        auto dg = i - v.g;
+        auto db = i - v.b;
+        return { v.r + dr * value, v.g + dg * value, v.b + db * value, v.a };
+    }
+    inline Vec4 Lightness(const Vec4& v, float delta)
+    {
+        return v + Vec4{delta, delta, delta, 1};
+    }
+    inline ImVec4 Lightness(const ImVec4& v, float delta)
+    {
+        return ImVec4{ v.x + delta, v.y + delta,v.z + delta, v.w };
+    }
+    inline Vec4 GetHighlight()
+    {
+        return Desaturate(Lightness(EditorConfig::GetBaseColor(), .135f), -0.35f);
+    }
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "Lithe.hpp"
-#include "Panels/Panels.hpp"
+#include "UI/Panels/Panels.hpp"
 #include <ImGuizmo.h>
 
 namespace Lithe

@@ -29,6 +29,8 @@
 #include "Lithe/Scene/Components/Camera/Camera.hpp"
 #include "Lithe/Scene/Components/Camera/PerspectiveCamera.hpp"
 
+#include "Lithe/Utils/Stopwatch.hpp"
+
 #include <ImGui/imgui.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

@@ -1,5 +1,6 @@
 #include "EditorLayer.hpp"
 #include "EditorConfig.hpp"
+#include "UI/ImGuiCustom/ImGuiCustom.hpp"
 #include <imgui.h>
 
 namespace Lithe
@@ -62,6 +63,7 @@ namespace Lithe
         if (EditorConfig::IsPressed(KeybindOperations::FlyModeToggle))
         {
             m_FlyMode = !m_FlyMode;
+            ImGuiCustom::ShowToast(std::string("Toggle fly mode: ") + (m_FlyMode ? "On" : "Off"), ImGuiCustom::ImGuiToast::Severity::Warning);
             return false;
         }
 
@@ -210,6 +212,9 @@ namespace Lithe
             {
                 ImGui::ProgressBar(1);
             }
+            
+
+            ImGuiCustom::Render();
 
             ImGui::End();
             ImGui::PopStyleVar();
@@ -308,7 +313,7 @@ namespace Lithe
             (ImTextureID)(std::uintptr_t)EditorConfig::ScaleIcon->GetNativeTerxtureHandle(),
             (ImTextureID)(std::uintptr_t)EditorConfig::UniTransformIcon->GetNativeTerxtureHandle()
         };
-        EditorConfig::DrawToggleImageList(textureIds, vals, &p_ChosenGizmoMode, (std::size_t)4, { 30.f, 30.f }, controlsWindowPadding);
+        ImGuiCustom::DrawToggleImageList(textureIds, vals, &p_ChosenGizmoMode, (std::size_t)4, { 30.f, 30.f }, controlsWindowPadding);
          
         switch (p_ChosenGizmoMode)
         {
@@ -331,7 +336,7 @@ namespace Lithe
         ImGui::SetCursorPosX(ImGui::GetCursorPosX() + controlsWindowPadding.x);
         ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 50);
         static bool globalToggled = false;
-        if (EditorConfig::DrawToggleImageButton((ImTextureID)(std::uintptr_t)EditorConfig::GlobalIconMin->GetNativeTerxtureHandle(), &globalToggled, { 30,30 }))
+        if (ImGuiCustom::DrawToggleImageButton((ImTextureID)(std::uintptr_t)EditorConfig::GlobalIconMin->GetNativeTerxtureHandle(), &globalToggled, { 30,30 }))
             m_CurrentGizmoMode = globalToggled ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
 
     }

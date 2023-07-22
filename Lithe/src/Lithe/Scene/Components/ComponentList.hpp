@@ -5,6 +5,7 @@ namespace Lithe
     class TagComponent;
     class TransformComponent;
     class MeshRendererComponent;
+    class SkyboxComponent;
     class PointLightComponent;
     class DirLightComponent;
     class CameraComponent;
@@ -14,6 +15,7 @@ namespace Lithe
         TagComponent,
         TransformComponent,
         MeshRendererComponent,
+        SkyboxComponent,
         PointLightComponent,
         DirLightComponent,
         CameraComponent

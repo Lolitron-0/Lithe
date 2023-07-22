@@ -1,5 +1,5 @@
 #pragma once
-#include "../ComponentBase.hpp"
+#include "Lithe/Scene/Components/ComponentBase.hpp"
 #include <RenderAbstraction.hpp>
 
 namespace Lithe

@@ -19,13 +19,13 @@ namespace Lithe
         props.Width = Application::GetInstance().GetWindow().GetWidth();
         props.Height = Application::GetInstance().GetWindow().GetHeight();
         props.Attachments = { Ra::TextureFormat::Color, Ra::TextureFormat::R32, Ra::TextureFormat::Depth };
-        props.Samples = 1;
+        props.Samples = 8;
         m_Framebuffer = Ra::Framebuffer::Create(props);
 
         m_CurrentScene = MakeRef<Scene>();
 
         m_Model = m_CurrentScene->CreateEntity("Model");
-        Ref<Ra::Mesh> mesh{  Ra::Mesh::Create("assets/meshes/sponza/sponza.obj") };
+        Ref<Ra::Mesh> mesh{ Ra::Mesh::Create("assets/meshes/sponza/sponza.obj") };
         mesh->ForEashSubmesh([](auto& subMesh)
             {
                 subMesh.GetMaterial().SkipLight = false;
@@ -39,7 +39,6 @@ namespace Lithe
 
         m_Loading = false;
 
-
         m_EditorCamera = m_CurrentScene->CreateEntity("Editor Camera");
         auto cam = MakeRef<PerspectiveCamera>(45.f, 16.f / 9.f, 0.1f, 1000.f);
         m_EditorCamera.AddComponent<CameraComponent>(cam, true);
@@ -49,6 +48,22 @@ namespace Lithe
 
         // Panels
         m_SceneHierarchyPanel.SetTrackScene(m_CurrentScene);
+
+        auto skyboxEntity = m_CurrentScene->CreateEntity("Skybox");
+        Ra::Skybox skybox{
+            {
+                "assets/skyboxes/right.jpg",
+                    "assets/skyboxes/left.jpg",
+                    "assets/skyboxes/top.jpg",
+                    "assets/skyboxes/bottom.jpg",
+                    "assets/skyboxes/front.jpg",
+                    "assets/skyboxes/back.jpg"
+            }
+        };
+        /*Ra::Skybox skybox{
+                "assets/skyboxes/right.jpg"
+        };*/
+        skyboxEntity.AddComponent<SkyboxComponent>(std::move(skybox));
     }
 
     void EditorLayer::OnEvent(Event& event)
@@ -197,7 +212,7 @@ namespace Lithe
 
                 ImGuiCustom::SetBounds(m_ViewportBounds);
 
-                auto viewportPanelSize{m_ViewportBounds[1] - m_ViewportBounds[0]};
+                auto viewportPanelSize{ m_ViewportBounds[1] - m_ViewportBounds[0] };
 
                 if (m_ViewportSize != viewportPanelSize)
                 {
@@ -220,7 +235,7 @@ namespace Lithe
             {
                 ImGui::ProgressBar(1);
             }
-            
+
 
             ImGuiCustom::Render();
 
@@ -251,8 +266,8 @@ namespace Lithe
 
         m_Framebuffer->StartWriting();
 
-        Ra::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.f });
-        Ra::RenderCommand::Clear();
+        Ra::RendererAPI::GetInstance().SetClearColor({ 0.1f, 0.1f, 0.1f, 1.f });
+        Ra::RendererAPI::GetInstance().Clear();
 
         if (!m_Loading)
             m_CurrentScene->OnUpdate(ts);
@@ -322,7 +337,7 @@ namespace Lithe
             (ImTextureID)(std::uintptr_t)EditorConfig::UniTransformIcon->GetNativeTerxtureHandle()
         };
         ImGuiCustom::DrawToggleImageList(textureIds, vals, &p_ChosenGizmoMode, (std::size_t)4, { 30.f, 30.f }, controlsWindowPadding);
-         
+
         switch (p_ChosenGizmoMode)
         {
         case 0:

@@ -35,7 +35,8 @@ namespace Lithe
                 auto& [camera, transform] = group.get(entity);
                 if (camera.Primary)
                 {
-                    m_ViewProjection = camera.Camera->GetProjection() * glm::inverse(transform.GetMatrix()); // splitted storage to avoid multiply+inverse several times
+                    m_ViewMatrix = glm::inverse(transform.GetMatrix());
+                    m_ProjectionMatrix = camera.Camera->GetProjection();
                     m_PrimaryCamera = Entity{ entity, weak_from_this() };
                     break;
                 }
@@ -44,7 +45,16 @@ namespace Lithe
 
         if (m_PrimaryCamera)
         {
-            Ra::Renderer::BeginScene(m_ViewProjection, m_PrimaryCamera.GetComponent<TransformComponent>().GetPosition());
+            auto skyboxView = m_Registry.view<SkyboxComponent>();
+            for (auto& entity : skyboxView)
+            {
+                Ra::Renderer::BeginScene(
+                    m_ViewMatrix, m_ProjectionMatrix,
+                    m_PrimaryCamera.GetComponent<TransformComponent>().GetPosition(),
+                    skyboxView.get<SkyboxComponent>(entity).SkyboxObject);
+                break;
+            }
+
 
             {
                 PROFILER_SCOPE("Scene: point light submission");

@@ -122,10 +122,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3a48423812319ccb803e4254e989a11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns color attachment with given index.  <br /></td></tr>
 <tr class="separator:a3a48423812319ccb803e4254e989a11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab67323deac2bb0efb4bcf8c8450c522c"><td class="memItemLeft" align="right" valign="top">RendererId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#ab67323deac2bb0efb4bcf8c8450c522c">GetDrawTextureHandle</a> (std::size_t index=0) const override</td></tr>
-<tr class="memdesc:ab67323deac2bb0efb4bcf8c8450c522c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given index for others.  <br /></td></tr>
+<tr class="memdesc:ab67323deac2bb0efb4bcf8c8450c522c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a resolved 2d texture with given index in case of multisampled framebuffers and color attachment for others.  <br /></td></tr>
 <tr class="separator:ab67323deac2bb0efb4bcf8c8450c522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65d900ee0cb79982a9964adb968dc379"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#a65d900ee0cb79982a9964adb968dc379">GetProperties</a> () const override</td></tr>
 <tr class="separator:a65d900ee0cb79982a9964adb968dc379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45815cfe2932b9242de01076e9af7b16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#a45815cfe2932b9242de01076e9af7b16">ReadPixel</a> (std::uint32_t attachmentIndex, int x, int y, bool leaveBound=true) override</td></tr>
+<tr class="memdesc:a45815cfe2932b9242de01076e9af7b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets pixel value from attachment with given index.  <br /></td></tr>
+<tr class="separator:a45815cfe2932b9242de01076e9af7b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc50a59e676da405f01ef741f785d6c4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_framebuffer.html#acc50a59e676da405f01ef741f785d6c4">StartWriting</a> ()=0</td></tr>
 <tr class="memdesc:acc50a59e676da405f01ef741f785d6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this framebuffer.  <br /></td></tr>
 <tr class="separator:acc50a59e676da405f01ef741f785d6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,11 +142,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Resize</b> (s
 <tr class="memdesc:a4e9cdf64af721be678de25945af0d9a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns color attachment with given index.  <br /></td></tr>
 <tr class="separator:a4e9cdf64af721be678de25945af0d9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7df2fae0c53089fc3438bbcdb743bf77"><td class="memItemLeft" align="right" valign="top">virtual RendererId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">GetDrawTextureHandle</a> (std::size_t index=0) const =0</td></tr>
-<tr class="memdesc:a7df2fae0c53089fc3438bbcdb743bf77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given index for others.  <br /></td></tr>
+<tr class="memdesc:a7df2fae0c53089fc3438bbcdb743bf77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a resolved 2d texture with given index in case of multisampled framebuffers and color attachment for others.  <br /></td></tr>
 <tr class="separator:a7df2fae0c53089fc3438bbcdb743bf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5202109d1f9303f21b1628e748e30ac8"><td class="memItemLeft" align="right" valign="top"><a id="a5202109d1f9303f21b1628e748e30ac8" name="a5202109d1f9303f21b1628e748e30ac8"></a>
 virtual const <a class="el" href="struct_ra_1_1_framebuffer_properties.html">FramebufferProperties</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetProperties</b> () const =0</td></tr>
 <tr class="separator:a5202109d1f9303f21b1628e748e30ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43d8ad0fd1a541ecd9aa09de67c069a0"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_framebuffer.html#a43d8ad0fd1a541ecd9aa09de67c069a0">ReadPixel</a> (std::uint32_t attachmentIndex, int x, int y, bool leaveBound=true)=0</td></tr>
+<tr class="memdesc:a43d8ad0fd1a541ecd9aa09de67c069a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets pixel value from attachment with given index.  <br /></td></tr>
+<tr class="separator:a43d8ad0fd1a541ecd9aa09de67c069a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -178,7 +184,7 @@ static Scope&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer<
 </div><div class="memdoc">
 
 <p>Returns color attachment with given index. </p>
-<dl class="section warning"><dt>Warning</dt><dd>This method does exactly what it's name says, so in case of multisampled framebuffer, multisampled texture will be returned. To receive just the 2d texture to draw use <a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#ab67323deac2bb0efb4bcf8c8450c522c" title="Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given in...">GetDrawTextureHandle()</a>; </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This method does exactly what it's name says, so in case of multisampled framebuffer, multisampled texture will be returned. To receive just the 2d texture to draw use <a class="el" href="class_ra_1_1_open_g_l_framebuffer.html#ab67323deac2bb0efb4bcf8c8450c522c" title="Returns a resolved 2d texture with given index in case of multisampled framebuffers and color attachm...">GetDrawTextureHandle()</a>; </dd></dl>
 
 <p>Implements <a class="el" href="class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0">Ra::Framebuffer</a>.</p>
 
@@ -208,7 +214,7 @@ static Scope&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer<
 </table>
 </div><div class="memdoc">
 
-<p>Returns a resolved 2d texture in case of multisampled framebuffers and color attachment with given index for others. </p>
+<p>Returns a resolved 2d texture with given index in case of multisampled framebuffers and color attachment for others. </p>
 
 <p>Implements <a class="el" href="class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77">Ra::Framebuffer</a>.</p>
 
@@ -238,6 +244,66 @@ static Scope&lt; <a class="el" href="class_ra_1_1_framebuffer.html">Framebuffer<
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_ra_1_1_framebuffer.html">Ra::Framebuffer</a>.</p>
+
+</div>
+</div>
+<a id="a45815cfe2932b9242de01076e9af7b16" name="a45815cfe2932b9242de01076e9af7b16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45815cfe2932b9242de01076e9af7b16">&#9670;&#160;</a></span>ReadPixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Ra::OpenGLFramebuffer::ReadPixel </td>
+          <td>(</td>
+          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramname"><em>attachmentIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>leaveBound</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets pixel value from attachment with given index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leaveBound</td><td>if true main buffer remains bound after call </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pixel value </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Buffer binding is internal so binding manually is not necessary </dd></dl>
+
+<p>Implements <a class="el" href="class_ra_1_1_framebuffer.html#a43d8ad0fd1a541ecd9aa09de67c069a0">Ra::Framebuffer</a>.</p>
 
 </div>
 </div>

@@ -119,21 +119,21 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Bind</b> ()=0
 <tr class="memitem:ac3cfc9eb39f303c75cb044c45d02590b"><td class="memItemLeft" align="right" valign="top"><a id="ac3cfc9eb39f303c75cb044c45d02590b" name="ac3cfc9eb39f303c75cb044c45d02590b"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()=0</td></tr>
 <tr class="separator:ac3cfc9eb39f303c75cb044c45d02590b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba467f106dd49b53e881f0ed0e99fdac"><td class="memItemLeft" align="right" valign="top">virtual std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_index_buffer.html#aba467f106dd49b53e881f0ed0e99fdac">GetCount</a> () const =0</td></tr>
-<tr class="memdesc:aba467f106dd49b53e881f0ed0e99fdac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of indices stored.  <br /></td></tr>
-<tr class="separator:aba467f106dd49b53e881f0ed0e99fdac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a494a947eb239c1a8f4ef6f437970d253"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_index_buffer.html#a494a947eb239c1a8f4ef6f437970d253">GetCount</a> () const =0</td></tr>
+<tr class="memdesc:a494a947eb239c1a8f4ef6f437970d253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of indices stored.  <br /></td></tr>
+<tr class="separator:a494a947eb239c1a8f4ef6f437970d253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a10b62be09479843e84ea293a2b855bc9"><td class="memItemLeft" align="right" valign="top">static Scope&lt; <a class="el" href="class_ra_1_1_index_buffer.html">IndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_index_buffer.html#a10b62be09479843e84ea293a2b855bc9">Create</a> (const std::uint32_t *indices, std::uint32_t count)</td></tr>
-<tr class="memdesc:a10b62be09479843e84ea293a2b855bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory method for index buffer creation.  <br /></td></tr>
-<tr class="separator:a10b62be09479843e84ea293a2b855bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa79b6831a976fd1df945f23089567b51"><td class="memItemLeft" align="right" valign="top">static Scope&lt; <a class="el" href="class_ra_1_1_index_buffer.html">IndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_index_buffer.html#aa79b6831a976fd1df945f23089567b51">Create</a> (const std::uint32_t *indices, std::size_t count)</td></tr>
+<tr class="memdesc:aa79b6831a976fd1df945f23089567b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory method for index buffer creation.  <br /></td></tr>
+<tr class="separator:aa79b6831a976fd1df945f23089567b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for index buffer object. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a10b62be09479843e84ea293a2b855bc9" name="a10b62be09479843e84ea293a2b855bc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10b62be09479843e84ea293a2b855bc9">&#9670;&#160;</a></span>Create()</h2>
+<a id="aa79b6831a976fd1df945f23089567b51" name="aa79b6831a976fd1df945f23089567b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa79b6831a976fd1df945f23089567b51">&#9670;&#160;</a></span>Create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +150,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>count</em>&#160;</td>
         </tr>
         <tr>
@@ -178,8 +178,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aba467f106dd49b53e881f0ed0e99fdac" name="aba467f106dd49b53e881f0ed0e99fdac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba467f106dd49b53e881f0ed0e99fdac">&#9670;&#160;</a></span>GetCount()</h2>
+<a id="a494a947eb239c1a8f4ef6f437970d253" name="a494a947eb239c1a8f4ef6f437970d253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a494a947eb239c1a8f4ef6f437970d253">&#9670;&#160;</a></span>GetCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +188,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::uint32_t Ra::IndexBuffer::GetCount </td>
+          <td class="memname">virtual std::size_t Ra::IndexBuffer::GetCount </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -203,7 +203,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Returns the number of indices stored. </p>
 
-<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_index_buffer.html#aa09c2ecce0f6d80e055d982e946742f2">Ra::OpenGLIndexBuffer</a>.</p>
+<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_index_buffer.html#a36d1d6745344a940abbce5f71c613afc">Ra::OpenGLIndexBuffer</a>.</p>
 
 </div>
 </div>

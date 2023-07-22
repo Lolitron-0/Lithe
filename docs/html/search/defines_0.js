@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['lithe_5flog_5fcore_5fdebug_0',['LITHE_LOG_CORE_DEBUG',['../_log_8hpp.html#a82f6f0add8640ee0208e6b1f0dc3d98b',1,'Log.hpp']]],
-  ['lithe_5flog_5fcore_5ferror_1',['LITHE_LOG_CORE_ERROR',['../_log_8hpp.html#a3c5e8ca9c467bf115c8db63bb95da03a',1,'Log.hpp']]],
-  ['lithe_5flog_5fcore_5ffatal_2',['LITHE_LOG_CORE_FATAL',['../_log_8hpp.html#a33f4e1d07beb5e53f9f705a56991081e',1,'Log.hpp']]],
-  ['lithe_5flog_5fcore_5finfo_3',['LITHE_LOG_CORE_INFO',['../_log_8hpp.html#a68c477bdd6faffc39409ab128869f65d',1,'Log.hpp']]],
-  ['lithe_5flog_5fcore_5ftrace_4',['LITHE_LOG_CORE_TRACE',['../_log_8hpp.html#a4ebdf86e598b9269907e6b66b82f4b6f',1,'Log.hpp']]],
-  ['lithe_5flog_5fcore_5fwarn_5',['LITHE_LOG_CORE_WARN',['../_log_8hpp.html#a63144943bc21fd4a5d3666dc2f320f01',1,'Log.hpp']]],
+  ['lithe_5fcore_5flog_5fdebug_0',['LITHE_CORE_LOG_DEBUG',['../_log_8hpp.html#aef2552e7bb3b1d5a66ba00dc4721ed8d',1,'Log.hpp']]],
+  ['lithe_5fcore_5flog_5ferror_1',['LITHE_CORE_LOG_ERROR',['../_log_8hpp.html#a2f2ec36dc63f463160cb01364979cbac',1,'Log.hpp']]],
+  ['lithe_5fcore_5flog_5ffatal_2',['LITHE_CORE_LOG_FATAL',['../_log_8hpp.html#ac54aa9375807622762f8909fd8fc4464',1,'Log.hpp']]],
+  ['lithe_5fcore_5flog_5finfo_3',['LITHE_CORE_LOG_INFO',['../_log_8hpp.html#aa22ae06f7b577cfaf80f42ab62ef1807',1,'Log.hpp']]],
+  ['lithe_5fcore_5flog_5ftrace_4',['LITHE_CORE_LOG_TRACE',['../_log_8hpp.html#a0fd7616408aef556756697456653fd55',1,'Log.hpp']]],
+  ['lithe_5fcore_5flog_5fwarn_5',['LITHE_CORE_LOG_WARN',['../_log_8hpp.html#a95cafd2c26b165662c27c5c2394574a1',1,'Log.hpp']]],
   ['lithe_5flog_5fdebug_6',['LITHE_LOG_DEBUG',['../_log_8hpp.html#a384e70f1ec34b8c68756a325df71f82d',1,'Log.hpp']]],
   ['lithe_5flog_5ferror_7',['LITHE_LOG_ERROR',['../_log_8hpp.html#acc483afb5d7c21968ecf7156d6eae15d',1,'Log.hpp']]],
   ['lithe_5flog_5ffatal_8',['LITHE_LOG_FATAL',['../_log_8hpp.html#a8bb675c756afc34c858d3e1e05f6545f',1,'Log.hpp']]],

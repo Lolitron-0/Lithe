@@ -99,68 +99,136 @@ $(document).ready(function(){initNavTree('_log_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;spdlog/fmt/ostr.h&gt;</span> <span class="comment">// Important: should be included after main header</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;glm/glm.hpp&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;glm/gtx/string_cast.hpp&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span>Lithe</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html">   22</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_log.html">Log</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {   </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">typedef</span> std::shared_ptr&lt;spdlog::logger&gt; LoggerPtr;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> Init();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">   35</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">GetCoreLogger</a>() { <span class="keywordflow">return</span> m_CoreLogger; }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">   37</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">GetClientLogger</a>() { <span class="keywordflow">return</span> m_ClientLogger; }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">static</span> LoggerPtr m_CoreLogger;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">static</span> LoggerPtr m_ClientLogger;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    };</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#pragma warning( push )</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#pragma warning( disable : 4251 )</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> OStream, glm::length_t L, <span class="keyword">class</span> T, glm::qualifier Q&gt;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">   51</a></span><span class="keyword">inline</span> OStream&amp; <a class="code hl_function" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a>(OStream&amp; os, <span class="keyword">const</span> glm::vec&lt;L, T, Q&gt;&amp; v)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> os &lt;&lt; glm::to_string(v);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> OStream, glm::length_t C, glm::length_t R, <span class="keyword">class</span> T, glm::qualifier Q&gt;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a29458e61f860b36f2434d19b517a4807">   58</a></span><span class="keyword">inline</span> OStream&amp; <a class="code hl_function" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a>(OStream&amp; os, <span class="keyword">const</span> glm::mat&lt;C, R, T, Q&gt;&amp; m)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> os &lt;&lt; glm::to_string(m);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> OStream, <span class="keyword">class</span> T, glm::qualifier Q&gt;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a2fd3f01a771984d3743bc16c53c972a2">   65</a></span><span class="keyword">inline</span> OStream&amp; <a class="code hl_function" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a>(OStream&amp; os, <span class="keyword">const</span> glm::qua&lt;T, Q&gt;&amp; q)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> os &lt;&lt; glm::to_string(q);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;spdlog/sinks/base_sink.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>Lithe</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html">   23</a></span>    <span class="keyword">class </span>LITHE_API <a class="code hl_class" href="class_lithe_1_1_log.html">Log</a></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {   </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#a4082c8ef25c929294a89ae3f20e58d2a">   27</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="class_lithe_1_1_log.html#a4082c8ef25c929294a89ae3f20e58d2a">Severity</a> : std::uint8_t</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            Debug,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            Trace,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            Info,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            Warning,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            Error,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            Fatal,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        };</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">using </span>LoggerPtr = std::shared_ptr&lt;spdlog::logger&gt;;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">using </span>CustomLoggerFunc = std::function&lt;void(<span class="keyword">const</span> std::string&amp; message, <span class="keyword">const</span> <a class="code hl_enumeration" href="class_lithe_1_1_log.html#a4082c8ef25c929294a89ae3f20e58d2a">Log::Severity</a>&amp; severity)&gt;;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> Init();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">   48</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">GetCoreLogger</a>() { <span class="keywordflow">return</span> m_CoreLogger; }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">   50</a></span>        <span class="keyword">inline</span> <span class="keyword">static</span> LoggerPtr&amp; <a class="code hl_function" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">GetClientLogger</a>() { <span class="keywordflow">return</span> m_ClientLogger; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> SetClientLoggerCustomFunc(<span class="keyword">const</span> CustomLoggerFunc&amp; func);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> SetCoreLoggerCustomFunc(<span class="keyword">const</span> CustomLoggerFunc&amp; func);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">inline</span> <span class="keyword">static</span> CustomLoggerFunc&amp; GetClientLoggerCustomFunc() { <span class="keywordflow">return</span> m_ClientLoggerCustomFunc; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keyword">inline</span> <span class="keyword">static</span> CustomLoggerFunc&amp; GetCoreLoggerCustomFunc() { <span class="keywordflow">return</span> m_CoreLoggerCustomFunc; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">static</span> LoggerPtr m_CoreLogger;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">static</span> LoggerPtr m_ClientLogger;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">static</span> CustomLoggerFunc m_ClientLoggerCustomFunc;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">static</span> CustomLoggerFunc m_CoreLoggerCustomFunc;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a33f4e1d07beb5e53f9f705a56991081e">   73</a></span><span class="preprocessor">#define LITHE_LOG_CORE_FATAL(...)   ::Lithe::Log::GetCoreLogger()-&gt;fatal(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a3c5e8ca9c467bf115c8db63bb95da03a">   75</a></span><span class="preprocessor">#define LITHE_LOG_CORE_ERROR(...)   ::Lithe::Log::GetCoreLogger()-&gt;error(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a63144943bc21fd4a5d3666dc2f320f01">   77</a></span><span class="preprocessor">#define LITHE_LOG_CORE_WARN(...)    ::Lithe::Log::GetCoreLogger()-&gt;warn(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a68c477bdd6faffc39409ab128869f65d">   79</a></span><span class="preprocessor">#define LITHE_LOG_CORE_INFO(...)    ::Lithe::Log::GetCoreLogger()-&gt;info(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a4ebdf86e598b9269907e6b66b82f4b6f">   81</a></span><span class="preprocessor">#define LITHE_LOG_CORE_TRACE(...)   ::Lithe::Log::GetCoreLogger()-&gt;trace(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a82f6f0add8640ee0208e6b1f0dc3d98b">   83</a></span><span class="preprocessor">#define LITHE_LOG_CORE_DEBUG(...)   ::Lithe::Log::GetCoreLogger()-&gt;debug(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a8bb675c756afc34c858d3e1e05f6545f">   86</a></span><span class="preprocessor">#define LITHE_LOG_FATAL(...)        ::Lithe::Log::GetClientLogger()-&gt;fatal(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="_log_8hpp.html#acc483afb5d7c21968ecf7156d6eae15d">   88</a></span><span class="preprocessor">#define LITHE_LOG_ERROR(...)        ::Lithe::Log::GetClientLogger()-&gt;error(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="_log_8hpp.html#acbc5cc3fb7735a1ffa36191999d2064a">   90</a></span><span class="preprocessor">#define LITHE_LOG_WARN(...)         ::Lithe::Log::GetClientLogger()-&gt;warn(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a1dbf2f40274939949d735201b85bc6ce">   92</a></span><span class="preprocessor">#define LITHE_LOG_INFO(...)         ::Lithe::Log::GetClientLogger()-&gt;info(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a94ffd336ad4577cb639291e7e7d38e22">   94</a></span><span class="preprocessor">#define LITHE_LOG_TRACE(...)        ::Lithe::Log::GetClientLogger()-&gt;trace(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a384e70f1ec34b8c68756a325df71f82d">   96</a></span><span class="preprocessor">#define LITHE_LOG_DEBUG(...)        ::Lithe::Log::GetClientLogger()-&gt;debug(__VA_ARGS__);</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#pragma warning( pop )</span></div>
-<div class="ttc" id="a_log_8hpp_html_a23ad003f9817002314e2e73f94c71a47"><div class="ttname"><a href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a></div><div class="ttdeci">OStream &amp; operator&lt;&lt;(OStream &amp;os, const glm::vec&lt; L, T, Q &gt; &amp;v)</div><div class="ttdoc">glm::vec logging</div><div class="ttdef"><b>Definition</b> Log.hpp:51</div></div>
-<div class="ttc" id="aclass_lithe_1_1_log_html"><div class="ttname"><a href="class_lithe_1_1_log.html">Lithe::Log</a></div><div class="ttdoc">Wrapper around spdlog interface.</div><div class="ttdef"><b>Definition</b> Log.hpp:23</div></div>
-<div class="ttc" id="aclass_lithe_1_1_log_html_aada4e89151f6c3bd3bb5e370ad4f4628"><div class="ttname"><a href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">Lithe::Log::GetCoreLogger</a></div><div class="ttdeci">static LoggerPtr &amp; GetCoreLogger()</div><div class="ttdoc">Core logger instance getter, not really ment to be used in client apps.</div><div class="ttdef"><b>Definition</b> Log.hpp:35</div></div>
-<div class="ttc" id="aclass_lithe_1_1_log_html_ad5c56cd758d395da9911ca449d54c0ce"><div class="ttname"><a href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">Lithe::Log::GetClientLogger</a></div><div class="ttdeci">static LoggerPtr &amp; GetClientLogger()</div><div class="ttdoc">Client logger instance getter, not really ment to be used, use LITHE_* macros instead.</div><div class="ttdef"><b>Definition</b> Log.hpp:37</div></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> Mutex&gt;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classcustom__sink.html">   71</a></span><span class="keyword">class </span><a class="code hl_class" href="classcustom__sink.html">custom_sink</a> : <span class="keyword">public</span> spdlog::sinks::base_sink&lt;Mutex&gt;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">bool</span> IsClient{ <span class="keyword">false</span> };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> sink_it_(<span class="keyword">const</span> spdlog::details::log_msg&amp; msg)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">auto</span>&amp; fn = IsClient ? Lithe::Log::GetClientLoggerCustomFunc() : Lithe::Log::GetCoreLoggerCustomFunc();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        spdlog::memory_buf_t formatted;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        spdlog::sinks::base_sink&lt;Mutex&gt;::formatter_-&gt;format(msg, formatted);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">auto</span> formattedStr = fmt::to_string(formatted);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">switch</span> (msg.level)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">case</span> spdlog::level::trace:</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            fn(formattedStr, Lithe::Log::Severity::Trace);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">case</span> spdlog::level::debug:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            fn(formattedStr, Lithe::Log::Severity::Debug);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">case</span> spdlog::level::info:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            fn(formattedStr, Lithe::Log::Severity::Info);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">case</span> spdlog::level::warn:</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            fn(formattedStr, Lithe::Log::Severity::Warning);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">case</span> spdlog::level::err:</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            fn(formattedStr, Lithe::Log::Severity::Error);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">case</span> spdlog::level::critical:</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            fn(formattedStr, Lithe::Log::Severity::Fatal);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> flush_()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>};</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#include &quot;spdlog/details/null_mutex.h&quot;</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">using </span><a class="code hl_class" href="classcustom__sink.html">custom_sink_mt</a> = <a class="code hl_class" href="classcustom__sink.html">custom_sink&lt;std::mutex&gt;</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">using </span><a class="code hl_class" href="classcustom__sink.html">custom_sink_st</a> = <a class="code hl_class" href="classcustom__sink.html">custom_sink&lt;spdlog::details::null_mutex&gt;</a>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> OStream, glm::length_t L, <span class="keyword">class</span> T, glm::qualifier Q&gt;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">  122</a></span><span class="keyword">inline</span> OStream&amp; <a class="code hl_function" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a>(OStream&amp; os, <span class="keyword">const</span> glm::vec&lt;L, T, Q&gt;&amp; v)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">return</span> os &lt;&lt; glm::to_string(v);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> OStream, glm::length_t C, glm::length_t R, <span class="keyword">class</span> T, glm::qualifier Q&gt;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a29458e61f860b36f2434d19b517a4807">  129</a></span><span class="keyword">inline</span> OStream&amp; <a class="code hl_function" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a>(OStream&amp; os, <span class="keyword">const</span> glm::mat&lt;C, R, T, Q&gt;&amp; m)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">return</span> os &lt;&lt; glm::to_string(m);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> OStream, <span class="keyword">class</span> T, glm::qualifier Q&gt;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a2fd3f01a771984d3743bc16c53c972a2">  136</a></span><span class="keyword">inline</span> OStream&amp; <a class="code hl_function" href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a>(OStream&amp; os, <span class="keyword">const</span> glm::qua&lt;T, Q&gt;&amp; q)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>{</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordflow">return</span> os &lt;&lt; glm::to_string(q);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="_log_8hpp.html#ac54aa9375807622762f8909fd8fc4464">  144</a></span><span class="preprocessor">#define LITHE_CORE_LOG_FATAL(...)   ::Lithe::Log::GetCoreLogger()-&gt;fatal(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a2f2ec36dc63f463160cb01364979cbac">  146</a></span><span class="preprocessor">#define LITHE_CORE_LOG_ERROR(...)   ::Lithe::Log::GetCoreLogger()-&gt;error(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a95cafd2c26b165662c27c5c2394574a1">  148</a></span><span class="preprocessor">#define LITHE_CORE_LOG_WARN(...)    ::Lithe::Log::GetCoreLogger()-&gt;warn(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="_log_8hpp.html#aa22ae06f7b577cfaf80f42ab62ef1807">  150</a></span><span class="preprocessor">#define LITHE_CORE_LOG_INFO(...)    ::Lithe::Log::GetCoreLogger()-&gt;info(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a0fd7616408aef556756697456653fd55">  152</a></span><span class="preprocessor">#define LITHE_CORE_LOG_TRACE(...)   ::Lithe::Log::GetCoreLogger()-&gt;trace(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="_log_8hpp.html#aef2552e7bb3b1d5a66ba00dc4721ed8d">  154</a></span><span class="preprocessor">#define LITHE_CORE_LOG_DEBUG(...)   ::Lithe::Log::GetCoreLogger()-&gt;debug(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a8bb675c756afc34c858d3e1e05f6545f">  157</a></span><span class="preprocessor">#define LITHE_LOG_FATAL(...)        ::Lithe::Log::GetClientLogger()-&gt;fatal(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="_log_8hpp.html#acc483afb5d7c21968ecf7156d6eae15d">  159</a></span><span class="preprocessor">#define LITHE_LOG_ERROR(...)        ::Lithe::Log::GetClientLogger()-&gt;error(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="_log_8hpp.html#acbc5cc3fb7735a1ffa36191999d2064a">  161</a></span><span class="preprocessor">#define LITHE_LOG_WARN(...)         ::Lithe::Log::GetClientLogger()-&gt;warn(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a1dbf2f40274939949d735201b85bc6ce">  163</a></span><span class="preprocessor">#define LITHE_LOG_INFO(...)         ::Lithe::Log::GetClientLogger()-&gt;info(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a94ffd336ad4577cb639291e7e7d38e22">  165</a></span><span class="preprocessor">#define LITHE_LOG_TRACE(...)        ::Lithe::Log::GetClientLogger()-&gt;trace(__VA_ARGS__);</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="_log_8hpp.html#a384e70f1ec34b8c68756a325df71f82d">  167</a></span><span class="preprocessor">#define LITHE_LOG_DEBUG(...)        ::Lithe::Log::GetClientLogger()-&gt;debug(__VA_ARGS__);</span></div>
+<div class="ttc" id="a_log_8hpp_html_a23ad003f9817002314e2e73f94c71a47"><div class="ttname"><a href="_log_8hpp.html#a23ad003f9817002314e2e73f94c71a47">operator&lt;&lt;</a></div><div class="ttdeci">OStream &amp; operator&lt;&lt;(OStream &amp;os, const glm::vec&lt; L, T, Q &gt; &amp;v)</div><div class="ttdoc">glm::vec logging</div><div class="ttdef"><b>Definition</b> Log.hpp:122</div></div>
+<div class="ttc" id="aclass_lithe_1_1_log_html"><div class="ttname"><a href="class_lithe_1_1_log.html">Lithe::Log</a></div><div class="ttdoc">Wrapper around spdlog interface.</div><div class="ttdef"><b>Definition</b> Log.hpp:24</div></div>
+<div class="ttc" id="aclass_lithe_1_1_log_html_a4082c8ef25c929294a89ae3f20e58d2a"><div class="ttname"><a href="class_lithe_1_1_log.html#a4082c8ef25c929294a89ae3f20e58d2a">Lithe::Log::Severity</a></div><div class="ttdeci">Severity</div><div class="ttdoc">Log message severity enum.</div><div class="ttdef"><b>Definition</b> Log.hpp:28</div></div>
+<div class="ttc" id="aclass_lithe_1_1_log_html_aada4e89151f6c3bd3bb5e370ad4f4628"><div class="ttname"><a href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">Lithe::Log::GetCoreLogger</a></div><div class="ttdeci">static LoggerPtr &amp; GetCoreLogger()</div><div class="ttdoc">Core logger instance getter, not really meant to be used in client apps.</div><div class="ttdef"><b>Definition</b> Log.hpp:48</div></div>
+<div class="ttc" id="aclass_lithe_1_1_log_html_ad5c56cd758d395da9911ca449d54c0ce"><div class="ttname"><a href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">Lithe::Log::GetClientLogger</a></div><div class="ttdeci">static LoggerPtr &amp; GetClientLogger()</div><div class="ttdoc">Client logger instance getter, not really ment to be used, use LITHE_LOG_* macros instead.</div><div class="ttdef"><b>Definition</b> Log.hpp:50</div></div>
+<div class="ttc" id="aclasscustom__sink_html"><div class="ttname"><a href="classcustom__sink.html">custom_sink</a></div><div class="ttdef"><b>Definition</b> Log.hpp:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

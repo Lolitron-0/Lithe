@@ -52,7 +52,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_application_8hpp.html",
-"class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ae1e1d3d40573127e9ee0480caf1283d6"
+"class_lithe_1_1_keyboard.html#a9418238dd953c16a5e5b42c44b8a8b26ac31650e34686537020ee36190e71da5b",
+"src_2_lithe_2_core_2_base_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

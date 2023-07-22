@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('_log_8hpp.html',''); initResizable(); 
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Log.hpp File Reference</div></div>
 </div><!--header-->
@@ -104,6 +105,9 @@ $(document).ready(function(){initNavTree('_log_8hpp.html',''); initResizable(); 
 <code>#include &lt;spdlog/fmt/ostr.h&gt;</code><br />
 <code>#include &lt;glm/glm.hpp&gt;</code><br />
 <code>#include &lt;glm/gtx/string_cast.hpp&gt;</code><br />
+<code>#include &lt;spdlog/sinks/base_sink.h&gt;</code><br />
+<code>#include &quot;spdlog/details/null_mutex.h&quot;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
 </div>
 <p><a href="_log_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -112,33 +116,35 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_log.html">Lithe::Log</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper around spdlog interface.  <a href="class_lithe_1_1_log.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcustom__sink.html">custom_sink&lt; Mutex &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a33f4e1d07beb5e53f9f705a56991081e"><td class="memItemLeft" align="right" valign="top"><a id="a33f4e1d07beb5e53f9f705a56991081e" name="a33f4e1d07beb5e53f9f705a56991081e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_CORE_FATAL</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;fatal(__VA_ARGS__);</td></tr>
-<tr class="memdesc:a33f4e1d07beb5e53f9f705a56991081e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core fatal error logging. <br /></td></tr>
-<tr class="separator:a33f4e1d07beb5e53f9f705a56991081e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c5e8ca9c467bf115c8db63bb95da03a"><td class="memItemLeft" align="right" valign="top"><a id="a3c5e8ca9c467bf115c8db63bb95da03a" name="a3c5e8ca9c467bf115c8db63bb95da03a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_CORE_ERROR</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;error(__VA_ARGS__);</td></tr>
-<tr class="memdesc:a3c5e8ca9c467bf115c8db63bb95da03a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core error logging. <br /></td></tr>
-<tr class="separator:a3c5e8ca9c467bf115c8db63bb95da03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63144943bc21fd4a5d3666dc2f320f01"><td class="memItemLeft" align="right" valign="top"><a id="a63144943bc21fd4a5d3666dc2f320f01" name="a63144943bc21fd4a5d3666dc2f320f01"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_CORE_WARN</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;warn(__VA_ARGS__);</td></tr>
-<tr class="memdesc:a63144943bc21fd4a5d3666dc2f320f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core warning logging. <br /></td></tr>
-<tr class="separator:a63144943bc21fd4a5d3666dc2f320f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68c477bdd6faffc39409ab128869f65d"><td class="memItemLeft" align="right" valign="top"><a id="a68c477bdd6faffc39409ab128869f65d" name="a68c477bdd6faffc39409ab128869f65d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_CORE_INFO</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;info(__VA_ARGS__);</td></tr>
-<tr class="memdesc:a68c477bdd6faffc39409ab128869f65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core info logging. <br /></td></tr>
-<tr class="separator:a68c477bdd6faffc39409ab128869f65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ebdf86e598b9269907e6b66b82f4b6f"><td class="memItemLeft" align="right" valign="top"><a id="a4ebdf86e598b9269907e6b66b82f4b6f" name="a4ebdf86e598b9269907e6b66b82f4b6f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_CORE_TRACE</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;trace(__VA_ARGS__);</td></tr>
-<tr class="memdesc:a4ebdf86e598b9269907e6b66b82f4b6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core trace messages logging. <br /></td></tr>
-<tr class="separator:a4ebdf86e598b9269907e6b66b82f4b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82f6f0add8640ee0208e6b1f0dc3d98b"><td class="memItemLeft" align="right" valign="top"><a id="a82f6f0add8640ee0208e6b1f0dc3d98b" name="a82f6f0add8640ee0208e6b1f0dc3d98b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_CORE_DEBUG</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;debug(__VA_ARGS__);</td></tr>
-<tr class="memdesc:a82f6f0add8640ee0208e6b1f0dc3d98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core debug messages logging. <br /></td></tr>
-<tr class="separator:a82f6f0add8640ee0208e6b1f0dc3d98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54aa9375807622762f8909fd8fc4464"><td class="memItemLeft" align="right" valign="top"><a id="ac54aa9375807622762f8909fd8fc4464" name="ac54aa9375807622762f8909fd8fc4464"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_CORE_LOG_FATAL</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;fatal(__VA_ARGS__);</td></tr>
+<tr class="memdesc:ac54aa9375807622762f8909fd8fc4464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core fatal error logging. <br /></td></tr>
+<tr class="separator:ac54aa9375807622762f8909fd8fc4464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2ec36dc63f463160cb01364979cbac"><td class="memItemLeft" align="right" valign="top"><a id="a2f2ec36dc63f463160cb01364979cbac" name="a2f2ec36dc63f463160cb01364979cbac"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_CORE_LOG_ERROR</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;error(__VA_ARGS__);</td></tr>
+<tr class="memdesc:a2f2ec36dc63f463160cb01364979cbac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core error logging. <br /></td></tr>
+<tr class="separator:a2f2ec36dc63f463160cb01364979cbac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95cafd2c26b165662c27c5c2394574a1"><td class="memItemLeft" align="right" valign="top"><a id="a95cafd2c26b165662c27c5c2394574a1" name="a95cafd2c26b165662c27c5c2394574a1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_CORE_LOG_WARN</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;warn(__VA_ARGS__);</td></tr>
+<tr class="memdesc:a95cafd2c26b165662c27c5c2394574a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core warning logging. <br /></td></tr>
+<tr class="separator:a95cafd2c26b165662c27c5c2394574a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa22ae06f7b577cfaf80f42ab62ef1807"><td class="memItemLeft" align="right" valign="top"><a id="aa22ae06f7b577cfaf80f42ab62ef1807" name="aa22ae06f7b577cfaf80f42ab62ef1807"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_CORE_LOG_INFO</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;info(__VA_ARGS__);</td></tr>
+<tr class="memdesc:aa22ae06f7b577cfaf80f42ab62ef1807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core info logging. <br /></td></tr>
+<tr class="separator:aa22ae06f7b577cfaf80f42ab62ef1807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd7616408aef556756697456653fd55"><td class="memItemLeft" align="right" valign="top"><a id="a0fd7616408aef556756697456653fd55" name="a0fd7616408aef556756697456653fd55"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_CORE_LOG_TRACE</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;trace(__VA_ARGS__);</td></tr>
+<tr class="memdesc:a0fd7616408aef556756697456653fd55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core trace messages logging. <br /></td></tr>
+<tr class="separator:a0fd7616408aef556756697456653fd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2552e7bb3b1d5a66ba00dc4721ed8d"><td class="memItemLeft" align="right" valign="top"><a id="aef2552e7bb3b1d5a66ba00dc4721ed8d" name="aef2552e7bb3b1d5a66ba00dc4721ed8d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_CORE_LOG_DEBUG</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628">::Lithe::Log::GetCoreLogger</a>()-&gt;debug(__VA_ARGS__);</td></tr>
+<tr class="memdesc:aef2552e7bb3b1d5a66ba00dc4721ed8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core debug messages logging. <br /></td></tr>
+<tr class="separator:aef2552e7bb3b1d5a66ba00dc4721ed8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bb675c756afc34c858d3e1e05f6545f"><td class="memItemLeft" align="right" valign="top"><a id="a8bb675c756afc34c858d3e1e05f6545f" name="a8bb675c756afc34c858d3e1e05f6545f"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_FATAL</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">::Lithe::Log::GetClientLogger</a>()-&gt;fatal(__VA_ARGS__);</td></tr>
 <tr class="memdesc:a8bb675c756afc34c858d3e1e05f6545f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client fatal error logging. <br /></td></tr>
@@ -163,6 +169,15 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LITHE_LOG_DEBUG</b>(...)&#160;&#160;&#160;<a class="el" href="class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce">::Lithe::Log::GetClientLogger</a>()-&gt;debug(__VA_ARGS__);</td></tr>
 <tr class="memdesc:a384e70f1ec34b8c68756a325df71f82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client debug messages logging. <br /></td></tr>
 <tr class="separator:a384e70f1ec34b8c68756a325df71f82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ae0a151452d58dbfe8fb9243aef564980"><td class="memItemLeft" align="right" valign="top"><a id="ae0a151452d58dbfe8fb9243aef564980" name="ae0a151452d58dbfe8fb9243aef564980"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>custom_sink_mt</b> = <a class="el" href="classcustom__sink.html">custom_sink</a>&lt; std::mutex &gt;</td></tr>
+<tr class="separator:ae0a151452d58dbfe8fb9243aef564980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44c5154a72e139aaf0ca032e749b72c9"><td class="memItemLeft" align="right" valign="top"><a id="a44c5154a72e139aaf0ca032e749b72c9" name="a44c5154a72e139aaf0ca032e749b72c9"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>custom_sink_st</b> = <a class="el" href="classcustom__sink.html">custom_sink</a>&lt; spdlog::details::null_mutex &gt;</td></tr>
+<tr class="separator:a44c5154a72e139aaf0ca032e749b72c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>

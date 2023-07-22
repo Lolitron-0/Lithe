@@ -104,23 +104,52 @@ $(document).ready(function(){initNavTree('class_lithe_1_1_log.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a2a42ad7de07ca2c69ca241ba2044225c"><td class="memItemLeft" align="right" valign="top"><a id="a2a42ad7de07ca2c69ca241ba2044225c" name="a2a42ad7de07ca2c69ca241ba2044225c"></a>
-typedef std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>LoggerPtr</b></td></tr>
-<tr class="separator:a2a42ad7de07ca2c69ca241ba2044225c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4082c8ef25c929294a89ae3f20e58d2a"><td class="memItemLeft" align="right" valign="top"><a id="a4082c8ef25c929294a89ae3f20e58d2a" name="a4082c8ef25c929294a89ae3f20e58d2a"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_log.html#a4082c8ef25c929294a89ae3f20e58d2a">Severity</a> : std::uint8_t { <br />
+&#160;&#160;<b>Debug</b>
+, <b>Trace</b>
+, <b>Info</b>
+, <b>Warning</b>
+, <br />
+&#160;&#160;<b>Error</b>
+, <b>Fatal</b>
+<br />
+ }</td></tr>
+<tr class="memdesc:a4082c8ef25c929294a89ae3f20e58d2a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_lithe_1_1_log.html" title="Wrapper around spdlog interface.">Log</a> message severity enum. <br /></td></tr>
+<tr class="separator:a4082c8ef25c929294a89ae3f20e58d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5da03df50d550d05a73b5d463416cea"><td class="memItemLeft" align="right" valign="top"><a id="aa5da03df50d550d05a73b5d463416cea" name="aa5da03df50d550d05a73b5d463416cea"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>LoggerPtr</b> = std::shared_ptr&lt; spdlog::logger &gt;</td></tr>
+<tr class="separator:aa5da03df50d550d05a73b5d463416cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff3d3c74b994e312b16a03dfda0ff1d"><td class="memItemLeft" align="right" valign="top"><a id="abff3d3c74b994e312b16a03dfda0ff1d" name="abff3d3c74b994e312b16a03dfda0ff1d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>CustomLoggerFunc</b> = std::function&lt; void(const std::string &amp;message, const <a class="el" href="class_lithe_1_1_log.html#a4082c8ef25c929294a89ae3f20e58d2a">Log::Severity</a> &amp;severity)&gt;</td></tr>
+<tr class="separator:abff3d3c74b994e312b16a03dfda0ff1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2d73551dbabacd0bd42f55b46186d4c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_log.html#ad2d73551dbabacd0bd42f55b46186d4c">Init</a> ()</td></tr>
-<tr class="memdesc:ad2d73551dbabacd0bd42f55b46186d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger initialisation static function.  <br /></td></tr>
+<tr class="memdesc:ad2d73551dbabacd0bd42f55b46186d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger initialization static function.  <br /></td></tr>
 <tr class="separator:ad2d73551dbabacd0bd42f55b46186d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aada4e89151f6c3bd3bb5e370ad4f4628"><td class="memItemLeft" align="right" valign="top"><a id="aada4e89151f6c3bd3bb5e370ad4f4628" name="aada4e89151f6c3bd3bb5e370ad4f4628"></a>
 static LoggerPtr &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCoreLogger</b> ()</td></tr>
-<tr class="memdesc:aada4e89151f6c3bd3bb5e370ad4f4628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core logger instance getter, not really ment to be used in client apps. <br /></td></tr>
+<tr class="memdesc:aada4e89151f6c3bd3bb5e370ad4f4628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core logger instance getter, not really meant to be used in client apps. <br /></td></tr>
 <tr class="separator:aada4e89151f6c3bd3bb5e370ad4f4628"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5c56cd758d395da9911ca449d54c0ce"><td class="memItemLeft" align="right" valign="top"><a id="ad5c56cd758d395da9911ca449d54c0ce" name="ad5c56cd758d395da9911ca449d54c0ce"></a>
 static LoggerPtr &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientLogger</b> ()</td></tr>
-<tr class="memdesc:ad5c56cd758d395da9911ca449d54c0ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client logger instance getter, not really ment to be used, use LITHE_* macros instead. <br /></td></tr>
+<tr class="memdesc:ad5c56cd758d395da9911ca449d54c0ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client logger instance getter, not really ment to be used, use LITHE_LOG_* macros instead. <br /></td></tr>
 <tr class="separator:ad5c56cd758d395da9911ca449d54c0ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a312836c7f404e4a6a548eb48408f9bcf"><td class="memItemLeft" align="right" valign="top"><a id="a312836c7f404e4a6a548eb48408f9bcf" name="a312836c7f404e4a6a548eb48408f9bcf"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetClientLoggerCustomFunc</b> (const CustomLoggerFunc &amp;func)</td></tr>
+<tr class="memdesc:a312836c7f404e4a6a548eb48408f9bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets function to be executed on every LITHE_LOG_* call. <br /></td></tr>
+<tr class="separator:a312836c7f404e4a6a548eb48408f9bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf621139c4758597d7d0f3d4a5bf6f00"><td class="memItemLeft" align="right" valign="top"><a id="aaf621139c4758597d7d0f3d4a5bf6f00" name="aaf621139c4758597d7d0f3d4a5bf6f00"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCoreLoggerCustomFunc</b> (const CustomLoggerFunc &amp;func)</td></tr>
+<tr class="memdesc:aaf621139c4758597d7d0f3d4a5bf6f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets function to be executed on every LITHE_CORE_LOG_* call. <br /></td></tr>
+<tr class="separator:aaf621139c4758597d7d0f3d4a5bf6f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3460711c8f520d88c8893708b9cb4fd6"><td class="memItemLeft" align="right" valign="top"><a id="a3460711c8f520d88c8893708b9cb4fd6" name="a3460711c8f520d88c8893708b9cb4fd6"></a>
+static CustomLoggerFunc &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientLoggerCustomFunc</b> ()</td></tr>
+<tr class="separator:a3460711c8f520d88c8893708b9cb4fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6df66c9556fc82e3314dbf0f25f254"><td class="memItemLeft" align="right" valign="top"><a id="aad6df66c9556fc82e3314dbf0f25f254" name="aad6df66c9556fc82e3314dbf0f25f254"></a>
+static CustomLoggerFunc &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCoreLoggerCustomFunc</b> ()</td></tr>
+<tr class="separator:aad6df66c9556fc82e3314dbf0f25f254"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Wrapper around spdlog interface. </p>
@@ -149,8 +178,8 @@ static LoggerPtr &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Get
 </table>
 </div><div class="memdoc">
 
-<p>Logger initialisation static function. </p>
-<p>Logs a message if initialisation finished successfully </p>
+<p>Logger initialization static function. </p>
+<p>Logs a message if initialization finished successfully </p>
 
 </div>
 </div>

@@ -93,11 +93,17 @@ $(document).ready(function(){initNavTree('class_ra_1_1_texture.html',''); initRe
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_ra_1_1_texture-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Ra::Texture Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for texture abstraction.  
+ <a href="class_ra_1_1_texture.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_texture_8hpp_source.html">Texture.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Ra::Texture:</div>
 <div class="dyncontent">
@@ -110,17 +116,11 @@ Inheritance diagram for Ra::Texture:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af8917cd3c2330f8bc5d3648e45f7f350"><td class="memItemLeft" align="right" valign="top"><a id="af8917cd3c2330f8bc5d3648e45f7f350" name="af8917cd3c2330f8bc5d3648e45f7f350"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;path, TextureFormat format=TextureFormat::Color)</td></tr>
-<tr class="separator:af8917cd3c2330f8bc5d3648e45f7f350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a36b9b9c5cf116760fdf0828b9faf4e"><td class="memItemLeft" align="right" valign="top"><a id="a5a36b9b9c5cf116760fdf0828b9faf4e" name="a5a36b9b9c5cf116760fdf0828b9faf4e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Load</b> (std::uint8_t *rawData, std::uint32_t width, std::uint32_t height, std::uint32_t channels, TextureFormat format=TextureFormat::Color)</td></tr>
-<tr class="separator:a5a36b9b9c5cf116760fdf0828b9faf4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa91214dcc4f862be3a6101e4d9d5c883"><td class="memItemLeft" align="right" valign="top"><a id="aa91214dcc4f862be3a6101e4d9d5c883" name="aa91214dcc4f862be3a6101e4d9d5c883"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Bind</b> (int id)=0</td></tr>
+<tr class="memitem:aa91214dcc4f862be3a6101e4d9d5c883"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_texture.html#aa91214dcc4f862be3a6101e4d9d5c883">Bind</a> (int id)=0</td></tr>
+<tr class="memdesc:aa91214dcc4f862be3a6101e4d9d5c883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this texture for specified unit.  <br /></td></tr>
 <tr class="separator:aa91214dcc4f862be3a6101e4d9d5c883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c7450d71f6010d74f6b6d453d94ba79"><td class="memItemLeft" align="right" valign="top"><a id="a5c7450d71f6010d74f6b6d453d94ba79" name="a5c7450d71f6010d74f6b6d453d94ba79"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Bind</b> ()=0</td></tr>
+<tr class="memitem:a5c7450d71f6010d74f6b6d453d94ba79"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_texture.html#a5c7450d71f6010d74f6b6d453d94ba79">Bind</a> ()=0</td></tr>
+<tr class="memdesc:a5c7450d71f6010d74f6b6d453d94ba79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds this texture to previously bound unit (0 by default)  <br /></td></tr>
 <tr class="separator:a5c7450d71f6010d74f6b6d453d94ba79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b04aa828eb76160cca8b392e5c90d48"><td class="memItemLeft" align="right" valign="top"><a id="a9b04aa828eb76160cca8b392e5c90d48" name="a9b04aa828eb76160cca8b392e5c90d48"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()=0</td></tr>
@@ -143,6 +143,15 @@ TextureFilter&#160;</td><td class="memItemRight" valign="bottom"><b>GetMinFilter
 <tr class="memitem:ab0d8984896718ffdd23239a86012e295"><td class="memItemLeft" align="right" valign="top"><a id="ab0d8984896718ffdd23239a86012e295" name="ab0d8984896718ffdd23239a86012e295"></a>
 TextureFilter&#160;</td><td class="memItemRight" valign="bottom"><b>GetMagFilter</b> () const</td></tr>
 <tr class="separator:ab0d8984896718ffdd23239a86012e295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8af6cbdff0205cb7c239248ecce1c03"><td class="memItemLeft" align="right" valign="top"><a id="ad8af6cbdff0205cb7c239248ecce1c03" name="ad8af6cbdff0205cb7c239248ecce1c03"></a>
+TextureType&#160;</td><td class="memItemRight" valign="bottom"><b>GetType</b> () const</td></tr>
+<tr class="separator:ad8af6cbdff0205cb7c239248ecce1c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58355dc92b3a99b5153fcef8a262c1e"><td class="memItemLeft" align="right" valign="top"><a id="ae58355dc92b3a99b5153fcef8a262c1e" name="ae58355dc92b3a99b5153fcef8a262c1e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetPath</b> () const</td></tr>
+<tr class="separator:ae58355dc92b3a99b5153fcef8a262c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64e7d5f55441dab4ae6e00e6774dbf68"><td class="memItemLeft" align="right" valign="top"><a id="a64e7d5f55441dab4ae6e00e6774dbf68" name="a64e7d5f55441dab4ae6e00e6774dbf68"></a>
+virtual RendererId&#160;</td><td class="memItemRight" valign="bottom"><b>GetNativeTerxtureHandle</b> () const =0</td></tr>
+<tr class="separator:a64e7d5f55441dab4ae6e00e6774dbf68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa31ad798745b0d5a23d1309b82b18232"><td class="memItemLeft" align="right" valign="top"><a id="aa31ad798745b0d5a23d1309b82b18232" name="aa31ad798745b0d5a23d1309b82b18232"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMinFilter</b> (TextureFilter filter)=0</td></tr>
 <tr class="separator:aa31ad798745b0d5a23d1309b82b18232"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,15 +164,27 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetWrap</b> (
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ade68729b5708235a1c2fc27dd3331cc0"><td class="memItemLeft" align="right" valign="top"><a id="ade68729b5708235a1c2fc27dd3331cc0" name="ade68729b5708235a1c2fc27dd3331cc0"></a>
-static Scope&lt; <a class="el" href="class_ra_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
-<tr class="separator:ade68729b5708235a1c2fc27dd3331cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379d66c6b30101a69c6b285381a84744"><td class="memItemLeft" align="right" valign="top"><a id="a379d66c6b30101a69c6b285381a84744" name="a379d66c6b30101a69c6b285381a84744"></a>
+static Ref&lt; <a class="el" href="class_ra_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (const std::string &amp;path, TextureFormat format=TextureFormat::Color, TextureType type=TextureType::Diffuse)</td></tr>
+<tr class="separator:a379d66c6b30101a69c6b285381a84744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3501cd8d8cad6052078aa607797dcf90"><td class="memItemLeft" align="right" valign="top"><a id="a3501cd8d8cad6052078aa607797dcf90" name="a3501cd8d8cad6052078aa607797dcf90"></a>
+static Ref&lt; <a class="el" href="class_ra_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (std::uint8_t *rawData, std::uint32_t width, std::uint32_t height, std::uint32_t channels, TextureFormat format=TextureFormat::Color, TextureType type=TextureType::Diffuse)</td></tr>
+<tr class="separator:a3501cd8d8cad6052078aa607797dcf90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ac7ec0c51afb1509907320d199d04ae17"><td class="memItemLeft" align="right" valign="top"><a id="ac7ec0c51afb1509907320d199d04ae17" name="ac7ec0c51afb1509907320d199d04ae17"></a>
 static Ref&lt; <a class="el" href="class_ra_1_1_texture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>NullTexture</b></td></tr>
 <tr class="separator:ac7ec0c51afb1509907320d199d04ae17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a0cf308387a91b23aeab7462319dcb624"><td class="memItemLeft" align="right" valign="top"><a id="a0cf308387a91b23aeab7462319dcb624" name="a0cf308387a91b23aeab7462319dcb624"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile_</b> (const std::string &amp;path, TextureFormat format=TextureFormat::Color, TextureType type=TextureType::Diffuse)=0</td></tr>
+<tr class="separator:a0cf308387a91b23aeab7462319dcb624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb11ef3702aa0a5ac7a5e742f567bb25"><td class="memItemLeft" align="right" valign="top"><a id="afb11ef3702aa0a5ac7a5e742f567bb25" name="afb11ef3702aa0a5ac7a5e742f567bb25"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromData_</b> (std::uint8_t *rawData, std::uint32_t width, std::uint32_t height, std::uint32_t channels, TextureFormat format=TextureFormat::Color, TextureType type=TextureType::Diffuse)=0</td></tr>
+<tr class="separator:afb11ef3702aa0a5ac7a5e742f567bb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -174,7 +195,7 @@ std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_Width</b> 
 std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_Height</b> { 0 }</td></tr>
 <tr class="separator:a7be1021840074716eb0840b26c67311c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a083735ed47f34113b1ad44880eb26a2f"><td class="memItemLeft" align="right" valign="top"><a id="a083735ed47f34113b1ad44880eb26a2f" name="a083735ed47f34113b1ad44880eb26a2f"></a>
-TextureFormat&#160;</td><td class="memItemRight" valign="bottom"><b>m_Format</b></td></tr>
+TextureFormat&#160;</td><td class="memItemRight" valign="bottom"><b>m_Format</b> { TextureFormat::None }</td></tr>
 <tr class="separator:a083735ed47f34113b1ad44880eb26a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca4b46a48b55f80c2765f066feda210d"><td class="memItemLeft" align="right" valign="top"><a id="aca4b46a48b55f80c2765f066feda210d" name="aca4b46a48b55f80c2765f066feda210d"></a>
 TextureWrap&#160;</td><td class="memItemRight" valign="bottom"><b>m_Wrap</b> { TextureWrap::Repeat }</td></tr>
@@ -185,7 +206,84 @@ TextureFilter&#160;</td><td class="memItemRight" valign="bottom"><b>m_MinFilter<
 <tr class="memitem:a083d2e6f6261eb05e51c8feac0d05318"><td class="memItemLeft" align="right" valign="top"><a id="a083d2e6f6261eb05e51c8feac0d05318" name="a083d2e6f6261eb05e51c8feac0d05318"></a>
 TextureFilter&#160;</td><td class="memItemRight" valign="bottom"><b>m_MagFilter</b> { TextureFilter::Linear }</td></tr>
 <tr class="separator:a083d2e6f6261eb05e51c8feac0d05318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe7de9af9493801d2a0fce3d06593b1f"><td class="memItemLeft" align="right" valign="top"><a id="afe7de9af9493801d2a0fce3d06593b1f" name="afe7de9af9493801d2a0fce3d06593b1f"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_Path</b> { &quot;Internal resource&quot; }</td></tr>
+<tr class="separator:afe7de9af9493801d2a0fce3d06593b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08660574702d909354f77955b78f47bd"><td class="memItemLeft" align="right" valign="top"><a id="a08660574702d909354f77955b78f47bd" name="a08660574702d909354f77955b78f47bd"></a>
+TextureType&#160;</td><td class="memItemRight" valign="bottom"><b>m_Type</b> { TextureType::Diffuse }</td></tr>
+<tr class="separator:a08660574702d909354f77955b78f47bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab154b008e24ece3fc706e356415e4491"><td class="memItemLeft" align="right" valign="top"><a id="ab154b008e24ece3fc706e356415e4491" name="ab154b008e24ece3fc706e356415e4491"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_TextureUnit</b> { 0 }</td></tr>
+<tr class="separator:ab154b008e24ece3fc706e356415e4491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for texture abstraction. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5c7450d71f6010d74f6b6d453d94ba79" name="a5c7450d71f6010d74f6b6d453d94ba79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c7450d71f6010d74f6b6d453d94ba79">&#9670;&#160;</a></span>Bind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Ra::Texture::Bind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds this texture to previously bound unit (0 by default) </p>
+
+<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_texture.html#a33932e6727a36454df59b170579e1762">Ra::OpenGLTexture</a>.</p>
+
+</div>
+</div>
+<a id="aa91214dcc4f862be3a6101e4d9d5c883" name="aa91214dcc4f862be3a6101e4d9d5c883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91214dcc4f862be3a6101e4d9d5c883">&#9670;&#160;</a></span>Bind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Ra::Texture::Bind </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds this texture for specified unit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Unit to bind this texture to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_ra_1_1_open_g_l_texture.html#ab95a4609a874a3efd9b04a9863a53f21">Ra::OpenGLTexture</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>G:/dev/Lithe/Lithe/thirdparty/RenderAbstraction/include/<a class="el" href="_texture_8hpp_source.html">Texture.hpp</a></li>
 </ul>

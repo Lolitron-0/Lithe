@@ -113,9 +113,9 @@ Inheritance diagram for Lithe::FlyCameraControllerImpl&lt; Derived &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9d21645aebe348fcf0d4525a10d9657"><td class="memItemLeft" align="right" valign="top"><a id="aa9d21645aebe348fcf0d4525a10d9657" name="aa9d21645aebe348fcf0d4525a10d9657"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FlyCameraControllerImpl</b> (<a class="el" href="class_lithe_1_1_entity.html">Entity</a> &amp;camera)</td></tr>
-<tr class="separator:aa9d21645aebe348fcf0d4525a10d9657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f866855658e8f33afd665efdae6e2e"><td class="memItemLeft" align="right" valign="top"><a id="a46f866855658e8f33afd665efdae6e2e" name="a46f866855658e8f33afd665efdae6e2e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>FlyCameraControllerImpl</b> (const <a class="el" href="class_lithe_1_1_entity.html">Entity</a> &amp;camera)</td></tr>
+<tr class="separator:a46f866855658e8f33afd665efdae6e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35651f035ea240441e40529327b38447"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_fly_camera_controller_impl.html#a35651f035ea240441e40529327b38447">OnUpdate</a> (const <a class="el" href="class_lithe_1_1_timestep.html">Timestep</a> &amp;ts) override</td></tr>
 <tr class="separator:a35651f035ea240441e40529327b38447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac07158eaa092b0391a040d8ea30fedbc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lithe_1_1_fly_camera_controller_impl.html#ac07158eaa092b0391a040d8ea30fedbc">OnMouseMoved</a> (<a class="el" href="class_lithe_1_1_mouse_moved_event.html">MouseMovedEvent</a> &amp;event) override</td></tr>
@@ -133,9 +133,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>GetFlySpeed</b> () c
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFlySpeed</b> (float val)</td></tr>
 <tr class="separator:a454d7a91379da640907e1e505f37ae74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_lithe_1_1_camera_controller"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_lithe_1_1_camera_controller')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_lithe_1_1_camera_controller.html">Lithe::CameraController&lt; Derived &gt;</a></td></tr>
-<tr class="memitem:a8fca349703c1fec6366e116de3b6467c inherit pub_methods_class_lithe_1_1_camera_controller"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>CameraController</b> (<a class="el" href="class_lithe_1_1_entity.html">Entity</a> &amp;camera)</td></tr>
-<tr class="separator:a8fca349703c1fec6366e116de3b6467c inherit pub_methods_class_lithe_1_1_camera_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7626db00977e3bb879884b20dbd7dd30 inherit pub_methods_class_lithe_1_1_camera_controller"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>CameraController</b> (const <a class="el" href="class_lithe_1_1_entity.html">Entity</a> &amp;camera)</td></tr>
+<tr class="separator:a7626db00977e3bb879884b20dbd7dd30 inherit pub_methods_class_lithe_1_1_camera_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcc11c4a44a7313a6f3f86396977d8a4 inherit pub_methods_class_lithe_1_1_camera_controller"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>OnEvent</b> (<a class="el" href="class_lithe_1_1_event.html">Event</a> &amp;event)</td></tr>
 <tr class="separator:adcc11c4a44a7313a6f3f86396977d8a4 inherit pub_methods_class_lithe_1_1_camera_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,12 +176,9 @@ glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>m_LastMousePos</
 float&#160;</td><td class="memItemRight" valign="bottom"><b>m_MouseSensitivity</b> { .1f }</td></tr>
 <tr class="separator:af88298b6c4d249d8a15c86d76fa3df05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afae8991b84a91d4bc629e8328676251b"><td class="memItemLeft" align="right" valign="top"><a id="afae8991b84a91d4bc629e8328676251b" name="afae8991b84a91d4bc629e8328676251b"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>m_FlySpeed</b> { 3.f }</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_FlySpeed</b> { 10.f }</td></tr>
 <tr class="separator:afae8991b84a91d4bc629e8328676251b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_lithe_1_1_camera_controller"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_lithe_1_1_camera_controller')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_lithe_1_1_camera_controller.html">Lithe::CameraController&lt; Derived &gt;</a></td></tr>
-<tr class="memitem:a41c133dc9f9f135f704879e0c8e52e8b inherit pro_attribs_class_lithe_1_1_camera_controller"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_lithe_1_1_transform_component.html">TransformComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_Transform</b></td></tr>
-<tr class="separator:a41c133dc9f9f135f704879e0c8e52e8b inherit pro_attribs_class_lithe_1_1_camera_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadabdee9bddd0b035251a903c8a95b92 inherit pro_attribs_class_lithe_1_1_camera_controller"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="class_lithe_1_1_entity.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Camera</b></td></tr>
 <tr class="separator:aadabdee9bddd0b035251a903c8a95b92 inherit pro_attribs_class_lithe_1_1_camera_controller"><td class="memSeparator" colspan="2">&#160;</td></tr>

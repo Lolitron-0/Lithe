@@ -122,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a623a25fe5ebf3c983fbfc00695584dba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_vertex_array.html#a623a25fe5ebf3c983fbfc00695584dba">SetIndexBuffer</a> (const Ref&lt; <a class="el" href="class_ra_1_1_index_buffer.html">IndexBuffer</a> &gt; &amp;buffer) override</td></tr>
 <tr class="memdesc:a623a25fe5ebf3c983fbfc00695584dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns an <a class="el" href="class_ra_1_1_index_buffer.html" title="Interface for index buffer object.">IndexBuffer</a> to this <a class="el" href="class_ra_1_1_vertex_buffer.html" title="Interface for vertex buffer object.">VertexBuffer</a>.  <br /></td></tr>
 <tr class="separator:a623a25fe5ebf3c983fbfc00695584dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a744d0fcd304006020e40d07da53fa85b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_vertex_array.html#a744d0fcd304006020e40d07da53fa85b">SetDefaultIndexBuffer</a> (std::size_t vertexCount) override</td></tr>
+<tr class="memdesc:a744d0fcd304006020e40d07da53fa85b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets index buffer, containing numbers from 0 to vertexCount Used when vertex order is defined in <a class="el" href="class_ra_1_1_vertex_buffer.html" title="Interface for vertex buffer object.">VertexBuffer</a> manually.  <br /></td></tr>
+<tr class="separator:a744d0fcd304006020e40d07da53fa85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbe3642918f99de6f246b7882acd4ca1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; Ref&lt; <a class="el" href="class_ra_1_1_vertex_buffer.html">VertexBuffer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_vertex_array.html#adbe3642918f99de6f246b7882acd4ca1">GetVertexBuffers</a> () const override</td></tr>
 <tr class="separator:adbe3642918f99de6f246b7882acd4ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8ea02c4ad34b517fa297aa645b6799a"><td class="memItemLeft" align="right" valign="top">Ref&lt; <a class="el" href="class_ra_1_1_index_buffer.html">IndexBuffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_vertex_array.html#ac8ea02c4ad34b517fa297aa645b6799a">GetIndexBufer</a> () const override</td></tr>
@@ -138,6 +141,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()
 <tr class="memitem:a738947ba87d1aaf13381594ca7810ce9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_vertex_array.html#a738947ba87d1aaf13381594ca7810ce9">SetIndexBuffer</a> (const Ref&lt; <a class="el" href="class_ra_1_1_index_buffer.html">IndexBuffer</a> &gt; &amp;buffer)=0</td></tr>
 <tr class="memdesc:a738947ba87d1aaf13381594ca7810ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns an <a class="el" href="class_ra_1_1_index_buffer.html" title="Interface for index buffer object.">IndexBuffer</a> to this <a class="el" href="class_ra_1_1_vertex_buffer.html" title="Interface for vertex buffer object.">VertexBuffer</a>.  <br /></td></tr>
 <tr class="separator:a738947ba87d1aaf13381594ca7810ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad21c3820a3c051d7bcf56bd04c66c600"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_vertex_array.html#ad21c3820a3c051d7bcf56bd04c66c600">SetDefaultIndexBuffer</a> (std::size_t vertexCount)=0</td></tr>
+<tr class="memdesc:ad21c3820a3c051d7bcf56bd04c66c600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets index buffer, containing numbers from 0 to vertexCount Used when vertex order is defined in <a class="el" href="class_ra_1_1_vertex_buffer.html" title="Interface for vertex buffer object.">VertexBuffer</a> manually.  <br /></td></tr>
+<tr class="separator:ad21c3820a3c051d7bcf56bd04c66c600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e644e67280187ab0fe9d0e217b869f1"><td class="memItemLeft" align="right" valign="top"><a id="a1e644e67280187ab0fe9d0e217b869f1" name="a1e644e67280187ab0fe9d0e217b869f1"></a>
 virtual std::vector&lt; Ref&lt; <a class="el" href="class_ra_1_1_vertex_buffer.html">VertexBuffer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetVertexBuffers</b> () const =0</td></tr>
 <tr class="separator:a1e644e67280187ab0fe9d0e217b869f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,6 +275,42 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_ra_1_1_vertex_array.html">Ra::VertexArray</a>.</p>
+
+</div>
+</div>
+<a id="a744d0fcd304006020e40d07da53fa85b" name="a744d0fcd304006020e40d07da53fa85b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a744d0fcd304006020e40d07da53fa85b">&#9670;&#160;</a></span>SetDefaultIndexBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ra::OpenGLVertexArray::SetDefaultIndexBuffer </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>vertexCount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets index buffer, containing numbers from 0 to vertexCount Used when vertex order is defined in <a class="el" href="class_ra_1_1_vertex_buffer.html" title="Interface for vertex buffer object.">VertexBuffer</a> manually. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vertexCount</td><td>Number of vertices </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_ra_1_1_vertex_array.html#ad21c3820a3c051d7bcf56bd04c66c600">Ra::VertexArray</a>.</p>
 
 </div>
 </div>

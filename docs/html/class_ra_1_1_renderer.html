@@ -103,6 +103,11 @@ $(document).ready(function(){initNavTree('class_ra_1_1_renderer.html',''); initR
 
 <p><code>#include &lt;<a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ra_1_1_renderer_1_1_transform.html">Transform</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a183f12ea6bd4b9b60adb35c0f56eab3c"><td class="memItemLeft" align="right" valign="top"><a id="a183f12ea6bd4b9b60adb35c0f56eab3c" name="a183f12ea6bd4b9b60adb35c0f56eab3c"></a>
@@ -118,27 +123,36 @@ static RendererAPI::API&#160;</td><td class="memItemRight" valign="bottom"><b>Ge
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetAPI</b> (RendererAPI::API api)</td></tr>
 <tr class="memdesc:a38fb6a8507d4ad750b1d117ec5574df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets current rendering API. Can only be set once. <br /></td></tr>
 <tr class="separator:a38fb6a8507d4ad750b1d117ec5574df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="memItemLeft" align="right" valign="top"><a id="ad94d79e2ce7a4b0b00fe3320cdad8083" name="ad94d79e2ce7a4b0b00fe3320cdad8083"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const <a class="el" href="class_ra_1_1_camera.html">Camera</a> &amp;camera)</td></tr>
-<tr class="memdesc:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given camera. <br /></td></tr>
-<tr class="separator:ad94d79e2ce7a4b0b00fe3320cdad8083"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae08c0bf5243d2f5138ab6f255c7da223"><td class="memItemLeft" align="right" valign="top"><a id="ae08c0bf5243d2f5138ab6f255c7da223" name="ae08c0bf5243d2f5138ab6f255c7da223"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const glm::mat4 &amp;viewProjection, const glm::vec3 &amp;cameraPosition)</td></tr>
-<tr class="memdesc:ae08c0bf5243d2f5138ab6f255c7da223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given view-projection matrix (for custom camera systems) <br /></td></tr>
-<tr class="separator:ae08c0bf5243d2f5138ab6f255c7da223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0a69d8e4e880ce719400043e8ebb5cd"><td class="memItemLeft" align="right" valign="top"><a id="ae0a69d8e4e880ce719400043e8ebb5cd" name="ae0a69d8e4e880ce719400043e8ebb5cd"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> (const glm::mat4 &amp;viewMatrix, const glm::mat4 &amp;projMatrix, const glm::vec3 &amp;cameraPosition, const <a class="el" href="class_ra_1_1_skybox.html">Skybox</a> &amp;skybox)</td></tr>
+<tr class="memdesc:ae0a69d8e4e880ce719400043e8ebb5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes scene with given view-projection matrix (for custom camera systems) <br /></td></tr>
+<tr class="separator:ae0a69d8e4e880ce719400043e8ebb5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="memItemLeft" align="right" valign="top"><a id="ac8f7a324e434a0cc5e6ae9d1987bb534" name="ac8f7a324e434a0cc5e6ae9d1987bb534"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> ()</td></tr>
 <tr class="memdesc:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks scene as finished. <br /></td></tr>
 <tr class="separator:ac8f7a324e434a0cc5e6ae9d1987bb534"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab486e4c3ef71ab06645a7ad23abc039"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_renderer.html#aab486e4c3ef71ab06645a7ad23abc039">Submit</a> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;vertexArray, const glm::mat4 &amp;transform, const <a class="el" href="class_ra_1_1_material.html">Material</a> &amp;material, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
-<tr class="memdesc:aab486e4c3ef71ab06645a7ad23abc039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits draw command to a renderer.  <br /></td></tr>
-<tr class="separator:aab486e4c3ef71ab06645a7ad23abc039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26c1466a64746413db63f76c6382a646"><td class="memItemLeft" align="right" valign="top"><a id="a26c1466a64746413db63f76c6382a646" name="a26c1466a64746413db63f76c6382a646"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawCube</b> (const glm::mat4 &amp;transform, const <a class="el" href="class_ra_1_1_material.html">Material</a> &amp;material, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
-<tr class="separator:a26c1466a64746413db63f76c6382a646"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefeabd162671598090e902a4d73b44ba"><td class="memItemLeft" align="right" valign="top"><a id="aefeabd162671598090e902a4d73b44ba" name="aefeabd162671598090e902a4d73b44ba"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>SubmitPointLight</b> (const <a class="el" href="struct_ra_1_1_point_light.html">PointLight</a> &amp;light, const glm::vec3 &amp;position)</td></tr>
-<tr class="separator:aefeabd162671598090e902a4d73b44ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff66e791b55e7f2540ec8ed7ba975bb9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_renderer.html#aff66e791b55e7f2540ec8ed7ba975bb9">Submit</a> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;vertexArray, const <a class="el" href="struct_ra_1_1_renderer_1_1_transform.html">Transform</a> &amp;transform, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
+<tr class="memdesc:aff66e791b55e7f2540ec8ed7ba975bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits draw command to a renderer.  <br /></td></tr>
+<tr class="separator:aff66e791b55e7f2540ec8ed7ba975bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbc89137f78001993681c0c64433104"><td class="memItemLeft" align="right" valign="top"><a id="a6dbc89137f78001993681c0c64433104" name="a6dbc89137f78001993681c0c64433104"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>Submit</b> (const Ref&lt; <a class="el" href="class_ra_1_1_mesh.html">Mesh</a> &gt; &amp;mesh, const <a class="el" href="struct_ra_1_1_renderer_1_1_transform.html">Transform</a> &amp;transform, RendererAPI::DrawMode mode=RendererAPI::DrawMode::Triangles)</td></tr>
+<tr class="separator:a6dbc89137f78001993681c0c64433104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a549a21c79ff41ace5e58c172b642de2e"><td class="memItemLeft" align="right" valign="top"><a id="a549a21c79ff41ace5e58c172b642de2e" name="a549a21c79ff41ace5e58c172b642de2e"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawVector</b> (const glm::vec3 &amp;position, const glm::vec3 &amp;direction)</td></tr>
+<tr class="separator:a549a21c79ff41ace5e58c172b642de2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4316a6d434dbba0d6672803bf6b9c4f"><td class="memItemLeft" align="right" valign="top"><a id="ae4316a6d434dbba0d6672803bf6b9c4f" name="ae4316a6d434dbba0d6672803bf6b9c4f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SubmitLight</b> (const <a class="el" href="struct_ra_1_1_point_light.html">PointLight</a> &amp;light, const glm::vec3 &amp;position)</td></tr>
+<tr class="separator:ae4316a6d434dbba0d6672803bf6b9c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7de554c4398d2c2ff47047d60d39b5"><td class="memItemLeft" align="right" valign="top"><a id="aba7de554c4398d2c2ff47047d60d39b5" name="aba7de554c4398d2c2ff47047d60d39b5"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SubmitLight</b> (const <a class="el" href="struct_ra_1_1_dir_light.html">DirLight</a> &amp;light)</td></tr>
+<tr class="separator:aba7de554c4398d2c2ff47047d60d39b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b79b852834d0be38e82a71f44ce4fbc"><td class="memItemLeft" align="right" valign="top"><a id="a6b79b852834d0be38e82a71f44ce4fbc" name="a6b79b852834d0be38e82a71f44ce4fbc"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetLastTextureUnit</b> (std::uint32_t unit)</td></tr>
+<tr class="memdesc:a6b79b852834d0be38e82a71f44ce4fbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets last used texture unit. <br /></td></tr>
+<tr class="separator:a6b79b852834d0be38e82a71f44ce4fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab29cb59fe59221effad5adb86137e809"><td class="memItemLeft" align="right" valign="top"><a id="ab29cb59fe59221effad5adb86137e809" name="ab29cb59fe59221effad5adb86137e809"></a>
+static <a class="el" href="struct_ra_1_1_renderer_stats.html">RendererStats</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetStats</b> ()</td></tr>
+<tr class="separator:ab29cb59fe59221effad5adb86137e809"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -149,8 +163,8 @@ static <a class="el" href="struct_ra_1_1_renderer3_d_data.html">Renderer3DData</
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>High level rendering commands (Scene level) </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aab486e4c3ef71ab06645a7ad23abc039" name="aab486e4c3ef71ab06645a7ad23abc039"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab486e4c3ef71ab06645a7ad23abc039">&#9670;&#160;</a></span>Submit()</h2>
+<a id="aff66e791b55e7f2540ec8ed7ba975bb9" name="aff66e791b55e7f2540ec8ed7ba975bb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff66e791b55e7f2540ec8ed7ba975bb9">&#9670;&#160;</a></span>Submit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,14 +181,8 @@ static <a class="el" href="struct_ra_1_1_renderer3_d_data.html">Renderer3DData</
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const glm::mat4 &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="struct_ra_1_1_renderer_1_1_transform.html">Transform</a> &amp;&#160;</td>
           <td class="paramname"><em>transform</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_ra_1_1_material.html">Material</a> &amp;&#160;</td>
-          <td class="paramname"><em>material</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

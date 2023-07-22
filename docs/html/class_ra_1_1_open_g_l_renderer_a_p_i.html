@@ -107,22 +107,27 @@ Inheritance diagram for Ra::OpenGLRendererAPI:</div>
  <div class="center">
   <img src="class_ra_1_1_open_g_l_renderer_a_p_i.png" usemap="#Ra::OpenGLRendererAPI_map" alt=""/>
   <map id="Ra::OpenGLRendererAPI_map" name="Ra::OpenGLRendererAPI_map">
-<area href="class_ra_1_1_renderer_a_p_i.html" title="Non-static interface for API-level rendering commands." alt="Ra::RendererAPI" shape="rect" coords="0,0,153,24"/>
+<area href="class_ra_1_1_renderer_a_p_i.html" title="Non-static interface for API-level rendering commands." alt="Ra::RendererAPI" shape="rect" coords="0,56,182,80"/>
+<area href="class_ra_1_1_singleton.html" alt="Ra::Singleton&lt; RendererAPI &gt;" shape="rect" coords="0,0,182,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abcb55c72eecb1b0d6f001cdfc3933bb6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#abcb55c72eecb1b0d6f001cdfc3933bb6">Init</a> () override</td></tr>
-<tr class="separator:abcb55c72eecb1b0d6f001cdfc3933bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aabc8256a1b851416fdfb98edbc3cc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a0aabc8256a1b851416fdfb98edbc3cc8">Init</a> () override</td></tr>
+<tr class="separator:a0aabc8256a1b851416fdfb98edbc3cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ee5c86097aff5e88f27737cdee2fef5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a8ee5c86097aff5e88f27737cdee2fef5">SetClearColor</a> (const glm::vec4 &amp;color) override</td></tr>
 <tr class="separator:a8ee5c86097aff5e88f27737cdee2fef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9560d35cf0ed9ec23dc3e6139a796af8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a9560d35cf0ed9ec23dc3e6139a796af8">Clear</a> () override</td></tr>
 <tr class="separator:a9560d35cf0ed9ec23dc3e6139a796af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77ae6c8a73f8c1485c7f702643c2dc1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a77ae6c8a73f8c1485c7f702643c2dc1f">SetViewport</a> (std::uint32_t x, std::uint32_t y, std::uint32_t width, std::uint32_t height) override</td></tr>
 <tr class="separator:a77ae6c8a73f8c1485c7f702643c2dc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cd3315c9a0c31c66ae1946697b4b955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a4cd3315c9a0c31c66ae1946697b4b955">DrawIndexed</a> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;array, DrawMode mode, std::uint32_t indexCount) override</td></tr>
-<tr class="separator:a4cd3315c9a0c31c66ae1946697b4b955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbaaac6098be3659a1fc02a57ea4a564"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#afbaaac6098be3659a1fc02a57ea4a564">DrawIndexed</a> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;array, DrawMode mode, std::size_t indexCount=0) override</td></tr>
+<tr class="separator:afbaaac6098be3659a1fc02a57ea4a564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e6dc7c59e36db6a72f08f26ec08f8f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a8e6dc7c59e36db6a72f08f26ec08f8f6">SetDepthBufferReadOnly</a> (bool readOnly) override</td></tr>
+<tr class="separator:a8e6dc7c59e36db6a72f08f26ec08f8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e512d0ff85bf4f9ef7f1e08c8648ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a3e512d0ff85bf4f9ef7f1e08c8648ba9">SetDepthFunc</a> (DepthFunc func) override</td></tr>
+<tr class="separator:a3e512d0ff85bf4f9ef7f1e08c8648ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad297931a82291428d4eaf0cf66b88ba6"><td class="memItemLeft" align="right" valign="top"><a id="ad297931a82291428d4eaf0cf66b88ba6" name="ad297931a82291428d4eaf0cf66b88ba6"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()=0</td></tr>
 <tr class="separator:ad297931a82291428d4eaf0cf66b88ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,17 +140,28 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetClearColor
 <tr class="memitem:a05b06f20c71b13fc0df3b3ff2da1a3f8"><td class="memItemLeft" align="right" valign="top"><a id="a05b06f20c71b13fc0df3b3ff2da1a3f8" name="a05b06f20c71b13fc0df3b3ff2da1a3f8"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()=0</td></tr>
 <tr class="separator:a05b06f20c71b13fc0df3b3ff2da1a3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64dd3bbd673fe290e5d86904f62a1186"><td class="memItemLeft" align="right" valign="top"><a id="a64dd3bbd673fe290e5d86904f62a1186" name="a64dd3bbd673fe290e5d86904f62a1186"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawIndexed</b> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;array, DrawMode mode, std::uint32_t indexCount)=0</td></tr>
-<tr class="separator:a64dd3bbd673fe290e5d86904f62a1186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d27064776467457ff3679f070e29eb4"><td class="memItemLeft" align="right" valign="top"><a id="a4d27064776467457ff3679f070e29eb4" name="a4d27064776467457ff3679f070e29eb4"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawIndexed</b> (const Ref&lt; <a class="el" href="class_ra_1_1_vertex_array.html">VertexArray</a> &gt; &amp;array, DrawMode mode, std::size_t indexCount=0)=0</td></tr>
+<tr class="separator:a4d27064776467457ff3679f070e29eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d5c1ed53d8dd4a5ea30d035b186338"><td class="memItemLeft" align="right" valign="top"><a id="a16d5c1ed53d8dd4a5ea30d035b186338" name="a16d5c1ed53d8dd4a5ea30d035b186338"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDepthBufferReadOnly</b> (bool readOnly)=0</td></tr>
+<tr class="separator:a16d5c1ed53d8dd4a5ea30d035b186338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa44828c178ad80ba77f1ff88f819b062"><td class="memItemLeft" align="right" valign="top"><a id="aa44828c178ad80ba77f1ff88f819b062" name="aa44828c178ad80ba77f1ff88f819b062"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDepthFunc</b> (DepthFunc func)=0</td></tr>
+<tr class="separator:aa44828c178ad80ba77f1ff88f819b062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ad7c4f87c059d92ea940597fe28beff10"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#ad7c4f87c059d92ea940597fe28beff10">ToAPIDrawMode_</a> (RendererAPI::DrawMode mode) override</td></tr>
 <tr class="separator:ad7c4f87c059d92ea940597fe28beff10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd922f2c94d645e6a71535ca8adea3a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ra_1_1_open_g_l_renderer_a_p_i.html#a3bd922f2c94d645e6a71535ca8adea3a">ToAPIDepthFunc_</a> (RendererAPI::DepthFunc func) override</td></tr>
+<tr class="separator:a3bd922f2c94d645e6a71535ca8adea3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a158d0044947ea6d80be368a7a07d4111"><td class="memItemLeft" align="right" valign="top"><a id="a158d0044947ea6d80be368a7a07d4111" name="a158d0044947ea6d80be368a7a07d4111"></a>
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>ToAPIDrawMode_</b> (RendererAPI::DrawMode mode)=0</td></tr>
 <tr class="separator:a158d0044947ea6d80be368a7a07d4111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b26b2f27c0371ef22bd589a0020b73f"><td class="memItemLeft" align="right" valign="top"><a id="a0b26b2f27c0371ef22bd589a0020b73f" name="a0b26b2f27c0371ef22bd589a0020b73f"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>ToAPIDepthFunc_</b> (RendererAPI::DepthFunc func)=0</td></tr>
+<tr class="separator:a0b26b2f27c0371ef22bd589a0020b73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -155,7 +171,7 @@ Additional Inherited Members</h2></td></tr>
  }</td></tr>
 <tr class="separator:adc87a9edcea17732b9831742e5aabee5 inherit pub_types_class_ra_1_1_renderer_a_p_i"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18352a980b50cf41288d005bf120a32b inherit pub_types_class_ra_1_1_renderer_a_p_i"><td class="memItemLeft" align="right" valign="top"><a id="a18352a980b50cf41288d005bf120a32b" name="a18352a980b50cf41288d005bf120a32b"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>DrawMode</b> { <br />
-&#160;&#160;<b>Points</b> =0
+&#160;&#160;<b>Points</b> = 0
 , <b>Triangles</b>
 , <b>TriangleFan</b>
 , <b>TriangleStrip</b>
@@ -169,10 +185,31 @@ Additional Inherited Members</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a18352a980b50cf41288d005bf120a32b inherit pub_types_class_ra_1_1_renderer_a_p_i"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20e427b33a1c840979e5aa2185eccb58 inherit pub_types_class_ra_1_1_renderer_a_p_i"><td class="memItemLeft" align="right" valign="top"><a id="a20e427b33a1c840979e5aa2185eccb58" name="a20e427b33a1c840979e5aa2185eccb58"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>DepthFunc</b> { <br />
+&#160;&#160;<b>Always</b>
+, <b>Never</b>
+, <b>Less</b>
+, <b>Equal</b>
+, <br />
+&#160;&#160;<b>Lequal</b>
+, <b>Greater</b>
+, <b>Gequal</b>
+, <b>NotEqual</b>
+<br />
+ }</td></tr>
+<tr class="separator:a20e427b33a1c840979e5aa2185eccb58 inherit pub_types_class_ra_1_1_renderer_a_p_i"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_class_ra_1_1_renderer_a_p_i"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_ra_1_1_renderer_a_p_i')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_ra_1_1_renderer_a_p_i.html">Ra::RendererAPI</a></td></tr>
 <tr class="memitem:a62d0a20d9ad1a33fc7334933ac5d8792 inherit pub_static_methods_class_ra_1_1_renderer_a_p_i"><td class="memItemLeft" align="right" valign="top">
 static Scope&lt; <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererAPI</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
 <tr class="separator:a62d0a20d9ad1a33fc7334933ac5d8792 inherit pub_static_methods_class_ra_1_1_renderer_a_p_i"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_methods_class_ra_1_1_singleton"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_ra_1_1_singleton')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_ra_1_1_singleton.html">Ra::Singleton&lt; RendererAPI &gt;</a></td></tr>
+<tr class="memitem:a8e0596239028844f9da2b72a30917e57 inherit pub_static_methods_class_ra_1_1_singleton"><td class="memItemLeft" align="right" valign="top">
+static <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererAPI</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetInstance</b> ()</td></tr>
+<tr class="separator:a8e0596239028844f9da2b72a30917e57 inherit pub_static_methods_class_ra_1_1_singleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_static_methods_class_ra_1_1_renderer_a_p_i"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_class_ra_1_1_renderer_a_p_i')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="class_ra_1_1_renderer_a_p_i.html">Ra::RendererAPI</a></td></tr>
+<tr class="memitem:a294ed0eee98d7b5ee80901bc58837323 inherit pro_static_methods_class_ra_1_1_renderer_a_p_i"><td class="memItemLeft" align="right" valign="top">
+static <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererAPI</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>createInstance</b> ()</td></tr>
+<tr class="separator:a294ed0eee98d7b5ee80901bc58837323 inherit pro_static_methods_class_ra_1_1_renderer_a_p_i"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation for OpenGL rendering API commands. </p>
@@ -204,8 +241,8 @@ static Scope&lt; <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererA
 
 </div>
 </div>
-<a id="a4cd3315c9a0c31c66ae1946697b4b955" name="a4cd3315c9a0c31c66ae1946697b4b955"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cd3315c9a0c31c66ae1946697b4b955">&#9670;&#160;</a></span>DrawIndexed()</h2>
+<a id="afbaaac6098be3659a1fc02a57ea4a564" name="afbaaac6098be3659a1fc02a57ea4a564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbaaac6098be3659a1fc02a57ea4a564">&#9670;&#160;</a></span>DrawIndexed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,8 +265,8 @@ static Scope&lt; <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererA
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::uint32_t&#160;</td>
-          <td class="paramname"><em>indexCount</em>&#160;</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>indexCount</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -248,8 +285,8 @@ static Scope&lt; <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererA
 
 </div>
 </div>
-<a id="abcb55c72eecb1b0d6f001cdfc3933bb6" name="abcb55c72eecb1b0d6f001cdfc3933bb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcb55c72eecb1b0d6f001cdfc3933bb6">&#9670;&#160;</a></span>Init()</h2>
+<a id="a0aabc8256a1b851416fdfb98edbc3cc8" name="a0aabc8256a1b851416fdfb98edbc3cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aabc8256a1b851416fdfb98edbc3cc8">&#9670;&#160;</a></span>Init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,7 +295,7 @@ static Scope&lt; <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererA
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Ra::OpenGLRendererAPI::Init </td>
+          <td class="memname">void Ra::OpenGLRendererAPI::Init </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -289,6 +326,62 @@ static Scope&lt; <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererA
           <td>(</td>
           <td class="paramtype">const glm::vec4 &amp;&#160;</td>
           <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_ra_1_1_renderer_a_p_i.html">Ra::RendererAPI</a>.</p>
+
+</div>
+</div>
+<a id="a8e6dc7c59e36db6a72f08f26ec08f8f6" name="a8e6dc7c59e36db6a72f08f26ec08f8f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e6dc7c59e36db6a72f08f26ec08f8f6">&#9670;&#160;</a></span>SetDepthBufferReadOnly()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ra::OpenGLRendererAPI::SetDepthBufferReadOnly </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>readOnly</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_ra_1_1_renderer_a_p_i.html">Ra::RendererAPI</a>.</p>
+
+</div>
+</div>
+<a id="a3e512d0ff85bf4f9ef7f1e08c8648ba9" name="a3e512d0ff85bf4f9ef7f1e08c8648ba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e512d0ff85bf4f9ef7f1e08c8648ba9">&#9670;&#160;</a></span>SetDepthFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ra::OpenGLRendererAPI::SetDepthFunc </td>
+          <td>(</td>
+          <td class="paramtype">DepthFunc&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -345,6 +438,34 @@ static Scope&lt; <a class="el" href="class_ra_1_1_renderer_a_p_i.html">RendererA
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_ra_1_1_renderer_a_p_i.html">Ra::RendererAPI</a>.</p>
+
+</div>
+</div>
+<a id="a3bd922f2c94d645e6a71535ca8adea3a" name="a3bd922f2c94d645e6a71535ca8adea3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd922f2c94d645e6a71535ca8adea3a">&#9670;&#160;</a></span>ToAPIDepthFunc_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Ra::OpenGLRendererAPI::ToAPIDepthFunc_ </td>
+          <td>(</td>
+          <td class="paramtype">RendererAPI::DepthFunc&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

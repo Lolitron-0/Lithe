@@ -4,7 +4,7 @@ var searchData=
   ['getclientlogger_1',['GetClientLogger',['../class_lithe_1_1_log.html#ad5c56cd758d395da9911ca449d54c0ce',1,'Lithe::Log']]],
   ['getcolorattachmenthandle_2',['GetColorAttachmentHandle',['../class_ra_1_1_framebuffer.html#a4e9cdf64af721be678de25945af0d9a0',1,'Ra::Framebuffer::GetColorAttachmentHandle()'],['../class_ra_1_1_open_g_l_framebuffer.html#a3a48423812319ccb803e4254e989a11a',1,'Ra::OpenGLFramebuffer::GetColorAttachmentHandle()']]],
   ['getcorelogger_3',['GetCoreLogger',['../class_lithe_1_1_log.html#aada4e89151f6c3bd3bb5e370ad4f4628',1,'Lithe::Log']]],
-  ['getcount_4',['GetCount',['../class_ra_1_1_index_buffer.html#aba467f106dd49b53e881f0ed0e99fdac',1,'Ra::IndexBuffer::GetCount()'],['../class_ra_1_1_open_g_l_index_buffer.html#aa09c2ecce0f6d80e055d982e946742f2',1,'Ra::OpenGLIndexBuffer::GetCount()']]],
+  ['getcount_4',['GetCount',['../class_ra_1_1_index_buffer.html#a494a947eb239c1a8f4ef6f437970d253',1,'Ra::IndexBuffer::GetCount()'],['../class_ra_1_1_open_g_l_index_buffer.html#a36d1d6745344a940abbce5f71c613afc',1,'Ra::OpenGLIndexBuffer::GetCount()']]],
   ['getdrawtexturehandle_5',['GetDrawTextureHandle',['../class_ra_1_1_framebuffer.html#a7df2fae0c53089fc3438bbcdb743bf77',1,'Ra::Framebuffer::GetDrawTextureHandle()'],['../class_ra_1_1_open_g_l_framebuffer.html#ab67323deac2bb0efb4bcf8c8450c522c',1,'Ra::OpenGLFramebuffer::GetDrawTextureHandle()']]],
   ['geteventtype_6',['GetEventType',['../class_lithe_1_1_event.html#aa4ce3a75cbd1743bc0491bd368251205',1,'Lithe::Event']]],
   ['getfpsscale_7',['GetFpsScale',['../class_lithe_1_1_timestep.html#a7e4ca903cd81ddc54ee799ef70ff6661',1,'Lithe::Timestep']]],

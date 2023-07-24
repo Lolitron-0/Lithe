@@ -116,14 +116,14 @@ namespace Lithe {
         std::vector<ImGuiToast> activeToasts;
 
         void ShowToast(const std::string message, Log::Severity severity /*= Log::Severity::Trace*/, std::uint32_t lifetimeMs /*= 3000*/)
-        {  
+        {
             activeToasts.emplace_back(message, severity, lifetimeMs);
         }
 
         void Render()
         {
             std::uint32_t i{ 0 };
-            ImVec2 currentPos = { g_ContentAreaBounds[0].x + ImGuiToast::Padding.x, (g_ContentAreaBounds[1].y - g_ContentAreaBounds[0].y) - ImGui::CalcTextSize("A").y - ImGuiToast::Padding.y };
+            ImVec2 startPos = { g_ContentAreaBounds[0].x + ImGuiToast::Padding.x, (g_ContentAreaBounds[1].y - g_ContentAreaBounds[0].y) - ImGui::CalcTextSize("A").y - ImGuiToast::Padding.y };
             for (; i < activeToasts.size(); i++)
             {
                 if (activeToasts[i].Dead())
@@ -132,10 +132,16 @@ namespace Lithe {
                     i--;
                     continue;
                 }
-                if (!activeToasts[i].IsPositioned()) 
-                    activeToasts[i].SetPosition(currentPos);
+                if (!activeToasts[i].IsPositioned())
+                {
+                    ImVec2 pos;
+                    if (i != 0)
+                        pos = activeToasts[i-1].GetPosition();
+                    else
+                        pos = startPos;
+                    activeToasts[i].SetPosition({ pos.x, pos.y - activeToasts[i].GetSize().y});
+                }
                 activeToasts[i].Render();
-                currentPos.y -= activeToasts[i].GetSize().y;
             }
         }
 

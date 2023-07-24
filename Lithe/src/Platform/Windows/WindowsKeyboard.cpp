@@ -25,7 +25,7 @@ namespace Lithe
             {Keyboard::Key::Key8,           GLFW_KEY_8             },
             {Keyboard::Key::Key9,           GLFW_KEY_9             },
             {Keyboard::Key::Semicolon,      GLFW_KEY_SEMICOLON     },
-            {Keyboard::Key::EQUAL,          GLFW_KEY_EQUAL         },
+            {Keyboard::Key::Equal,          GLFW_KEY_EQUAL         },
             {Keyboard::Key::A,              GLFW_KEY_A             },
             {Keyboard::Key::B,              GLFW_KEY_B             },
             {Keyboard::Key::C,              GLFW_KEY_C             },

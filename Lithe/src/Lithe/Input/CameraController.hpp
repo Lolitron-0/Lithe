@@ -87,7 +87,7 @@ namespace Lithe
             :CameraController(camera)
         {}
 
-        virtual void OnUpdate(const Timestep& ts) override
+        void OnUpdate(const Timestep& ts) override
         {
             if (!Application::GetInstance().GetWindow().IsCursorHidden())
                 Application::GetInstance().GetWindow().HideCursor();
@@ -101,7 +101,34 @@ namespace Lithe
                 GetTransform().Translate(GetTransform().GetRight()*m_FlySpeed*(float)ts);
         }
 
-        virtual bool OnMouseMoved(MouseMovedEvent& event) override
+        bool OnKeyPressed(KeyPressedEvent& event) 
+        { 
+            if (event.GetKeyCode() == Keyboard::Key::LeftShift && !event.IsRepeated())
+                m_FlySpeed *= 2;
+
+            if (event.GetKeyCode() == Keyboard::Key::Equal)
+            {
+                m_FlySpeed *= 1.25f;
+                LITHE_CORE_LOG_TRACE("Fly speed: {0}", (int)m_FlySpeed);
+            }
+
+            if (event.GetKeyCode() == Keyboard::Key::Minus)
+            {
+                m_FlySpeed /= 1.25f;
+                LITHE_CORE_LOG_TRACE("Fly speed: {0}", (int)m_FlySpeed);
+            }
+
+            return false; 
+        };
+
+        bool OnKeyReleased(KeyReleasedEvent& event) 
+        {
+            if (event.GetKeyCode() == Keyboard::Key::LeftShift)
+                m_FlySpeed /= 2;
+            return false; 
+        };
+
+        bool OnMouseMoved(MouseMovedEvent& event) override
         {
             auto xOffset = m_LastMousePos.x == -1 ? 0.f : m_LastMousePos.x - event.GetMouseX();
             auto yOffset = m_LastMousePos.y == -1 ? 0.f : m_LastMousePos.y - event.GetMouseY();
@@ -132,7 +159,7 @@ namespace Lithe
         glm::vec2 m_LastMousePos{ -1,-1 };
 
         float m_MouseSensitivity{ .1f };
-        float m_FlySpeed{ 10.f };
+        float m_FlySpeed{ 25.f };
     };
 
     /**

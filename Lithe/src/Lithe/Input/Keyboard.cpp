@@ -23,7 +23,7 @@ namespace Lithe
          {Key::Key8,              "Key8"},
          {Key::Key9,              "Key9"},
          {Key::Semicolon,         "Semicolon"},
-         {Key::EQUAL,             "EQUAL"},
+         {Key::Equal,             "EQUAL"},
          {Key::A,                 "A"},
          {Key::B,                 "B"},
          {Key::C,                 "C"},

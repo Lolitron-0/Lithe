@@ -28,7 +28,7 @@ namespace Lithe
             Key8,
             Key9,
             Semicolon,          /*!< ; */
-            EQUAL,              /*!< = */
+            Equal,              /*!< = */
             A,
             B,
             C,

@@ -18,7 +18,7 @@ namespace Lithe
         Ra::FramebufferProperties props;
         props.Width = Application::GetInstance().GetWindow().GetWidth();
         props.Height = Application::GetInstance().GetWindow().GetHeight();
-        props.Attachments = { Ra::TextureFormat::Color, Ra::TextureFormat::R32, Ra::TextureFormat::Depth };
+        props.Attachments = { Ra::TextureFormat::ColorLinear, Ra::TextureFormat::R32, Ra::TextureFormat::Depth };
         props.Samples = 8;
         m_Framebuffer = Ra::Framebuffer::Create(props);
 

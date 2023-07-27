@@ -37,7 +37,6 @@ namespace Lithe
         bool m_FlyMode{ false };
         Ref<EditorCameraController> m_CameraController;
         Ref<FlyCameraController> m_FlyCameraController;
-        Ref<Ra::Framebuffer> m_Framebuffer;
         bool m_ViewportFocused{ true };
 
         // Panels

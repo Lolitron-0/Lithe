@@ -99,9 +99,11 @@ project "Lithe"
 	filter "configurations:Release"
 		defines "LT_RELEASE"
 		optimize "On"
+		symbols "Off"
 	filter "configurations:Dist"
 		defines "LT_DIST"
 		optimize "On"
+		symbols "Off"
 	
 		
 project "Sandbox"

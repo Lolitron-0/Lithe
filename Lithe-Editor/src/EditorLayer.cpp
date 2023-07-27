@@ -15,21 +15,10 @@ namespace Lithe
                 ImGuiCustom::ShowToast(message, severity, 5000U);
             });
 
-        Ra::FramebufferProperties props;
-        props.Width = Application::GetInstance().GetWindow().GetWidth();
-        props.Height = Application::GetInstance().GetWindow().GetHeight();
-        props.Attachments = { Ra::TextureFormat::ColorLinear, Ra::TextureFormat::R32, Ra::TextureFormat::Depth };
-        props.Samples = 8;
-        m_Framebuffer = Ra::Framebuffer::Create(props);
-
         m_CurrentScene = MakeRef<Scene>();
 
         m_Model = m_CurrentScene->CreateEntity("Model");
         Ref<Ra::Mesh> mesh{ Ra::Mesh::Create("assets/meshes/sponza/sponza.obj") };
-        mesh->ForEashSubmesh([](auto& subMesh)
-            {
-                subMesh.GetMaterial().SkipLight = false;
-            });
         m_Model.AddComponent<MeshRendererComponent>(mesh);
         m_Model.GetComponent<TransformComponent>().SetScale(0.04f);
 
@@ -60,9 +49,6 @@ namespace Lithe
                     "assets/skyboxes/back.jpg"
             }
         };
-        /*Ra::Skybox skybox{
-                "assets/skyboxes/right.jpg"
-        };*/
         skyboxEntity.AddComponent<SkyboxComponent>(std::move(skybox));
     }
 
@@ -216,12 +202,12 @@ namespace Lithe
 
                 if (m_ViewportSize != viewportPanelSize)
                 {
-                    m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
-                    m_CurrentScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
+                    Ra::Renderer::ResizeViewport(viewportPanelSize);
+                    m_CurrentScene->OnViewportResize((std::uint32_t)viewportPanelSize.x, (std::uint32_t)viewportPanelSize.y);
                     m_ViewportSize = viewportPanelSize;
                 }
 
-                auto textureId = m_Framebuffer->GetDrawTextureHandle();
+                auto textureId = Ra::Renderer::GetResultTextureHandle();
                 ImGui::GetCurrentWindow()->DrawList->AddImage((ImTextureID)(std::uintptr_t)textureId,
                     { m_ViewportBounds[0].x, m_ViewportBounds[0].y },
                     { m_ViewportBounds[1].x, m_ViewportBounds[1].y }, { 0,1 }, { 1,0 });
@@ -264,11 +250,6 @@ namespace Lithe
         else
             m_CameraController->OnUpdate(ts);
 
-        m_Framebuffer->StartWriting();
-
-        Ra::RendererAPI::GetInstance().SetClearColor({ 0.1f, 0.1f, 0.1f, 1.f });
-        Ra::RendererAPI::GetInstance().Clear();
-
         if (!m_Loading)
             m_CurrentScene->OnUpdate(ts);
 
@@ -277,8 +258,6 @@ namespace Lithe
         mouseLocX -= m_ViewportBounds[0].x;
         mouseLocY -= m_ViewportBounds[0].y;
         //LITHE_CORE_LOG_DEBUG("{0}", m_Framebuffer->ReadPixel(1, mouseLocX, mouseLocY));
-
-        m_Framebuffer->StopWriting();
     }
 
     void EditorLayer::OnAttach()
